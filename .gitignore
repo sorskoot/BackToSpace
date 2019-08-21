@@ -63,3 +63,5 @@ typings/
 # ssl keys
 *.key
 *.pem
+
+dist

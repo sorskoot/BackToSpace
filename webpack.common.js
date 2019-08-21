@@ -1,4 +1,5 @@
 module.exports = {
+    
     "entry": "./src/index.js",
     "output": {
         "path": __dirname + '/dist',
@@ -15,14 +16,14 @@ module.exports = {
             {
                 "test": /\.js$/,
                 "exclude": /node_modules/,
-                "use": {
-                    "loader": "babel-loader",
-                    "options": {
-                        "presets": [
-                            "env"
-                        ]
-                    }
-                }
+                // "use": {
+                //     "loader": "babel-loader",
+                //     "options": {
+                //         "presets": [
+                //             "env"
+                //         ]
+                //     }
+                // }
             },
             {
                 test: /\.scss$/,
