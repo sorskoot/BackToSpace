@@ -11,23 +11,44 @@
 
 
 overall:
-    - Setup build pipelines
+    ☐ Setup build pipelines
     
 gameplay:
-    - spawn invaders
-        at 90 degrees width in front of the player, far away and up in the sky
-    - shoot invaders
-        bullets should be flying towards the invaders
-        PC => tapping space
-        Mobile => tapping screen (bluetooth gun?)
-        Daydream => remote
-        Rift => controller
-     - look around
-        PC => mouse, if possible without dragging
-        Mobile => Gyro
-        Daydream, Right => native
-    
+    invaders:
+        ✔ spawn invaders @done(19-08-23 00:06)
+            at 90 degrees width in front of the player, far away and up in the sky
+            (0,50,(50 +/-45deg))
+        ☐ move invaders towards player
+        ☐ create waves of invaders
+    Shooting:
+        shoot invaders:
+            ☐ bullets should be flying towards where the player looks
+            controls:
+                ☐ PC => tapping space
+                ☐ Mobile => tapping screen (bluetooth gun?)
+                ☐ Daydream => remote
+                ☐ Rift => controller
+    controls:
+        look around:
+            ☐ PC => mouse, if possible without dragging
+            ☐ Mobile => Gyro
+            ☐ Daydream, Rift => native
+        duck:
+            ☐ PC => pressing A or D to duck left or right
+            ☐ Mobile => touching left or right on the screen
+            ☐ Daydream => controller
+            ☐ Rift => just stand behind it
+
+
 design:
-    - generate synthwave environment with 3d mountains, typical setting sun and grid on the ground. 
+    ☐ generate synthwave environment with 3d mountains, typical setting sun and grid on the ground. 
+    ☐ Create design for aliens
+    ☐ animate explosions
+    ☐ design and animate rockets with fire and smoke
     
-    
+# ideas and random stuff
+- there are some WebVR examples of three.js
+- add spacial sound and invaders all around
+- add a bounding box for the player that could get hit
+- might need to add component to hide/show stuff depending on device/headset
+

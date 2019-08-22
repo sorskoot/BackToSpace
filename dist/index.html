@@ -1,15 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <script src="https://js13kgames.com/webxr-src/aframe.js"></script>
-    
+
     <title>Back2Space</title>
     <script src="main.js"></script>
 </head>
+
 <body>
     <a-scene>
-        <a-box testcomponent color="blue" position="-5 0 2"></a-box>
+        <a-entity game>
 
+            <a-entity id="invaders">
+                <!-- <a-box invader color="green" position="2 0 -5"></a-box> -->
+            </a-entity>
+            
+            <a-entity id="bullets">
+            </a-entity>
+            
+            <a-entity id="bunkers">
+                <a-box color="grey" position="-3 0 -2"></a-box>
+                <a-box color="grey" position="3 0 -2"></a-box>
+            </a-entity>
+        </a-entity>
+
+        <a-sky color="black">
+        </a-sky>
+
+        <a-entity camera position="0 1.6 0" rotation="0 0 0" look-controls>
+        </a-entity>
     </a-scene>
 </body>
+
 </html>
