@@ -1,4 +1,33 @@
-basic todo
+# Idea - Back To Space 
+# Space invaders in VR (Maybe AR)
+
+# Scene - Synthwave 80s look
+
+# First focus on gameplay on Desktop, Phone, Daydream and Rift
+# Second make it look gorgeous
+
+# the game should slowly become faster and invaders should start shooting back. 
+# avoiding being shot will be hard on everywhere else then Rift. come up with a way to fix this
+
 
 overall:
-    - todo
+    - Setup build pipelines
+    
+gameplay:
+    - spawn invaders
+        at 90 degrees width in front of the player, far away and up in the sky
+    - shoot invaders
+        bullets should be flying towards the invaders
+        PC => tapping space
+        Mobile => tapping screen (bluetooth gun?)
+        Daydream => remote
+        Rift => controller
+     - look around
+        PC => mouse, if possible without dragging
+        Mobile => Gyro
+        Daydream, Right => native
+    
+design:
+    - generate synthwave environment with 3d mountains, typical setting sun and grid on the ground. 
+    
+    
