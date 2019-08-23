@@ -11,14 +11,16 @@
 
 
 overall:
-    ☐ Setup build pipelines
+    ✔ Setup build pipelines @done(19-08-23 17:20)
+    
     
 gameplay:
+    
     invaders:
         ✔ spawn invaders @done(19-08-23 00:06)
             at 90 degrees width in front of the player, far away and up in the sky
             (0,50,(50 +/-45deg))
-        ☐ move invaders towards player
+        ✔ move invaders towards player @done(19-08-23 00:16)
         ☐ create waves of invaders
     Shooting:
         shoot invaders:
@@ -30,7 +32,7 @@ gameplay:
                 ☐ Rift => controller
     controls:
         look around:
-            ☐ PC => mouse, if possible without dragging
+            ☐ PC => mouse, if possible without dragging (look-controls="pointerLockEnabled:true")
             ☐ Mobile => Gyro
             ☐ Daydream, Rift => native
         duck:
@@ -38,7 +40,8 @@ gameplay:
             ☐ Mobile => touching left or right on the screen
             ☐ Daydream => controller
             ☐ Rift => just stand behind it
-
+    mobile:
+        ☐ full screen goes into splitscreen, is this preventable?
 
 design:
     ☐ generate synthwave environment with 3d mountains, typical setting sun and grid on the ground. 
@@ -51,4 +54,4 @@ design:
 - add spacial sound and invaders all around
 - add a bounding box for the player that could get hit
 - might need to add component to hide/show stuff depending on device/headset
-
+- Figure out a way to detect the device. ==> AFRAME.utils.device

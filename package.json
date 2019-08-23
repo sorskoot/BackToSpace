@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "http-server ./dist -p 443 -c-1 -S -C ./c0dr_nl.pem -K ./c0dr_nl.key",
+    "start":"webpack-serve --config webpack.dev --static dist/ --client.retry",
+    "start-old": "http-server ./dist -p 443 -c-1 -S -C ./c0dr_nl.pem -K ./c0dr_nl.key",
     "clean": "rm -rf dist/; mkdir -p dist",
     "buildProd": "webpack --config webpack.prod --progress --colors",
     "build": "webpack --config webpack.dev --progress --colors",
