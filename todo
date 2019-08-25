@@ -13,7 +13,6 @@
 overall:
     ✔ Setup build pipelines @done(19-08-23 17:20)
     
-    
 gameplay:
     
     invaders:
@@ -24,17 +23,22 @@ gameplay:
         ☐ create waves of invaders
     Shooting:
         shoot invaders:
-            ☐ bullets should be flying towards where the player looks
+            ✔ bullets should be flying towards where the player looks @done(19-08-26 00:33)
+            ☐ Actually hit invaders
             controls:
-                ☐ PC => tapping space
+                ✔ PC => tapping space @done(19-08-26 00:33)
                 ☐ Mobile => tapping screen (bluetooth gun?)
                 ☐ Daydream => remote
                 ☐ Rift => controller
     controls:
         look around:
-            ☐ PC => mouse, if possible without dragging (look-controls="pointerLockEnabled:true")
+            ✔ PC => mouse, if possible without dragging (look-controls="pointerLockEnabled:true") @done(19-08-24 22:56)
             ☐ Mobile => Gyro
             ☐ Daydream, Rift => native
+        Fire:
+            ✔ @today PC => hit space @done(19-08-26 00:33)
+            ☐ Mobile => tap center @
+            ☐ others => controller
         duck:
             ☐ PC => pressing A or D to duck left or right
             ☐ Mobile => touching left or right on the screen
@@ -54,4 +58,11 @@ design:
 - add spacial sound and invaders all around
 - add a bounding box for the player that could get hit
 - might need to add component to hide/show stuff depending on device/headset
+    - additional to this, we need to apply different components and setting based on formfactor
 - Figure out a way to detect the device. ==> AFRAME.utils.device
+- keep track of score, how many invaders did you shoot.
+- Title screen
+- Gameover screen
+- Easter eggs? by adding certain text url
+- Cheats => by adding certain text url
+
