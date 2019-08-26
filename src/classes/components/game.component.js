@@ -4,28 +4,42 @@ export default AFRAME.registerComponent('game', {
     },
 
     init: function () {
+        this.gameover = false;
         this.spawntimer = this.data.spawninterval;
         this.invadergroup = document.getElementById("invaders");
         this.missilegroup = document.getElementById("missiles");
         this.spawnInvader();
         
         this.el.addEventListener('fire',() => {
+            if(this.gameover) return;
+
             this.spawnMissile();
+
         });
 
         this.el.addEventListener('collision', e => {
+
             let invpos = e.detail.invader.getAttribute('position');
             let explosion = document.createElement('a-entity');
             explosion.setAttribute('position',invpos);
             explosion.setAttribute('explosion','');
             this.missilegroup.appendChild(explosion);
 
-            e.detail.missile.parentEl.removeChild(e.detail.missile);
-            e.detail.invader.parentEl.removeChild(e.detail.invader);
+            e.detail.missile.remove();
+            e.detail.invader.remove();
         })
+
+        this.el.addEventListener('game-over',()=>{
+
+            this.gameover = true;
+            alert('Game Over');
+            document.querySelectorAll('[invader], [missile]').forEach(x=>x.remove());
+
+        });
     },
 
     tick: function (time, timeDelta) {
+        if(this.gameover) return;
         this.spawntimer -= timeDelta;
         if (this.spawntimer < 0) {
             this.spawntimer = this.data.spawninterval;
@@ -34,6 +48,7 @@ export default AFRAME.registerComponent('game', {
     },
 
     spawnInvader: function () {
+        
         let box = document.createElement("a-box");
         let rndY = Math.random() * 150 + 50;
         let rad = (Math.random() - .5) * (Math.PI/1.5);
@@ -44,6 +59,7 @@ export default AFRAME.registerComponent('game', {
     },
 
     spawnMissile:function(){
+        
         let box = document.createElement("a-box");
         box.setAttribute("color","red");
         box.setAttribute("missile","");

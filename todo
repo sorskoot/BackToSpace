@@ -14,7 +14,7 @@ overall:
     ✔ Setup build pipelines @done(19-08-23 17:20)
     
 gameplay:
-    
+    ☐ loose the game
     invaders:
         ✔ spawn invaders @done(19-08-23 00:06)
             at 90 degrees width in front of the player, far away and up in the sky
@@ -24,7 +24,7 @@ gameplay:
     Shooting:
         shoot invaders:
             ✔ bullets should be flying towards where the player looks @done(19-08-26 00:33)
-            ☐ @today Actually hit invaders
+            ✔ Actually hit invaders @done(19-08-26 23:15)
             controls:
                 ✔ PC => tapping space @done(19-08-26 00:33)
                 ☐ Mobile => tapping screen (bluetooth gun?)

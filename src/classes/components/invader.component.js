@@ -20,6 +20,7 @@ export default AFRAME.registerComponent('invader', {
             pos.z -= this.dir.z;
         }else{
             this.el.parentEl.removeChild(this.el);
+            document.querySelector('[game]').emit('game-over');
         }
     },
     tock: function (time, timeDelta, camera) { },

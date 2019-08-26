@@ -5,8 +5,7 @@ export default AFRAME.registerComponent('selfdestruct', {
     tick: function (time, timeDelta) { 
         this.data.timer -= timeDelta;
         if(this.data.timer < 0){
-            this.el.parentEl.removeChild(this.el);
+            this.el.remove();
         }
-
     }
 });
