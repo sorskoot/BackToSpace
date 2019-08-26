@@ -24,7 +24,7 @@ gameplay:
     Shooting:
         shoot invaders:
             ✔ bullets should be flying towards where the player looks @done(19-08-26 00:33)
-            ☐ Actually hit invaders
+            ☐ @today Actually hit invaders
             controls:
                 ✔ PC => tapping space @done(19-08-26 00:33)
                 ☐ Mobile => tapping screen (bluetooth gun?)
@@ -36,7 +36,7 @@ gameplay:
             ☐ Mobile => Gyro
             ☐ Daydream, Rift => native
         Fire:
-            ✔ @today PC => hit space @done(19-08-26 00:33)
+            ✔ PC => hit space @done(19-08-26 00:33)
             ☐ Mobile => tap center @
             ☐ others => controller
         duck:

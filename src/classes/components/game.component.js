@@ -1,6 +1,6 @@
 export default AFRAME.registerComponent('game', {
     schema: {
-        spawninterval: { default: 3000 }
+        spawninterval: { default: 1000 }
     },
 
     init: function () {
@@ -12,6 +12,17 @@ export default AFRAME.registerComponent('game', {
         this.el.addEventListener('fire',() => {
             this.spawnMissile();
         });
+
+        this.el.addEventListener('collision', e => {
+            let invpos = e.detail.invader.getAttribute('position');
+            let explosion = document.createElement('a-entity');
+            explosion.setAttribute('position',invpos);
+            explosion.setAttribute('explosion','');
+            this.missilegroup.appendChild(explosion);
+
+            e.detail.missile.parentEl.removeChild(e.detail.missile);
+            e.detail.invader.parentEl.removeChild(e.detail.invader);
+        })
     },
 
     tick: function (time, timeDelta) {
