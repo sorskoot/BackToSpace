@@ -14,7 +14,7 @@ overall:
     ✔ Setup build pipelines @done(19-08-23 17:20)
     
 gameplay:
-    ☐ loose the game
+    ✔ loose the game @done(19-08-26 23:52)
     invaders:
         ✔ spawn invaders @done(19-08-23 00:06)
             at 90 degrees width in front of the player, far away and up in the sky

@@ -1,3 +1,4 @@
+
 export default AFRAME.registerComponent('missile', {
     schema: {
         speed: {
@@ -5,6 +6,9 @@ export default AFRAME.registerComponent('missile', {
         },
         lifetime: {
             default: 1000
+        },
+        collisionDistance:{
+            default: 3
         }
     },
     init: function () {
@@ -34,7 +38,7 @@ export default AFRAME.registerComponent('missile', {
             distVector.subVectors(missilePos, invaderPos);
             let dist = Math.sqrt(distVector.x * distVector.x + distVector.y * distVector.y + distVector.z * distVector.z);
 
-            if (dist < 2 && !this.collision) {
+            if (dist < this.data.collisionDistance && !this.collision) {
                 this.collision = true;
                 document.querySelector('[game]').emit('collision', { missile: this.el, invader: invaders[i] });
             }
