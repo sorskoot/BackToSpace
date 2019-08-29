@@ -5,6 +5,29 @@
     <script src="https://js13kgames.com/webxr-src/aframe.js"></script>
 
     <title>Back2Space</title>
+
+    <script type="x-shader/x-vertex" id="vertexShader">
+			attribute vec3 center;
+			varying vec3 vCenter;
+			void main() {
+				vCenter = center;
+				gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+			}
+		</script>
+
+    <script type="x-shader/x-fragment" id="fragmentShader">
+			uniform float widthFactor;
+			varying vec3 vCenter;
+			float edgeFactorTri() {
+				vec3 d = fwidth( vCenter.xyz );
+				vec3 a3 = smoothstep( vec3( 0.0 ), d * widthFactor, vCenter.xyz );
+				return min( min( a3.x, a3.y ), a3.z );
+			}
+			void main() {
+				if ( edgeFactorTri() > 0.99 ) discard;
+				gl_FragColor = gl_FrontFacing ? vec4( 0.9, 0.9, 1.0, 1.0 ) : vec4( 0.4, 0.4, 0.5, 1.0 );
+			}
+		</script>
     <script src="main.js"></script>
 </head>
 
@@ -15,10 +38,10 @@
             <a-entity id="invaders">
                 <!-- <a-box invader color="green" position="2 0 -5"></a-box> -->
             </a-entity>
-            
+
             <a-entity id="missiles">
             </a-entity>
-            
+
             <a-entity id="bunkers">
                 <a-box color="grey" position="-3 1.5 -2" scale="1 3 1"></a-box>
                 <a-box color="grey" position="3 1.5 -2" scale="1 3 1"></a-box>
@@ -28,8 +51,7 @@
         <a-sky color="black">
         </a-sky>
 
-        <a-entity camera position="0 1.6 0" rotation="0 0 0" 
-            look-controls="pointerLockEnabled:true" >
+        <a-entity camera position="0 1.6 0" rotation="0 0 0" look-controls="pointerLockEnabled:true">
         </a-entity>
     </a-scene>
 </body>

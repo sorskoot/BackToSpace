@@ -4,3 +4,6 @@ import './classes/components/keyboardcontrols.component';
 import './classes/components/missile.component';
 import './classes/components/explosion.component';
 import './classes/components/selfdestruct.component';
+//import {GreedyMesh} from './utils/greedy';
+
+//console.log(GreedyMesh);
