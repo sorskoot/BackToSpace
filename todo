@@ -12,7 +12,6 @@
 
 overall:
     ✔ Setup build pipelines @done(19-08-23 17:20)
-    
 gameplay:
     ✔ loose the game @done(19-08-26 23:52)
     invaders:
@@ -22,6 +21,8 @@ gameplay:
         ✔ move invaders towards player @done(19-08-23 00:16)
         ☐ create waves of invaders
     Shooting:
+        ☐ keep track of score, how many invaders did you shoot.
+        ☐ add a bounding box for the player that could get hit
         shoot invaders:
             ✔ bullets should be flying towards where the player looks @done(19-08-26 00:33)
             ✔ Actually hit invaders @done(19-08-26 23:15)
@@ -31,6 +32,9 @@ gameplay:
                 ☐ Daydream => remote
                 ☐ Rift => controller
     controls:
+        ☐ might need to add component to hide/show stuff depending on device/headset
+        ☐ additional to this, we need to apply different components and setting based on formfactor
+            - Figure out a way to detect the device. ==> AFRAME.utils.device
         look around:
             ✔ PC => mouse, if possible without dragging (look-controls="pointerLockEnabled:true") @done(19-08-24 22:56)
             ☐ Mobile => Gyro
@@ -49,20 +53,28 @@ gameplay:
 
 design:
     ☐ generate synthwave environment with 3d mountains, typical setting sun and grid on the ground. 
-    ☐ Create design for aliens
+    ✔ Create design for aliens @done(19-09-01 21:07)
+    ☐ Add more different invaders
     ☐ animate explosions
     ☐ design and animate rockets with fire and smoke
-    
+    ☐ Title screen
+    ☐ Gameover screen
+
+Optimizations:
+    ☐ @low Optimize shaders
+    ☐ @high use instancing for models
+    ☐ @high restructure duplicate code with shaders and materials over components
+
+Could haves / Would likes /:
+    ☐ add spacial sound and invaders all around
+    ☐ Easter eggs? by adding certain text url
+    ☐ Cheats => by adding certain text url
+        cheats:
+            ☐ Godmode is added
+
 # ideas and random stuff
 - there are some WebVR examples of three.js
-- add spacial sound and invaders all around
-- add a bounding box for the player that could get hit
-- might need to add component to hide/show stuff depending on device/headset
-    - additional to this, we need to apply different components and setting based on formfactor
-- Figure out a way to detect the device. ==> AFRAME.utils.device
-- keep track of score, how many invaders did you shoot.
-- Title screen
-- Gameover screen
-- Easter eggs? by adding certain text url
-- Cheats => by adding certain text url
+
+
+
 

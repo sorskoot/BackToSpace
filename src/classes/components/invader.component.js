@@ -1,4 +1,10 @@
-const colors = ['#00FF00', '#FF0000', '#0000FF']
+import vertShader from '../../shaders/shader.vert';
+import fragShader from '../../shaders/shader.frag';
+import { addBarycentricCoordinates,
+    unindexBufferGeometry} from '../utils/geom';
+
+const colors = ['#00FF00', '#000088', '#0000FF']
+
 const data =
     [[0, 0, 1, 0, 0, 0, 0, 1, 0, 0],
     [0, 0, 0, 1, 0, 0, 1, 0, 0, 0],
@@ -22,45 +28,61 @@ export default AFRAME.registerComponent('invader', {
         const width = data[0].length;
 
         var geometry = new THREE.Geometry();
-      //  var uniforms = { 'widthFactor': { value: .1 } };
-        // var material = new THREE.ShaderMaterial({
-        //     uniforms: uniforms,
-        //     vertexShader: document.getElementById('vertexShader').textContent,
-        //     fragmentShader: document.getElementById('fragmentShader').textContent,
-        //     side: THREE.DoubleSide
-        // });
-        // material.extensions.derivatives = true;
-        
-        // geometry.removeAttribute( 'normal' );
-        // geometry.removeAttribute( 'uv' );
-                    
+       
+        var material = new THREE.ShaderMaterial({
+            extensions: {
+                // needed for anti-alias smoothstep, aastep()
+                derivatives: true
+              },
+//              transparent: false,
+            //  side: THREE.DoubleSide,
+              uniforms: { // some parameters for the shader
+                time: { value: 0 },
+                fill: { value: new THREE.Color('#000000') },
+                stroke: { value: new THREE.Color(colors[0]) },
+                noiseA: { value: false },
+                noiseB: { value: false },
+                dualStroke: { value: false },
+                seeThrough: { value: false },
+                insideAltColor: { value: true },
+                thickness: { value: 0.05 },
+                secondThickness: { value: 0.05 },
+                dashEnabled: { value: false },
+                dashRepeats: { value: 2.0 },
+                dashOverlap: { value: false },
+                dashLength: { value: 0.55 },
+                dashAnimate: { value: false },
+                squeeze: { value: false },
+                squeezeMin: { value: 0.1 },
+                squeezeMax: { value: 1.0 }
+              },
+            vertexShader: vertShader,
+            fragmentShader: fragShader,
+        });
+
+        //material.extensions.derivatives = true;
+
         for (let i = 0; i < verts.length; i += 3) {
             geometry.vertices.push(
                 new THREE.Vector3(verts[i], verts[i + 1], verts[i + 2])
+                
             );
         }
-
+        
         for (let i = 0; i < faces.length; i += 3) {
             geometry.faces.push(
                 new THREE.Face3(faces[i + 2], faces[i + 1], faces[i])
             );
         }
+        
+        var bufferGeometry = new THREE.BufferGeometry().fromGeometry( geometry );
 
+        unindexBufferGeometry(bufferGeometry);
+        addBarycentricCoordinates(bufferGeometry, false);
 
-        var cube = new THREE.Mesh(geometry, material);
+        var cube = new THREE.Mesh(bufferGeometry, material);
 
         this.el.setObject3D('invader', cube);
-
-        // for (let i = 0; i < height; i++) {
-        //     for (let j = 0; j < width; j++) {
-        //         if (data[i][j]) {
-        //             let inv = document.createElement('a-box');
-        //             inv.setAttribute('position', { x: j - (width / 2), y: i - (height / 2), z: 0 })
-        //             inv.setAttribute('color', colors[data[i][j] - 1]);
-        //             this.el.appendChild(inv);
-        //         };
-        //     }
-        // }
 
         let pos = this.el.getAttribute('position')
        // this.el.setAttribute('scale', { x: .3, y: .3, z: .3 })
@@ -89,3 +111,4 @@ export default AFRAME.registerComponent('invader', {
     play: function () { },
     updateSchema: function (data) { }
 });
+

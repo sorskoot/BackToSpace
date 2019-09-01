@@ -5,34 +5,16 @@
     <script src="https://js13kgames.com/webxr-src/aframe.js"></script>
 
     <title>Back2Space</title>
-
-    <script type="x-shader/x-vertex" id="vertexShader">
-			attribute vec3 center;
-			varying vec3 vCenter;
-			void main() {
-				vCenter = center;
-				gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
-			}
-		</script>
-
-    <script type="x-shader/x-fragment" id="fragmentShader">
-			uniform float widthFactor;
-			varying vec3 vCenter;
-			float edgeFactorTri() {
-				vec3 d = fwidth( vCenter.xyz );
-				vec3 a3 = smoothstep( vec3( 0.0 ), d * widthFactor, vCenter.xyz );
-				return min( min( a3.x, a3.y ), a3.z );
-			}
-			void main() {
-				if ( edgeFactorTri() > 0.99 ) discard;
-				gl_FragColor = gl_FrontFacing ? vec4( 0.9, 0.9, 1.0, 1.0 ) : vec4( 0.4, 0.4, 0.5, 1.0 );
-			}
-		</script>
+    <script type="script-effect" id="add" data-defaults="bloom_texture bloom_intensity" data-diffuse>
+        void $main(inout vec4 c, vec4 o, vec2 uv, float d){
+            c.rgb += pow(texture2D($0, uv).rgb,vec3(2.)) * $1;
+        }
+    </script>
     <script src="main.js"></script>
 </head>
 
 <body>
-    <a-scene>
+    <a-scene  effects="bloom" bloom="radius: 0.06">
         <a-entity game keyboardcontrols daydream-controls>
 
             <a-entity id="invaders">
@@ -46,6 +28,7 @@
                 <a-box color="grey" position="-3 1.5 -2" scale="1 3 1"></a-box>
                 <a-box color="grey" position="3 1.5 -2" scale="1 3 1"></a-box>
             </a-entity>
+            <a-entity ground></a-entity>
         </a-entity>
 
         <a-sky color="black">

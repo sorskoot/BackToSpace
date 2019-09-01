@@ -1,5 +1,5 @@
 module.exports = {
-    
+
     "entry": "./src/index.js",
     "output": {
         "path": __dirname + '/dist',
@@ -24,6 +24,14 @@ module.exports = {
                 //         ]
                 //     }
                 // }
+            },
+            {
+                test: /\.(glsl|vs|fs|vert|frag)$/,
+                exclude: /node_modules/,
+                use: [
+                    'raw-loader',
+                    'glslify-loader'
+                ]
             },
             {
                 test: /\.scss$/,
