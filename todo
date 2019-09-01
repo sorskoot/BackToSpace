@@ -19,46 +19,52 @@ gameplay:
             at 90 degrees width in front of the player, far away and up in the sky
             (0,50,(50 +/-45deg))
         ✔ move invaders towards player @done(19-08-23 00:16)
-        ☐ create waves of invaders
+        ☐ @critical create waves of invaders
+        ☐ @critical Add 'AI' to invaders so they move from left to right, slowly getting closer.
+        ☐ @high Have the aliens shoot a missile every now and than.
+        ☐ @low invaders in different colors
+        ☐ @low Create animation when invaders appear
+        ☐ @high Every wave the speed increases. Making it impossible to finish the game. 
+
     Shooting:
-        ☐ keep track of score, how many invaders did you shoot.
-        ☐ add a bounding box for the player that could get hit
+        ☐ @critical keep track of score, how many invaders did you shoot.
+        ☐ @critical add a bounding box for the player that could get hit
         shoot invaders:
             ✔ bullets should be flying towards where the player looks @done(19-08-26 00:33)
             ✔ Actually hit invaders @done(19-08-26 23:15)
             controls:
                 ✔ PC => tapping space @done(19-08-26 00:33)
-                ☐ Mobile => tapping screen (bluetooth gun?)
-                ☐ Daydream => remote
-                ☐ Rift => controller
+                ☐ @high Mobile => tapping screen (bluetooth gun?)
+                ☐ @high Daydream => remote
+                ☐ @high Rift => controller
     controls:
-        ☐ might need to add component to hide/show stuff depending on device/headset
-        ☐ additional to this, we need to apply different components and setting based on formfactor
-            - Figure out a way to detect the device. ==> AFRAME.utils.device
+        ☐ @low might need to add component to hide/show stuff depending on device/headset
+        ☐ @critical additional to this, we need to apply different components and setting based on formfactor
+            To figure out how to detect the device. ==> AFRAME.utils.device
         look around:
             ✔ PC => mouse, if possible without dragging (look-controls="pointerLockEnabled:true") @done(19-08-24 22:56)
-            ☐ Mobile => Gyro
-            ☐ Daydream, Rift => native
+            ☐ @high Mobile => Gyro
+            ☐ @high Daydream, Rift => native
         Fire:
             ✔ PC => hit space @done(19-08-26 00:33)
-            ☐ Mobile => tap center @
-            ☐ others => controller
+            ☐ @high Mobile => tap center @
+            ☐ @high others => controller
         duck:
-            ☐ PC => pressing A or D to duck left or right
-            ☐ Mobile => touching left or right on the screen
-            ☐ Daydream => controller
-            ☐ Rift => just stand behind it
+            ☐ @high PC => pressing A or D to duck left or right
+            ☐ @high Mobile => touching left or right on the screen
+            ☐ @high Daydream => controller
+            ☐ @high Rift => just stand behind it
     mobile:
-        ☐ full screen goes into splitscreen, is this preventable?
+        ☐ @low full screen goes into splitscreen, is this preventable?
 
 design:
-    ☐ generate synthwave environment with 3d mountains, typical setting sun and grid on the ground. 
+    ☐ @high generate synthwave environment with 3d mountains, typical setting sun and grid on the ground. 
     ✔ Create design for aliens @done(19-09-01 21:07)
-    ☐ Add more different invaders
-    ☐ animate explosions
-    ☐ design and animate rockets with fire and smoke
-    ☐ Title screen
-    ☐ Gameover screen
+    ☐ @high Add more different invaders
+    ☐ @low animate explosions
+    ☐ @low design and animate rockets with fire and smoke
+    ☐ @critical Title screen
+    ☐ @critical Gameover screen
 
 Optimizations:
     ☐ @low Optimize shaders
@@ -66,11 +72,12 @@ Optimizations:
     ☐ @high restructure duplicate code with shaders and materials over components
 
 Could haves / Would likes /:
-    ☐ add spacial sound and invaders all around
-    ☐ Easter eggs? by adding certain text url
-    ☐ Cheats => by adding certain text url
+    ☐ @low add spacial sound and invaders all around
+    ☐ @low Easter eggs? by adding certain text url
+    ☐ @low Cheats => by adding certain text url
         cheats:
-            ☐ Godmode is added
+            ✔ `godmode` is added @done(19-09-01 22:08)
+            ☐ @low `wave=X` to start at wave X
 
 # ideas and random stuff
 - there are some WebVR examples of three.js
