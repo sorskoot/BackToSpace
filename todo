@@ -78,6 +78,7 @@ Optimizations:
 
 bugs:
     ☐ @critical Hide 'gun' on desktop
+    ☐ @critical missiles not firing in the right direction on desktop
 
 Could haves / Would likes /:
     ☐ @low add spacial sound and invaders all around
