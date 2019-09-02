@@ -3,18 +3,12 @@
 
 <head>
     <script src="https://js13kgames.com/webxr-src/aframe.js"></script>
-
     <title>Back2Space</title>
-    <script type="script-effect" id="add" data-defaults="bloom_texture bloom_intensity" data-diffuse>
-        void $main(inout vec4 c, vec4 o, vec2 uv, float d){
-            c.rgb += pow(texture2D($0, uv).rgb,vec3(2.)) * $1;
-        }
-    </script>
     <script src="main.js"></script>
 </head>
 
 <body>
-    <a-scene  effects="bloom" bloom="radius: 0.06">
+    <a-scene>
         <a-entity game >
 
             <a-entity id="invaders">

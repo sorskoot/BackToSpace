@@ -5,7 +5,13 @@ const wave = [[
     [2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2],
     [3, 3, 3, 3, 3, 0, 3, 3, 3, 3, 3],
     [0, 4, 4, 4, 0, 0, 0, 4, 4, 4, 0],
-    [0, 4, 0, 4, 0, 0, 0, 4, 0, 4, 0]]]
+    [0, 4, 0, 4, 0, 0, 0, 4, 0, 4, 0]],
+[
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]]
 
 export default AFRAME.registerComponent('game', {
     schema: {
@@ -67,10 +73,11 @@ export default AFRAME.registerComponent('game', {
 
     spawnInvader: function (x, y, type) {
         let box = document.createElement("a-entity");
-        let rndY = -y * 150 + 1000;
-        let rad = ((x / 11) - .5) * (Math.PI / 1.5);
+        let rndY = -y * 25 + 150;
+        let rad = (((x + .5) / 11) - .5) * (Math.PI / 1.5);
         box.setAttribute("invader", { direction: rad, type: type });
-        box.setAttribute("position", { x: Math.sin(rad) * 1500, y: rndY, z: (Math.cos(rad) * -500) - 500 });
+        const position = { x: Math.sin(rad) * 250, y: rndY, z: (Math.cos(rad) * -150) };
+        box.setAttribute("position", position);
         this.invadergroup.appendChild(box);
     },
 

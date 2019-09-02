@@ -5,7 +5,7 @@ export default AFRAME.registerComponent('missile', {
             default: 133 // m/s (roughly the speed of a Tomahawk)
         },
         lifetime: {
-            default: 1000
+            default: 250
         },
         collisionDistance:{
             default: 3

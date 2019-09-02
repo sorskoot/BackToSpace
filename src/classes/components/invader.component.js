@@ -13,10 +13,14 @@ const faces = [2, 1, 0, 4, 5, 11, 11, 5, 12, 13, 14, 15, 13, 2, 0, 15, 2, 13, 30
 export default AFRAME.registerComponent('invader', {
     schema: {
         direction: { default: 0 },
-        type: { default: 1 }
+        type: { default: 1 },
+        speed: { default: 5 },
+        frequency: { default: 2 }
     },
 
     init: function () {
+        this.movement = 0;
+
         var geometry = new THREE.Geometry();
 
         var material = new THREE.ShaderMaterial({
@@ -78,22 +82,31 @@ export default AFRAME.registerComponent('invader', {
         // this.el.setAttribute('scale', { x: .3, y: .3, z: .3 })
         this.el.setAttribute('rotation', { x: 0, y: 180, z: 0 });
         let dist = Math.sqrt(pos.x * pos.x + pos.y * pos.y + pos.z * pos.z);
+        this.startDist = dist;
         this.dir = { x: pos.x / dist, y: pos.y / dist, z: pos.z / dist };
+        this.deltaFreq = (this.data.frequency * Math.PI * 2) / dist;
+        this.orgX = pos.x;
     },
 
     update: function (oldData) {
 
     },
     tick: function (time, timeDelta) {
+        let deltaTime = timeDelta / 1000 * this.data.speed;
         let pos = this.el.getAttribute('position');
-        if (pos.y > 0) {
-            pos.x -= this.dir.x;
-            pos.y -= this.dir.y;
-            pos.z -= this.dir.z;
-        } else {
+
+        this.orgX -= this.dir.x * deltaTime;
+        pos.y -= this.dir.y * deltaTime;
+        pos.z -= this.dir.z * deltaTime;
+        let currentDist = Math.sqrt(this.orgX * this.orgX + pos.y * pos.y + pos.z * pos.z);
+        pos.x =
+            (Math.sin((this.startDist * this.deltaFreq) - (this.deltaFreq * currentDist)) * currentDist / 10) +
+            this.orgX;
+        if (currentDist < 10) {
             this.el.parentEl.removeChild(this.el);
             document.querySelector('[game]').emit('game-over');
         }
+
     },
     tock: function (time, timeDelta, camera) { },
     remove: function () { },
