@@ -5,6 +5,4 @@ import './classes/components/missile.component';
 import './classes/components/explosion.component';
 import './classes/components/selfdestruct.component';
 import './classes/components/ground.component';
-//import {GreedyMesh} from './utils/greedy';
-
-//console.log(GreedyMesh);
+import './classes/components/shoot-controls.component';

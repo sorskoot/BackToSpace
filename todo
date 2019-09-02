@@ -19,10 +19,11 @@ gameplay:
             at 90 degrees width in front of the player, far away and up in the sky
             (0,50,(50 +/-45deg))
         ✔ move invaders towards player @done(19-08-23 00:16)
-        ☐ @critical create waves of invaders
+        ✔ @critical create waves of invaders @done(19-09-02 00:11)
         ☐ @critical Add 'AI' to invaders so they move from left to right, slowly getting closer.
+        ☐ @critical Create a new wave after every invader is shot
         ☐ @high Have the aliens shoot a missile every now and than.
-        ☐ @low invaders in different colors
+        ✔ @low invaders in different colors @done(19-09-02 00:12)
         ☐ @low Create animation when invaders appear
         ☐ @high Every wave the speed increases. Making it impossible to finish the game. 
 
@@ -35,7 +36,7 @@ gameplay:
             controls:
                 ✔ PC => tapping space @done(19-08-26 00:33)
                 ☐ @high Mobile => tapping screen (bluetooth gun?)
-                ☐ @high Daydream => remote
+                ✔ @high Daydream => remote @done(19-09-02 00:11)
                 ☐ @high Rift => controller
     controls:
         ☐ @low might need to add component to hide/show stuff depending on device/headset
@@ -44,11 +45,13 @@ gameplay:
         look around:
             ✔ PC => mouse, if possible without dragging (look-controls="pointerLockEnabled:true") @done(19-08-24 22:56)
             ☐ @high Mobile => Gyro
-            ☐ @high Daydream, Rift => native
+            ✔ @high Daydream, Rift => native @done(19-09-02 00:11)
         Fire:
             ✔ PC => hit space @done(19-08-26 00:33)
             ☐ @high Mobile => tap center @
-            ☐ @high others => controller
+            @high others => controller:
+                ✔ Daydream @done(19-09-02 00:11)
+                ☐ Rift
         duck:
             ☐ @high PC => pressing A or D to duck left or right
             ☐ @high Mobile => touching left or right on the screen

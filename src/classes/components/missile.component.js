@@ -9,14 +9,23 @@ export default AFRAME.registerComponent('missile', {
         },
         collisionDistance:{
             default: 3
+        },
+        direction:{
+            type: 'vec3'
+        },
+        position:{
+            type: 'vec3'
         }
     },
     init: function () {
-        let cam = document.querySelector('a-entity[camera]');
-        this.camrot = cam.object3D.rotation;
+        this.camrot = new THREE.Euler(
+                this.data.direction.x, 
+                this.data.direction.y, 
+                this.data.direction.z, 'XYZ');
         this.v = new THREE.Vector3(0, 0, 1);
         this.v.applyEuler(this.camrot);
         this.collision = false;
+        this.el.setAttribute("position",this.data.position);
     },
     tick: function (time, timeDelta) {
         if (this.collision) return;
