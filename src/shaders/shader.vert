@@ -15,11 +15,3 @@ void main () {
   vEven = even;
   vUv = uv;
 }
-
-// varying vec3 vpos;
-
-// void main(){
-//     vpos = position;
-
-//     gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);
-// }

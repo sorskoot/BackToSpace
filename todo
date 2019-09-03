@@ -28,6 +28,7 @@ gameplay:
         ☐ @low Create animation when invaders appear
         ☐ @high Every wave the speed increases. Making it impossible to finish the game.
         ☐ @low At a certain interval a spaceship appears and fires missiles
+        ☐ @low When a new wave is created, spawn all invaders at random positions in the distance and animate them into formation over a few seconds
 
     Shooting:
         ☐ @critical keep track of score, how many invaders did you shoot.

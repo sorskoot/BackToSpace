@@ -26,9 +26,6 @@ uniform float squeezeMax;
 uniform vec3 stroke;
 uniform vec3 fill;
 
-#pragma glslify: noise = require('glsl-noise/simplex/4d');
-#pragma glslify: PI = require('glsl-pi');
-
 // This is like
 float aastep (float threshold, float dist) {
   float afwidth = fwidth(dist) * 0.5;
@@ -49,12 +46,6 @@ vec4 getStyledWireframe (vec3 barycentric) {
   // this will be our signed distance for the wireframe edge
   float d = min(min(barycentric.x, barycentric.y), barycentric.z);
 
-  // we can modify the distance field to create interesting effects & masking
-  float noiseOff = 0.0;
-  if (noiseA) noiseOff += noise(vec4(vPosition.xyz * 1.0, time * 0.35)) * 0.15;
-  if (noiseB) noiseOff += noise(vec4(vPosition.xyz * 80.0, time * 0.5)) * 0.12;
-  d += noiseOff;
-
   // for dashed rendering, we can use this to get the 0 .. 1 value of the line length
   float positionAlong = max(barycentric.x, barycentric.y);
   if (barycentric.y < barycentric.x && barycentric.y < barycentric.z) {
@@ -63,30 +54,6 @@ vec4 getStyledWireframe (vec3 barycentric) {
 
   // the thickness of the stroke
   float computedThickness = thickness;
-
-  // if we want to shrink the thickness toward the center of the line segment
-  if (squeeze) {
-    computedThickness *= mix(squeezeMin, squeezeMax, (1.0 - sin(positionAlong * PI)));
-  }
-
-  // if we should create a dash pattern
-  if (dashEnabled) {
-    // here we offset the stroke position depending on whether it
-    // should overlap or not
-    float offset = 1.0 / dashRepeats * dashLength / 2.0;
-    if (!dashOverlap) {
-      offset += 1.0 / dashRepeats / 2.0;
-    }
-
-    // if we should animate the dash or not
-    if (dashAnimate) {
-      offset += time * 0.22;
-    }
-
-    // create the repeating dash pattern
-    float pattern = fract((positionAlong + offset) * dashRepeats);
-    computedThickness *= 1.0 - aastep(dashLength, pattern);
-  }
 
   // compute the anti-aliased stroke edge  
   float edge = 1.0 - aastep(computedThickness, d);
@@ -116,12 +83,3 @@ vec4 getStyledWireframe (vec3 barycentric) {
 void main () {
   gl_FragColor = getStyledWireframe(vBarycentric);
 }
-
-// #pragma glslify: noise = require('glsl-noise/simplex/3d')
-
-// varying vec3 vpos;
-
-// void main(){
-//     float v = noise(vpos * 5.0);
-//     gl_FragColor = vec4(v,v,v,1.);
-// }

@@ -21,14 +21,27 @@ export default AFRAME.registerComponent('game', {
 
     init: function () {
         this.gameover = false;
+        this.gameState = 0;// Title-Screen -> 1 = Playing -> 2 = Game-Over -> 1
+
         this.spawntimer = this.data.spawninterval;
         this.invadergroup = document.getElementById("invaders");
         this.missilegroup = document.getElementById("missiles");
-        this.spawnInvaderWave();
 
         this.el.addEventListener('fire', (data) => {
-            if (this.gameover) return;
-            this.spawnMissile(data.detail.direction, data.detail.position);
+            switch (this.gameState) {
+                case 0:
+                    document.getElementById('titlescreen')
+                        .setAttribute('animation','property: position; to: 0 -5 0; dur: 1500; easing: easeOutCubic');
+                    this.gameState = 1;
+                    this.invadersLeftInWave = this.spawnInvaderWave();
+                    break;
+                case 1:
+                    this.spawnMissile(data.detail.direction, data.detail.position);
+                    break;
+                case 2:
+                    this.gameState = 1;
+                    break;
+            }
         });
 
         this.el.addEventListener('collision', e => {
@@ -53,15 +66,11 @@ export default AFRAME.registerComponent('game', {
     },
 
     tick: function (time, timeDelta) {
-        // if (this.gameover) return;
-        // this.spawntimer -= timeDelta;
-        // if (this.spawntimer < 0) {
-        //     this.spawntimer = this.data.spawninterval;
-        //     this.spawnInvader();
-        // }
+
     },
 
     spawnInvaderWave() {
+        let spawned = 0;
         for (let i = 0; i < 5; i++) { // wave rows
             for (let j = 0; j < 11; j++) { // wave columns
                 if (wave[this.data.currentwave][i][j] > 0) {

@@ -9,7 +9,11 @@
 
 <body>
     <a-scene>
-        <a-entity game >
+        <a-entity id='titlescreen'>
+            <a-plane titlescreen position="0 0 -1.5" scale="5 5 5" rotation="-14.5 0 0"></a-plane>
+            <a-plane neontext="text:Press fire to start" position="0 .5 -1.9" scale="3 3 3"></a-plane>
+        </a-entity>
+        <a-entity game>
 
             <a-entity id="invaders">
                 <!-- <a-box invader color="green" position="2 0 -5"></a-box> -->
@@ -30,8 +34,7 @@
         <a-entity shoot-controls="hand:right">
             <a-box color="red" scale=".1 .1 .5"></a-box>
         </a-entity>
-        <a-entity camera position="0 1.6 0" rotation="0 0 0" 
-            look-controls="pointerLockEnabled:true">
+        <a-entity camera position="0 1.6 0" rotation="0 0 0" look-controls="pointerLockEnabled:true">
             <a-entity id="missile-spawner"></a-entity>
         </a-entity>
     </a-scene>
