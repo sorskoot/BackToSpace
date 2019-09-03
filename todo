@@ -9,7 +9,6 @@
 # the game should slowly become faster and invaders should start shooting back. 
 # avoiding being shot will be hard on everywhere else then Rift. come up with a way to fix this
 
-
 overall:
     ✔ Setup build pipelines @done(19-08-23 17:20)
 gameplay:
@@ -22,14 +21,18 @@ gameplay:
         ✔ @critical create waves of invaders @done(19-09-02 00:11)
         ✔ @critical Add 'AI' to invaders so they move from left to right, slowly getting closer. @done(19-09-02 23:04)
         ☐ @low Every now and then an invader breaks formation and takes its own path.
-        ☐ @critical Create a new wave after every invader is shot
+        ✔ @critical Create a new wave after every invader is shot @done(19-09-03 23:51)
         ☐ @high Have the aliens shoot a missile every now and than.
         ✔ @low invaders in different colors @done(19-09-02 00:12)
         ☐ @low Create animation when invaders appear
         ☐ @high Every wave the speed increases. Making it impossible to finish the game.
         ☐ @low At a certain interval a spaceship appears and fires missiles
         ☐ @low When a new wave is created, spawn all invaders at random positions in the distance and animate them into formation over a few seconds
-
+        ☐ @low look at 0,0,0
+        ☐ @low Add more wave formation
+    Bunker:
+        ☐ @high Create new model
+        ☐ @critical Add wireframe shader
     Shooting:
         ☐ @critical keep track of score, how many invaders did you shoot.
         ☐ @critical add a bounding box for the player that could get hit
@@ -51,7 +54,7 @@ gameplay:
             ✔ @high Daydream, Rift => native @done(19-09-02 00:11)
         Fire:
             ✔ PC => hit space @done(19-08-26 00:33)
-            ☐ @high Mobile => tap center @
+            ☐ @high Mobile => tap center
             @high others => controller:
                 ✔ Daydream @done(19-09-02 00:11)
                 ☐ Rift
@@ -74,7 +77,7 @@ design:
     ☐ @high Add more different invaders
     ☐ @low animate explosions
     ☐ @low design and animate rockets with fire and smoke
-    ☐ @critical Title screen
+    ✔ @critical Title screen @done(19-09-03 23:32)
     ☐ @critical Gameover screen
 
 Optimizations:
