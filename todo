@@ -63,7 +63,12 @@ gameplay:
         ☐ @low full screen goes into splitscreen, is this preventable?
 
 design:
-    ☐ @high generate synthwave environment with 3d mountains, typical setting sun and grid on the ground. 
+    @high generate synthwave environment:
+        ✔ ground @done(19-09-03 13:16)
+        ✔ Sky @done(19-09-03 13:16)
+        ☐ mountains
+        ☐ sun
+
     ✔ Create design for aliens @done(19-09-01 21:07)
     ☐ @high Add more different invaders
     ☐ @low animate explosions
@@ -78,7 +83,7 @@ Optimizations:
 
 bugs:
     ☐ @critical Hide 'gun' on desktop
-    ☐ @critical missiles not firing in the right direction on desktop
+    ✔ @critical missiles not firing in the right direction on desktop @done(19-09-03 13:17)
 
 Could haves / Would likes /:
     ☐ @low add spacial sound and invaders all around

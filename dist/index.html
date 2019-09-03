@@ -25,13 +25,14 @@
             <a-entity ground></a-entity>
         </a-entity>
 
-        <a-sky color="black">
+        <a-sky space>
         </a-sky>
         <a-entity shoot-controls="hand:right">
             <a-box color="red" scale=".1 .1 .5"></a-box>
         </a-entity>
         <a-entity camera position="0 1.6 0" rotation="0 0 0" 
             look-controls="pointerLockEnabled:true">
+            <a-entity id="missile-spawner"></a-entity>
         </a-entity>
     </a-scene>
 </body>

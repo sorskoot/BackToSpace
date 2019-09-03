@@ -52,13 +52,20 @@ export default AFRAME.registerComponent('shoot-controls', {
     onButtonEvent: function (id, evtName) {
         var buttonName = this.mapping['button' + id];
         //this.el.emit(buttonName + evtName);
-        console.log(evtName);
+
         if (evtName === 'down') {
+            let camrot = new THREE.Euler(
+                this.el.object3D.rotation.x,
+                this.el.object3D.rotation.y,
+                this.el.object3D.rotation.z, 'XYZ');
+            let v = new THREE.Vector3(0, 0, 1);
+            v.applyEuler(camrot);
+
             document.querySelector('[game]').emit('fire', {
                 direction: {
-                    x: this.el.object3D.rotation.x,
-                    y: this.el.object3D.rotation.y,
-                    z: this.el.object3D.rotation.z
+                    x: v.x,
+                    y: v.y,
+                    z: v.z
                 }, position: {
                     x: this.el.object3D.position.x,
                     y: this.el.object3D.position.y,

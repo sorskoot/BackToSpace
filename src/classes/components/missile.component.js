@@ -18,21 +18,15 @@ export default AFRAME.registerComponent('missile', {
         }
     },
     init: function () {
-        this.camrot = new THREE.Euler(
-                this.data.direction.x, 
-                this.data.direction.y, 
-                this.data.direction.z, 'XYZ');
-        this.v = new THREE.Vector3(0, 0, 1);
-        this.v.applyEuler(this.camrot);
         this.collision = false;
         this.el.setAttribute("position",this.data.position);
     },
     tick: function (time, timeDelta) {
         if (this.collision) return;
         let pos = this.el.getAttribute('position');
-        pos.x -= this.v.x * this.data.speed * (timeDelta / 1000);
-        pos.y -= this.v.y * this.data.speed * (timeDelta / 1000);
-        pos.z -= this.v.z * this.data.speed * (timeDelta / 1000);
+        pos.x -= this.data.direction.x * this.data.speed * (timeDelta / 1000);
+        pos.y -= this.data.direction.y * this.data.speed * (timeDelta / 1000);
+        pos.z -= this.data.direction.z * this.data.speed * (timeDelta / 1000);
         if (pos.z < -this.data.lifetime) {
             this.el.parentEl.removeChild(this.el);
         }
