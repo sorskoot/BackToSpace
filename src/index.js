@@ -9,6 +9,7 @@ import './classes/components/ground.component';
 import './classes/components/shoot-controls.component';
 import './classes/components/titlescreen.component';
 import './classes/components/neontext.component';
+import './classes/components/sun.component';
 
 // import { CPlayer } from './classes/utils/player';
 // import { song } from './classes/utils/song';
