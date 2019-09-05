@@ -25,11 +25,11 @@ gameplay:
         ☐ @high Have the aliens shoot a missile every now and than.
         ✔ @low invaders in different colors @done(19-09-02 00:12)
         ☐ @low Create animation when invaders appear
-        ☐ @high Every wave the speed increases. Making it impossible to finish the game.
+        ☐ @critical Every wave the speed increases. Making it impossible to finish the game.
         ☐ @low At a certain interval a spaceship appears and fires missiles
         ☐ @low When a new wave is created, spawn all invaders at random positions in the distance and animate them into formation over a few seconds
-        ☐ @low look at 0,0,0
-        ☐ @low Add more wave formation
+        ✔ @low look at 0,0,0 @done(19-09-06 01:23)
+        ☐ @low Add more wave formations
     Bunker:
         ☐ @high Create new model
         ☐ @critical Add wireframe shader
@@ -70,7 +70,7 @@ design:
     @high generate synthwave environment:
         ✔ ground @done(19-09-03 13:16)
         ✔ Sky @done(19-09-03 13:16)
-        ☐ mountains
+        ✔ mountains @done(19-09-06 01:23)
         ✔ sun @done(19-09-05 23:13)
 
     ✔ Create design for aliens @done(19-09-01 21:07)
@@ -88,9 +88,10 @@ Optimizations:
 bugs:
     ☐ @critical Hide 'gun' on desktop
     ✔ @critical missiles not firing in the right direction on desktop @done(19-09-03 13:17)
-    ☐ Titlescreen has to be a bit smaller for DayDream
+    ✔ Titlescreen has to be a bit smaller for DayDream @done(19-09-06 01:23)
     ☐ Hitbox needs to be a little bit bigger
     ☐ Sometimes when all invaders are shot we don't get the next wave.
+    ☐ Glow on title text is cut off because text starts at Y 0
 
 Could haves / Would likes /:
     ☐ @low add spacial sound and invaders all around
@@ -104,7 +105,7 @@ Could haves / Would likes /:
 - there are some WebVR examples of three.js
 - Particles : https://github.com/mrdoob/three.js/blob/master/examples/webgl_buffergeometry_custom_attributes_particles.html
 - Music - https://sb.bitsnbites.eu/  (E D B A ? + arps + 8th bass)
-- sfx - https://github.com/mneubrand/jsfxr 
+- sfx - https://github.com/mneubrand/jsfxr
 
 
 

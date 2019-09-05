@@ -40,7 +40,7 @@ export default AFRAME.registerComponent('ground', {
             fragmentShader: fragShader,
         });
 
-        var bufferGeometry = new THREE.PlaneBufferGeometry( 100,100, 100, 100 );
+        var bufferGeometry = new THREE.PlaneBufferGeometry( 500,500, 500, 500 );
 
         unindexBufferGeometry(bufferGeometry);
         addBarycentricCoordinates(bufferGeometry, true);
