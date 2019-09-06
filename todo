@@ -89,6 +89,7 @@ bugs:
     ☐ @critical Hide 'gun' on desktop
     ✔ @critical missiles not firing in the right direction on desktop @done(19-09-03 13:17)
     ✔ Titlescreen has to be a bit smaller for DayDream @done(19-09-06 01:23)
+    ☐ Titlescreen is cut off on daydream
     ☐ Hitbox needs to be a little bit bigger
     ☐ Sometimes when all invaders are shot we don't get the next wave.
     ☐ Glow on title text is cut off because text starts at Y 0
@@ -104,8 +105,7 @@ Could haves / Would likes /:
 # ideas and random stuff
 - there are some WebVR examples of three.js
 - Particles : https://github.com/mrdoob/three.js/blob/master/examples/webgl_buffergeometry_custom_attributes_particles.html
-- Music - https://sb.bitsnbites.eu/  (E D B A ? + arps + 8th bass)
+- Music - https://sb.bitsnbites.eu/  
 - sfx - https://github.com/mneubrand/jsfxr
 
-
-
+https://sb.bitsnbites.eu/?data=U0JveAwC7d1NixxFGMDxp6p6OjEsY4ImMSjYrKgnieJBECOCCB4iHvQg-G5y8BAFwZ0gi9gMs7QDw7hrs7gMLhKQ1e_gwYAnr94Fv0E-QltdXd2Z7emdYXWys7P5_7rr5amamX1m2FtR1f88JPKURG39Qywq_fIBaa1cWBWR14xSF39Rj35x6uNQRGllbHGXjCnH3PjIDuTlR1t2XbNdvTDvDX3ZtGXLNf1qvi-LV8v_lshPLhg152-HUhcMlyB_acz_-yp_AAAAAAAAAAAATNKfxWLWYpGWhI_ZMNNKtX-9dD0No1DltPJEyrbs-bjT6dihel3enXv-Fc6fmz4fznj_ovM_d376fNbm3xQAAAAAAAAAAOAomW9jUWsD27t68-diSLdEIpFHThtnfBfaeFuNd2f8iVk7tTZmzN_r3VLxjPnkkPn3jjh_dpMBAAAAAAAAAADM2buxyIfxisiKvF6M6Ewkest0g7svmnaYo3RlQ_oytFff9roTsQu2ZNuWfOjriXjBYptl4vJNbC-2V6-Ke_kCW-LyTV2-iay7eNPGmz4GAAAAAAAAAADAiaJux6J_j5U8G154RsTsaKWv9XT0RnipdgBi0zKaCUyQ74JyG6HK3VD1eNs_HG37gHjL3b5qiEf-sV6jA-L_a-BuXzXEqbt91RDX890sHjtWVEeQP8-iAwAAAAAAAAAAmC-T7YhkOysiWh4vhvSuSHTZ7Ormd4wf4uiW1IZuJaOs-xPxhozfGxPxog3cWY1lnUzE9Xx7Mn73-B8CAAAAAAAAAAA4YfT1WMyfse21whdt_UeodCISpeFXIb8OAAAAAAAAAAAA7kfZmpLsc1EShE8UI7ot6umrrfIF1X4zz5j9u9BMcaBhKuXRhlWd3h07zqblnxZfYgnyBwAAAAAAAAAAwNz8HSv5KxaVBeHLNnzllDLZgxI9LKf9LrRy6cz3dLWoVo3LvueENbbH3QF5u0U0AAAAAAAAAAAA3G8GRXkpOLNqe7-1RN1JJLrROhsU8_uWyqRaSqu4nVpuv1ZzyxoUAAAAAAAAAAAAlsx7tsT5ra4VA-q7F-T5NXOl3IVWFX-pqlfMJ_yGAAAAAAAAAAAAOEFMFotkA5FvtL5o44-MMh-8KdHb-kqgc6bcbaY9VeM_aOirYT0eHvefoOvz7fr8a_Ey5w8AAAAAAAAAAID_xB_kmL0f247OAqVX70j0jtrVbloVzXir8-Ije63XPrC-K239kHHnkF_gzIy4Lpvx92XO84fNHwAAAAAAAAAAAItlbn-qisMcA3nVhraj2p_o554Mzurmd6j6-OjAD9_buzVl9rgoM9wrb5v33hLlDwAAAAAAAAAAgPn6Fw
