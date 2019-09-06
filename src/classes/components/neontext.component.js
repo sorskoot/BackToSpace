@@ -1,6 +1,9 @@
 export default AFRAME.registerComponent('neontext', {
     schema: {
-        text: { default: 'Neon text' }
+        text: { default: 'Neon text' },
+        fontsize: { default: 150 },
+        font: { default: 'Serif' },
+        color: { type: 'color', default: '#e21b90' }
     },
     init: function () {
         this.update();
@@ -11,20 +14,20 @@ export default AFRAME.registerComponent('neontext', {
         let ctx = canvas.getContext("2d");
 
         ctx.fillStyle = 'white';
-        ctx.font = "150px Serif";
+        ctx.font = `${this.data.fontsize}px ${this.data.font}` ;
         ctx.textAlign = 'center';
 
         ctx.fillText(this.data.text, 512, 123);
-        
-        ctx.strokeStyle = '#e21b90';
-        ctx.lineWidth = 2;
+
+        ctx.strokeStyle = this.data.color;
+        ctx.lineWidth = (this.data.fontsize/75);
         ctx.strokeText(this.data.text, 512, 123);
 
 
-        ctx.fillStyle = '#e21b90';
-        ctx.shadowColor = '#e21b90';
+        ctx.fillStyle = this.data.color;
+        ctx.shadowColor = this.data.color;
         ctx.shadowBlur = 15;
-        ctx.fillText(this.data.text, 515, 126);
+        ctx.fillText(this.data.text, 512+(this.data.fontsize/50), 123+(this.data.fontsize/50));
 
         this.el.setAttribute('material', {
             transparent: true,

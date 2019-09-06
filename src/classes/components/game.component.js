@@ -42,8 +42,9 @@ export default AFRAME.registerComponent('game', {
             switch (this.gameState) {
                 case 0:
                     this.score = 0;
-                    document.getElementById('titlescreen')
-                        .setAttribute('animation', 'property: position; to: 0 -5 0; dur: 1500; easing: easeOutCubic');
+                    document.getElementById('titlescreen').setAttribute('visible', 'false');
+                    // document.getElementById('titlescreen')
+                    //     .setAttribute('animation', 'property: position; to: 0 -5 0; dur: 1500; easing: easeOutCubic');
                     this.gameState = 1;
                     this.invadersLeftInWave = this.spawnInvaderWave();
                     break;
@@ -51,6 +52,8 @@ export default AFRAME.registerComponent('game', {
                     this.spawnMissile(data.detail.direction, data.detail.position);
                     break;
                 case 2:
+                    document.querySelectorAll('[invader], [missile]').forEach(x => x.remove());
+                    document.getElementById('gameoverscreen').setAttribute('visible', 'false');
                     this.gameover = false
                     this.gameState = 1;
                     this.score = 0;
@@ -80,14 +83,12 @@ export default AFRAME.registerComponent('game', {
 
         this.el.addEventListener('game-over', () => {
             if (!~document.location.href.indexOf('godmode')) {
-                console.log('your score was:', this.score);
+                document.getElementById('score').setAttribute('neontext', { text: `${this.score} invaders shot`, fontsize: 60, color: "#1b90e2" });
+                document.getElementById('gameoverscreen').setAttribute('visible', 'true');
                 this.gameState = 2;
                 // show game over screen;
                 this.gameover = true;
-                alert('Game Over');
-                document.querySelectorAll('[invader], [missile]').forEach(x => x.remove());
             }
-
         });
     },
 

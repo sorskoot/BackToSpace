@@ -16,6 +16,5 @@ export default AFRAME.registerComponent('keyboardcontrols', {
                 });
             }
         });
-
     }
 });
