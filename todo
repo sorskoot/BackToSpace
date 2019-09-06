@@ -13,6 +13,8 @@ overall:
     ✔ Setup build pipelines @done(19-08-23 17:20)
 gameplay:
     ✔ loose the game @done(19-08-26 23:52)
+    ☐ @low Add delay between game states. Allow a moment to realize you are gameover.
+    ☐ @high Add a small delay between waves
     invaders:
         ✔ spawn invaders @done(19-08-23 00:06)
             at 90 degrees width in front of the player, far away and up in the sky
@@ -30,12 +32,15 @@ gameplay:
         ☐ @low When a new wave is created, spawn all invaders at random positions in the distance and animate them into formation over a few seconds
         ✔ @low look at 0,0,0 @done(19-09-06 01:23)
         ☐ @low Add more wave formations
+        ☐ Replace placeholder explosion
     Bunker:
         ☐ @high Create new model
         ☐ @critical Add wireframe shader
     Shooting:
         ☐ @critical keep track of score, how many invaders did you shoot.
-        ☐ @critical add a bounding box for the player that could get hit
+        ☐ @low show the score on screen
+        ☐ @high add a bounding box for the player that could get hit
+        ☐ @critical replace placeholder missile
         shoot invaders:
             ✔ bullets should be flying towards where the player looks @done(19-08-26 00:33)
             ✔ Actually hit invaders @done(19-08-26 23:15)
