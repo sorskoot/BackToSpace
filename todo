@@ -27,7 +27,7 @@ gameplay:
         ☐ @high Have the aliens shoot a missile every now and than.
         ✔ @low invaders in different colors @done(19-09-02 00:12)
         ☐ @low Create animation when invaders appear
-        ☐ @critical Every wave the speed increases. Making it impossible to finish the game.
+        ✔ @critical Every wave the speed increases. Making it impossible to finish the game. @done(19-09-06 22:25)
         ☐ @low At a certain interval a spaceship appears and fires missiles
         ☐ @low When a new wave is created, spawn all invaders at random positions in the distance and animate them into formation over a few seconds
         ✔ @low look at 0,0,0 @done(19-09-06 01:23)
@@ -83,8 +83,8 @@ design:
     ☐ @low animate explosions
     ☐ @low design and animate rockets with fire and smoke
     ✔ @critical Title screen @done(19-09-03 23:32)
-    ☐ @critical Gameover screen - with last score
-    ☐ Add highest score (local storage) to gameover screen
+    ☐ @today @critical Gameover screen - with last score
+    ☐ @low Add highest score (local storage) to gameover screen
 
 Optimizations:
     ☐ @low Optimize shaders

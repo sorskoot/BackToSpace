@@ -32,6 +32,7 @@ export default AFRAME.registerComponent('game', {
 
     init: function () {
         this.gameover = false;
+        this.currentspeed = 5;
         this.score = 0;
         this.gameState = 0;// Title-Screen -> 1 = Playing -> 2 = Game-Over -> 1
         this.invadergroup = document.getElementById("invaders");
@@ -40,7 +41,7 @@ export default AFRAME.registerComponent('game', {
         this.el.addEventListener('fire', (data) => {
             switch (this.gameState) {
                 case 0:
-                    this.score = 0;    
+                    this.score = 0;
                     document.getElementById('titlescreen')
                         .setAttribute('animation', 'property: position; to: 0 -5 0; dur: 1500; easing: easeOutCubic');
                     this.gameState = 1;
@@ -72,13 +73,14 @@ export default AFRAME.registerComponent('game', {
             this.score++;
             if (this.invadersLeftInWave == 0) {
                 this.data.currentwave = (this.data.currentwave + 1) % wave.length;
+                this.currentspeed++;
                 this.invadersLeftInWave = this.spawnInvaderWave();
             }
         })
 
         this.el.addEventListener('game-over', () => {
             if (!~document.location.href.indexOf('godmode')) {
-                console.log('your score was:',this.score);
+                console.log('your score was:', this.score);
                 this.gameState = 2;
                 // show game over screen;
                 this.gameover = true;
@@ -110,7 +112,7 @@ export default AFRAME.registerComponent('game', {
         let box = document.createElement("a-entity");
         let rndY = -y * 25 + 150;
         let rad = (((x + .5) / 11) - .5) * (Math.PI / 1.5);
-        box.setAttribute("invader", { direction: rad, type: type });
+        box.setAttribute("invader", { direction: rad, type: type, speed: this.currentspeed });
         const position = { x: Math.sin(rad) * 250, y: rndY, z: (Math.cos(rad) * -150) };
         box.setAttribute("position", position);
         this.invadergroup.appendChild(box);
