@@ -32,6 +32,7 @@ export default AFRAME.registerComponent('game', {
 
     init: function () {
         this.gameover = false;
+        this.score = 0;
         this.gameState = 0;// Title-Screen -> 1 = Playing -> 2 = Game-Over -> 1
         this.invadergroup = document.getElementById("invaders");
         this.missilegroup = document.getElementById("missiles");
@@ -39,6 +40,7 @@ export default AFRAME.registerComponent('game', {
         this.el.addEventListener('fire', (data) => {
             switch (this.gameState) {
                 case 0:
+                    this.score = 0;    
                     document.getElementById('titlescreen')
                         .setAttribute('animation', 'property: position; to: 0 -5 0; dur: 1500; easing: easeOutCubic');
                     this.gameState = 1;
@@ -48,7 +50,10 @@ export default AFRAME.registerComponent('game', {
                     this.spawnMissile(data.detail.direction, data.detail.position);
                     break;
                 case 2:
+                    this.gameover = false
                     this.gameState = 1;
+                    this.score = 0;
+                    this.invadersLeftInWave = this.spawnInvaderWave();
                     break;
             }
         });
@@ -64,6 +69,7 @@ export default AFRAME.registerComponent('game', {
             e.detail.invader.remove();
 
             this.invadersLeftInWave -= 1;
+            this.score++;
             if (this.invadersLeftInWave == 0) {
                 this.data.currentwave = (this.data.currentwave + 1) % wave.length;
                 this.invadersLeftInWave = this.spawnInvaderWave();
@@ -72,6 +78,9 @@ export default AFRAME.registerComponent('game', {
 
         this.el.addEventListener('game-over', () => {
             if (!~document.location.href.indexOf('godmode')) {
+                console.log('your score was:',this.score);
+                this.gameState = 2;
+                // show game over screen;
                 this.gameover = true;
                 alert('Game Over');
                 document.querySelectorAll('[invader], [missile]').forEach(x => x.remove());
