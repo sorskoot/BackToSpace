@@ -4,7 +4,12 @@ import fragShader from '../../shaders/shader.frag';
 export default AFRAME.registerComponent('wireframe-material', {
     schema: {
         color:{
+            type:'color',
             default:"white"
+        },
+        thickness:{
+            type:'number',
+            default:0.05
         }
     },
     init: function () { 
@@ -24,7 +29,7 @@ export default AFRAME.registerComponent('wireframe-material', {
                 dualStroke: { value: false },
                 seeThrough: { value: false },
                 insideAltColor: { value: true },
-                thickness: { value: 0.05 },
+                thickness: { value: this.data.thickness },
                 secondThickness: { value: 0.05 },
                 dashEnabled: { value: false },
                 dashRepeats: { value: 2.0 },

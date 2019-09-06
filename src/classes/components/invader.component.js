@@ -1,5 +1,3 @@
-import vertShader from '../../shaders/shader.vert';
-import fragShader from '../../shaders/shader.frag';
 import {
     addBarycentricCoordinates,
     unindexBufferGeometry
@@ -22,33 +20,6 @@ export default AFRAME.registerComponent('invader', {
         this.movement = 0;
         var geometry = new THREE.Geometry();
 
-        var material = new THREE.ShaderMaterial({
-            extensions: {
-                derivatives: true
-            },
-            uniforms: { // some parameters for the shader
-                time: { value: 0 },
-                fill: { value: new THREE.Color('#000000') },
-                stroke: { value: new THREE.Color(colors[this.data.type - 1]) },
-                noiseA: { value: false },
-                noiseB: { value: false },
-                dualStroke: { value: false },
-                seeThrough: { value: false },
-                insideAltColor: { value: true },
-                thickness: { value: 0.05 },
-                secondThickness: { value: 0.05 },
-                dashEnabled: { value: false },
-                dashRepeats: { value: 2.0 },
-                dashOverlap: { value: false },
-                dashLength: { value: 0.55 },
-                dashAnimate: { value: false },
-                squeeze: { value: false },
-                squeezeMin: { value: 0.1 },
-                squeezeMax: { value: 1.0 }
-            },
-            vertexShader: vertShader,
-            fragmentShader: fragShader,
-        });
 
         for (let i = 0; i < verts.length; i += 3) {
             geometry.vertices.push(
@@ -67,9 +38,10 @@ export default AFRAME.registerComponent('invader', {
         unindexBufferGeometry(bufferGeometry);
         addBarycentricCoordinates(bufferGeometry, false);
 
-        var cube = new THREE.Mesh(bufferGeometry, material);
+        var cube = new THREE.Mesh(bufferGeometry);
+        this.el.setObject3D('mesh', cube);
+        this.el.setAttribute('wireframe-material', { color: colors[this.data.type - 1] });
 
-        this.el.setObject3D('invader', cube);
         cube.lookAt(new THREE.Vector3(0, 0, 0));
         let pos = this.el.getAttribute('position')
         //this.el.setAttribute('rotation', { x: -10, y: 180, z: 0 });
@@ -78,7 +50,7 @@ export default AFRAME.registerComponent('invader', {
         this.dir = { x: pos.x / dist, y: pos.y / dist, z: pos.z / dist };
         this.deltaFreq = (this.data.frequency * Math.PI * 2) / dist;
         this.orgX = pos.x;
-        this.el.getObject3D('invader').lookAt(new THREE.Vector3(0, 0, 0));
+        this.el.getObject3D('mesh').lookAt(new THREE.Vector3(0, 0, 0));
     },
     tick: function (time, timeDelta) {
         if (document.querySelector('[game]').components['game'].gameover) return;

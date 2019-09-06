@@ -90,8 +90,8 @@ design:
 Optimizations:
     ☐ @low Optimize shaders
     ☐ @high use instancing for models
-    ☐ @high restructure duplicate code with shaders and materials over components
-    ☐ @high optimize mountains everywhere there's a lot of 0; don't add face if all 3 verts are at Y:0, than remove unused verts;
+    ✔ @high restructure duplicate code with shaders and materials over components @done(19-09-06 23:53)
+    ☐ @today @high optimize mountains everywhere there's a lot of 0; don't add face if all 3 verts are at Y:0, than remove unused verts;
 
 bugs:
     ☐ @high Hide 'gun' on desktop
