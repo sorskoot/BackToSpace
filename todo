@@ -95,7 +95,7 @@ Optimizations:
     ☐ @low Optimize shaders
     ☐ @high use instancing for models
     ✔ @high restructure duplicate code with shaders and materials over components @done(19-09-06 23:53)
-    ☐ @today @critical optimize mountains everywhere there's a lot of 0; don't add face if all 3 verts are at Y:0, than remove unused verts;
+    ✔ @today @critical optimize mountains everywhere there's a lot of 0; don't add face if all 3 verts are at Y:0, than remove unused verts; @done(19-09-09 23:24)
 
 bugs:
     ☐ @high Hide 'gun' on desktop
@@ -106,6 +106,7 @@ bugs:
     ☐ @low Sometimes when all invaders are shot we don't get the next wave.(probably due to godmode)
     ☐ @low Glow on title text is cut off because text starts at Y 0
     ✔ @today @high Rapid fire when space is continuesly pressed (set boolean on down, remove on up) @done(19-09-09 22:42)
+    ☐ @critical Rendering music lags the game
 
 Could haves / Would likes /:
     ☐ @low add spacial sound and invaders all around

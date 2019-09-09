@@ -45,13 +45,14 @@ export default AFRAME.registerComponent('mountains', {
                 let i = (y * canvas.width + x) * 4;
                 if (heightmap[i] !== undefined) {
                     geometry.vertices.push(
-                        new THREE.Vector3((x - canvas.width / 2)*10, heightmap[i]/5,
-                            (y - canvas.height / 2)*10)
+                        new THREE.Vector3((x - canvas.width / 2) * 10, heightmap[i] / 5,
+                            (y - canvas.height / 2) * 10)
                     );
                 };
             }
         }
-
+        let usedVerts = []
+    
         for (let x = 0; x < canvas.width - 1; x++) {
             for (let y = 0; y < canvas.height - 1; y++) {
                 let v1 = (y * canvas.width + x);
@@ -59,17 +60,22 @@ export default AFRAME.registerComponent('mountains', {
                 let v3 = ((y + 1) * canvas.width + x);
                 let v4 = ((y + 1) * canvas.width + x + 1);
                 if (geometry.vertices[v1] && geometry.vertices[v2] && geometry.vertices[v3] && geometry.vertices[v4]) {
-                    geometry.faces.push(
-                        new THREE.Face3(v1, v2, v3)
-                    );
-                    geometry.faces.push(
-                        new THREE.Face3(v2, v4, v3)
-                    );
+                    if (isNotZero(geometry.vertices[v1], geometry.vertices[v2], geometry.vertices[v3])) {
+                        geometry.faces.push(
+                            new THREE.Face3(v1, v2, v3)
+                        );
+                        usedVerts[v1] = usedVerts[v2] = usedVerts[v3] = true;
+                    }
+                    if (isNotZero(geometry.vertices[v2], geometry.vertices[v4], geometry.vertices[v3])) {
+                        geometry.faces.push(
+                            new THREE.Face3(v2, v4, v3)
+                        );
+                        usedVerts[v2] = usedVerts[v4] = usedVerts[v3] = true;
+                    }
                 }
             }
         }
-
-
+        
         // let geometry = new THREE.PlaneGeometry(20, 20, 1, 1);
 
         // let texture = new THREE.CanvasTexture(canvas);
@@ -92,3 +98,7 @@ export default AFRAME.registerComponent('mountains', {
 
     },
 });
+
+function isNotZero(v1, v2, v3) {
+    return !(v1.y === 0 && v2.y === 0 && v3.y === 0);
+}
