@@ -8,7 +8,7 @@ export default AFRAME.registerComponent('missile', {
             default: 250
         },
         collisionDistance:{
-            default: 3
+            default: 5
         },
         direction:{
             type: 'vec3'
