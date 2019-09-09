@@ -1,4 +1,6 @@
 
+import {sound} from '../utils/sound';
+
 // Waves are ALWAYZ!!! 11 by 5 
 const wave = [[
     [1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1],
@@ -41,14 +43,14 @@ export default AFRAME.registerComponent('game', {
         this.el.addEventListener('fire', (data) => {
             switch (this.gameState) {
                 case 0:
+                    //sound.play(sound.alarm);
                     this.score = 0;
                     document.getElementById('titlescreen').setAttribute('visible', 'false');
-                    // document.getElementById('titlescreen')
-                    //     .setAttribute('animation', 'property: position; to: 0 -5 0; dur: 1500; easing: easeOutCubic');
                     this.gameState = 1;
                     this.invadersLeftInWave = this.spawnInvaderWave();
                     break;
                 case 1:
+                    sound.play(sound.fire);
                     this.spawnMissile(data.detail.direction, data.detail.position);
                     break;
                 case 2:
@@ -63,6 +65,7 @@ export default AFRAME.registerComponent('game', {
         });
 
         this.el.addEventListener('collision', e => {
+            sound.play(sound.explosion);
             let invpos = e.detail.invader.getAttribute('position');
             let explosion = document.createElement('a-entity');
             explosion.setAttribute('position', invpos);
@@ -75,6 +78,7 @@ export default AFRAME.registerComponent('game', {
             this.invadersLeftInWave -= 1;
             this.score++;
             if (this.invadersLeftInWave == 0) {
+               // sound.play(sound.alarm);
                 this.data.currentwave = (this.data.currentwave + 1) % wave.length;
                 this.currentspeed++;
                 this.invadersLeftInWave = this.spawnInvaderWave();
@@ -83,6 +87,7 @@ export default AFRAME.registerComponent('game', {
 
         this.el.addEventListener('game-over', () => {
             if (!~document.location.href.indexOf('godmode')) {
+                sound.play(sound.gameover);
                 document.getElementById('score').setAttribute('neontext', { text: `${this.score} invaders shot`, fontsize: 60, color: "#1b90e2" });
                 document.getElementById('gameoverscreen').setAttribute('visible', 'true');
                 this.gameState = 2;
@@ -90,10 +95,6 @@ export default AFRAME.registerComponent('game', {
                 this.gameover = true;
             }
         });
-    },
-
-    tick: function (time, timeDelta) {
-
     },
 
     spawnInvaderWave() {

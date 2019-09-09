@@ -11,6 +11,9 @@
 
 overall:
     ✔ Setup build pipelines @done(19-08-23 17:20)
+    ☐ @critical Music - https://sb.bitsnbites.eu/  
+    ☐ @critical sfx - https://github.com/mneubrand/jsfxr / http://superflashbros.net/as3sfxr/
+        ☐ @high Add alarm sound for near collision, when you are about to die
 gameplay:
     ✔ loose the game @done(19-08-26 23:52)
     ☐ @low Add delay between game states. Allow a moment to realize you are gameover.
@@ -24,7 +27,7 @@ gameplay:
         ✔ @critical Add 'AI' to invaders so they move from left to right, slowly getting closer. @done(19-09-02 23:04)
         ☐ @low Every now and then an invader breaks formation and takes its own path.
         ✔ @critical Create a new wave after every invader is shot @done(19-09-03 23:51)
-        ☐ @high Have the aliens shoot a missile every now and than.
+        ☐ @low Have the aliens shoot a missile every now and than.
         ✔ @low invaders in different colors @done(19-09-02 00:12)
         ☐ @low Create animation when invaders appear
         ✔ @critical Every wave the speed increases. Making it impossible to finish the game. @done(19-09-06 22:25)
@@ -33,14 +36,14 @@ gameplay:
         ☐ @low When a new wave is created, spawn all invaders at random positions in the distance and animate them into formation over a few seconds
         ✔ @low look at 0,0,0 @done(19-09-06 01:23)
         ☐ @low Add more wave formations
-        ☐ Replace placeholder explosion
+        ☐ @high Replace placeholder explosion
     Bunker:
         ☐ @high Create new model
         ☐ @critical Add wireframe shader
     Shooting:
         ✔ @critical keep track of score, how many invaders did you shoot. @done(19-09-06 21:28)
         ☐ @low show the score on screen
-        ☐ @high add a bounding box for the player that could get hit
+        ☐ @low add a bounding box for the player that could get hit
         ☐ @critical replace placeholder missile
         shoot invaders:
             ✔ bullets should be flying towards where the player looks @done(19-08-26 00:33)
@@ -52,25 +55,26 @@ gameplay:
                 ☐ @high Rift => controller
     controls:
         ☐ @low might need to add component to hide/show stuff depending on device/headset
-        ☐ @critical additional to this, we need to apply different components and setting based on formfactor
+        ☐ @high additional to this, we need to apply different components and setting based on formfactor
             To figure out how to detect the device. ==> AFRAME.utils.device
         look around:
             ✔ PC => mouse, if possible without dragging (look-controls="pointerLockEnabled:true") @done(19-08-24 22:56)
-            ☐ @high Mobile => Gyro
+            ✔ @critical Mobile => Gyro @done(19-09-09 21:42)
             ✔ @high Daydream, Rift => native @done(19-09-02 00:11)
         Fire:
             ✔ PC => hit space @done(19-08-26 00:33)
-            ☐ @high Mobile => tap center
+            ☐ @critical Mobile => tap (center)
             @high others => controller:
                 ✔ Daydream @done(19-09-02 00:11)
                 ☐ Rift
-        duck:
-            ☐ @high PC => pressing A or D to duck left or right
-            ☐ @high Mobile => touching left or right on the screen
-            ☐ @high Daydream => controller
-            ☐ @high Rift => just stand behind it
+        duck: 
+            # probably not going to implement ducking or missiles
+            ☐ @low PC => pressing A or D to duck left or right
+            ☐ @low Mobile => touching left or right on the screen
+            ☐ @low Daydream => controller
+            ☐ @low Rift => just stand behind it
     mobile:
-        ☐ @low full screen goes into splitscreen, is this preventable?
+        ☐ @high full screen goes into splitscreen, is this preventable?
 
 design:
     @high generate synthwave environment:
@@ -91,17 +95,17 @@ Optimizations:
     ☐ @low Optimize shaders
     ☐ @high use instancing for models
     ✔ @high restructure duplicate code with shaders and materials over components @done(19-09-06 23:53)
-    ☐ @today @high optimize mountains everywhere there's a lot of 0; don't add face if all 3 verts are at Y:0, than remove unused verts;
+    ☐ @critical optimize mountains everywhere there's a lot of 0; don't add face if all 3 verts are at Y:0, than remove unused verts;
 
 bugs:
     ☐ @high Hide 'gun' on desktop
     ✔ @critical missiles not firing in the right direction on desktop @done(19-09-03 13:17)
     ✔ Titlescreen has to be a bit smaller for DayDream @done(19-09-06 01:23)
-    ☐ @critical Titlescreen is cut off on daydream (possibly gameover as well)
+    ☐ @critical Titlescreen is cut off on phone (possibly gameover as well)
     ☐ @high Hitbox needs to be a little bit bigger
     ☐ @low Sometimes when all invaders are shot we don't get the next wave.(probably due to godmode)
     ☐ @low Glow on title text is cut off because text starts at Y 0
-    ☐ @high Rapid fire when space is continuesly pressed
+    ☐ @high Rapid fire when space is continuesly pressed (set boolean on down, remove on up)
 
 Could haves / Would likes /:
     ☐ @low add spacial sound and invaders all around
@@ -114,7 +118,5 @@ Could haves / Would likes /:
 # ideas and random stuff
 - there are some WebVR examples of three.js
 - Particles : https://github.com/mrdoob/three.js/blob/master/examples/webgl_buffergeometry_custom_attributes_particles.html
-- Music - https://sb.bitsnbites.eu/  
-- sfx - https://github.com/mneubrand/jsfxr
 
-https://sb.bitsnbites.eu/?data=U0JveAwC7d1NixxFGMDxp6p6OjEsY4ImMSjYrKgnieJBECOCCB4iHvQg-G5y8BAFwZ0gi9gMs7QDw7hrs7gMLhKQ1e_gwYAnr94Fv0E-QltdXd2Z7emdYXWys7P5_7rr5amamX1m2FtR1f88JPKURG39Qywq_fIBaa1cWBWR14xSF39Rj35x6uNQRGllbHGXjCnH3PjIDuTlR1t2XbNdvTDvDX3ZtGXLNf1qvi-LV8v_lshPLhg152-HUhcMlyB_acz_-yp_AAAAAAAAAAAATNKfxWLWYpGWhI_ZMNNKtX-9dD0No1DltPJEyrbs-bjT6dihel3enXv-Fc6fmz4fznj_ovM_d376fNbm3xQAAAAAAAAAAOAomW9jUWsD27t68-diSLdEIpFHThtnfBfaeFuNd2f8iVk7tTZmzN_r3VLxjPnkkPn3jjh_dpMBAAAAAAAAAADM2buxyIfxisiKvF6M6Ewkest0g7svmnaYo3RlQ_oytFff9roTsQu2ZNuWfOjriXjBYptl4vJNbC-2V6-Ke_kCW-LyTV2-iay7eNPGmz4GAAAAAAAAAADAiaJux6J_j5U8G154RsTsaKWv9XT0RnipdgBi0zKaCUyQ74JyG6HK3VD1eNs_HG37gHjL3b5qiEf-sV6jA-L_a-BuXzXEqbt91RDX890sHjtWVEeQP8-iAwAAAAAAAAAAmC-T7YhkOysiWh4vhvSuSHTZ7Ormd4wf4uiW1IZuJaOs-xPxhozfGxPxog3cWY1lnUzE9Xx7Mn73-B8CAAAAAAAAAAA4YfT1WMyfse21whdt_UeodCISpeFXIb8OAAAAAAAAAAAA7kfZmpLsc1EShE8UI7ot6umrrfIF1X4zz5j9u9BMcaBhKuXRhlWd3h07zqblnxZfYgnyBwAAAAAAAAAAwNz8HSv5KxaVBeHLNnzllDLZgxI9LKf9LrRy6cz3dLWoVo3LvueENbbH3QF5u0U0AAAAAAAAAAAA3G8GRXkpOLNqe7-1RN1JJLrROhsU8_uWyqRaSqu4nVpuv1ZzyxoUAAAAAAAAAAAAlsx7tsT5ra4VA-q7F-T5NXOl3IVWFX-pqlfMJ_yGAAAAAAAAAAAAOEFMFotkA5FvtL5o44-MMh-8KdHb-kqgc6bcbaY9VeM_aOirYT0eHvefoOvz7fr8a_Ey5w8AAAAAAAAAAID_xB_kmL0f247OAqVX70j0jtrVbloVzXir8-Ije63XPrC-K239kHHnkF_gzIy4Lpvx92XO84fNHwAAAAAAAAAAAItlbn-qisMcA3nVhraj2p_o554Mzurmd6j6-OjAD9_buzVl9rgoM9wrb5v33hLlDwAAAAAAAAAAgPn6Fw
+- music : https://sb.bitsnbites.eu/?data=U0JveAwC7d1NixxFGMDxp6p6OjEsY4ImMSjYrKgnieJBECOCCB4iHvQg-G5y8BAFwZ0gi9gMs7QDw7hrs7gMLhKQ1e_gwYAnr94Fv0E-QltdXd2Z7emdYXWys7P5_7rr5amamX1m2FtR1f88JPKURG39Qywq_fIBaa1cWBWR14xSF39Rj35x6uNQRGllbHGXjCnH3PjIDuTlR1t2XbNdvTDvDX3ZtGXLNf1qvi-LV8v_lshPLhg152-HUhcMlyB_acz_-yp_AAAAAAAAAAAATNKfxWLWYpGWhI_ZMNNKtX-9dD0No1DltPJEyrbs-bjT6dihel3enXv-Fc6fmz4fznj_ovM_d376fNbm3xQAAAAAAAAAAOAomW9jUWsD27t68-diSLdEIpFHThtnfBfaeFuNd2f8iVk7tTZmzN_r3VLxjPnkkPn3jjh_dpMBAAAAAAAAAADM2buxyIfxisiKvF6M6Ewkest0g7svmnaYo3RlQ_oytFff9roTsQu2ZNuWfOjriXjBYptl4vJNbC-2V6-Ke_kCW-LyTV2-iay7eNPGmz4GAAAAAAAAAADAiaJux6J_j5U8G154RsTsaKWv9XT0RnipdgBi0zKaCUyQ74JyG6HK3VD1eNs_HG37gHjL3b5qiEf-sV6jA-L_a-BuXzXEqbt91RDX890sHjtWVEeQP8-iAwAAAAAAAAAAmC-T7YhkOysiWh4vhvSuSHTZ7Ormd4wf4uiW1IZuJaOs-xPxhozfGxPxog3cWY1lnUzE9Xx7Mn73-B8CAAAAAAAAAAA4YfT1WMyfse21whdt_UeodCISpeFXIb8OAAAAAAAAAAAA7kfZmpLsc1EShE8UI7ot6umrrfIF1X4zz5j9u9BMcaBhKuXRhlWd3h07zqblnxZfYgnyBwAAAAAAAAAAwNz8HSv5KxaVBeHLNnzllDLZgxI9LKf9LrRy6cz3dLWoVo3LvueENbbH3QF5u0U0AAAAAAAAAAAA3G8GRXkpOLNqe7-1RN1JJLrROhsU8_uWyqRaSqu4nVpuv1ZzyxoUAAAAAAAAAAAAlsx7tsT5ra4VA-q7F-T5NXOl3IVWFX-pqlfMJ_yGAAAAAAAAAAAAOEFMFotkA5FvtL5o44-MMh-8KdHb-kqgc6bcbaY9VeM_aOirYT0eHvefoOvz7fr8a_Ey5w8AAAAAAAAAAID_xB_kmL0f247OAqVX70j0jtrVbloVzXir8-Ije63XPrC-K239kHHnkF_gzIy4Lpvx92XO84fNHwAAAAAAAAAAAItlbn-qisMcA3nVhraj2p_o554Mzurmd6j6-OjAD9_buzVl9rgoM9wrb5v33hLlDwAAAAAAAAAAgPn6Fw
