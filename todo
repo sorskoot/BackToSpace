@@ -117,6 +117,7 @@ Could haves / Would likes /:
             ☐ @low `wave=X` to start at wave X
 
 # ideas and random stuff
+- have one invader break formation every now and then, just increase the speed by much.
 - there are some WebVR examples of three.js
 - Particles : https://github.com/mrdoob/three.js/blob/master/examples/webgl_buffergeometry_custom_attributes_particles.html
 

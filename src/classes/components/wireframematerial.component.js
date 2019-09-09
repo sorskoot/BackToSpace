@@ -7,6 +7,10 @@ export default AFRAME.registerComponent('wireframe-material', {
             type:'color',
             default:"white"
         },
+        fillcolor:{
+            type:'color',
+            default:'#000000'
+        },
         thickness:{
             type:'number',
             default:0.05
@@ -22,7 +26,7 @@ export default AFRAME.registerComponent('wireframe-material', {
             },
             uniforms: { // some parameters for the shader
                 time: { value: 0 },
-                fill: { value: new THREE.Color('#000000') },
+                fill: { value: new THREE.Color(this.data.fillcolor) },
                 stroke: { value: new THREE.Color(this.data.color) },
                 noiseA: { value: false },
                 noiseB: { value: false },
