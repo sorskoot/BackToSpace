@@ -33,6 +33,7 @@ export default AFRAME.registerComponent('game', {
     },
 
     init: function () {
+
         this.gameover = false;
         this.currentspeed = 5;
         this.score = 0;

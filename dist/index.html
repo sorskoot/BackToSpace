@@ -8,7 +8,10 @@
 </head>
 
 <body>
-    <a-scene>
+    <a-scene loading-screen="dotsColor: red; backgroundColor: black;enabled:true">
+        <a-assets>
+            <a-asset-song></a-asset-song>
+        </a-assets>
         <a-entity>
             <a-plane sun position="0 100 -430" scale="230 230 230"></a-plane>
         </a-entity>
@@ -20,7 +23,8 @@
         <a-entity id='gameoverscreen' visible="false">
             <a-plane titlescreen="text:Game Over" position="0 -.25 -2" scale="5 5 5" rotation="-14.5 0 0"></a-plane>
             <a-plane neontext="text:Press fire to restart;fontsize:125" position="0 .30 -1.9" scale="3 3 3"></a-plane>
-            <a-plane id="score" neontext="text:312 invaders shot;fontsize:60;color:#1b90e2" position="0 .05 -1.6" scale="3 3 3"></a-plane>
+            <a-plane id="score" neontext="text:312 invaders shot;fontsize:60;color:#1b90e2" position="0 .05 -1.6"
+                scale="3 3 3"></a-plane>
         </a-entity>
 
         <a-entity game>
@@ -37,7 +41,7 @@
             <a-entity mountains wireframe-material="color:#497cdf" position="0 -1 0"></a-entity>
             <a-entity ground wireframe-material="color:#FF00FF;thickness:0.005"></a-entity>
         </a-entity>
-        
+
         <a-sky space>
         </a-sky>
         <a-entity shoot-controls="hand:right">

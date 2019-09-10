@@ -1,14 +1,15 @@
 export default AFRAME.registerComponent('neontext', {
     schema: {
-        text: { default: 'Neon text' },
-        fontsize: { default: 150 },
-        font: { default: 'Serif' },
+        text: { type: 'string', default: 'Neon text' },
+        fontsize: { type: 'number',default: 150 },
+        font: { type: 'string',default: 'Serif' },
         color: { type: 'color', default: '#e21b90' }
     },
     init: function () {
         this.update();
     },
     update: function () {
+        
         let canvas = document.createElement("canvas");
         canvas.width = canvas.height = 1024;
         let ctx = canvas.getContext("2d");

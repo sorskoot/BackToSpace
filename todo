@@ -11,7 +11,7 @@
 
 overall:
     ✔ Setup build pipelines @done(19-08-23 17:20)
-    ☐ @critical Music - https://sb.bitsnbites.eu/  
+    ✔ @critical Music - https://sb.bitsnbites.eu/ @done(19-09-10 22:40)
     ✔ @critical sfx - https://github.com/mneubrand/jsfxr / http://superflashbros.net/as3sfxr/ @done(19-09-09 22:38)
         ☐ @high Add alarm sound for near collision, when you are about to die
 gameplay:
@@ -36,15 +36,15 @@ gameplay:
         ☐ @low When a new wave is created, spawn all invaders at random positions in the distance and animate them into formation over a few seconds
         ✔ @low look at 0,0,0 @done(19-09-06 01:23)
         ☐ @low Add more wave formations
-        ☐ @high Replace placeholder explosion
+        ☐ @today @high Replace placeholder explosion
     Bunker:
         ☐ @high Create new model
-        ☐ @critical Add wireframe shader
+        ☐ @today @critical Add wireframe shader
     Shooting:
         ✔ @critical keep track of score, how many invaders did you shoot. @done(19-09-06 21:28)
         ☐ @low show the score on screen
         ☐ @low add a bounding box for the player that could get hit
-        ☐ @critical replace placeholder missile
+        ☐ @today @critical replace placeholder missile
         shoot invaders:
             ✔ bullets should be flying towards where the player looks @done(19-08-26 00:33)
             ✔ Actually hit invaders @done(19-08-26 23:15)
@@ -95,18 +95,20 @@ Optimizations:
     ☐ @low Optimize shaders
     ☐ @high use instancing for models
     ✔ @high restructure duplicate code with shaders and materials over components @done(19-09-06 23:53)
-    ✔ @today @critical optimize mountains everywhere there's a lot of 0; don't add face if all 3 verts are at Y:0, than remove unused verts; @done(19-09-09 23:24)
+    ✔ @critical optimize mountains everywhere there's a lot of 0; don't add face if all 3 verts are at Y:0, than remove unused verts; @done(19-09-09 23:24)
 
 bugs:
     ☐ @high Hide 'gun' on desktop
     ✔ @critical missiles not firing in the right direction on desktop @done(19-09-03 13:17)
     ✔ Titlescreen has to be a bit smaller for DayDream @done(19-09-06 01:23)
     ☐ @critical Titlescreen is cut off on phone (possibly gameover as well)
-    ✔ @today @high Hitbox needs to be a little bit bigger @done(19-09-09 22:44)
+    ✔ @high Hitbox needs to be a little bit bigger @done(19-09-09 22:44)
     ☐ @low Sometimes when all invaders are shot we don't get the next wave.(probably due to godmode)
     ☐ @low Glow on title text is cut off because text starts at Y 0
-    ✔ @today @high Rapid fire when space is continuesly pressed (set boolean on down, remove on up) @done(19-09-09 22:42)
-    ☐ @critical Rendering music lags the game
+    ✔ @high Rapid fire when space is continuesly pressed (set boolean on down, remove on up) @done(19-09-09 22:42)
+    ☐ @critical Initial rendering music lags the game
+    ☐ @high Music must loop
+
 
 Could haves / Would likes /:
     ☐ @low add spacial sound and invaders all around
