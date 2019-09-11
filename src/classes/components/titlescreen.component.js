@@ -1,6 +1,8 @@
 export default AFRAME.registerComponent('titlescreen', {
     schema: {
-        text: { default: 'BACK TO SPACE' }
+        text: { default: 'BACK TO SPACE' },
+        fontsize: { type: 'number',default: 150 },
+        font: { type: 'string',default: 'Fantasy' },
     },
     init: function () {
         let canvas = document.createElement("canvas");
@@ -20,7 +22,11 @@ export default AFRAME.registerComponent('titlescreen', {
         ctx.shadowBlur = 15;
         ctx.textAlign = 'center';
         ctx.fillStyle = gradient;
-        ctx.font = "150px Fantasy";
+        ctx.font = `${this.data.fontsize}px ${this.data.font}` ;;
+        while(ctx.measureText(this.data.text).width > canvas.width && this.data.fontsize>1){
+            this.data.fontsize--;
+            ctx.font = `${this.data.fontsize}px ${this.data.font}` ;
+        }
         ctx.fillText(this.data.text, 512, 123);
         let gradient2 = ctx.createLinearGradient(0, 5, 0, 140);
         gradient2.addColorStop(0.0, '#e3f3f2');

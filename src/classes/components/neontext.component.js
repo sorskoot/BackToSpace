@@ -18,6 +18,11 @@ export default AFRAME.registerComponent('neontext', {
         ctx.font = `${this.data.fontsize}px ${this.data.font}` ;
         ctx.textAlign = 'center';
 
+        while(ctx.measureText(this.data.text).width > canvas.width && this.data.fontsize>1){
+            this.data.fontsize--;
+            ctx.font = `${this.data.fontsize}px ${this.data.font}` ;
+        }
+
         ctx.fillText(this.data.text, 512, 123);
 
         ctx.strokeStyle = this.data.color;
