@@ -79,6 +79,7 @@ export default AFRAME.registerComponent('shoot-controls', {
         var data = this.data;
         var el = this.el;
         el.setAttribute('keyboardcontrols', {});
+        el.setAttribute('touchcontrols', {});
         el.setAttribute('vive-controls', { hand: data.hand, model: false });
         el.setAttribute('oculus-touch-controls', { hand: data.hand, model: false });
         el.setAttribute('windows-motion-controls', { hand: data.hand, model: false });

@@ -16,6 +16,9 @@ export default AFRAME.registerComponent('missile', {
         },
         position: {
             type: 'vec3'
+        },
+        yCorrection:{
+            default:-.1
         }
     },
     init: function () {
@@ -27,10 +30,11 @@ export default AFRAME.registerComponent('missile', {
 
         this.el.setObject3D('mesh', m);
         this.el.setAttribute('rotation',rot);
+        this.el.setAttribute('scale',"2 2 2");
         this.el.setAttribute('wireframe-material', {
-            fillcolor: '#220000' ,
-            color: '#FF0000',
-            thickness: 0.05
+            fillcolor: '#222200' ,
+            color: '#FFFF00',
+            thickness: 0.1
         });
         this.el.setAttribute("position", this.data.position);
         
@@ -39,7 +43,7 @@ export default AFRAME.registerComponent('missile', {
         if (this.collision) return;
         let pos = this.el.getAttribute('position');
         pos.x -= this.data.direction.x * this.data.speed * (timeDelta / 1000);
-        pos.y -= this.data.direction.y * this.data.speed * (timeDelta / 1000);
+        pos.y -= (this.data.direction.y + this.data.yCorrection) * this.data.speed * (timeDelta / 1000);
         pos.z -= this.data.direction.z * this.data.speed * (timeDelta / 1000);
         if (pos.z < -this.data.lifetime) {
             this.el.parentEl.removeChild(this.el);
