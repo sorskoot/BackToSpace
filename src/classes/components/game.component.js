@@ -60,6 +60,8 @@ export default AFRAME.registerComponent('game', {
                     this.gameover = false
                     this.gameState = 1;
                     this.score = 0;
+                    this.currentspeed = 5;
+                    this.data.currentwave = 0;
                     this.invadersLeftInWave = this.spawnInvaderWave();
                     break;
             }

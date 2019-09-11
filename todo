@@ -109,7 +109,8 @@ bugs:
     ☐ @low Glow on title text is cut off because text starts at Y 0
     ✔ @high Rapid fire when space is continuesly pressed (set boolean on down, remove on up) @done(19-09-09 22:42)
     ✔ @critical Initial rendering music lags the game @done(19-09-11 17:00)
-    ☐ @high Music must loop
+    ✔ @high Music must loop @done(19-09-11 21:58)
+    ✔ @critical wave number does not reset @done(19-09-11 22:01)
 
 
 Could haves / Would likes /:
