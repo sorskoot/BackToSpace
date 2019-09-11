@@ -70,7 +70,7 @@ export default AFRAME.registerComponent('game', {
             let invpos = e.detail.invader.getAttribute('position');
             let explosion = document.createElement('a-entity');
             explosion.setAttribute('position', invpos);
-            explosion.setAttribute('explosion', '');
+            explosion.setAttribute('explosion', {color:e.detail.invader.components.invader.getColor()});
             this.missilegroup.appendChild(explosion);
 
             e.detail.missile.remove();

@@ -36,7 +36,7 @@ gameplay:
         ☐ @low When a new wave is created, spawn all invaders at random positions in the distance and animate them into formation over a few seconds
         ✔ @low look at 0,0,0 @done(19-09-06 01:23)
         ☐ @low Add more wave formations
-        ☐ @high Replace placeholder explosion
+        ✔ @high Replace placeholder explosion @done(19-09-11 21:57)
     Bunker:
         ✔ @high Create new model @done(19-09-11 00:42)
         ✔ @critical Add wireframe shader @done(19-09-11 00:42)
@@ -86,7 +86,7 @@ design:
 
     ✔ Create design for aliens @done(19-09-01 21:07)
     ☐ @high Add more different invaders
-    ☐ @low animate explosions
+    ✔ @low animate explosions @done(19-09-11 21:57)
     ☐ @low design and animate rockets with fire and smoke
     ✔ @critical Title screen @done(19-09-03 23:32)
     ✔ @critical Gameover screen - with last score @done(19-09-06 23:28)
@@ -108,7 +108,7 @@ bugs:
     ☐ @low Sometimes when all invaders are shot we don't get the next wave.(probably due to godmode)
     ☐ @low Glow on title text is cut off because text starts at Y 0
     ✔ @high Rapid fire when space is continuesly pressed (set boolean on down, remove on up) @done(19-09-09 22:42)
-    ☐ @critical Initial rendering music lags the game
+    ✔ @critical Initial rendering music lags the game @done(19-09-11 17:00)
     ☐ @high Music must loop
 
 
