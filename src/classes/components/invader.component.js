@@ -15,11 +15,14 @@ export default AFRAME.registerComponent('invader', {
         direction: { default: 0 },
         type: { default: 1 },
         speed: { default: 5 },
-        frequency: { default: 2 }
+        frequency: { default: 2 },
+        breakChange: { default: 100 },
+        amp: { default: 1 }
     },
 
     init: function () {
         this.movement = 0;
+        this.broken = false;
         const invaderType = (this.data.type - 1) % 2;
         let cube = createMesh(verts[invaderType], faces[invaderType]);
         this.el.setObject3D('mesh', cube);
@@ -47,13 +50,22 @@ export default AFRAME.registerComponent('invader', {
         pos.z -= this.dir.z * deltaTime;
         let currentDist = Math.sqrt(this.orgX * this.orgX + pos.y * pos.y + pos.z * pos.z);
         pos.x =
-            (Math.sin((this.startDist * this.deltaFreq) - (this.deltaFreq * currentDist)) * currentDist / 10) +
+            (Math.sin((this.startDist * this.deltaFreq) -
+                (this.deltaFreq * currentDist)) * currentDist / 10 * this.data.amp) +
             this.orgX;
-
+        this.el.getObject3D('mesh').lookAt(new THREE.Vector3(0, 0, 0));
         if (currentDist < 10) {
             //this.el.parentEl.removeChild(this.el);
             this.gameover = true;
             document.querySelector('[game]').emit('game-over');
+        }
+        if (currentDist > 10 && !this.broken) {
+            if (Math.random() * 1000000 <= this.data.breakChange) {
+                this.broken = true;
+                this.data.speed *= 2;
+                this.data.frequency *= 4;
+                this.data.amp *= 5;
+            }
         }
     },
     getColor: function () {

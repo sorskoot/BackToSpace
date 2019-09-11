@@ -16,8 +16,8 @@ overall:
         ☐ @high Add alarm sound for near collision, when you are about to die
 gameplay:
     ✔ loose the game @done(19-08-26 23:52)
-    ☐ @low Add delay between game states. Allow a moment to realize you are gameover.
-    ☐ @high Add a small delay between waves
+    ☐ @critical Add delay between game states. Allow a moment to realize you are gameover. - Often the game goes so fast. Need to be blocked when game over.
+    ☐ @low Add a small delay between waves 
     invaders:
         ✔ spawn invaders @done(19-08-23 00:06)
             at 90 degrees width in front of the player, far away and up in the sky
@@ -25,7 +25,7 @@ gameplay:
         ✔ move invaders towards player @done(19-08-23 00:16)
         ✔ @critical create waves of invaders @done(19-09-02 00:11)
         ✔ @critical Add 'AI' to invaders so they move from left to right, slowly getting closer. @done(19-09-02 23:04)
-        ☐ @low Every now and then an invader breaks formation and takes its own path.
+        ✔ @high Every now and then an invader breaks formation and takes its own path (increase values). @done(19-09-12 00:12)
         ✔ @critical Create a new wave after every invader is shot @done(19-09-03 23:51)
         ☐ @low Have the aliens shoot a missile every now and than.
         ✔ @low invaders in different colors @done(19-09-02 00:12)
@@ -41,6 +41,7 @@ gameplay:
         ✔ @high Create new model @done(19-09-11 00:42)
         ✔ @critical Add wireframe shader @done(19-09-11 00:42)
     Shooting:
+        ☐ @critical Replace Placeholder gun
         ✔ @critical keep track of score, how many invaders did you shoot. @done(19-09-06 21:28)
         ☐ @low show the score on screen
         ☐ @low add a bounding box for the player that could get hit
@@ -52,7 +53,7 @@ gameplay:
                 ✔ PC => tapping space @done(19-08-26 00:33)
                 ✔ @high Mobile => tapping screen @done(19-09-11 13:25)
                 ✔ @high Daydream => remote @done(19-09-02 00:11)
-                ☐ @high Rift => controller
+                ✔ @high Rift => controller @done(19-09-11 22:24)
                 ☐ @low bluetooth gun on phone
     controls:
         ☐ @low might need to add component to hide/show stuff depending on device/headset
@@ -65,9 +66,9 @@ gameplay:
         Fire:
             ✔ PC => hit space @done(19-08-26 00:33)
             ✔ @critical Mobile => tap (center) @done(19-09-11 13:24)
-            @high others => controller:
+            ✔ @high others => controller: @done(19-09-11 22:23)
                 ✔ Daydream @done(19-09-02 00:11)
-                ☐ Rift
+                ✔ Rift @done(19-09-11 22:23)
         duck: 
             # probably not going to implement ducking or missiles
             ☐ @low PC => pressing A or D to duck left or right
@@ -97,7 +98,7 @@ Optimizations:
     ☐ @high use instancing for models
     ✔ @high restructure duplicate code with shaders and materials over components @done(19-09-06 23:53)
     ✔ @critical optimize mountains everywhere there's a lot of 0; don't add face if all 3 verts are at Y:0, than remove unused verts; @done(19-09-09 23:24)
-    ☐ add something like this to shorten code for gradients `acs = (g, s, c) => g.addColorStop(s, c);`
+    ☐ @low add something like this to shorten code for gradients `acs = (g, s, c) => g.addColorStop(s, c);`
 
 bugs:
     ☐ @high Hide 'gun' on desktop

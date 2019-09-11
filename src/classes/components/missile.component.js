@@ -29,7 +29,9 @@ export default AFRAME.registerComponent('missile', {
         let rot = document.querySelector('a-entity[camera]').getAttribute('rotation');
 
         this.el.setObject3D('mesh', m);
-        this.el.setAttribute('rotation',rot);
+        // const newLocal = new THREE.Euler(this.data.direction.x, this.data.direction.y, this.data.direction.z, 'XYZ').toVector3();
+        // this.el.setAttribute('rotation',newLocal);
+        m.lookAt(this.data.direction.x, this.data.direction.y,this.data.direction.z);
         this.el.setAttribute('scale',"2 2 2");
         this.el.setAttribute('wireframe-material', {
             fillcolor: '#222200' ,
