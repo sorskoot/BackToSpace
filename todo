@@ -38,13 +38,13 @@ gameplay:
         ☐ @low Add more wave formations
         ☐ @today @high Replace placeholder explosion
     Bunker:
-        ☐ @high Create new model
-        ☐ @today @critical Add wireframe shader
+        ✔ @high Create new model @done(19-09-11 00:42)
+        ✔ @critical Add wireframe shader @done(19-09-11 00:42)
     Shooting:
         ✔ @critical keep track of score, how many invaders did you shoot. @done(19-09-06 21:28)
         ☐ @low show the score on screen
         ☐ @low add a bounding box for the player that could get hit
-        ☐ @today @critical replace placeholder missile
+        ✔ @critical replace placeholder missile @done(19-09-11 00:42)
         shoot invaders:
             ✔ bullets should be flying towards where the player looks @done(19-08-26 00:33)
             ✔ Actually hit invaders @done(19-08-26 23:15)
@@ -96,6 +96,7 @@ Optimizations:
     ☐ @high use instancing for models
     ✔ @high restructure duplicate code with shaders and materials over components @done(19-09-06 23:53)
     ✔ @critical optimize mountains everywhere there's a lot of 0; don't add face if all 3 verts are at Y:0, than remove unused verts; @done(19-09-09 23:24)
+    ☐ add something like this to shorten code for gradients `acs = (g, s, c) => g.addColorStop(s, c);`
 
 bugs:
     ☐ @high Hide 'gun' on desktop

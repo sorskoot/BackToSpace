@@ -1,7 +1,4 @@
-import {
-    addBarycentricCoordinates,
-    unindexBufferGeometry
-} from '../utils/geom';
+import {createMesh} from '../utils/createMesh';
 
 const colors = ['#00FF00', '#0000FF', '#00FFFF', '#FF0000', '#FF00FF'];
 const fillcolors = ['#001100', '#000011', '#001111', '#110000', '#110011'];
@@ -23,37 +20,15 @@ export default AFRAME.registerComponent('invader', {
 
     init: function () {
         this.movement = 0;
-        var geometry = new THREE.Geometry();
-
-
         const invaderType = (this.data.type - 1)%2;
-        for (let i = 0; i < verts[invaderType].length; i += 3) {
-            geometry.vertices.push(
-                new THREE.Vector3(verts[invaderType][i], verts[invaderType][i + 1], verts[invaderType][i + 2])
-            );
-        }
-
-        for (let i = 0; i < faces[invaderType].length; i += 3) {
-            geometry.faces.push(
-                new THREE.Face3(faces[invaderType][i + 2], faces[invaderType][i + 1], faces[invaderType][i])
-            );
-        }
-
-        var bufferGeometry = new THREE.BufferGeometry().fromGeometry(geometry);
-
-        unindexBufferGeometry(bufferGeometry);
-        addBarycentricCoordinates(bufferGeometry, false);
-
-        var cube = new THREE.Mesh(bufferGeometry);
+        let cube = createMesh(verts[invaderType], faces[invaderType]);
         this.el.setObject3D('mesh', cube);
         this.el.setAttribute('wireframe-material', { 
                 fillcolor:fillcolors[this.data.type - 1] , 
                 color: colors[this.data.type - 1],
             thickness:0.05 });
         this.el.setAttribute('scale',"1.5 1.5 1.5");
-        cube.lookAt(new THREE.Vector3(0, 0, 0));
         let pos = this.el.getAttribute('position')
-        //this.el.setAttribute('rotation', { x: -10, y: 180, z: 0 });
         let dist = Math.sqrt(pos.x * pos.x + pos.y * pos.y + pos.z * pos.z);
         this.startDist = dist;
         this.dir = { x: pos.x / dist, y: pos.y / dist, z: pos.z / dist };

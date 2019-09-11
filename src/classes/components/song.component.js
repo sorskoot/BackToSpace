@@ -28,7 +28,6 @@ export default AFRAME.registerElement('a-asset-song', {
                         audio.volume = 0.2;
                         audio.src = URL.createObjectURL(new Blob([wave], { type: "audio/wav" }));
                         audio.play();
-                        AFRAME.ANode.prototype.load.call(this);
                     }
                 }, 0);
             }

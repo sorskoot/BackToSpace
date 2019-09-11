@@ -1,4 +1,3 @@
-
 export default AFRAME.registerComponent('titlescreen', {
     schema: {
         text: { default: 'BACK TO SPACE' }
@@ -6,7 +5,7 @@ export default AFRAME.registerComponent('titlescreen', {
     init: function () {
         let canvas = document.createElement("canvas");
         canvas.width = canvas.height = 1024;
-        
+
         let ctx = canvas.getContext("2d");
         let gradient = ctx.createLinearGradient(0, 8, 0, 120);
         gradient.addColorStop(0, '#1f1f75');
@@ -34,15 +33,15 @@ export default AFRAME.registerComponent('titlescreen', {
         gradient2.addColorStop(0.7, '#1f1f75');
         gradient2.addColorStop(0.8, '#aa1885');
         gradient2.addColorStop(0.9, '#e3f3f2');
-        
+
         ctx.shadowColor = '#7b257c';
         ctx.shadowBlur = 1;
 
         ctx.strokeStyle = 'white';
         ctx.lineWidth = 5;
         ctx.strokeText(this.data.text, 512, 123);
-        
-     
+
+
         ctx.strokeStyle = gradient2;
         ctx.lineWidth = 4;
         ctx.strokeText(this.data.text, 512, 123);

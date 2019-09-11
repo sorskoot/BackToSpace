@@ -13,3 +13,4 @@ import './classes/components/sun.component';
 import './classes/components/mountains.component';
 import './classes/components/wireframematerial.component';
 import './classes/components/song.component';
+import './classes/components/bunker.component';

@@ -122,8 +122,7 @@ export default AFRAME.registerComponent('game', {
     },
 
     spawnMissile: function (direction, position) {
-        let box = document.createElement("a-box");
-        box.setAttribute("color", "red");
+        let box = document.createElement("a-entity");
         box.setAttribute("missile", { direction: direction, position: position });
         this.missilegroup.appendChild(box);
     }

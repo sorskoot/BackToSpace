@@ -6,12 +6,5 @@ export default AFRAME.registerComponent('explosion', {
         sphere.setAttribute('color','yellow');
         sphere.setAttribute('scale', { x: 2, y: 2, z: 2 });
         this.el.appendChild(sphere);
-    },
-    tick: function (time, timeDelta) {
-        this.spawntimer -= timeDelta;
-        if (this.spawntimer < 0) {
-            this.spawntimer = this.data.spawninterval;
-            this.spawnInvader();
-        }
-    },
+    }
 });
