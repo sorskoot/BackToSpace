@@ -103,12 +103,13 @@ export default AFRAME.registerComponent('game', {
             this.score++;
             if (this.invadersLeftInWave == 0) {
                 // sound.play(sound.alarm);
-                this.data.currentwave = (this.data.currentwave + 1) % wave.length;
-                this.currentspeed++;
-                this.invadersLeftInWave = this.spawnInvaderWave();
+                setTimeout(() => {
+                    this.data.currentwave = (this.data.currentwave + 1) % wave.length;
+                    this.currentspeed++;
+                    this.invadersLeftInWave = this.spawnInvaderWave();
+                },1500);
             }
         })
-
         this.el.addEventListener('game-over', () => {
             if (!~document.location.href.indexOf('godmode') && !this.invincible) {
                 sound.play(sound.gameover);
@@ -142,6 +143,7 @@ export default AFRAME.registerComponent('game', {
         let rndY = -y * 25 + 150;
         let rad = (((x + .5) / 11) - .5) * (Math.PI / 1.5);
         box.setAttribute("invader", { direction: rad, type: type, speed: this.currentspeed });
+        box.setAttribute('appear','');
         const position = { x: Math.sin(rad) * 250, y: rndY, z: (Math.cos(rad) * -150) };
         box.setAttribute("position", position);
         this.invadergroup.appendChild(box);

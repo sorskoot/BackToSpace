@@ -13,11 +13,11 @@ overall:
     ✔ Setup build pipelines @done(19-08-23 17:20)
     ✔ @critical Music - https://sb.bitsnbites.eu/ @done(19-09-10 22:40)
     ✔ @critical sfx - https://github.com/mneubrand/jsfxr / http://superflashbros.net/as3sfxr/ @done(19-09-09 22:38)
-        ☐ @high Add alarm sound for near collision, when you are about to die
+        ☐ @low Add alarm sound for near collision, when you are about to die
 gameplay:
     ✔ loose the game @done(19-08-26 23:52)
     ✔ @critical Add delay between game states. Allow a moment to realize you are gameover. - Often the game goes so fast. Need to be blocked when game over. @done(19-09-12 22:46)
-    ☐ @low Add a small delay between waves 
+    ✔ @low Add a small delay between waves @done(19-09-13 00:24)
     invaders:
         ✔ spawn invaders @done(19-08-23 00:06)
             at 90 degrees width in front of the player, far away and up in the sky
@@ -29,10 +29,10 @@ gameplay:
         ✔ @critical Create a new wave after every invader is shot @done(19-09-03 23:51)
         ☐ @low Have the aliens shoot a missile every now and than.
         ✔ @low invaders in different colors @done(19-09-02 00:12)
-        ☐ @low Create animation when invaders appear
+        ✔ @low Create animation when invaders appear @done(19-09-13 00:24)
         ✔ @critical Every wave the speed increases. Making it impossible to finish the game. @done(19-09-06 22:25)
         ☐ @low At a certain interval a spaceship appears and fires missiles
-        ☐ @low When a new wave is created, spawn all invaders at random positions in the distance and animate them into formation over a few seconds
+        ✘ @low When a new wave is created, spawn all invaders at random positions in the distance and animate them into formation over a few seconds @cancelled(19-09-13 00:24)
         ✔ @low look at 0,0,0 @done(19-09-06 01:23)
         ✔ @low Add more wave formations @done(19-09-12 23:58)
         ✔ @high Replace placeholder explosion @done(19-09-11 21:57)

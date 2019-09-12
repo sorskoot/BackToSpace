@@ -15,3 +15,4 @@ import './classes/components/wireframematerial.component';
 import './classes/components/song.component';
 import './classes/components/bunker.component';
 import './classes/components/gun.component';
+import './classes/components/appear.component';
