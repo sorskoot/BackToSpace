@@ -16,7 +16,7 @@ overall:
         ☐ @high Add alarm sound for near collision, when you are about to die
 gameplay:
     ✔ loose the game @done(19-08-26 23:52)
-    ☐ @critical Add delay between game states. Allow a moment to realize you are gameover. - Often the game goes so fast. Need to be blocked when game over.
+    ☐ @today @critical Add delay between game states. Allow a moment to realize you are gameover. - Often the game goes so fast. Need to be blocked when game over.
     ☐ @low Add a small delay between waves 
     invaders:
         ✔ spawn invaders @done(19-08-23 00:06)
@@ -32,38 +32,37 @@ gameplay:
         ☐ @low Create animation when invaders appear
         ✔ @critical Every wave the speed increases. Making it impossible to finish the game. @done(19-09-06 22:25)
         ☐ @low At a certain interval a spaceship appears and fires missiles
-            # 
         ☐ @low When a new wave is created, spawn all invaders at random positions in the distance and animate them into formation over a few seconds
         ✔ @low look at 0,0,0 @done(19-09-06 01:23)
         ☐ @low Add more wave formations
         ✔ @high Replace placeholder explosion @done(19-09-11 21:57)
-    Bunker:
+    ✔ Bunker: @done(19-09-12 21:45)
         ✔ @high Create new model @done(19-09-11 00:42)
         ✔ @critical Add wireframe shader @done(19-09-11 00:42)
     Shooting:
-        ☐ @critical Replace Placeholder gun
+        ✔ @critical Replace Placeholder gun @done(19-09-12 22:35)
         ✔ @critical keep track of score, how many invaders did you shoot. @done(19-09-06 21:28)
         ☐ @low show the score on screen
         ☐ @low add a bounding box for the player that could get hit
         ✔ @critical replace placeholder missile @done(19-09-11 00:42)
-        shoot invaders:
+        ✔ shoot invaders: @done(19-09-12 21:45)
             ✔ bullets should be flying towards where the player looks @done(19-08-26 00:33)
             ✔ Actually hit invaders @done(19-08-26 23:15)
-            controls:
+            ✔ controls: @done(19-09-12 21:45)
                 ✔ PC => tapping space @done(19-08-26 00:33)
                 ✔ @high Mobile => tapping screen @done(19-09-11 13:25)
                 ✔ @high Daydream => remote @done(19-09-02 00:11)
                 ✔ @high Rift => controller @done(19-09-11 22:24)
-                ☐ @low bluetooth gun on phone
+                ✘ @low bluetooth gun on phone @cancelled(19-09-12 21:45)
     controls:
         ☐ @low might need to add component to hide/show stuff depending on device/headset
         ☐ @high additional to this, we need to apply different components and setting based on formfactor
             To figure out how to detect the device. ==> AFRAME.utils.device
-        look around:
+        ✔ look around: @done(19-09-12 21:45)
             ✔ PC => mouse, if possible without dragging (look-controls="pointerLockEnabled:true") @done(19-08-24 22:56)
             ✔ @critical Mobile => Gyro @done(19-09-09 21:42)
             ✔ @high Daydream, Rift => native @done(19-09-02 00:11)
-        Fire:
+        ✔ Fire: @done(19-09-12 21:45)
             ✔ PC => hit space @done(19-08-26 00:33)
             ✔ @critical Mobile => tap (center) @done(19-09-11 13:24)
             ✔ @high others => controller: @done(19-09-11 22:23)
@@ -79,7 +78,7 @@ gameplay:
         ☐ @high full screen goes into splitscreen, is this preventable?
 
 design:
-    @high generate synthwave environment:
+    ✔ @high generate synthwave environment: @done(19-09-12 21:44)
         ✔ ground @done(19-09-03 13:16)
         ✔ Sky @done(19-09-03 13:16)
         ✔ mountains @done(19-09-06 01:23)
@@ -92,16 +91,18 @@ design:
     ✔ @critical Title screen @done(19-09-03 23:32)
     ✔ @critical Gameover screen - with last score @done(19-09-06 23:28)
     ☐ @low Add highest score (local storage) to gameover screen
+    ☐ @today @critical When restarting the you have to fire twice
 
 Optimizations:
+    ☐ @critical Stay under 13Kb
     ☐ @low Optimize shaders
-    ☐ @high use instancing for models
+    ☐ @low use instancing for models (won't fit in 13k)
     ✔ @high restructure duplicate code with shaders and materials over components @done(19-09-06 23:53)
     ✔ @critical optimize mountains everywhere there's a lot of 0; don't add face if all 3 verts are at Y:0, than remove unused verts; @done(19-09-09 23:24)
     ☐ @low add something like this to shorten code for gradients `acs = (g, s, c) => g.addColorStop(s, c);`
 
 bugs:
-    ☐ @high Hide 'gun' on desktop
+    ☐ @today @high Hide 'gun' on desktop
     ✔ @critical missiles not firing in the right direction on desktop @done(19-09-03 13:17)
     ✔ Titlescreen has to be a bit smaller for DayDream @done(19-09-06 01:23)
     ✔ @critical Titlescreen is cut off on phone (possibly gameover as well) @done(19-09-11 12:59)
@@ -112,6 +113,7 @@ bugs:
     ✔ @critical Initial rendering music lags the game @done(19-09-11 17:00)
     ✔ @high Music must loop @done(19-09-11 21:58)
     ✔ @critical wave number does not reset @done(19-09-11 22:01)
+    ☐ Make rotations work on all devices.
 
 
 Could haves / Would likes /:
