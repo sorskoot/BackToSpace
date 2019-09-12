@@ -6,17 +6,15 @@ export default AFRAME.registerComponent('appear', {
         this.delay = Math.random() * 1000;
     },
     tick: function (time, timeDelta) { 
-        
         if(this.delay > 0){
             this.delay-=timeDelta;
             return;
         }
 
         this.scale += (1.5 / 100.0) * timeDelta
-        this.el.setAttribute('scale', `${this.scale} ${this.scale} ${this.scale}`)
+        this.el.object3D.scale.setScalar(this.scale);
         if(this.scale > 1.5){
             this.el.removeAttribute('appear');
         }
     },
-  
 });

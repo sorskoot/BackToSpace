@@ -10,6 +10,8 @@ const faces = [[2, 1, 0, 4, 5, 11, 11, 5, 12, 13, 14, 15, 13, 2, 0, 15, 2, 13, 3
 [3, 2, 0, 5, 4, 2, 2, 3, 5, 31, 18, 5, 33, 32, 7, 8, 34, 35, 32, 36, 8, 13, 12, 9, 9, 10, 13, 14, 13, 10, 12, 14, 11, 11, 9, 12, 16, 15, 12, 12, 13, 16, 17, 16, 13, 13, 14, 17, 15, 17, 14, 14, 12, 15, 11, 10, 9, 26, 24, 25, 37, 38, 0, 2, 4, 19, 23, 20, 21, 21, 22, 23, 27, 28, 29, 11, 3, 14, 10, 3, 14, 4, 5, 21, 21, 20, 4, 5, 18, 22, 22, 21, 5, 18, 19, 23, 23, 22, 18, 19, 4, 20, 20, 23, 19, 15, 16, 25, 25, 24, 15, 16, 17, 26, 26, 25, 16, 17, 15, 24, 24, 26, 17, 29, 28, 8, 36, 34, 27, 35, 31, 3, 3, 1, 30, 5, 3, 31, 7, 6, 33, 35, 7, 8, 8, 7, 32, 0, 2, 37, 19, 37, 2, 34, 8, 28, 28, 27, 34, 8, 36, 29, 27, 29, 36, 7, 35, 6, 6, 35, 3, 6, 3, 30, 40, 39, 41, 43, 42, 40, 39, 40, 42, 18, 31, 42, 32, 33, 44, 34, 45, 35, 36, 32, 45, 47, 46, 48, 49, 48, 46, 46, 50, 49, 50, 47, 51, 48, 51, 47, 53, 52, 47, 46, 47, 52, 52, 54, 46, 50, 46, 54, 54, 53, 50, 47, 50, 53, 49, 51, 48, 56, 55, 57, 38, 37, 41, 43, 40, 19, 59, 58, 60, 61, 60, 58, 63, 62, 64, 39, 51, 50, 39, 49, 50, 42, 43, 60, 59, 60, 43, 18, 42, 61, 60, 61, 42, 19, 18, 58, 61, 58, 18, 43, 19, 59, 58, 59, 19, 52, 53, 57, 56, 57, 53, 54, 52, 55, 57, 55, 52, 53, 54, 56, 55, 56, 54, 63, 64, 45, 34, 36, 62, 31, 35, 39, 65, 39, 30, 39, 42, 31, 66, 44, 33, 44, 35, 45, 44, 45, 32, 40, 41, 37, 37, 19, 40, 45, 34, 63, 62, 63, 34, 36, 45, 64, 64, 62, 36, 35, 44, 66, 35, 66, 39, 39, 66, 30],
 ]
 
+let game;
+ 
 export default AFRAME.registerComponent('invader', {
     schema: {
         direction: { default: 0 },
@@ -21,6 +23,9 @@ export default AFRAME.registerComponent('invader', {
     },
 
     init: function () {
+        this.tick = AFRAME.utils.throttleTick(this.tick, 1/30, this)
+
+        game = game || document.querySelector('[game]');
         this.movement = 0;
         this.broken = false;
         const invaderType = (this.data.type - 1) % 2;
@@ -43,9 +48,9 @@ export default AFRAME.registerComponent('invader', {
         this.el.getObject3D('mesh').lookAt(new THREE.Vector3(0, 0, 0));
     },
     tick: function (time, timeDelta) {
-        if (document.querySelector('[game]').components['game'].gameover) return;
+        if (game.components['game'].gameover) return;
         let deltaTime = timeDelta / 1000 * this.data.speed;
-        let pos = this.el.getAttribute('position');
+        let pos = this.el.object3D.position;
 
         this.orgX -= this.dir.x * deltaTime;
         pos.y -= this.dir.y * deltaTime;
@@ -55,11 +60,12 @@ export default AFRAME.registerComponent('invader', {
             (Math.sin((this.startDist * this.deltaFreq) -
                 (this.deltaFreq * currentDist)) * currentDist / 10 * this.data.amp) +
             this.orgX;
-        this.el.getObject3D('mesh').lookAt(new THREE.Vector3(0, 0, 0));
+        this.el.getObject3D('mesh').lookAt(0, 0, 0);
+
         if (currentDist < 10) {
             //this.el.parentEl.removeChild(this.el);
             this.gameover = true;
-            document.querySelector('[game]').emit('game-over');
+            game.emit('game-over');
         }
         if (currentDist > 10 && !this.broken) {
             if (Math.random() * 1000000 <= this.data.breakChange) {

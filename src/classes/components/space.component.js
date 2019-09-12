@@ -44,8 +44,5 @@ export default AFRAME.registerComponent('space', {
             src: canvas,
         });
         this.el.setAttribute('rotation',"0 -90 0");
-    },
-
-    update: function (oldData) { },
-    tick: function (time, timeDelta) { }
+    }
 });
