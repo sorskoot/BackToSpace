@@ -102,7 +102,7 @@ Optimizations:
     ☐ @low add something like this to shorten code for gradients `acs = (g, s, c) => g.addColorStop(s, c);`
 
 bugs:
-    ☐ @today @high Hide 'gun' on desktop
+    ✔ @high Hide 'gun' on desktop @done(19-09-12 23:13)
     ✔ @critical missiles not firing in the right direction on desktop @done(19-09-03 13:17)
     ✔ Titlescreen has to be a bit smaller for DayDream @done(19-09-06 01:23)
     ✔ @critical Titlescreen is cut off on phone (possibly gameover as well) @done(19-09-11 12:59)

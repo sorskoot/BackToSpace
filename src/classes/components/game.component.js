@@ -40,7 +40,12 @@ export default AFRAME.registerComponent('game', {
         this.gameState = 0;
         this.invadergroup = document.getElementById("invaders");
         this.missilegroup = document.getElementById("missiles");
-
+        this.el.sceneEl.addEventListener('enter-vr',()=>{
+            document.querySelector('[gun]').setAttribute('visible',true);
+        });
+        this.el.sceneEl.addEventListener('exit-vr',()=>{
+            document.querySelector('[gun]').setAttribute('visible',false);
+        });
         this.el.addEventListener('fire', (data) => {
             switch (this.gameState) {
                 case 0: // title
