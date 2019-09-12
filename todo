@@ -16,7 +16,7 @@ overall:
         ☐ @high Add alarm sound for near collision, when you are about to die
 gameplay:
     ✔ loose the game @done(19-08-26 23:52)
-    ☐ @today @critical Add delay between game states. Allow a moment to realize you are gameover. - Often the game goes so fast. Need to be blocked when game over.
+    ✔ @critical Add delay between game states. Allow a moment to realize you are gameover. - Often the game goes so fast. Need to be blocked when game over. @done(19-09-12 22:46)
     ☐ @low Add a small delay between waves 
     invaders:
         ✔ spawn invaders @done(19-08-23 00:06)
@@ -91,7 +91,7 @@ design:
     ✔ @critical Title screen @done(19-09-03 23:32)
     ✔ @critical Gameover screen - with last score @done(19-09-06 23:28)
     ☐ @low Add highest score (local storage) to gameover screen
-    ☐ @today @critical When restarting the you have to fire twice
+    ✔ @critical When restarting the you have to fire twice @done(19-09-12 22:47)
 
 Optimizations:
     ☐ @critical Stay under 13Kb
@@ -113,7 +113,8 @@ bugs:
     ✔ @critical Initial rendering music lags the game @done(19-09-11 17:00)
     ✔ @high Music must loop @done(19-09-11 21:58)
     ✔ @critical wave number does not reset @done(19-09-11 22:01)
-    ☐ Make rotations work on all devices.
+    ☐ @high Make rotations work on all devices.
+    ✔ @critical directly game over after start @done(19-09-12 22:46)
 
 
 Could haves / Would likes /:

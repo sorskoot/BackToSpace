@@ -1,5 +1,5 @@
 
-import {sound} from '../utils/sound';
+import { sound } from '../utils/sound';
 
 // Waves are ALWAYZ!!! 11 by 5 
 const wave = [[
@@ -37,24 +37,24 @@ export default AFRAME.registerComponent('game', {
         this.gameover = false;
         this.currentspeed = 5;
         this.score = 0;
-        this.gameState = 0;// Title-Screen -> 1 = Playing -> 2 = Game-Over -> 1
+        this.gameState = 0;
         this.invadergroup = document.getElementById("invaders");
         this.missilegroup = document.getElementById("missiles");
 
         this.el.addEventListener('fire', (data) => {
             switch (this.gameState) {
-                case 0:
+                case 0: // title
                     //sound.play(sound.alarm);
                     this.score = 0;
                     document.getElementById('titlescreen').setAttribute('visible', 'false');
                     this.gameState = 1;
                     this.invadersLeftInWave = this.spawnInvaderWave();
                     break;
-                case 1:
+                case 1: // fire missile
                     sound.play(sound.fire);
                     this.spawnMissile(data.detail.direction, data.detail.position);
                     break;
-                case 2:
+                case 3: // game over
                     document.querySelectorAll('[invader], [missile]').forEach(x => x.remove());
                     document.getElementById('gameoverscreen').setAttribute('visible', 'false');
                     this.gameover = false
@@ -62,6 +62,10 @@ export default AFRAME.registerComponent('game', {
                     this.score = 0;
                     this.currentspeed = 5;
                     this.data.currentwave = 0;
+                    this.invincible = true;
+                    setTimeout(() => {
+                        this.invincible = false;
+                    }, 5000);
                     this.invadersLeftInWave = this.spawnInvaderWave();
                     break;
             }
@@ -72,7 +76,7 @@ export default AFRAME.registerComponent('game', {
             let invpos = e.detail.invader.getAttribute('position');
             let explosion = document.createElement('a-entity');
             explosion.setAttribute('position', invpos);
-            explosion.setAttribute('explosion', {color:e.detail.invader.components.invader.getColor()});
+            explosion.setAttribute('explosion', { color: e.detail.invader.components.invader.getColor() });
             this.missilegroup.appendChild(explosion);
 
             e.detail.missile.remove();
@@ -81,7 +85,7 @@ export default AFRAME.registerComponent('game', {
             this.invadersLeftInWave -= 1;
             this.score++;
             if (this.invadersLeftInWave == 0) {
-               // sound.play(sound.alarm);
+                // sound.play(sound.alarm);
                 this.data.currentwave = (this.data.currentwave + 1) % wave.length;
                 this.currentspeed++;
                 this.invadersLeftInWave = this.spawnInvaderWave();
@@ -89,11 +93,14 @@ export default AFRAME.registerComponent('game', {
         })
 
         this.el.addEventListener('game-over', () => {
-            if (!~document.location.href.indexOf('godmode')) {
+            if (!~document.location.href.indexOf('godmode') && !this.invincible) {
                 sound.play(sound.gameover);
                 document.getElementById('score').setAttribute('neontext', { text: `${this.score} invaders shot`, fontsize: 60, color: "#1b90e2" });
                 document.getElementById('gameoverscreen').setAttribute('visible', 'true');
                 this.gameState = 2;
+                setTimeout(() => {
+                    this.gameState = 3;
+                }, 5000);
                 // show game over screen;
                 this.gameover = true;
             }
