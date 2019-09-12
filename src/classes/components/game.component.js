@@ -11,7 +11,7 @@ const wave = [[
 [
     [0, 2, 0, 0, 0, 3, 0, 0, 0, 2, 0],
     [0, 4, 0, 0, 0, 1, 0, 0, 0, 4, 0],
-    [4, 2, 4, 0, 1, 3, 1, 0, 4, 2, 4],
+    [4, 6, 4, 0, 1, 7, 1, 0, 4, 6, 4],
     [2, 4, 2, 0, 3, 1, 3, 0, 2, 4, 2],
     [4, 2, 4, 0, 1, 3, 1, 0, 4, 2, 4]],
 [
@@ -21,11 +21,23 @@ const wave = [[
     [0, 0, 3, 2, 1, 1, 1, 2, 3, 0, 0],
     [0, 0, 0, 3, 2, 1, 2, 3, 0, 0, 0]],
 [
-    [1, 2, 3, 4, 4, 4, 4, 4, 3, 2, 1],
-    [0, 1, 2, 3, 4, 4, 4, 3, 2, 1, 0],
+    [1, 2, 3, 4, 5, 8, 5, 4, 3, 2, 1],
+    [0, 1, 2, 3, 4, 5, 4, 3, 2, 1, 0],
     [0, 0, 1, 2, 3, 4, 3, 2, 1, 0, 0],
     [0, 0, 0, 1, 2, 3, 2, 1, 0, 0, 0],
-    [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0]]]
+    [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0]],
+[
+    [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0],
+    [4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4],
+    [0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0],
+    [6, 0, 6, 0, 6, 0, 6, 0, 6, 0, 6],
+    [0, 7, 0, 7, 0, 7, 0, 7, 0, 7, 0]],
+[
+    [0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0],
+    [0, 0, 8, 6, 8, 0, 8, 6, 8, 0, 0],
+    [0, 8, 6, 4, 6, 8, 6, 4, 6, 8, 0],
+    [8, 6, 4, 2, 4, 6, 4, 2, 4, 6, 8],
+    [6, 4, 2, 0, 2, 4, 2, 0, 2, 4, 6]]]
 
 export default AFRAME.registerComponent('game', {
     schema: {
@@ -40,11 +52,11 @@ export default AFRAME.registerComponent('game', {
         this.gameState = 0;
         this.invadergroup = document.getElementById("invaders");
         this.missilegroup = document.getElementById("missiles");
-        this.el.sceneEl.addEventListener('enter-vr',()=>{
-            document.querySelector('[gun]').setAttribute('visible',true);
+        this.el.sceneEl.addEventListener('enter-vr', () => {
+            document.querySelector('[gun]').setAttribute('visible', true);
         });
-        this.el.sceneEl.addEventListener('exit-vr',()=>{
-            document.querySelector('[gun]').setAttribute('visible',false);
+        this.el.sceneEl.addEventListener('exit-vr', () => {
+            document.querySelector('[gun]').setAttribute('visible', false);
         });
         this.el.addEventListener('fire', (data) => {
             switch (this.gameState) {

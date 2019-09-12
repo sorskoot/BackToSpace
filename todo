@@ -34,7 +34,7 @@ gameplay:
         ☐ @low At a certain interval a spaceship appears and fires missiles
         ☐ @low When a new wave is created, spawn all invaders at random positions in the distance and animate them into formation over a few seconds
         ✔ @low look at 0,0,0 @done(19-09-06 01:23)
-        ☐ @low Add more wave formations
+        ✔ @low Add more wave formations @done(19-09-12 23:58)
         ✔ @high Replace placeholder explosion @done(19-09-11 21:57)
     ✔ Bunker: @done(19-09-12 21:45)
         ✔ @high Create new model @done(19-09-11 00:42)
