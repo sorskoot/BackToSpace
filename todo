@@ -125,6 +125,11 @@ Could haves / Would likes /:
             ✔ `godmode` is added @done(19-09-01 22:08)
             ☐ @low `wave=X` to start at wave X
 
+Sumbission:
+    ✔ Small screenshot (160px × 160px) @done(19-09-13 10:30)
+    ✔ Big screenshot (400px × 250px) @done(19-09-13 10:18)
+    ✔ Game description, controls etc @done(19-09-13 10:18)
+
 # ideas and random stuff
 - have one invader break formation every now and then, just increase the speed by much.
 - there are some WebVR examples of three.js
