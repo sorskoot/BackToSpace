@@ -115,6 +115,7 @@ bugs:
     ✔ @critical wave number does not reset @done(19-09-11 22:01)
     ☐ @high Make rotations work on all devices.
     ✔ @critical directly game over after start @done(19-09-12 22:46)
+    ☐ @high Bullets start above the gun in VR
 
 
 Could haves / Would likes /:

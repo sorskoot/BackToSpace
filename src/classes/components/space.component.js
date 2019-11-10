@@ -3,7 +3,6 @@ import { noise2d } from '../utils/perlin';
 export default AFRAME.registerComponent('space', {
     schema: {},
     init: function () {
-
         var canvas = document.createElement("canvas");
         canvas.width = 2048;
         canvas.height = 2048;
