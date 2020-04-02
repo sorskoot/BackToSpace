@@ -64,4 +64,4 @@ typings/
 *.key
 *.pem
 
-dist
+dist/
