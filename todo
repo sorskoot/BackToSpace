@@ -8,64 +8,72 @@
 
 # the game should slowly become faster and invaders should start shooting back. 
 # avoiding being shot will be hard on everywhere else then Rift. come up with a way to fix this
+Releases:
+    April 11:
 
 overall:
+    ☐ @critical Add the payment API -> META tag for Coil
+    <meta name="monetization" content="$coil.xrptipbot.com/B6BW9YpKR22WWbQOJ4GsPg">
+    ☐ @high Lower the loading time
     ✔ Setup build pipelines @done(19-08-23 17:20)
-    ✔ @critical Music - https://sb.bitsnbites.eu/ @done(19-09-10 22:40)
-    ✔ @critical sfx - https://github.com/mneubrand/jsfxr / http://superflashbros.net/as3sfxr/ @done(19-09-09 22:38)
-        ☐ @low Add alarm sound for near collision, when you are about to die
+    ✔ Music - https://sb.bitsnbites.eu/ @done(19-09-10 22:40)
+    ✔ sfx - https://github.com/mneubrand/jsfxr / http://superflashbros.net/as3sfxr/ @done(19-09-09 22:38)
+        ☐ Add alarm sound for near collision, when you are about to die
 gameplay:
     ✔ loose the game @done(19-08-26 23:52)
-    ✔ @critical Add delay between game states. Allow a moment to realize you are gameover. - Often the game goes so fast. Need to be blocked when game over. @done(19-09-12 22:46)
-    ✔ @low Add a small delay between waves @done(19-09-13 00:24)
+    ✔  Add delay between game states. Allow a moment to realize you are gameover. - Often the game goes so fast. Need to be blocked when game over. @done(19-09-12 22:46)
+    ✔  Add a small delay between waves @done(19-09-13 00:24)
     invaders:
         ✔ spawn invaders @done(19-08-23 00:06)
             at 90 degrees width in front of the player, far away and up in the sky
             (0,50,(50 +/-45deg))
         ✔ move invaders towards player @done(19-08-23 00:16)
-        ✔ @critical create waves of invaders @done(19-09-02 00:11)
-        ✔ @critical Add 'AI' to invaders so they move from left to right, slowly getting closer. @done(19-09-02 23:04)
-        ✔ @high Every now and then an invader breaks formation and takes its own path (increase values). @done(19-09-12 00:12)
-        ✔ @critical Create a new wave after every invader is shot @done(19-09-03 23:51)
+        ✔ create waves of invaders @done(19-09-02 00:11)
+        ✔ Add 'AI' to invaders so they move from left to right, slowly getting closer. @done(19-09-02 23:04)
+        ✔ Every now and then an invader breaks formation and takes its own path (increase values). @done(19-09-12 00:12)
+        ✔ Create a new wave after every invader is shot @done(19-09-03 23:51)
         ☐ @low Have the aliens shoot a missile every now and than.
-        ✔ @low invaders in different colors @done(19-09-02 00:12)
-        ✔ @low Create animation when invaders appear @done(19-09-13 00:24)
-        ✔ @critical Every wave the speed increases. Making it impossible to finish the game. @done(19-09-06 22:25)
+        ✔ invaders in different colors @done(19-09-02 00:12)
+        ✔ Create animation when invaders appear @done(19-09-13 00:24)
+        ✔ Every wave the speed increases. Making it impossible to finish the game. @done(19-09-06 22:25)
         ☐ @low At a certain interval a spaceship appears and fires missiles
-        ✘ @low When a new wave is created, spawn all invaders at random positions in the distance and animate them into formation over a few seconds @cancelled(19-09-13 00:24)
-        ✔ @low look at 0,0,0 @done(19-09-06 01:23)
-        ✔ @low Add more wave formations @done(19-09-12 23:58)
-        ✔ @high Replace placeholder explosion @done(19-09-11 21:57)
+        ✘ When a new wave is created, spawn all invaders at random positions in the distance and animate them into formation over a few seconds @cancelled(19-09-13 00:24)
+        ✔ look at 0,0,0 @done(19-09-06 01:23)
+        ✔ Add more wave formations @done(19-09-12 23:58)
+        ✔ Replace placeholder explosion @done(19-09-11 21:57)
     ✔ Bunker: @done(19-09-12 21:45)
-        ✔ @high Create new model @done(19-09-11 00:42)
-        ✔ @critical Add wireframe shader @done(19-09-11 00:42)
+        ✔ Create new model @done(19-09-11 00:42)
+        ✔ Add wireframe shader @done(19-09-11 00:42)
     Shooting:
-        ✔ @critical Replace Placeholder gun @done(19-09-12 22:35)
-        ✔ @critical keep track of score, how many invaders did you shoot. @done(19-09-06 21:28)
-        ☐ @low show the score on screen
+        ✔ Replace Placeholder gun @done(19-09-12 22:35)
+        ✔ keep track of score, how many invaders did you shoot. @done(19-09-06 21:28)
+        ☐ @high show the score on screen
+            Maybe at the side of the gun
         ☐ @low add a bounding box for the player that could get hit
-        ✔ @critical replace placeholder missile @done(19-09-11 00:42)
+        ☐ @high add a second gun when using the payment API
+            https://webmonetization.org/docs/api
+        ✔ replace placeholder missile @done(19-09-11 00:42)
         ✔ shoot invaders: @done(19-09-12 21:45)
             ✔ bullets should be flying towards where the player looks @done(19-08-26 00:33)
             ✔ Actually hit invaders @done(19-08-26 23:15)
             ✔ controls: @done(19-09-12 21:45)
                 ✔ PC => tapping space @done(19-08-26 00:33)
-                ✔ @high Mobile => tapping screen @done(19-09-11 13:25)
-                ✔ @high Daydream => remote @done(19-09-02 00:11)
-                ✔ @high Rift => controller @done(19-09-11 22:24)
-                ✘ @low bluetooth gun on phone @cancelled(19-09-12 21:45)
+                ✔ Mobile => tapping screen @done(19-09-11 13:25)
+                ✔ Daydream => remote @done(19-09-02 00:11)
+                ✔ Rift => controller @done(19-09-11 22:24)
+                ✘ bluetooth gun on phone @cancelled(19-09-12 21:45)
     controls:
         ☐ @low might need to add component to hide/show stuff depending on device/headset
         ☐ @high additional to this, we need to apply different components and setting based on formfactor
             To figure out how to detect the device. ==> AFRAME.utils.device
         ✔ look around: @done(19-09-12 21:45)
             ✔ PC => mouse, if possible without dragging (look-controls="pointerLockEnabled:true") @done(19-08-24 22:56)
-            ✔ @critical Mobile => Gyro @done(19-09-09 21:42)
-            ✔ @high Daydream, Rift => native @done(19-09-02 00:11)
+            ✔ Mobile => Gyro @done(19-09-09 21:42)
+            ✔ Daydream, Rift => native @done(19-09-02 00:11)
         ✔ Fire: @done(19-09-12 21:45)
             ✔ PC => hit space @done(19-08-26 00:33)
-            ✔ @critical Mobile => tap (center) @done(19-09-11 13:24)
-            ✔ @high others => controller: @done(19-09-11 22:23)
+            ✔ Mobile => tap (center) @done(19-09-11 13:24)
+            ✔ others => controller: @done(19-09-11 22:23)
                 ✔ Daydream @done(19-09-02 00:11)
                 ✔ Rift @done(19-09-11 22:23)
         duck: 
@@ -75,10 +83,10 @@ gameplay:
             ☐ @low Daydream => controller
             ☐ @low Rift => just stand behind it
     mobile:
-        ☐ @high full screen goes into splitscreen, is this preventable?
+        ☐ @low full screen goes into splitscreen, is this preventable?
 
 design:
-    ✔ @high generate synthwave environment: @done(19-09-12 21:44)
+    ✔ generate synthwave environment: @done(19-09-12 21:44)
         ✔ ground @done(19-09-03 13:16)
         ✔ Sky @done(19-09-03 13:16)
         ✔ mountains @done(19-09-06 01:23)
@@ -86,41 +94,43 @@ design:
 
     ✔ Create design for aliens @done(19-09-01 21:07)
     ☐ @high Add more different invaders
-    ✔ @low animate explosions @done(19-09-11 21:57)
+    ✔ animate explosions @done(19-09-11 21:57)
     ☐ @low design and animate rockets with fire and smoke
-    ✔ @critical Title screen @done(19-09-03 23:32)
-    ✔ @critical Gameover screen - with last score @done(19-09-06 23:28)
+    ✔ Title screen @done(19-09-03 23:32)
+    ✔ Gameover screen - with last score @done(19-09-06 23:28)
     ☐ @low Add highest score (local storage) to gameover screen
-    ✔ @critical When restarting the you have to fire twice @done(19-09-12 22:47)
+    ✔ When restarting the you have to fire twice @done(19-09-12 22:47)
+    ☐ @low Glow/Bloom effect
 
 Optimizations:
-    ☐ @critical Stay under 13Kb
+    ✘ Stay under 13Kb @cancelled(20-04-02 21:46)
     ☐ @low Optimize shaders
     ☐ @low use instancing for models (won't fit in 13k)
-    ✔ @high restructure duplicate code with shaders and materials over components @done(19-09-06 23:53)
-    ✔ @critical optimize mountains everywhere there's a lot of 0; don't add face if all 3 verts are at Y:0, than remove unused verts; @done(19-09-09 23:24)
-    ☐ @low add something like this to shorten code for gradients `acs = (g, s, c) => g.addColorStop(s, c);`
+    ✔ restructure duplicate code with shaders and materials over components @done(19-09-06 23:53)
+    ✔ optimize mountains everywhere there's a lot of 0; don't add face if all 3 verts are at Y:0, than remove unused verts; @done(19-09-09 23:24)
+    ✘ add something like this to shorten code for gradients `acs = (g, s, c) => g.addColorStop(s, c);` @cancelled(20-04-02 21:47)
 
 bugs:
-    ✔ @high Hide 'gun' on desktop @done(19-09-12 23:13)
-    ✔ @critical missiles not firing in the right direction on desktop @done(19-09-03 13:17)
+    ✔ Hide 'gun' on desktop @done(19-09-12 23:13)
+    ✔ missiles not firing in the right direction on desktop @done(19-09-03 13:17)
     ✔ Titlescreen has to be a bit smaller for DayDream @done(19-09-06 01:23)
-    ✔ @critical Titlescreen is cut off on phone (possibly gameover as well) @done(19-09-11 12:59)
-    ✔ @high Hitbox needs to be a little bit bigger @done(19-09-09 22:44)
+    ✔ Titlescreen is cut off on phone (possibly gameover as well) @done(19-09-11 12:59)
+    ✔ Hitbox needs to be a little bit bigger @done(19-09-09 22:44)
     ☐ @low Sometimes when all invaders are shot we don't get the next wave.(probably due to godmode)
     ☐ @low Glow on title text is cut off because text starts at Y 0
-    ✔ @high Rapid fire when space is continuesly pressed (set boolean on down, remove on up) @done(19-09-09 22:42)
-    ✔ @critical Initial rendering music lags the game @done(19-09-11 17:00)
-    ✔ @high Music must loop @done(19-09-11 21:58)
-    ✔ @critical wave number does not reset @done(19-09-11 22:01)
+    ✔ Rapid fire when space is continuesly pressed (set boolean on down, remove on up) @done(19-09-09 22:42)
+    ✔ Initial rendering music lags the game @done(19-09-11 17:00)
+    ✔ Music must loop @done(19-09-11 21:58)
+    ✔ wave number does not reset @done(19-09-11 22:01)
     ☐ @high Make rotations work on all devices.
-    ✔ @critical directly game over after start @done(19-09-12 22:46)
+    ✔ directly game over after start @done(19-09-12 22:46)
     ☐ @high Bullets start above the gun in VR
 
 
 Could haves / Would likes /:
     ☐ @low add spacial sound and invaders all around
-    ☐ @low Easter eggs? by adding certain text url
+    ☐ @high Easter eggs? by adding certain text url
+        - konami code
     ☐ @low Cheats => by adding certain text url
         cheats:
             ✔ `godmode` is added @done(19-09-01 22:08)
@@ -132,8 +142,5 @@ Sumbission:
     ✔ Game description, controls etc @done(19-09-13 10:18)
 
 # ideas and random stuff
-- have one invader break formation every now and then, just increase the speed by much.
-- there are some WebVR examples of three.js
+✔ have one invader break formation every now and then, just increase the speed by much. @done(20-04-02 21:48)
 - Particles : https://github.com/mrdoob/three.js/blob/master/examples/webgl_buffergeometry_custom_attributes_particles.html
-
-- music : https://sb.bitsnbites.eu/?data=U0JveAwC7d1NixxFGMDxp6p6OjEsY4ImMSjYrKgnieJBECOCCB4iHvQg-G5y8BAFwZ0gi9gMs7QDw7hrs7gMLhKQ1e_gwYAnr94Fv0E-QltdXd2Z7emdYXWys7P5_7rr5amamX1m2FtR1f88JPKURG39Qywq_fIBaa1cWBWR14xSF39Rj35x6uNQRGllbHGXjCnH3PjIDuTlR1t2XbNdvTDvDX3ZtGXLNf1qvi-LV8v_lshPLhg152-HUhcMlyB_acz_-yp_AAAAAAAAAAAATNKfxWLWYpGWhI_ZMNNKtX-9dD0No1DltPJEyrbs-bjT6dihel3enXv-Fc6fmz4fznj_ovM_d376fNbm3xQAAAAAAAAAAOAomW9jUWsD27t68-diSLdEIpFHThtnfBfaeFuNd2f8iVk7tTZmzN_r3VLxjPnkkPn3jjh_dpMBAAAAAAAAAADM2buxyIfxisiKvF6M6Ewkest0g7svmnaYo3RlQ_oytFff9roTsQu2ZNuWfOjriXjBYptl4vJNbC-2V6-Ke_kCW-LyTV2-iay7eNPGmz4GAAAAAAAAAADAiaJux6J_j5U8G154RsTsaKWv9XT0RnipdgBi0zKaCUyQ74JyG6HK3VD1eNs_HG37gHjL3b5qiEf-sV6jA-L_a-BuXzXEqbt91RDX890sHjtWVEeQP8-iAwAAAAAAAAAAmC-T7YhkOysiWh4vhvSuSHTZ7Ormd4wf4uiW1IZuJaOs-xPxhozfGxPxog3cWY1lnUzE9Xx7Mn73-B8CAAAAAAAAAAA4YfT1WMyfse21whdt_UeodCISpeFXIb8OAAAAAAAAAAAA7kfZmpLsc1EShE8UI7ot6umrrfIF1X4zz5j9u9BMcaBhKuXRhlWd3h07zqblnxZfYgnyBwAAAAAAAAAAwNz8HSv5KxaVBeHLNnzllDLZgxI9LKf9LrRy6cz3dLWoVo3LvueENbbH3QF5u0U0AAAAAAAAAAAA3G8GRXkpOLNqe7-1RN1JJLrROhsU8_uWyqRaSqu4nVpuv1ZzyxoUAAAAAAAAAAAAlsx7tsT5ra4VA-q7F-T5NXOl3IVWFX-pqlfMJ_yGAAAAAAAAAAAAOEFMFotkA5FvtL5o44-MMh-8KdHb-kqgc6bcbaY9VeM_aOirYT0eHvefoOvz7fr8a_Ey5w8AAAAAAAAAAID_xB_kmL0f247OAqVX70j0jtrVbloVzXir8-Ije63XPrC-K239kHHnkF_gzIy4Lpvx92XO84fNHwAAAAAAAAAAAItlbn-qisMcA3nVhraj2p_o554Mzurmd6j6-OjAD9_buzVl9rgoM9wrb5v33hLlDwAAAAAAAAAAgPn6Fw

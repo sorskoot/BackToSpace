@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-    <script src="https://js13kgames.com/webxr-src/aframe.js"></script>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <!-- <script src="https://js13kgames.com/webxr-src/aframe.js"></script> -->
     <title>Back2Space</title>
     <script src="main.js"></script>
 </head>
@@ -15,7 +16,7 @@
         <a-entity>
             <a-plane sun position="0 100 -430" scale="230 230 230"></a-plane>
         </a-entity>
-        <a-entity id='titlescreen'>
+        <a-entity id='titlescreen' visible="false">
             <a-plane titlescreen position="0 0 -2" scale="4 4 4" rotation="-14.5 0 0"></a-plane>
             <a-plane neontext="text:Press fire to start" position="0 .64 -1.9" scale="2 2 2"></a-plane>
         </a-entity>

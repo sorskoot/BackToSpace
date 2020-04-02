@@ -27,7 +27,11 @@ export function addBarycentricCoordinates (bufferGeometry, removeEdge = false) {
     const attribute = new THREE.BufferAttribute(array, 3);
     bufferGeometry.addAttribute('barycentric', attribute);
   };
-  
+
+  /**
+   * 
+   * @param {THREE.BufferGeometry} bufferGeometry 
+   */
 export function unindexBufferGeometry (bufferGeometry) {
     // un-indices the geometry, copying all attributes like position and uv
     const index = bufferGeometry.getIndex();
@@ -39,6 +43,7 @@ export function unindexBufferGeometry (bufferGeometry) {
     const attributes = bufferGeometry.attributes;
     const newAttribData = Object.keys(attributes).map(key => {
       return {
+        key,
         array: [],
         attribute: bufferGeometry.getAttribute(key)
       };
@@ -67,10 +72,11 @@ export function unindexBufferGeometry (bufferGeometry) {
     }
     index.array = null;
     bufferGeometry.setIndex(null);
-  
-    // now copy over new data
-    newAttribData.forEach(data => {
-      const newArray = new data.attribute.array.constructor(data.array);
-      data.attribute.setArray(newArray);
-    });
+    // // now copy over new data
+     newAttribData.forEach(data => {
+       const newArray = new data.attribute.array.constructor(data.array);
+       bufferGeometry.setAttribute(data.key, newArray)
+    //     data.attribute.setArray(newArray);
+    //   //  bufferGeometry.setAttribute()
+     });
   };

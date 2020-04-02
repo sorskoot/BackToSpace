@@ -35,6 +35,7 @@
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "compression-webpack-plugin": "^1.1.11",
+    "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^1.0.0",
     "envify": "^4.1.0",
     "eslint": "^5.2.0",
