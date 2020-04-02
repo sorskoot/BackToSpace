@@ -12,9 +12,10 @@ Releases:
     April 11:
 
 overall:
-    ☐ @critical Add the payment API -> META tag for Coil
-    <meta name="monetization" content="$coil.xrptipbot.com/B6BW9YpKR22WWbQOJ4GsPg">
+    ✔ @critical Add the payment API -> META tag for Coil @done(20-04-02 22:15)
+            <meta name="monetization" content="$coil.xrptipbot.com/B6BW9YpKR22WWbQOJ4GsPg">
     ☐ @high Lower the loading time
+    ☐ Add all the meta tags
     ✔ Setup build pipelines @done(19-08-23 17:20)
     ✔ Music - https://sb.bitsnbites.eu/ @done(19-09-10 22:40)
     ✔ sfx - https://github.com/mneubrand/jsfxr / http://superflashbros.net/as3sfxr/ @done(19-09-09 22:38)
