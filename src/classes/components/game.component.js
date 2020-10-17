@@ -53,6 +53,8 @@ export default AFRAME.registerComponent('game', {
         this.invadergroup = document.getElementById("invaders");
         this.missilegroup = document.getElementById("missiles");
         this.hudscore = document.getElementById("hud-score");
+        this.hud = document.getElementById("hud");
+        this.hud.setAttribute('visible','false');
         this.el.sceneEl.addEventListener('enter-vr', () => {
             document.querySelector('[gun]').setAttribute('visible', true);
         });
@@ -65,6 +67,7 @@ export default AFRAME.registerComponent('game', {
                     //sound.play(sound.alarm);
                     this.score = 0;
                     this.updateScore();
+                    this.hud.setAttribute('visible','true');
                     document.getElementById('titlescreen').setAttribute('visible', 'false');
                     this.gameState = 1;
                     this.invadersLeftInWave = this.spawnInvaderWave();
@@ -80,6 +83,7 @@ export default AFRAME.registerComponent('game', {
                     this.gameState = 1;
                     this.score = 0;
                     this.updateScore();
+                    this.hud.setAttribute('visible','true');
                     this.currentspeed = 5;
                     this.data.currentwave = 0;
                     this.invincible = true;
@@ -119,6 +123,7 @@ export default AFRAME.registerComponent('game', {
                 sound.play(sound.gameover);
                 document.getElementById('score').setAttribute('neontext', { text: `${this.score} invaders shot`, fontsize: 60, color: "#1b90e2" });
                 document.getElementById('gameoverscreen').setAttribute('visible', 'true');
+                this.hud.setAttribute('visible','false');
                 this.gameState = 2;
                 setTimeout(() => {
                     this.gameState = 3;
