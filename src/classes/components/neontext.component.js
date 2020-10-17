@@ -38,6 +38,9 @@ export default AFRAME.registerComponent('neontext', {
         this.el.setAttribute('material', {
             transparent: true,
             src: canvas,
+            depthWrite:false,
+            depthTest:false,
+            roughness:1       
         });
     },
 });

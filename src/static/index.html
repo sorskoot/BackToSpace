@@ -26,7 +26,7 @@
 </head>
 
 <body>
-    <a-scene visible="false" antialias="true">
+    <a-scene visible="false" antialias="true" renderer="sortObjects: true">
         <a-assets>
             <a-asset-song></a-asset-song>
             <img src="Textures/wireframe01.jpg" id="wireframe-texture" />
@@ -74,8 +74,8 @@
             <a-entity gun wireframe-material="color:#FF0" visible="false"> </a-entity>
         </a-entity>
         <a-entity camera position="0 1.6 0" rotation="0 0 0" look-controls="pointerLockEnabled:true">
-            <a-entity id="hud" scale="0.05 0.05 0.05" position="0 -0.25 -0.4" rotation="-25 0 0">
-                <a-plane position="-1.19952 0.51127 0.22539" material="src: #invader-texture;roughness:1;transparent: true;"></a-plane>
+            <a-entity id="hud" scale="0.05 0.05 0.05" position="0 -0.24 -0.4" rotation="-25 0 0">
+                <a-plane position="-1.19952 0.51127 0.22539" material="src: #invader-texture;roughness:1;transparent: true;depthTest: false; depthWrite: false"></a-plane>
                 <a-plane id="hud-score" neontext="text:0;fontsize:125" position="0 -2.850 0" scale="8 8 8"></a-plane>
             </a-entity>
             <a-entity id="missile-spawner"></a-entity>
