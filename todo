@@ -9,6 +9,16 @@
 # the game should slowly become faster and invaders should start shooting back. 
 # avoiding being shot will be hard on everywhere else then Rift. come up with a way to fix this
 
+# V1.5
+Must have:
+    ☐ Hud for showing score and stage
+    ☐ More levels
+
+Should have:
+    ☐ Integration with CA scoring
+    
+    ☐ More different Enemies
+
 overall:
     ☐ @high Add all the meta tags
     ☐ @low Add alarm sound for near collision, when you are about to die
