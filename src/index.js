@@ -5,7 +5,6 @@ import './classes/components/keyboardcontrols.component';
 import './classes/components/missile.component';
 import './classes/components/explosion.component';
 import './classes/components/selfdestruct.component';
-import './classes/components/ground.component';
 import './classes/components/shoot-controls.component';
 import './classes/components/titlescreen.component';
 import './classes/components/neontext.component';

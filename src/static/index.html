@@ -8,9 +8,10 @@
 </head>
 
 <body>
-    <a-scene visible="false">
+    <a-scene visible="false" antialias="true">
         <a-assets>
             <a-asset-song></a-asset-song>
+            <img src="Textures/wireframe01.jpg" id="wireframe-texture"/>
         </a-assets>
         <a-entity>
             <a-plane sun position="0 100 -430" scale="230 230 230"></a-plane>
@@ -41,7 +42,9 @@
                 <a-entity bunker position="5 0 3" scale="2 2 2" wireframe-material="color:#df497c;thickness:0.005;fillcolor:#170608" scale="1 1 1"></a-entity>
             </a-entity>
             <a-entity mountains wireframe-material="color:#497cdf" position="0 -1 0"></a-entity>
-            <a-entity ground wireframe-material="color:#FF00FF;thickness:0.005"></a-entity>
+            <a-plane position="0 0 0" 
+            material="src: #wireframe-texture; repeat: 500 500"
+            rotation="-90 0 0" width="500" height="500" color="#df497c"></a-plane>
         </a-entity>
         <a-sky space>
         </a-sky>
