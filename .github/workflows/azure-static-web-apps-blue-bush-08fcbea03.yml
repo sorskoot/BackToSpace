@@ -23,8 +23,7 @@ jobs:
           # Build and test the project, then
           # deploy to Azure Web App.
           npm install
-          npm run buildProd --if-present
-          npm run test --if-present
+          npm run buildProd
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v0.0.1-preview
