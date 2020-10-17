@@ -11,13 +11,19 @@
 
 # V1.5
 Must have:
-    ☐ Hud for showing score and stage
+    ☐ Hud for showing score
     ☐ More levels
+    ☐ Replace title, game-over and 'press anykey' with image so they look the same on all devices
+    ✔ fix ground @done(20-10-17 10:36)
 
 Should have:
     ☐ Integration with CA scoring
-    
-    ☐ More different Enemies
+    ☐ More different enemies
+    ☐ better/more music
+    ☐ show wave on Hud
+
+Would Like:
+    ☐ instancing in 3D models
 
 overall:
     ☐ @high Add all the meta tags

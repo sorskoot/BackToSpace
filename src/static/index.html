@@ -1,7 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta name="monetization" content="$coil.xrptipbot.com/B6BW9YpKR22WWbQOJ4GsPg">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ff00ff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ff00ff">
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <title>Back2Space</title>
     <script src="main.js"></script>
@@ -11,7 +29,8 @@
     <a-scene visible="false" antialias="true">
         <a-assets>
             <a-asset-song></a-asset-song>
-            <img src="Textures/wireframe01.jpg" id="wireframe-texture"/>
+            <img src="Textures/wireframe01.jpg" id="wireframe-texture" />
+            <img src="Textures/invader-icon.png" id="invader-texture" />
         </a-assets>
         <a-entity>
             <a-plane sun position="0 100 -430" scale="230 230 230"></a-plane>
@@ -36,16 +55,18 @@
             </a-entity>
 
             <a-entity id="bunkers">
-                <a-entity bunker position="-5 0 -3" scale="2 2 2" wireframe-material="color:#df497c;thickness:0.005;fillcolor:#170608" scale="1 1 1"></a-entity>
-                <a-entity bunker position="5 0 -3" scale="2 2 2" wireframe-material="color:#df497c;thickness:0.005;fillcolor:#170608" scale="1 1 1"></a-entity>
-                <a-entity bunker position="-5 0 3" scale="2 2 2" wireframe-material="color:#df497c;thickness:0.005;fillcolor:#170608" scale="1 1 1"></a-entity>
-                <a-entity bunker position="5 0 3" scale="2 2 2" wireframe-material="color:#df497c;thickness:0.005;fillcolor:#170608" scale="1 1 1"></a-entity>
+                <a-entity bunker position="-5 0 -3" scale="2 2 2"
+                    wireframe-material="color:#df497c;thickness:0.005;fillcolor:#170608" scale="1 1 1"></a-entity>
+                <a-entity bunker position="5 0 -3" scale="2 2 2"
+                    wireframe-material="color:#df497c;thickness:0.005;fillcolor:#170608" scale="1 1 1"></a-entity>
+                <a-entity bunker position="-5 0 3" scale="2 2 2"
+                    wireframe-material="color:#df497c;thickness:0.005;fillcolor:#170608" scale="1 1 1"></a-entity>
+                <a-entity bunker position="5 0 3" scale="2 2 2"
+                    wireframe-material="color:#df497c;thickness:0.005;fillcolor:#170608" scale="1 1 1"></a-entity>
             </a-entity>
             <a-entity mountains wireframe-material="color:#497cdf" position="0 -1 0"></a-entity>
-            <a-plane position="0 0 0" 
-            material="src: #wireframe-texture; repeat: 500 500;roughness:0"
-            
-            rotation="-90 0 0" width="500" height="500" color="#df497c"></a-plane>
+            <a-plane position="0 0 0" material="src: #wireframe-texture; repeat: 500 500;roughness:1" rotation="-90 0 0"
+                width="500" height="500" color="#df497c"></a-plane>
         </a-entity>
         <a-sky space>
         </a-sky>
@@ -53,6 +74,10 @@
             <a-entity gun wireframe-material="color:#FF0" visible="false"> </a-entity>
         </a-entity>
         <a-entity camera position="0 1.6 0" rotation="0 0 0" look-controls="pointerLockEnabled:true">
+            <a-entity id="hud" scale="0.05 0.05 0.05" position="0 -0.25 -0.4" rotation="-25 0 0">
+                <a-plane position="-1.19952 0.51127 0.22539" material="src: #invader-texture;roughness:1;transparent: true;"></a-plane>
+                <a-plane id="hud-score" neontext="text:0;fontsize:125" position="0 -2.850 0" scale="8 8 8"></a-plane>
+            </a-entity>
             <a-entity id="missile-spawner"></a-entity>
         </a-entity>
     </a-scene>
