@@ -12,7 +12,7 @@
     <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -21,6 +21,8 @@
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ff00ff">
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <!-- <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script> -->
+    <script src="https://ipfs.io/ipns/lib.zesty.market/zesty-aframe-sdk.js"></script>
     <title>Back2Space</title>
     <script src="main.js"></script>
 </head>
@@ -37,7 +39,13 @@
         </a-entity>
         <a-entity id='titlescreen'>
             <a-plane titlescreen position="0 0 -2" scale="4 4 4" rotation="-14.5 0 0"></a-plane>
-            <a-plane neontext="text:Press fire to start" position="0 .64 -1.9" scale="2 2 2"></a-plane>
+            <a-plane neontext="text:Press fire to start" position="0 .64 -1.9" scale="2 2 2"></a-plane>            
+        </a-entity>
+
+        <a-entity id="ad" visible="true" position="0 0.37285 -2.55974" scale="0.5 0.5 0.5" rotation="-14.500000000000002 0 0">
+            <a-entity 
+                zesty-ad="space: 40; creator: 0x247332f68a529ab11a65d665cf84ca376a24688a; adFormat: wide; network: matic; format: wide">
+            </a-entity>
         </a-entity>
 
         <a-entity id='gameoverscreen' visible="false">
@@ -45,6 +53,7 @@
             <a-plane neontext="text:Press fire to restart;fontsize:125" position="0 .30 -1.9" scale="3 3 3"></a-plane>
             <a-plane id="score" neontext="text:312 invaders shot;fontsize:60;color:#1b90e2" position="0 .05 -1.6"
                 scale="3 3 3"></a-plane>
+           
         </a-entity>
 
         <a-entity game>
@@ -75,7 +84,9 @@
         </a-entity>
         <a-entity camera position="0 1.6 0" rotation="0 0 0" look-controls="pointerLockEnabled:true">
             <a-entity id="hud" scale="0.05 0.05 0.05" position="0 -0.24 -0.4" rotation="-25 0 0">
-                <a-plane position="-1.19952 0.51127 0.22539" material="src: #invader-texture;roughness:1;transparent: true;depthTest: false; depthWrite: false"></a-plane>
+                <a-plane position="-1.19952 0.51127 0.22539"
+                    material="src: #invader-texture;roughness:1;transparent: true;depthTest: false; depthWrite: false">
+                </a-plane>
                 <a-plane id="hud-score" neontext="text:0;fontsize:125" position="0 -2.850 0" scale="8 8 8"></a-plane>
             </a-entity>
             <a-entity id="missile-spawner"></a-entity>

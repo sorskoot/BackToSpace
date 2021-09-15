@@ -69,6 +69,7 @@ export default AFRAME.registerComponent('game', {
                     this.updateScore();
                     this.hud.setAttribute('visible','true');
                     document.getElementById('titlescreen').setAttribute('visible', 'false');
+                    document.getElementById('ad').setAttribute('visible', 'false');
                     this.gameState = 1;
                     this.invadersLeftInWave = this.spawnInvaderWave();
                     break;
@@ -79,6 +80,7 @@ export default AFRAME.registerComponent('game', {
                 case 3: // game over
                     document.querySelectorAll('[invader], [missile]').forEach(x => x.remove());
                     document.getElementById('gameoverscreen').setAttribute('visible', 'false');
+                    document.getElementById('ad').setAttribute('visible', 'false');
                     this.gameover = false
                     this.gameState = 1;
                     this.score = 0;
@@ -123,6 +125,8 @@ export default AFRAME.registerComponent('game', {
                 sound.play(sound.gameover);
                 document.getElementById('score').setAttribute('neontext', { text: `${this.score} invaders shot`, fontsize: 60, color: "#1b90e2" });
                 document.getElementById('gameoverscreen').setAttribute('visible', 'true');
+                document.getElementById('ad').setAttribute('visible', 'true');
+                
                 this.hud.setAttribute('visible','false');
                 this.gameState = 2;
                 setTimeout(() => {

@@ -9,9 +9,13 @@
 # the game should slowly become faster and invaders should start shooting back. 
 # avoiding being shot will be hard on everywhere else then Rift. come up with a way to fix this
 
+# V1.6
+TODO:
+    - upgrade to latest A-Frame
+
 # V1.5
 Must have:
-    ☐ Hud for showing score
+    ✔ Hud for showing score @done(20-10-18 12:34)
     ☐ More levels
     ☐ Replace title, game-over and 'press anykey' with image so they look the same on all devices
     ✔ fix ground @done(20-10-17 10:36)
@@ -21,6 +25,8 @@ Should have:
     ☐ More different enemies
     ☐ better/more music
     ☐ show wave on Hud
+    ☐ Change background with a tiling noise
+    ☐ better looking explosions
 
 Would Like:
     ☐ instancing in 3D models
