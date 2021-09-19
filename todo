@@ -9,6 +9,12 @@
 # the game should slowly become faster and invaders should start shooting back. 
 # avoiding being shot will be hard on everywhere else then Rift. come up with a way to fix this
 
+
+# colorpalette
+# - #df497c ; magenta
+# - #497cdf ; blue
+# - #FF0 ; yellow
+
 # V1.6
 TODO:
     - upgrade to latest A-Frame

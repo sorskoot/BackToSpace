@@ -228,6 +228,7 @@ export default AFRAME.registerComponent('game', {
         this.el.addEventListener('game-over', () => {
             if (!~document.location.href.indexOf('godmode') && !this.invincible) {
                 sound.play(sound.gameover);
+                document.querySelector('[ca-leaderboard]').components['ca-leaderboard'].submitScore(this.score);
                 document.getElementById('score').setAttribute('neontext', { text: `${this.score} invaders shot`, fontsize: 60, color: "#1b90e2" });
                 document.getElementById('gameoverscreen').setAttribute('visible', 'true');
                 document.getElementById('ad').setAttribute('visible', 'true');
