@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-serve --config webpack.dev --static dist/ --client.retry",
-    "start-old": "http-server ./dist -c1",
+    "start": "webpack-serve --config webpack.dev --static dist/ --client.retry --port 1337",
+    "start-old": "http-server ./dist -p 1337",
     "clean": "rm -rf dist/; mkdir -p dist",
     "buildProd": "webpack --config webpack.prod --progress --colors",
     "build": "webpack --config webpack.dev --progress --colors",

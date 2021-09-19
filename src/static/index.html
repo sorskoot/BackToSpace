@@ -91,11 +91,12 @@
         <a-sky space>
         </a-sky>
 
-        <a-entity shoot-controls="hand:right" laser-controls>
+        <a-entity shoot-controls="hand:right">
+            <a-entity id="gunray" raycaster="objects:.clickable;showLine:true;lineColor: red; lineOpacity: 0.5"></a-entity>
             <a-entity gun wireframe-material="color:#FF0" visible="false"> </a-entity>
         </a-entity>
 
-        <a-entity  
+        <a-entity   
             raycaster="objects: .clickable" 
             camera position="0 1.6 0" rotation="0 0 0"
             look-controls="pointerLockEnabled:true">
