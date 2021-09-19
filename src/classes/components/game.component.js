@@ -39,13 +39,15 @@ const wave = [[
     [8, 6, 4, 2, 4, 6, 4, 2, 4, 6, 8],
     [6, 4, 2, 0, 2, 4, 2, 0, 2, 4, 6]]]
 
+
+
 export default AFRAME.registerComponent('game', {
     schema: {
         currentwave: { default: 0 }
     },
 
     init: function () {
-        
+
         this.gameover = false;
         this.currentspeed = 5;
         this.score = 0;
@@ -53,46 +55,99 @@ export default AFRAME.registerComponent('game', {
         this.invadergroup = document.getElementById("invaders");
         this.missilegroup = document.getElementById("missiles");
         this.hudscore = document.getElementById("hud-score");
+        this.titlescreen = document.getElementById('titlescreen');
+        this.gameoverscreen = document.getElementById('gameoverscreen');
+        this.adscreen = document.getElementById('ad');
+        this.aframeCanvas = document.querySelector('.a-canvas');
         this.hud = document.getElementById("hud");
-        this.hud.setAttribute('visible','false');
+        this.hud.setAttribute('visible', 'false');
+        this.isInVR = false;
+        this.isPointerLocked = false;
         this.el.sceneEl.addEventListener('enter-vr', () => {
+            this.isInVR = true;
             document.querySelector('[gun]').setAttribute('visible', true);
         });
         this.el.sceneEl.addEventListener('exit-vr', () => {
+            this.isInVR = false;
             document.querySelector('[gun]').setAttribute('visible', false);
         });
+        // document.getElementById('titlescreen').addEventListener('click', () => {
+        //     if (!this.isPointerLocked) {
+        //         console.log('titlescreen clicked');
+        //     }           
+        // });
         this.el.addEventListener('fire', (data) => {
             switch (this.gameState) {
                 case 0: // title
-                    //sound.play(sound.alarm);
-                    this.score = 0;
-                    this.updateScore();
-                    this.hud.setAttribute('visible','true');
-                    document.getElementById('titlescreen').setAttribute('visible', 'false');
-                    document.getElementById('ad').setAttribute('visible', 'false');
-                    this.gameState = 1;
-                    this.invadersLeftInWave = this.spawnInvaderWave();
+                    if (this.isPointerLocked) {
+                        if (this.isInVR) {
+                            this.spawnMissile(data.detail.direction, data.detail.position);
+                        } else {
+                            const rayCaster = document.querySelector('[raycaster]');
+                            //components.raycaster.getIntersection(this.el);
+                            if (rayCaster.components.raycaster.intersectedEls.length > 0) {
+                                if (rayCaster.components.raycaster.intersectedEls[0].parentEl &&
+                                    !!rayCaster.components.raycaster.intersectedEls[0].parentEl.components['zesty-ad']) {
+                                    rayCaster.components.raycaster.intersectedEls[0].emit('click');
+                                }
+                                else {
+                                    this.score = 0;
+                                    this.updateScore();
+                                    this.hud.setAttribute('visible', 'true');
+                                    this.titlescreen.setAttribute('visible', 'false');
+                                    this.adscreen.setAttribute('visible', 'false');
+                                    document.querySelector('[raycaster]').setAttribute('raycaster', 'enabled', 'false')
+                                    this.gameState = 1;
+                                    const cursorEl = document.querySelector('[cursor]');
+                                    cursorEl.setAttribute('visible', false);
+                                    this.invadersLeftInWave = this.spawnInvaderWave();
+                                }
+                            };
+
+                        }
+                        //sound.play(sound.alarm);
+                    }
+                    // 
+
                     break;
                 case 1: // fire missile
                     sound.play(sound.fire);
                     this.spawnMissile(data.detail.direction, data.detail.position);
                     break;
                 case 3: // game over
-                    document.querySelectorAll('[invader], [missile]').forEach(x => x.remove());
-                    document.getElementById('gameoverscreen').setAttribute('visible', 'false');
-                    document.getElementById('ad').setAttribute('visible', 'false');
-                    this.gameover = false
-                    this.gameState = 1;
-                    this.score = 0;
-                    this.updateScore();
-                    this.hud.setAttribute('visible','true');
-                    this.currentspeed = 5;
-                    this.data.currentwave = 0;
-                    this.invincible = true;
-                    setTimeout(() => {
-                        this.invincible = false;
-                    }, 5000);
-                    this.invadersLeftInWave = this.spawnInvaderWave();
+                    if (this.isInVR) {
+                        this.spawnMissile(data.detail.direction, data.detail.position);
+                    } else {
+                        const rayCaster = document.querySelector('[raycaster]');
+                        //components.raycaster.getIntersection(this.el);
+                        if (rayCaster.components.raycaster.intersectedEls.length > 0) {
+                            if (rayCaster.components.raycaster.intersectedEls[0].parentEl &&
+                                !!rayCaster.components.raycaster.intersectedEls[0].parentEl.components['zesty-ad']) {
+                                rayCaster.components.raycaster.intersectedEls[0].emit('click');
+                            }
+                            else {
+                                document.querySelectorAll('[invader], [missile]').forEach(x => x.remove());
+                                document.getElementById('gameoverscreen').setAttribute('visible', 'false');
+                                document.getElementById('ad').setAttribute('visible', 'false');
+                                document.querySelector('[raycaster]').setAttribute('raycaster', 'enabled', 'false')
+                                this.gameover = false
+                                this.gameState = 1;
+                                this.score = 0;
+                                this.updateScore();
+                                this.hud.setAttribute('visible', 'true');
+                                this.currentspeed = 5;
+                                this.data.currentwave = 0;
+                                this.invincible = true;
+                                const cursorEl = document.querySelector('[cursor]');
+                                cursorEl.setAttribute('visible', false);
+                                setTimeout(() => {
+                                    this.invincible = false;
+                                }, 5000);
+                                this.invadersLeftInWave = this.spawnInvaderWave();
+                            }
+                        }
+
+                    }
                     break;
             }
         });
@@ -117,7 +172,7 @@ export default AFRAME.registerComponent('game', {
                     this.data.currentwave = (this.data.currentwave + 1) % wave.length;
                     this.currentspeed++;
                     this.invadersLeftInWave = this.spawnInvaderWave();
-                },1500);
+                }, 1500);
             }
         })
         this.el.addEventListener('game-over', () => {
@@ -126,8 +181,10 @@ export default AFRAME.registerComponent('game', {
                 document.getElementById('score').setAttribute('neontext', { text: `${this.score} invaders shot`, fontsize: 60, color: "#1b90e2" });
                 document.getElementById('gameoverscreen').setAttribute('visible', 'true');
                 document.getElementById('ad').setAttribute('visible', 'true');
-                
-                this.hud.setAttribute('visible','false');
+                document.querySelector('[raycaster]').setAttribute('raycaster', 'enabled', 'true')
+                this.hud.setAttribute('visible', 'false');
+                const cursorEl = document.querySelector('[cursor]');
+                cursorEl.setAttribute('visible', true);
                 this.gameState = 2;
                 setTimeout(() => {
                     this.gameState = 3;
@@ -156,7 +213,7 @@ export default AFRAME.registerComponent('game', {
         let rndY = -y * 25 + 150;
         let rad = (((x + .5) / 11) - .5) * (Math.PI / 1.5);
         box.setAttribute("invader", { direction: rad, type: type, speed: this.currentspeed });
-        box.setAttribute('appear','');
+        box.setAttribute('appear', '');
         const position = { x: Math.sin(rad) * 250, y: rndY, z: (Math.cos(rad) * -150) };
         box.setAttribute("position", position);
         this.invadergroup.appendChild(box);
@@ -168,7 +225,19 @@ export default AFRAME.registerComponent('game', {
         this.missilegroup.appendChild(box);
     },
 
-    updateScore: function(){
-        this.hudscore.setAttribute("neontext",{text:this.score});
+    updateScore: function () {
+        this.hudscore.setAttribute("neontext", { text: this.score });
+    },
+
+    tick: function () {
+        if (this.isInVR) return;
+        const pointerlocked = document.pointerLockElement === this.aframeCanvas ||
+            document.mozPointerLockElement === this.aframeCanvas;
+        if (pointerlocked != this.isPointerLocked) {
+            this.isPointerLocked = pointerlocked;
+            const cursorEl = document.querySelector('[cursor]');
+            cursorEl.setAttribute('visible', this.isPointerLocked && this.gameState != 1);
+            // cursorEl.setAttribute('cursor','enabled',!this.isPointerLocked)
+        }
     }
 });

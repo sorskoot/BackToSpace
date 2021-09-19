@@ -48,7 +48,14 @@ export default AFRAME.registerComponent('wireframe-material', {
             fragmentShader: fragShader,
         });
         material.needsUpdate = true;
-        this.el.getObject3D('mesh').material = material;
+
+        const object3D = this.el.getObject3D('mesh');
+        if(object3D){
+            object3D.material = material;
+        }else{
+            debugger;
+        }
+        
     },
     
 });
