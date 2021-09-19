@@ -137,7 +137,34 @@ export default AFRAME.registerComponent('game', {
                     break;
                 case 3: // game over
                     if (this.isInVR) {
-                        this.spawnMissile(data.detail.direction, data.detail.position);
+                        const gunRayCaster = document.getElementById('gunray');
+                        if (gunRayCaster.components.raycaster.intersectedEls.length > 0) {
+                            const parents = this.filterVisibleParents(gunRayCaster.components.raycaster.intersectedEls);
+                            if (parents.length > 0) {
+                                if (parents[0].parentEl.components['zesty-ad']) {
+                                    parents[0].emit('click');
+                                }else{
+                                    document.querySelectorAll('[invader], [missile]').forEach(x => x.remove());
+                                    document.getElementById('gameoverscreen').setAttribute('visible', 'false');
+                                    document.getElementById('ad').setAttribute('visible', 'false');
+                                    document.querySelector('[raycaster]').setAttribute('raycaster', 'enabled', 'false')
+                                    this.gameover = false
+                                    this.gameState = 1;
+                                    this.score = 0;
+                                    this.updateScore();
+                                    this.hud.setAttribute('visible', 'true');
+                                    this.currentspeed = 5;
+                                    this.data.currentwave = 0;
+                                    this.invincible = true;
+                                    const cursorEl = document.querySelector('[cursor]');
+                                    cursorEl.setAttribute('visible', false);
+                                    setTimeout(() => {
+                                        this.invincible = false;
+                                    }, 5000);
+                                    this.invadersLeftInWave = this.spawnInvaderWave();
+                                }
+                            }
+                        }
                     } else {
                         const cameraRayCaster = document.querySelector('[camera]');
                         //components.raycaster.getIntersection(this.el);
