@@ -1,4 +1,3 @@
-
 import { sound } from '../utils/sound';
 
 // Waves are ALWAYZ!!! 11 by 5 
@@ -61,15 +60,18 @@ export default AFRAME.registerComponent('game', {
         this.aframeCanvas = document.querySelector('.a-canvas');
         this.hud = document.getElementById("hud");
         this.hud.setAttribute('visible', 'false');
+        document.getElementById('gunray').setAttribute('line','visible', false);
         this.isInVR = false;
         this.isPointerLocked = false;
         this.el.sceneEl.addEventListener('enter-vr', () => {
             this.isInVR = true;
             document.querySelector('[gun]').setAttribute('visible', true);
+            document.getElementById('gunray').setAttribute('line','visible', true);
         });
         this.el.sceneEl.addEventListener('exit-vr', () => {
             this.isInVR = false;
             document.querySelector('[gun]').setAttribute('visible', false);
+            document.getElementById('gunray').setAttribute('line','visible', false);
         });
         // document.getElementById('titlescreen').addEventListener('click', () => {
         //     if (!this.isPointerLocked) {
@@ -79,7 +81,6 @@ export default AFRAME.registerComponent('game', {
         this.el.addEventListener('fire', (data) => {
             switch (this.gameState) {
                 case 0: // title
-
                     if (this.isInVR) {
                         // this.spawnMissile(data.detail.direction, data.detail.position);
                         const gunRayCaster = document.getElementById('gunray');
@@ -93,8 +94,9 @@ export default AFRAME.registerComponent('game', {
                                     this.updateScore();
                                     this.hud.setAttribute('visible', 'true');
                                     this.titlescreen.setAttribute('visible', 'false');
-                                    this.adscreen.setAttribute('visible', 'false');
+                                    this.adscreen.setAttribute('visible', 'false');                                    
                                     document.querySelector('[camera]').setAttribute('raycaster', 'enabled', 'false')
+                                    gunRayCaster.setAttribute('line', 'visible', 'false')
                                     this.gameState = 1;
                                     const cursorEl = document.querySelector('[cursor]');
                                     cursorEl.setAttribute('visible', false);
@@ -143,11 +145,12 @@ export default AFRAME.registerComponent('game', {
                             if (parents.length > 0) {
                                 if (parents[0].parentEl.components['zesty-ad']) {
                                     parents[0].emit('click');
-                                }else{
+                                }else{                                    
                                     document.querySelectorAll('[invader], [missile]').forEach(x => x.remove());
                                     document.getElementById('gameoverscreen').setAttribute('visible', 'false');
                                     document.getElementById('ad').setAttribute('visible', 'false');
-                                    document.querySelector('[raycaster]').setAttribute('raycaster', 'enabled', 'false')
+                                    document.querySelector('[camera]').setAttribute('raycaster', 'enabled', 'false')
+                                    gunRayCaster.setAttribute('line', 'visible', 'false')
                                     this.gameover = false
                                     this.gameState = 1;
                                     this.score = 0;
@@ -233,6 +236,7 @@ export default AFRAME.registerComponent('game', {
                 document.getElementById('gameoverscreen').setAttribute('visible', 'true');
                 document.getElementById('ad').setAttribute('visible', 'true');
                 document.querySelector('[raycaster]').setAttribute('raycaster', 'enabled', 'true')
+                document.getElementById('gunray').setAttribute('line', 'visible', 'true')
                 this.hud.setAttribute('visible', 'false');
                 const cursorEl = document.querySelector('[cursor]');
                 cursorEl.setAttribute('visible', true);

@@ -68,7 +68,7 @@ export default AFRAME.registerComponent('shoot-controls', {
                     z: v.z
                 }, position: {
                     x: this.el.object3D.position.x,
-                    y: this.el.object3D.position.y,
+                    y: this.el.object3D.position.y-0.5,
                     z: this.el.object3D.position.z
                 }
             });
