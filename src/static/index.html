@@ -29,8 +29,7 @@
 
 <body>
     <a-scene visible="false" antialias="true" renderer="sortObjects: true">
-        <a-assets>
-            <a-asset-song></a-asset-song>
+        <a-assets>            
             <img src="Textures/wireframe01.jpg" id="wireframe-texture" />
             <img src="Textures/invader-icon.png" id="invader-texture" />
             <img src="Textures/Title.png" id="title-texture" />
@@ -38,7 +37,7 @@
             <img src="Textures/PressFire.png" id="pressfire-texture" />
             <img src="Textures/PressFireRestart.png" id="pressfirerestart-texture" />
         </a-assets>
-
+        <a-entity song="playing:false" id="song"></a-entity>
         <a-entity>
             <a-plane sun position="0 100 -430" scale="230 230 230"></a-plane>
         </a-entity>

@@ -65,6 +65,7 @@ export default AFRAME.registerComponent('game', {
         this.isPointerLocked = false;
         this.el.sceneEl.addEventListener('enter-vr', () => {
             this.isInVR = true;
+            document.getElementById('song').setAttribute('song','playing',true);
             document.querySelector('[gun]').setAttribute('visible', true);
             document.getElementById('gunray').setAttribute('line','visible', true);
         });
@@ -114,6 +115,7 @@ export default AFRAME.registerComponent('game', {
                                     cameraRayCaster.components.raycaster.intersectedEls[0].emit('click');
                                 }
                                 else {
+                                    document.getElementById('song').setAttribute('song','playing',true);
                                     this.score = 0;
                                     this.updateScore();
                                     this.hud.setAttribute('visible', 'true');
