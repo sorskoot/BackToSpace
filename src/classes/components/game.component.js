@@ -88,7 +88,7 @@ export default AFRAME.registerComponent('game', {
                         if (gunRayCaster.components.raycaster.intersectedEls.length > 0) {
                             const parents = this.filterVisibleParents(gunRayCaster.components.raycaster.intersectedEls);
                             if (parents.length > 0) {
-                                if (parents[0].parentEl.components['zesty-ad']) {
+                                if (parents[0].parentEl.components['zesty-banner']) {
                                     parents[0].emit('click');
                                 }else{
                                     this.score = 0;
@@ -111,7 +111,7 @@ export default AFRAME.registerComponent('game', {
                             //components.raycaster.getIntersection(this.el);
                             if (cameraRayCaster.components.raycaster.intersectedEls.length > 0) {
                                 if (cameraRayCaster.components.raycaster.intersectedEls[0].parentEl &&
-                                    !!cameraRayCaster.components.raycaster.intersectedEls[0].parentEl.components['zesty-ad']) {
+                                    !!cameraRayCaster.components.raycaster.intersectedEls[0].parentEl.components['zesty-banner']) {
                                     cameraRayCaster.components.raycaster.intersectedEls[0].emit('click');
                                 }
                                 else {
@@ -145,7 +145,7 @@ export default AFRAME.registerComponent('game', {
                         if (gunRayCaster.components.raycaster.intersectedEls.length > 0) {
                             const parents = this.filterVisibleParents(gunRayCaster.components.raycaster.intersectedEls);
                             if (parents.length > 0) {
-                                if (parents[0].parentEl.components['zesty-ad']) {
+                                if (parents[0].parentEl.components['zesty-banner']) {
                                     parents[0].emit('click');
                                 }else{                                    
                                     document.querySelectorAll('[invader], [missile]').forEach(x => x.remove());
@@ -176,7 +176,7 @@ export default AFRAME.registerComponent('game', {
                         if (cameraRayCaster.components.raycaster.intersectedEls.length > 0) {
                             const parents = this.filterVisibleParents(cameraRayCaster.components.raycaster.intersectedEls);
                             if (parents.length > 0) {
-                                if (parents[0].components['zesty-ad']) {
+                                if (parents[0].components['zesty-banner']) {
                                     parents[0].emit('click');
                                 }
                                 else {
