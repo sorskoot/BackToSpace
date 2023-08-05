@@ -2,65 +2,46 @@
   "name": "backtospace",
   "version": "1.0.0",
   "description": "Entry for the 2019 Js13k Games competition",
-  "main": "index.js",
+  "main": "js/index.js",
+  "type": "module",
+  "module": "js/index.js",  
+  "moduleDirectories": [
+    "node_modules",
+    "js"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-serve --config webpack.common.js --static dist/ --client.retry --port 1337",
-    "start-old": "http-server ./dist -p 1337",
-    "clean": "rm -rf dist/; mkdir -p dist",
-    "buildProd": "webpack --config webpack.common.js",
-    "build": "webpack --config webpack.common.js --progress ",
-    "watch": "webpack --config webpack.dev.js --colors --watch",
-    "zip": "cd dist; zip -r ../dist.zip .; cd ..; wc -c dist.zip",
-    "package": "npm run clean && npm run build && npm run zip",
-    "sass": "sass ./src/sass/root.scss ./dist/main.css",
-    "sass-watch": "sass ./src/sass/root.scss ./dist/main.css --watch"
+    "test": "jest",
+    "build": "echo \"The 'build' script is run by the editor and should produce your application bundle\""
   },
+  "keywords": [
+    "wonderland-engine",
+    "js13k",
+    "sorskoot"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sorskoot/BackToSpace.git"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Sorskoot",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/sorskoot/BackToSpace/issues"
   },
   "homepage": "https://github.com/sorskoot/BackToSpace#readme",
-  "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
-    "babel-preset-env": "^1.7.0",
-    "compression-webpack-plugin": "^1.1.11",
-    "copy-webpack-plugin": "^5.1.1",
-    "envify": "^4.1.0",
-    "eslint": "^5.2.0",
-    "glsl-aastep": "^1.0.1",
-    "glsl-noise": "^0.0.0",
-    "glsl-pi": "^1.0.0",
-    "glslify-fancy-imports": "^1.0.1",
-    "glslify-hex": "^2.1.1",
-    "glslify-loader": "^2.0.0",
-    "html-webpack-plugin": "^3.2.0",
-    "http-server": "^0.11.1",
-    "husky": "^0.14.3",
-    "jshint": "^2.9.5",
-    "jshint-loader": "^0.8.4",
-    "raw-loader": "^3.1.0",
-    "shader-loader": "^1.3.1",
-    "stats.js": "^0.17.0",
-    "style-loader": "^0.21.0",
-    "transform-loader": "^0.2.4",
-    "uglify-es": "^3.3.9",
-    "uglify-js-es6": "^2.8.9",
-    "uglifyes-webpack-plugin": "^0.4.3",
-    "webpack": "^5.81.0",
-    "webpack-cli": "^5.0.2",
-    "webpack-merge": "^5.8.0",
-    "webpack-serve": "^4.0.0"
+  "dependencies": {
+    "@sorskoot/wonderland-components": "1.1.6",
+    "@wonderlandengine/api": "^1.0.1",
+    "@wonderlandengine/components": "^1.0.5",
+    "@zestymarket/wonderland-sdk": "^2.0.6",
+    "gl-matrix": "^3.4.3",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.8.1",
+    "tsyringe": "tec27/tsyringe#43d00160db294312db4c7deb38046f71dcd74348"
   },
-  "not used dependencies": {
-    "@zestymarket/aframe-sdk": "^2.0.0",
-    "esbuild": "^0.17.18"
+  "devDependencies": {
+    "@types/jest": "^29.5.2",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "ts-node": "^10.9.1"
   }
 }

@@ -15,9 +15,16 @@
 # - #497cdf ; blue
 # - #FF0 ; yellow
 
+# V1.9
+TODO:
+    Rebuild in Wonderland Engine:
+        ☐ Add Geometry
+        ☐ Create shader or textures to get the same look
+
+
 # V1.6
 TODO:
-    - upgrade to latest A-Frame
+    ✘ upgrade to latest A-Frame @cancelled(23-08-01 20:31)
 
 # V1.5
 Must have:
