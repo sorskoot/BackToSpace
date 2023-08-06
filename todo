@@ -18,8 +18,18 @@
 # V1.9
 TODO:
     Rebuild in Wonderland Engine:
-        ☐ Add Geometry
-        ☐ Create shader or textures to get the same look
+        ✔ Add Geometry @done(23-08-06 19:54)
+        ✔ Create shader or textures to get the same look @done(23-08-06 19:54)
+        ☐ Add title screen
+        ☐ Add Game Over screen
+        ☐ Add Zesty Ad
+        ☐ Add scoreboard
+        ☐ Add Aliens
+        ✔ Add Gun @done(23-08-06 20:02)
+        ☐ Make Gun Shoot
+        ☐ Gameplay
+        ☐ Add SFX
+        ☐ Add Music
 
 
 # V1.6

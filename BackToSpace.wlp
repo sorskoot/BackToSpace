@@ -737,6 +737,56 @@
                 0.0,
                 1.0
             ]
+        },
+        "321": {
+            "name": "Empty",
+            "parent": "129",
+            "translation": [
+                0.0,
+                0.0,
+                5.960463766996327e-8
+            ],
+            "rotation": [
+                -0.2585832,
+                0.0,
+                0.0,
+                0.9659889
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "323": {
+            "link": {
+                "name": "Gun",
+                "file": "models\\Gun.fbx"
+            },
+            "parent": "321",
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "components": [
+                {
+                    "mesh": {
+                        "material": "324"
+                    }
+                }
+            ],
+            "translation": [
+                0.0400072,
+                0.0913625,
+                0.0877874
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ]
         }
     },
     "meshes": {
@@ -776,72 +826,6 @@
                 "file": "default"
             }
         },
-        "48": {
-            "link": {
-                "name": "controller_plyShape.003",
-                "file": "models\\oculus-touch-v2-left.glb"
-            }
-        },
-        "49": {
-            "link": {
-                "name": "controller_plyShape.005",
-                "file": "models\\oculus-touch-v2-left.glb"
-            }
-        },
-        "50": {
-            "link": {
-                "name": "controller_plyShape.006",
-                "file": "models\\oculus-touch-v2-left.glb"
-            }
-        },
-        "51": {
-            "link": {
-                "name": "controller_plyShape.004",
-                "file": "models\\oculus-touch-v2-left.glb"
-            }
-        },
-        "52": {
-            "link": {
-                "name": "controller_plyShape.002",
-                "file": "models\\oculus-touch-v2-left.glb"
-            }
-        },
-        "89": {
-            "link": {
-                "name": "controller_plyShape.004",
-                "file": "models\\oculus-touch-v2-right.glb"
-            }
-        },
-        "90": {
-            "link": {
-                "name": "controller_plyShape.005",
-                "file": "models\\oculus-touch-v2-right.glb"
-            }
-        },
-        "91": {
-            "link": {
-                "name": "controller_plyShape",
-                "file": "models\\oculus-touch-v2-right.glb"
-            }
-        },
-        "92": {
-            "link": {
-                "name": "controller_plyShape.002",
-                "file": "models\\oculus-touch-v2-right.glb"
-            }
-        },
-        "93": {
-            "link": {
-                "name": "controller_plyShape.003",
-                "file": "models\\oculus-touch-v2-right.glb"
-            }
-        },
-        "94": {
-            "link": {
-                "name": "controller_plyShape.001",
-                "file": "models\\oculus-touch-v2-right.glb"
-            }
-        },
         "261": {
             "link": {
                 "name": "mesh_0",
@@ -852,6 +836,12 @@
             "link": {
                 "name": "mesh_0",
                 "file": "models\\bunker.fbx"
+            }
+        },
+        "322": {
+            "link": {
+                "name": "mesh_0",
+                "file": "models\\Gun.fbx"
             }
         }
     },
@@ -1391,6 +1381,67 @@
                 "flatTexture": "274",
                 "flatTextureLowest": "295"
             }
+        },
+        "324": {
+            "name": "Gun",
+            "pipeline": "277",
+            "flatedge": {
+                "color": [
+                    1.0,
+                    0.3273542,
+                    0.5560538,
+                    1.0
+                ],
+                "divisions": 96.6999969,
+                "thickness": 0.0199999,
+                "scale": 1.0,
+                "maxDistance": 1.0,
+                "fogColor": [
+                    0.1165919,
+                    0.0569888,
+                    0.0772539,
+                    1.0
+                ]
+            },
+            "Flat": {
+                "flatTexture": "274",
+                "color": [
+                    0.896861,
+                    0.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "flatrepeat": {
+                "flatTexture": "274",
+                "color": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "repeat": 10.0,
+                "thickness": 0.0399999,
+                "fillColor": [
+                    0.1121076,
+                    0.1055722,
+                    0.0,
+                    1.0
+                ],
+                "strokeColor": [
+                    1.0,
+                    0.9417039,
+                    0.0,
+                    1.0
+                ]
+            },
+            "Phong": {
+                "diffuseTexture": "274"
+            },
+            "flatrepeatLOD": {
+                "flatTexture": "274",
+                "flatTextureLowest": "295"
+            }
         }
     },
     "shaders": {
@@ -1898,7 +1949,10 @@
             "blending": true,
             "sampleAlphaToCoverage": true,
             "depthWrite": false,
-            "depthTest": true
+            "depthTest": true,
+            "depthFunction": "less",
+            "blendSrcAlpha": "one",
+            "blendEqAlpha": "add"
         }
     },
     "files": {
@@ -1964,6 +2018,10 @@
         },
         "15": {
             "fileName": "models/bunker.fbx",
+            "importerName": ""
+        },
+        "16": {
+            "fileName": "models/Gun.fbx",
             "importerName": ""
         }
     },
