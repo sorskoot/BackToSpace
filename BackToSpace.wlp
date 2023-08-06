@@ -3,9 +3,9 @@
         "14": {
             "name": "Player",
             "translation": [
-                -2.5,
                 0.0,
-                1.1575535
+                0.0,
+                0.0
             ],
             "rotation": [
                 0.0,
@@ -32,9 +32,9 @@
                 }
             ],
             "translation": [
-                2.384185791015625e-7,
-                -1.240128,
-                1.1920928955078125e-7
+                3.3299999,
+                1.1920928955078125e-7,
+                3.3299999
             ],
             "rotation": [
                 -0.7071068,
@@ -567,7 +567,8 @@
                 {
                     "mesh": {
                         "material": "270"
-                    }
+                    },
+                    "active": true
                 }
             ],
             "scaling": [
@@ -597,6 +598,144 @@
                 115.0,
                 115.0,
                 115.0
+            ]
+        },
+        "308": {
+            "link": {
+                "name": "object_0",
+                "file": "models\\Bunker.glb"
+            },
+            "parent": "256",
+            "name": "Bunkers",
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "314": {
+            "link": {
+                "name": "Bunker",
+                "file": "models\\bunker.fbx"
+            },
+            "parent": "308",
+            "components": [
+                {
+                    "mesh": {
+                        "material": "310"
+                    }
+                }
+            ],
+            "scaling": [
+                2.0,
+                2.0,
+                2.0
+            ],
+            "translation": [
+                -7.1336832,
+                0.0,
+                -5.3764142
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ]
+        },
+        "318": {
+            "link": {
+                "name": "Bunker",
+                "file": "models\\bunker.fbx"
+            },
+            "parent": "308",
+            "components": [
+                {
+                    "mesh": {
+                        "material": "310"
+                    }
+                }
+            ],
+            "scaling": [
+                2.0,
+                2.0,
+                2.0
+            ],
+            "translation": [
+                7.1339998,
+                0.0,
+                -5.3764142
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ]
+        },
+        "319": {
+            "link": {
+                "name": "Bunker",
+                "file": "models\\bunker.fbx"
+            },
+            "parent": "308",
+            "components": [
+                {
+                    "mesh": {
+                        "material": "310"
+                    }
+                }
+            ],
+            "scaling": [
+                2.0,
+                2.0,
+                2.0
+            ],
+            "translation": [
+                -7.1336832,
+                0.0,
+                5.3759999
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ]
+        },
+        "320": {
+            "link": {
+                "name": "Bunker",
+                "file": "models\\bunker.fbx"
+            },
+            "parent": "308",
+            "components": [
+                {
+                    "mesh": {
+                        "material": "310"
+                    }
+                }
+            ],
+            "scaling": [
+                2.0,
+                2.0,
+                2.0
+            ],
+            "translation": [
+                7.1339998,
+                0.0,
+                5.3759999
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
             ]
         }
     },
@@ -635,12 +774,6 @@
             "link": {
                 "name": "PrimitiveCircle",
                 "file": "default"
-            }
-        },
-        "47": {
-            "link": {
-                "name": "controller_plyShape",
-                "file": "models\\oculus-touch-v2-left.glb"
             }
         },
         "48": {
@@ -709,43 +842,16 @@
                 "file": "models\\oculus-touch-v2-right.glb"
             }
         },
-        "132": {
-            "link": {
-                "name": "Mesh",
-                "file": "models\\hand-left.glb"
-            },
-            "name": "HandLeft"
-        },
-        "165": {
-            "link": {
-                "name": "Mesh.001",
-                "file": "models\\hand-right.glb"
-            },
-            "name": "HandRight"
-        },
-        "195": {
-            "link": {
-                "name": "Cube.001",
-                "file": "models\\button.glb"
-            },
-            "name": "Button"
-        },
-        "207": {
-            "link": {
-                "name": "TeleportIndicator",
-                "file": "models\\teleport-indicator.glb"
-            }
-        },
-        "257": {
-            "link": {
-                "name": "mesh_0",
-                "file": "models\\Mountains.glb"
-            }
-        },
         "261": {
             "link": {
                 "name": "mesh_0",
                 "file": "models\\mountains.fbx"
+            }
+        },
+        "313": {
+            "link": {
+                "name": "mesh_0",
+                "file": "models\\bunker.fbx"
             }
         }
     },
@@ -802,6 +908,12 @@
             "link": {
                 "name": "sun.png",
                 "file": "models\\textures\\sun.png"
+            }
+        },
+        "312": {
+            "link": {
+                "name": "273.png",
+                "file": "deploy\\273.png"
             }
         }
     },
@@ -880,6 +992,12 @@
                 "file": "models\\textures\\sun.png"
             },
             "compression": "none"
+        },
+        "311": {
+            "link": {
+                "name": "273.png",
+                "file": "deploy\\273.png"
+            }
         }
     },
     "materials": {
@@ -1081,7 +1199,7 @@
         },
         "270": {
             "name": "Grid Mountains",
-            "pipeline": "278",
+            "pipeline": "277",
             "flatedge": {
                 "color": [
                     1.0,
@@ -1117,7 +1235,20 @@
                     1.0,
                     1.0
                 ],
-                "repeat": 10.0
+                "repeat": 10.0,
+                "thickness": 0.05,
+                "fillColor": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "strokeColor": [
+                    0.2862745,
+                    0.4862745,
+                    0.8745098,
+                    1.0
+                ]
             },
             "Phong": {
                 "diffuseTexture": "274"
@@ -1198,6 +1329,67 @@
             },
             "flatrepeat": {
                 "flatTexture": "305"
+            }
+        },
+        "310": {
+            "name": "Bunker",
+            "pipeline": "277",
+            "flatedge": {
+                "color": [
+                    1.0,
+                    0.3273542,
+                    0.5560538,
+                    1.0
+                ],
+                "divisions": 96.6999969,
+                "thickness": 0.0199999,
+                "scale": 1.0,
+                "maxDistance": 1.0,
+                "fogColor": [
+                    0.1165919,
+                    0.0569888,
+                    0.0772539,
+                    1.0
+                ]
+            },
+            "Flat": {
+                "flatTexture": "274",
+                "color": [
+                    0.896861,
+                    0.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "flatrepeat": {
+                "flatTexture": "274",
+                "color": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "repeat": 10.0,
+                "thickness": 0.0399999,
+                "fillColor": [
+                    0.103139,
+                    0.0314504,
+                    0.0558245,
+                    1.0
+                ],
+                "strokeColor": [
+                    0.8745098,
+                    0.2862745,
+                    0.4862745,
+                    1.0
+                ]
+            },
+            "Phong": {
+                "diffuseTexture": "274"
+            },
+            "flatrepeatLOD": {
+                "flatTexture": "274",
+                "flatTextureLowest": "295"
             }
         }
     },
@@ -1760,6 +1952,18 @@
         },
         "12": {
             "fileName": "models/textures/sun.png",
+            "importerName": ""
+        },
+        "13": {
+            "fileName": "models/Bunker.glb",
+            "importerName": ""
+        },
+        "14": {
+            "fileName": "deploy/273.png",
+            "importerName": ""
+        },
+        "15": {
+            "fileName": "models/bunker.fbx",
             "importerName": ""
         }
     },

@@ -19,7 +19,7 @@
         "Console": true,
         "Scene Outline": true,
         "Properties": true,
-        "Project Settings": true,
+        "Project Settings": false,
         "Resources": true,
         "Project Data": false,
         "Benchmark": false,
