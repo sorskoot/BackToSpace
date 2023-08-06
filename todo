@@ -30,7 +30,8 @@ TODO:
         ☐ Gameplay
         ☐ Add SFX
         ☐ Add Music
-
+    Improvements:
+        ☐ Current LOD shader can have a level between 0 and 1.
 
 # V1.6
 TODO:

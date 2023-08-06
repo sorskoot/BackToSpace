@@ -905,6 +905,12 @@
                 "name": "273.png",
                 "file": "deploy\\273.png"
             }
+        },
+        "326": {
+            "link": {
+                "name": "magenta-grid-Sharp.png",
+                "file": "models\\textures\\magenta-grid-Sharp.png"
+            }
         }
     },
     "images": {
@@ -988,6 +994,13 @@
                 "name": "273.png",
                 "file": "deploy\\273.png"
             }
+        },
+        "325": {
+            "link": {
+                "name": "magenta-grid-Sharp.png",
+                "file": "models\\textures\\magenta-grid-Sharp.png"
+            },
+            "compression": "none"
         }
     },
     "materials": {
@@ -1292,7 +1305,7 @@
                 "diffuseTexture": "274"
             },
             "flatrepeatLOD": {
-                "flatTexture": "274",
+                "flatTexture": "326",
                 "flatTextureLowest": "295",
                 "color": [
                     1.0,
@@ -2022,6 +2035,10 @@
         },
         "16": {
             "fileName": "models/Gun.fbx",
+            "importerName": ""
+        },
+        "17": {
+            "fileName": "models/textures/magenta-grid-Sharp.png",
             "importerName": ""
         }
     },
