@@ -809,6 +809,14 @@
                 1.0,
                 1.0,
                 1.0
+            ],
+            "components": [
+                {
+                    "type": "active-on-state",
+                    "active-on-state": {
+                        "name": "A"
+                    }
+                }
             ]
         },
         "329": {
@@ -2484,7 +2492,8 @@
         },
         "scripting": {
             "sourcePaths": [
-                "js/"
+                "js/",
+                "js/components"
             ],
             "bundlingType": "esbuild",
             "libraryPaths": [

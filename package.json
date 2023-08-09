@@ -1,10 +1,10 @@
 {
   "name": "backtospace",
-  "version": "1.0.0",
+  "version": "1.9.0",
   "description": "Entry for the 2019 Js13k Games competition",
   "main": "js/index.js",
   "type": "module",
-  "module": "js/index.js",  
+  "module": "js/index.js",
   "moduleDirectories": [
     "node_modules",
     "js"
@@ -34,14 +34,13 @@
     "@wonderlandengine/components": "^1.0.5",
     "@zestymarket/wonderland-sdk": "^2.0.6",
     "gl-matrix": "^3.4.3",
-    "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.8.1",
-    "tsyringe": "tec27/tsyringe#43d00160db294312db4c7deb38046f71dcd74348"
+    "rxjs": "^7.8.1"
   },
   "devDependencies": {
     "@types/jest": "^29.5.2",
     "jest": "^29.5.0",
     "ts-jest": "^29.1.0",
-    "ts-node": "^10.9.1"
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
   }
 }
