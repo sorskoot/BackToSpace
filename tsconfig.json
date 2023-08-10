@@ -1,16 +1,16 @@
 {
     "compilerOptions": {
-      "forceConsistentCasingInFileNames": true,
-      "experimentalDecorators": true,
-      "emitDecoratorMetadata": true,
-      "strict": false,
-      "noImplicitAny": true,
-      "strictNullChecks": true,
-      "target": "es2022",
-      "moduleResolution": "nodenext",
-      "outDir": "dist",
-      "esModuleInterop": true
+        "forceConsistentCasingInFileNames": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "strict": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "target": "es2022",
+        "moduleResolution": "nodenext",
+        "outDir": "dist",
+        "esModuleInterop": true
     },
-    "exclude": ["node_modules","test"],
+    "exclude": ["node_modules", "test"],
     "include": ["js/**/*"]
-  }
+}

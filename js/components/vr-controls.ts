@@ -1,0 +1,61 @@
+import {Component, Object3D} from '@wonderlandengine/api';
+import {property} from '@wonderlandengine/api/decorators.js';
+import {gameState} from '../classes/game-state.js';
+import {vec3} from 'gl-matrix';
+
+const handedness = ['left', 'right'];
+
+interface QuestGamepadHapticActuator extends GamepadHapticActuator {
+    pulse(value: number, duration: number): void;
+}
+
+export class VrControls extends Component {
+    static TypeName = 'vr-controls';
+
+    @property.object()
+    leftController?: Object3D;
+
+    @property.object()
+    rightController?: Object3D;
+
+    @property.bool(true)
+    haptics = true;
+
+    private handedness = 0;
+    private initialized = false;
+    private currentlyShootingWithRight = true;
+
+    start() {
+        this.initialized = false;
+        this.engine.onXRSessionStart.add((session) => {
+            if (this.initialized) return;
+            session.addEventListener('select', (e) => {
+                if (!this.active) return;
+                if (e.inputSource.handedness === handedness[this.handedness]) {
+                    if (this.haptics) {
+                        this.pulse(e.inputSource.gamepad);
+                    }
+                    // todo pass current position and rotation to shoot
+                    this.shoot(
+                        this.object.getPositionWorld(),
+                        this.object.getRotationWorld()
+                    );
+                }
+            });
+            this.initialized = true;
+        });
+    }
+
+    pulse(gamepad: Gamepad | undefined) {
+        if (!gamepad || !gamepad.hapticActuators) {
+            return;
+        }
+        const actuator = gamepad.hapticActuators[0] as QuestGamepadHapticActuator;
+        if (!actuator) return;
+        actuator.pulse(1, 100);
+    }
+
+    shoot(transform: vec3, rotation: vec3) {
+        gameState.fire(transform, rotation);
+    }
+}

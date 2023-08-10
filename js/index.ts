@@ -12,12 +12,18 @@
  */
 
 /* wle:auto-imports:start */
+import {Prefab} from '@sorskoot/wonderland-components';
+import {PrefabStorage} from '@sorskoot/wonderland-components';
 import {Cursor} from '@wonderlandengine/components';
 import {HowlerAudioListener} from '@wonderlandengine/components';
 import {MouseLookComponent} from '@wonderlandengine/components';
 import {PlayerHeight} from '@wonderlandengine/components';
 import {VrModeActiveSwitch} from '@wonderlandengine/components';
 import {ActiveOnState} from './components/active-on-state.js';
+import {Game} from './components/game.js';
+import {KeyboardControls} from './components/keyboard-controls.js';
+import {Missile} from './components/missile.js';
+import {VrControls} from './components/vr-controls.js';
 /* wle:auto-imports:end */
 
 import {loadRuntime} from '@wonderlandengine/api';
@@ -76,12 +82,18 @@ if (document.readyState === 'loading') {
 }
 
 /* wle:auto-register:start */
+engine.registerComponent(Prefab);
+engine.registerComponent(PrefabStorage);
 engine.registerComponent(Cursor);
 engine.registerComponent(HowlerAudioListener);
 engine.registerComponent(MouseLookComponent);
 engine.registerComponent(PlayerHeight);
 engine.registerComponent(VrModeActiveSwitch);
 engine.registerComponent(ActiveOnState);
+engine.registerComponent(Game);
+engine.registerComponent(KeyboardControls);
+engine.registerComponent(Missile);
+engine.registerComponent(VrControls);
 /* wle:auto-register:end */
 
 engine.scene.load(`${Constants.ProjectName}.bin`).catch((e) => {

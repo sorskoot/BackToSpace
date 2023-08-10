@@ -1,0 +1,23 @@
+{
+    "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended-type-checked"],
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["@typescript-eslint"],
+    "root": true,
+    "settings": {},
+    "parserOptions": {
+        "project": true,
+        "tsconfigRootDir": "./"
+    },
+    "overrides": [
+        {
+            "files": ["js/**/*.ts"]
+        }
+    ],
+    "rules": {
+        "@typescript-eslint/naming-convention": [
+            "error",
+            {"selector": "enum", "format": ["PascalCase"]}
+        ],
+        "@typescript-eslint/no-inferrable-types": "error"
+    }
+}

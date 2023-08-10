@@ -1,22 +1,54 @@
-import { Subject } from "rxjs";
+import {Emitter} from '@wonderlandengine/api';
+import {ReadonlyVec3} from 'gl-matrix';
+import {Subject} from 'rxjs';
 
 export enum State {
-    welcome,
-    playing,
-    gameOver
+    welcome = 0,
+    playing = 1,
+    gameOver = 2,
 }
 
-class GameState{
+class GameState {
     stateSubject: Subject<State>;
 
-    constructor(){
+    private _state: State = State.welcome;
+    public get state(): State {
+        return this._state;
+    }
+    private set state(newState: State) {
+        this._state = newState;
+        this.stateSubject.next(newState);
+    }
+
+    constructor() {
         this.stateSubject = new Subject<State>();
+        this.setState(State.welcome);
     }
 
-    setState(state: State){
-        this.stateSubject.next(state);
+    setState(state: State) {
+        this.state = state;
     }
 
+    spawnMissile: Emitter<{direction: ReadonlyVec3; position: ReadonlyVec3}[]> =
+        new Emitter();
+
+    /**
+     * Space or trigger is pressed, fire a bullet or start the game
+     */
+    fire(direction: ReadonlyVec3, position: ReadonlyVec3) {
+        switch (this.state) {
+            case State.welcome:
+                this.setState(State.playing);
+                break;
+            case State.playing:
+                this.spawnMissile.notify({direction, position});
+                break;
+            case State.gameOver:
+                this.setState(State.playing);
+                break;
+        }
+        console.log(direction, position);
+    }
 }
 
 export const gameState = new GameState();

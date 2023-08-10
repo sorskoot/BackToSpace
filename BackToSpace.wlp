@@ -17,6 +17,66 @@
                 0.9999998,
                 1.0,
                 0.9999998
+            ],
+            "components": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                {
+                    "type": "keyboard-controls",
+                    "keyboard-controls": {
+                        "nonVRCamera": "17",
+                        "missileSpawnPoint": "365"
+                    }
+                },
+                {
+                    "type": "vr-controls",
+                    "vr-controls": {
+                        "leftController": "130",
+                        "rightController": "129"
+                    }
+                }
             ]
         },
         "15": {
@@ -739,7 +799,7 @@
             ]
         },
         "321": {
-            "name": "Empty",
+            "name": "Gun",
             "parent": "129",
             "translation": [
                 0.0,
@@ -814,7 +874,8 @@
                 {
                     "type": "active-on-state",
                     "active-on-state": {
-                        "name": "A"
+                        "name": "A",
+                        "state": "welcome"
                     }
                 }
             ]
@@ -895,6 +956,14 @@
                 1.0,
                 1.0,
                 1.0
+            ],
+            "components": [
+                {
+                    "type": "active-on-state",
+                    "active-on-state": {
+                        "state": "gameOver"
+                    }
+                }
             ]
         },
         "339": {
@@ -955,32 +1024,12 @@
                 0.9920049
             ]
         },
-        "347": {
-            "name": "Aliens",
-            "translation": [
-                0.0,
-                6.0911679,
-                0.0
-            ],
-            "rotation": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
-            ],
-            "scaling": [
-                1.0,
-                1.0,
-                1.0
-            ],
-            "parent": "361"
-        },
         "350": {
             "link": {
                 "name": "Alien2",
                 "file": "models\\Aliens.fbx"
             },
-            "parent": "347",
+            "parent": "361",
             "scaling": [
                 1.0,
                 1.0,
@@ -991,7 +1040,24 @@
                     "mesh": {
                         "material": "352"
                     }
+                },
+                {
+                    "type": "prefab",
+                    "prefab": {
+                        "name": "Alien2"
+                    }
                 }
+            ],
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
             ]
         },
         "351": {
@@ -999,7 +1065,7 @@
                 "name": "Alien1",
                 "file": "models\\Aliens.fbx"
             },
-            "parent": "347",
+            "parent": "361",
             "scaling": [
                 1.0,
                 1.0,
@@ -1010,11 +1076,38 @@
                     "mesh": {
                         "material": "356"
                     }
+                },
+                {
+                    "type": "prefab",
+                    "prefab": {
+                        "name": "Alien1"
+                    }
                 }
+            ],
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
             ]
         },
         "361": {
-            "name": "Models"
+            "name": "Models",
+            "components": [
+                {
+                    "type": "prefab-storage"
+                }
+            ],
+            "translation": [
+                0.0,
+                -10.0,
+                0.0
+            ]
         },
         "364": {
             "link": {
@@ -1028,6 +1121,15 @@
                         "material": "357",
                         "mesh": "363"
                     }
+                },
+                {
+                    "type": "prefab",
+                    "prefab": {
+                        "name": "Missile"
+                    }
+                },
+                {
+                    "type": "missile"
                 }
             ],
             "scaling": [
@@ -1037,7 +1139,7 @@
             ],
             "translation": [
                 0.0,
-                0.3461647,
+                0.0,
                 0.0
             ],
             "rotation": [
@@ -1046,6 +1148,43 @@
                 0.0,
                 1.0
             ]
+        },
+        "365": {
+            "name": "MissileSpawnPoint",
+            "parent": "17",
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "366": {
+            "name": "Game",
+            "components": [
+                {
+                    "type": "game",
+                    "game": {
+                        "prefabStore": "361",
+                        "prefabStoreObject": "361",
+                        "missilesParent": "367"
+                    }
+                }
+            ]
+        },
+        "367": {
+            "name": "MissilesParent",
+            "parent": "366"
         }
     },
     "meshes": {
