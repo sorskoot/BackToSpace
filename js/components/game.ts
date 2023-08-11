@@ -1,4 +1,11 @@
-import {Component, Material, Mesh, MeshComponent, Object3D} from '@wonderlandengine/api';
+import {
+    CollisionComponent,
+    Component,
+    Material,
+    Mesh,
+    MeshComponent,
+    Object3D,
+} from '@wonderlandengine/api';
 import {property} from '@wonderlandengine/api/decorators.js';
 import {gameState} from '../classes/game-state.js';
 import {ReadonlyVec3, quat, vec3} from 'gl-matrix';
@@ -60,6 +67,7 @@ export class Game extends Component {
             missileInstance.setPositionWorld(position);
             const missile = missileInstance.addComponent(Missile)!;
             missile.liftOff(direction);
+            missileInstance.getComponent(CollisionComponent)!.active = true;
         }
     }
 
@@ -82,9 +90,14 @@ export class Game extends Component {
         const rndY = -y * 25 + 150;
         const rad = ((x + 0.5) / 11 - 0.5) * (Math.PI / 1.5);
 
-        const obj = this.engine.scene.addObject();
-        const meshComponent = obj.addComponent(MeshComponent)!;
-        meshComponent.mesh = type % 2 ? this.alien1Mesh! : this.alien2Mesh!;
+        const obj = this.prefabStore?.instantiate(
+            type % 2 ? 'Alien2' : 'Alien1',
+            this.object
+        );
+        const meshComponent = obj!.getComponent(MeshComponent)!;
+        // const obj = this.engine.scene.addObject();
+        // const meshComponent = obj.addComponent(MeshComponent)!;
+        // meshComponent.mesh = type % 2 ? this.alien1Mesh! : this.alien2Mesh!;
         switch (type) {
             case 1:
                 meshComponent.material = this.alienMaterial1!;
@@ -112,10 +125,11 @@ export class Game extends Component {
         }
 
         const position = vec3.fromValues(Math.sin(rad) * 250, rndY, Math.cos(rad) * -150);
-        obj.setPositionWorld(position);
+        obj!.setPositionWorld(position);
         //obj.rotateLocal(quat.fromEuler(quat.create(), 0, rad * (180 / Math.PI) + 90, 0));
-        obj.lookAt(vec3.fromValues(0, 0, 0));
-        obj.addComponent(Invader);
+        obj!.lookAt(vec3.fromValues(0, 0, 0));
+        obj!.addComponent(Invader);
+        obj!.getComponent(CollisionComponent)!.active = true;
         // box.setAttribute("invader", { direction: rad, type: type, speed: this.currentspeed });
         // box.setAttribute('appear', '');
 

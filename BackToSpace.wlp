@@ -1049,6 +1049,15 @@
                 },
                 {
                     "type": "invader"
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "sphere": {
+                            "radius": 8.0
+                        }
+                    },
+                    "active": false
                 }
             ],
             "translation": [
@@ -1088,6 +1097,16 @@
                 },
                 {
                     "type": "invader"
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "sphere": {
+                            "radius": 8.0
+                        },
+                        "collider": "sphere"
+                    },
+                    "active": false
                 }
             ],
             "translation": [
@@ -1136,6 +1155,23 @@
                 },
                 {
                     "type": "missile"
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "collider": "sphere",
+                        "aabb": {
+                            "extents": [
+                                0.2,
+                                0.2,
+                                1.0
+                            ]
+                        },
+                        "sphere": {
+                            "radius": 0.3
+                        }
+                    },
+                    "active": false
                 }
             ],
             "scaling": [

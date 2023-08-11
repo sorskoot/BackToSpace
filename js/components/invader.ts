@@ -1,6 +1,7 @@
-import {Component, Object3D} from '@wonderlandengine/api';
+import {CollisionComponent, Component, Object3D} from '@wonderlandengine/api';
 import {property} from '@wonderlandengine/api/decorators.js';
 import {vec3} from 'gl-matrix';
+import {SoundManagerInstance, Sounds} from '../classes/sfx-manager.js';
 
 export class Invader extends Component {
     static TypeName = 'invader';
@@ -15,10 +16,10 @@ export class Invader extends Component {
     deltaFreq = 0;
     orgX = 0;
     broken = false;
-
-    init() {}
+    collision?: CollisionComponent;
 
     start() {
+        this.collision = this.object.getComponent(CollisionComponent)!;
         const pos: vec3 = this.object.getPositionWorld();
         const dist = vec3.length(pos);
         this.startDist = dist;
@@ -28,6 +29,15 @@ export class Invader extends Component {
     }
 
     update(dt: number) {
+        const collisions = this.collision!.queryOverlaps();
+        if (collisions.length > 0) {
+            if (collisions[0].object.name === 'Missile') {
+                collisions[0].object.destroy();
+                this.object.destroy();
+                SoundManagerInstance.playSound(Sounds.explosion);
+                return;
+            }
+        }
         const deltaTime = dt * this.speed;
         const pos = this.object.getPositionWorld();
 

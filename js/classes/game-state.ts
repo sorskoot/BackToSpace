@@ -57,7 +57,6 @@ class GameState {
                 this.setState(State.playing);
                 break;
         }
-        console.log(direction, position);
     }
 }
 
