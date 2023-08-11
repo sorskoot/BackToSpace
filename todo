@@ -20,18 +20,25 @@ TODO:
     Rebuild in Wonderland Engine:
         ✔ Add Geometry @done(23-08-06 19:54)
         ✔ Create shader or textures to get the same look @done(23-08-06 19:54)
-        ☐ Add title screen
-        ☐ Add Game Over screen
+        ✔ Add title screen @done(23-08-11 21:39)
+        ✔ Add Game Over screen @done(23-08-11 21:39)
         ☐ Add Zesty Ad
         ☐ Add scoreboard
-        ☐ Add Aliens
+        ✔ Add Aliens @done(23-08-11 21:39)
         ✔ Add Gun @done(23-08-06 20:02)
-        ☐ Make Gun Shoot
-        ☐ Gameplay
+        ✔ Make Gun Shoot @done(23-08-11 21:39)
+        ☐ Make Gun shoot in VR
+        Gameplay:
+            ☐ Hit Aliens        
+            ☐ Game over when they are too close
         ☐ Add SFX
         ☐ Add Music
+        ☐ Add Particles
     Improvements:
         ☐ Current LOD shader can have a level between 0 and 1.
+    Next version ideas:
+        ☐ Swap gun between hands
+        ☐ Particles when shooting
 
 # V1.6
 TODO:

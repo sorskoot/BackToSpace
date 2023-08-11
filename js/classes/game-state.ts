@@ -1,6 +1,7 @@
 import {Emitter} from '@wonderlandengine/api';
 import {ReadonlyVec3} from 'gl-matrix';
 import {Subject} from 'rxjs';
+import {SoundManagerInstance, Sounds} from './sfx-manager.js';
 
 export enum State {
     welcome = 0,
@@ -50,6 +51,7 @@ class GameState {
                 break;
             case State.playing:
                 this.spawnMissile.notify({direction, position});
+                SoundManagerInstance.playSound(Sounds.shoot);
                 break;
             case State.gameOver:
                 this.setState(State.playing);

@@ -9,7 +9,8 @@
         "target": "es2022",
         "moduleResolution": "nodenext",
         "outDir": "dist",
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "skipLibCheck": true
     },
     "exclude": ["node_modules", "test"],
     "include": ["js/**/*"]

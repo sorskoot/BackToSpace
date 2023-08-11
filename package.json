@@ -34,9 +34,11 @@
     "@wonderlandengine/components": "^1.0.5",
     "@zestymarket/wonderland-sdk": "^2.0.6",
     "gl-matrix": "^3.4.3",
+    "howler": "^2.2.3",
     "rxjs": "^7.8.1"
   },
   "devDependencies": {
+    "@types/howler": "^2.2.7",
     "@types/jest": "^29.5.2",
     "@typescript-eslint/eslint-plugin": "^6.3.0",
     "@typescript-eslint/parser": "^6.3.0",
