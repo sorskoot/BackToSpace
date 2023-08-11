@@ -47,18 +47,18 @@ export class Invader extends Component {
         this.object.lookAt(vec3.fromValues(0, 0, 0));
 
         this.object.setPositionWorld(pos);
-        // if (currentDist < 10) {
-        //     //this.el.parentEl.removeChild(this.el);
-        //     this.gameover = true;
-        //     game.emit('game-over');
-        // }
-        // if (currentDist > 10 && !this.broken) {
-        //     if (Math.random() * 1000000 <= this.breakChange) {
-        //         this.broken = true;
-        //         this.speed *= 2;
-        //         this.frequency *= 4;
-        //         this.amp *= 5;
-        //     }
-        // }
+        if (currentDist < 10) {
+            //this.el.parentEl.removeChild(this.el);
+            // this.gameover = true;
+            // game.emit('game-over');
+        }
+        if (currentDist > 10 && !this.broken) {
+            if (Math.random() * 1000000 <= this.breakChange) {
+                this.broken = true;
+                this.speed *= 2;
+                this.frequency *= 4;
+                this.amp *= 5;
+            }
+        }
     }
 }
