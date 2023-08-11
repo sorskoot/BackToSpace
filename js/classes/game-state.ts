@@ -20,6 +20,14 @@ class GameState {
         this.stateSubject.next(newState);
     }
 
+    private _currentWave = 0;
+    public get currentWave(): number {
+        return this._currentWave;
+    }
+    public set currentWave(v: number) {
+        this._currentWave = v;
+    }
+
     constructor() {
         this.stateSubject = new Subject<State>();
         this.setState(State.welcome);

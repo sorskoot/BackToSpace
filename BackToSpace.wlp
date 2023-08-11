@@ -1031,9 +1031,9 @@
             },
             "parent": "361",
             "scaling": [
-                1.0,
-                1.0,
-                1.0
+                1.5,
+                1.5,
+                1.5
             ],
             "components": [
                 {
@@ -1046,6 +1046,9 @@
                     "prefab": {
                         "name": "Alien2"
                     }
+                },
+                {
+                    "type": "invader"
                 }
             ],
             "translation": [
@@ -1067,9 +1070,9 @@
             },
             "parent": "361",
             "scaling": [
-                1.0,
-                1.0,
-                1.0
+                1.5,
+                1.5,
+                1.5
             ],
             "components": [
                 {
@@ -1082,6 +1085,9 @@
                     "prefab": {
                         "name": "Alien1"
                     }
+                },
+                {
+                    "type": "invader"
                 }
             ],
             "translation": [
@@ -1177,7 +1183,15 @@
                     "game": {
                         "prefabStore": "361",
                         "prefabStoreObject": "361",
-                        "missilesParent": "367"
+                        "missilesParent": "367",
+                        "alien1Mesh": "348",
+                        "alien2Mesh": "349",
+                        "alienMaterial1": "352",
+                        "alienMaterial2": "353",
+                        "alienMaterial3": "354",
+                        "alienMaterial4": "355",
+                        "alienMaterial5": "356",
+                        "alienMaterial6": "357"
                     }
                 }
             ]
