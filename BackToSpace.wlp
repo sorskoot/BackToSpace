@@ -355,7 +355,7 @@
                 {
                     "type": "input",
                     "input": {
-                        "type": "hand right"
+                        "type": "ray right"
                     }
                 },
                 {
@@ -811,10 +811,10 @@
                 5.9604637669963274e-8
             ],
             "rotation": [
-                -0.2585832,
                 0.0,
                 0.0,
-                0.9659889
+                0.0,
+                1.0
             ],
             "scaling": [
                 1.0,
@@ -1137,9 +1137,6 @@
                     "prefab": {
                         "name": "Missile"
                     }
-                },
-                {
-                    "type": "missile"
                 }
             ],
             "scaling": [

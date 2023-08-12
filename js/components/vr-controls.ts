@@ -21,9 +21,10 @@ export class VrControls extends Component {
     @property.bool(true)
     haptics = true;
 
-    private handedness = 0;
+    private handedness = 1;
     private initialized = false;
     private currentlyShootingWithRight = true;
+    private forward: vec3 = vec3.create();
 
     start() {
         this.initialized = false;
@@ -36,10 +37,11 @@ export class VrControls extends Component {
                         this.pulse(e.inputSource.gamepad);
                     }
                     // todo pass current position and rotation to shoot
-                    this.shoot(
-                        this.object.getPositionWorld(),
-                        this.object.getRotationWorld()
-                    );
+                    this.rightController!.getForwardWorld(this.forward);
+                    const pos = this.rightController!.getPositionWorld();
+                    pos[1] += 0.13;
+                    pos[2] -= 0.4;
+                    this.shoot(this.forward, pos);
                 }
             });
             this.initialized = true;
