@@ -1159,7 +1159,7 @@
                 {
                     "type": "collision",
                     "collision": {
-                        "collider": "sphere",
+                        "collider": "box",
                         "aabb": {
                             "extents": [
                                 0.2,
@@ -1169,6 +1169,13 @@
                         },
                         "sphere": {
                             "radius": 0.3
+                        },
+                        "box": {
+                            "extents": [
+                                0.25,
+                                0.25,
+                                5.0
+                            ]
                         }
                     },
                     "active": false
@@ -1227,7 +1234,8 @@
                         "alienMaterial3": "354",
                         "alienMaterial4": "355",
                         "alienMaterial5": "356",
-                        "alienMaterial6": "357"
+                        "alienMaterial6": "357",
+                        "shardMesh": "370"
                     }
                 }
             ]
@@ -1235,6 +1243,59 @@
         "367": {
             "name": "MissilesParent",
             "parent": "366"
+        },
+        "368": {
+            "name": "Empty",
+            "translation": [
+                -0.0447382,
+                19.2894439,
+                -7.7149057
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "369": {
+            "name": "Empty.000",
+            "parent": "368",
+            "components": [
+                {
+                    "type": "explosion-particles",
+                    "explosion-particles": {
+                        "mesh": "370",
+                        "material": "352",
+                        "particleScale": 0.25,
+                        "size": 1,
+                        "initialSpeed": 25.0,
+                        "maxParticles": 100
+                    },
+                    "active": false
+                }
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "translation": [
+                0.0,
+                -2.2515296,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ]
         }
     },
     "meshes": {
@@ -1308,6 +1369,12 @@
             "link": {
                 "name": "mesh_0",
                 "file": "models\\Missile.fbx"
+            }
+        },
+        "370": {
+            "link": {
+                "name": "mesh_0",
+                "file": "models\\Shard.fbx"
             }
         }
     },
@@ -2787,7 +2854,8 @@
             "link": {
                 "name": "Particle",
                 "file": "default"
-            }
+            },
+            "doubleSided": true
         },
         "219": {
             "link": {
@@ -3038,6 +3106,10 @@
         },
         "23": {
             "fileName": "models/Missile.fbx",
+            "importerName": ""
+        },
+        "24": {
+            "fileName": "models/Shard.fbx",
             "importerName": ""
         }
     },

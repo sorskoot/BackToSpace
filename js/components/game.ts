@@ -29,6 +29,9 @@ export class Game extends Component {
     @property.mesh()
     alien2Mesh?: Mesh;
 
+    @property.mesh()
+    shardMesh?: Mesh;
+
     @property.material()
     alienMaterial1?: Material;
     @property.material()
@@ -54,7 +57,10 @@ export class Game extends Component {
         gameState.spawnMissile.add((data) => {
             this.spawnMissile(data.direction, data.position);
         });
+        gameState.newGame.add(this.newGame.bind(this));
+    }
 
+    newGame() {
         this.spawnInvaderWave();
     }
 
@@ -128,7 +134,8 @@ export class Game extends Component {
         obj!.setPositionWorld(position);
         //obj.rotateLocal(quat.fromEuler(quat.create(), 0, rad * (180 / Math.PI) + 90, 0));
         obj!.lookAt(vec3.fromValues(0, 0, 0));
-        obj!.addComponent(Invader);
+        const inv = obj!.addComponent(Invader);
+        inv!.shardMesh = this.shardMesh;
         obj!.getComponent(CollisionComponent)!.active = true;
         // box.setAttribute("invader", { direction: rad, type: type, speed: this.currentspeed });
         // box.setAttribute('appear', '');

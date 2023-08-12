@@ -1,10 +1,14 @@
-import {CollisionComponent, Component, Object3D} from '@wonderlandengine/api';
+import {CollisionComponent, Component, Mesh, MeshComponent} from '@wonderlandengine/api';
 import {property} from '@wonderlandengine/api/decorators.js';
 import {vec3} from 'gl-matrix';
 import {SoundManagerInstance, Sounds} from '../classes/sfx-manager.js';
+import {ExplosionParticles} from './explosion-particles.js';
 
 export class Invader extends Component {
     static TypeName = 'invader';
+
+    @property.mesh()
+    shardMesh?: Mesh;
 
     speed = 5;
     frequency = 2;
@@ -32,9 +36,20 @@ export class Invader extends Component {
         const collisions = this.collision!.queryOverlaps();
         if (collisions.length > 0) {
             if (collisions[0].object.name === 'Missile') {
+                SoundManagerInstance.playSound(Sounds.explosion);
+                const obj = this.engine.scene.addObject();
+                obj.setPositionWorld(this.object.getPositionWorld());
+                obj.addComponent(ExplosionParticles, {
+                    mesh: this.shardMesh!,
+                    material: this.object.getComponent(MeshComponent)!.material,
+                    maxParticles: 250,
+                    particleScale: 1,
+                    size: 1,
+                    initialSpeed: 100,
+                });
+
                 collisions[0].object.destroy();
                 this.object.destroy();
-                SoundManagerInstance.playSound(Sounds.explosion);
                 return;
             }
         }

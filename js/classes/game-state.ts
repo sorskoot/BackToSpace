@@ -41,6 +41,8 @@ class GameState {
     spawnMissile: Emitter<{direction: ReadonlyVec3; position: ReadonlyVec3}[]> =
         new Emitter();
 
+    newGame: Emitter = new Emitter();
+
     /**
      * Space or trigger is pressed, fire a bullet or start the game
      */
@@ -48,6 +50,7 @@ class GameState {
         switch (this.state) {
             case State.welcome:
                 this.setState(State.playing);
+                this.newGame.notify();
                 break;
             case State.playing:
                 this.spawnMissile.notify({direction, position});
