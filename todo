@@ -34,6 +34,14 @@ TODO:
         ✔ Add SFX @done(23-08-11 23:14)
         ☐ Add Music
         ☐ Add Particles
+    @critical Current Bugs :
+        ☐ Sometimes the missiles stop hittin, noticable when they are close
+            ~ In the previous version there was just a calculation of the distance between each alien and
+            ~ each missile. If the two were close it was a hit. I wonder if that would be faster and 
+            ~ easier than colliders.
+
+        ☐ Start position of missile seems to be wrong, could be recycling of objects or something
+
     Improvements:
         ☐ Current LOD shader can have a level between 0 and 1.
     Next version ideas:

@@ -83,6 +83,12 @@ export class ExplosionParticles extends Component {
         const origin = vec3.fromValues(0, 0, 0);
         const distance = vec3.fromValues(0, 0, 0);
 
+        // if there's no particles elft, destroy this component
+        if (this.lifetime.filter((x) => x > 0).length === 0) {
+            this.object.destroy();
+            return;
+        }
+
         for (let i = 0; i < Math.min(this.count, this.objects.length); ++i) {
             if (this.lifetime[i] <= 0) {
                 continue;
@@ -120,6 +126,13 @@ export class ExplosionParticles extends Component {
             // rot[0] * dt,
             // rot[1] * dt,
             // rot[2] * dt);
+            this.objects[i].setRotationWorld(objRot);
+            this.lifetime[i] -= dt;
+            if (this.lifetime[i] <= 0) {
+                this.objects[i].scaleLocal([0, 0, 0]);
+                this.objects[i].destroy();
+                continue;
+            }
         }
 
         for (let i = 0; i < Math.min(this.count, this.objects.length); ++i) {

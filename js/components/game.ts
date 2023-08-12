@@ -1,14 +1,14 @@
 import {
-    CollisionComponent,
     Component,
     Material,
     Mesh,
     MeshComponent,
     Object3D,
+    WonderlandEngine,
 } from '@wonderlandengine/api';
 import {property} from '@wonderlandengine/api/decorators.js';
 import {gameState} from '../classes/game-state.js';
-import {ReadonlyVec3, quat, vec3} from 'gl-matrix';
+import {ReadonlyVec3, vec3} from 'gl-matrix';
 import {PrefabStorage} from '@sorskoot/wonderland-components';
 import {Missile} from './missile.js';
 import {Waves} from '../data/Waves.js';
@@ -22,6 +22,9 @@ export class Game extends Component {
 
     @property.object()
     missilesParent!: Object3D;
+
+    @property.object()
+    aliensParent!: Object3D;
 
     @property.mesh()
     alien1Mesh?: Mesh;
@@ -45,8 +48,19 @@ export class Game extends Component {
     @property.material()
     alienMaterial6?: Material;
 
+    @property.mesh()
+    missileMesh?: Mesh;
+    @property.material()
+    missileMaterial?: Material;
+
     private prefabStore?: PrefabStorage;
     private currentwave = 0;
+    missilePool!: Object3D[];
+
+    static onRegister(engine: WonderlandEngine) {
+        engine.registerComponent(Missile);
+        engine.registerComponent(Invader);
+    }
 
     start() {
         if (!this.prefabStoreObject) {
@@ -61,19 +75,48 @@ export class Game extends Component {
     }
 
     newGame() {
+        this.createMissilePool();
         this.spawnInvaderWave();
     }
 
+    createMissilePool() {
+        this.missilePool = [];
+        this.missilePool = this.engine.scene.addObjects(1000, this.missilesParent, 3);
+        for (let m = 0; m < 1000; m++) {
+            const missile = this.missilePool[m];
+            missile.name = `missile-${m}`;
+            missile.addComponent(MeshComponent, {
+                mesh: this.missileMesh,
+                material: this.missileMaterial,
+            })!;
+            missile.addComponent(Missile, {
+                aliensParent: this.aliensParent,
+            })!;
+            missile.active = false;
+        }
+    }
+
+    private lastShot = 0;
     spawnMissile(direction: ReadonlyVec3, position: ReadonlyVec3) {
-        const missileInstance = this.prefabStore?.instantiate(
-            'Missile',
-            this.missilesParent
-        );
+        const missileInstance = this.missilePool[this.lastShot];
+        this.lastShot++;
+        if (this.lastShot > this.missilePool.length) {
+            this.lastShot = 0;
+        }
         if (missileInstance) {
+            console.log('spawn missile', missileInstance.name);
+            missileInstance.resetPositionRotation();
             missileInstance.setPositionWorld(position);
-            const missile = missileInstance.addComponent(Missile)!;
+            missileInstance.active = true;
+
+            //const meshComponent = missileInstance.getComponent(MeshComponent)!;
+            //meshComponent.active = true;
+            const missile = missileInstance.getComponent(Missile)!;
+            //missile.active = true;
+
             missile.liftOff(direction);
-            missileInstance.getComponent(CollisionComponent)!.active = true;
+        } else {
+            console.error('no missiles left, somehow');
         }
     }
 
@@ -98,7 +141,7 @@ export class Game extends Component {
 
         const obj = this.prefabStore?.instantiate(
             type % 2 ? 'Alien2' : 'Alien1',
-            this.object
+            this.aliensParent
         );
         const meshComponent = obj!.getComponent(MeshComponent)!;
         // const obj = this.engine.scene.addObject();
@@ -131,12 +174,13 @@ export class Game extends Component {
         }
 
         const position = vec3.fromValues(Math.sin(rad) * 250, rndY, Math.cos(rad) * -150);
+
         obj!.setPositionWorld(position);
         //obj.rotateLocal(quat.fromEuler(quat.create(), 0, rad * (180 / Math.PI) + 90, 0));
         obj!.lookAt(vec3.fromValues(0, 0, 0));
         const inv = obj!.addComponent(Invader);
         inv!.shardMesh = this.shardMesh;
-        obj!.getComponent(CollisionComponent)!.active = true;
+        //obj!.getComponent(CollisionComponent)!.active = true;
         // box.setAttribute("invader", { direction: rad, type: type, speed: this.currentspeed });
         // box.setAttribute('appear', '');
 

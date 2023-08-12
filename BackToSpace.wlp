@@ -1053,15 +1053,6 @@
                 },
                 {
                     "type": "invader"
-                },
-                {
-                    "type": "collision",
-                    "collision": {
-                        "sphere": {
-                            "radius": 8.0
-                        }
-                    },
-                    "active": false
                 }
             ],
             "translation": [
@@ -1101,16 +1092,6 @@
                 },
                 {
                     "type": "invader"
-                },
-                {
-                    "type": "collision",
-                    "collision": {
-                        "sphere": {
-                            "radius": 8.0
-                        },
-                        "collider": "sphere"
-                    },
-                    "active": false
                 }
             ],
             "translation": [
@@ -1147,7 +1128,7 @@
             "components": [
                 {
                     "mesh": {
-                        "material": "357",
+                        "material": "360",
                         "mesh": "363"
                     }
                 },
@@ -1159,30 +1140,6 @@
                 },
                 {
                     "type": "missile"
-                },
-                {
-                    "type": "collision",
-                    "collision": {
-                        "collider": "box",
-                        "aabb": {
-                            "extents": [
-                                0.2,
-                                0.2,
-                                1.0
-                            ]
-                        },
-                        "sphere": {
-                            "radius": 0.3
-                        },
-                        "box": {
-                            "extents": [
-                                0.25,
-                                0.25,
-                                5.0
-                            ]
-                        }
-                    },
-                    "active": false
                 }
             ],
             "scaling": [
@@ -1239,7 +1196,10 @@
                         "alienMaterial4": "355",
                         "alienMaterial5": "356",
                         "alienMaterial6": "357",
-                        "shardMesh": "370"
+                        "shardMesh": "370",
+                        "aliensParent": "371",
+                        "missileMesh": "363",
+                        "missileMaterial": "360"
                     }
                 }
             ]
@@ -1300,6 +1260,10 @@
                 0.0,
                 1.0
             ]
+        },
+        "371": {
+            "name": "AliensParent",
+            "parent": "366"
         }
     },
     "meshes": {

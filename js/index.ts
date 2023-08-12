@@ -24,7 +24,6 @@ import {ExplosionParticles} from './components/explosion-particles.js';
 import {Game} from './components/game.js';
 import {Invader} from './components/invader.js';
 import {KeyboardControls} from './components/keyboard-controls.js';
-import {Missile} from './components/missile.js';
 import {VrControls} from './components/vr-controls.js';
 /* wle:auto-imports:end */
 
@@ -96,7 +95,6 @@ engine.registerComponent(ExplosionParticles);
 engine.registerComponent(Game);
 engine.registerComponent(Invader);
 engine.registerComponent(KeyboardControls);
-engine.registerComponent(Missile);
 engine.registerComponent(VrControls);
 /* wle:auto-register:end */
 

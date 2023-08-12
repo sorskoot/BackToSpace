@@ -23,7 +23,7 @@ export class Invader extends Component {
     collision?: CollisionComponent;
 
     start() {
-        this.collision = this.object.getComponent(CollisionComponent)!;
+        //this.collision = this.object.getComponent(CollisionComponent)!;
         const pos: vec3 = this.object.getPositionWorld();
         const dist = vec3.length(pos);
         this.startDist = dist;
@@ -31,28 +31,43 @@ export class Invader extends Component {
         this.deltaFreq = (this.frequency * Math.PI * 2) / dist;
         this.orgX = pos[0];
     }
+    hit() {
+        SoundManagerInstance.playSound(Sounds.explosion);
+        const obj = this.engine.scene.addObject();
+        obj.setPositionWorld(this.object.getPositionWorld());
+        obj.addComponent(ExplosionParticles, {
+            mesh: this.shardMesh!,
+            material: this.object.getComponent(MeshComponent)!.material,
+            maxParticles: 250,
+            particleScale: 1,
+            size: 1,
+            initialSpeed: 100,
+        });
+        this.object.destroy();
+        return;
+    }
 
     update(dt: number) {
-        const collisions = this.collision!.queryOverlaps();
-        if (collisions.length > 0) {
-            if (collisions[0].object.name === 'Missile') {
-                SoundManagerInstance.playSound(Sounds.explosion);
-                const obj = this.engine.scene.addObject();
-                obj.setPositionWorld(this.object.getPositionWorld());
-                obj.addComponent(ExplosionParticles, {
-                    mesh: this.shardMesh!,
-                    material: this.object.getComponent(MeshComponent)!.material,
-                    maxParticles: 250,
-                    particleScale: 1,
-                    size: 1,
-                    initialSpeed: 100,
-                });
+        // const collisions = this.collision!.queryOverlaps();
+        // if (collisions.length > 0) {
+        //     if (collisions[0].object.name === 'Missile') {
+        //         SoundManagerInstance.playSound(Sounds.explosion);
+        //         const obj = this.engine.scene.addObject();
+        //         obj.setPositionWorld(this.object.getPositionWorld());
+        //         obj.addComponent(ExplosionParticles, {
+        //             mesh: this.shardMesh!,
+        //             material: this.object.getComponent(MeshComponent)!.material,
+        //             maxParticles: 250,
+        //             particleScale: 1,
+        //             size: 1,
+        //             initialSpeed: 100,
+        //         });
 
-                collisions[0].object.destroy();
-                this.object.destroy();
-                return;
-            }
-        }
+        //         collisions[0].object.destroy();
+        //         this.object.destroy();
+        //         return;
+        //     }
+        // }
         const deltaTime = dt * this.speed;
         const pos = this.object.getPositionWorld();
 
