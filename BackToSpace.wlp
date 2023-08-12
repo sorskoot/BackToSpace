@@ -1198,6 +1198,14 @@
                         "missileMesh": "363",
                         "missileMaterial": "360"
                     }
+                },
+                {
+                    "type": "howler-audio-source",
+                    "howler-audio-source": {
+                        "loop": true,
+                        "autoplay": true,
+                        "volume": 0.25
+                    }
                 }
             ]
         },

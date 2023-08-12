@@ -104,7 +104,6 @@ export class Game extends Component {
             this.lastShot = 0;
         }
         if (missileInstance) {
-            console.log('spawn missile', missileInstance.name);
             missileInstance.resetPositionRotation();
             missileInstance.setPositionWorld(position);
             missileInstance.active = true;

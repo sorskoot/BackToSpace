@@ -18,35 +18,44 @@
 # V1.9
 TODO:
     Rebuild in Wonderland Engine:
-        ✔ Add Geometry @done(23-08-06 19:54)
-        ✔ Create shader or textures to get the same look @done(23-08-06 19:54)
-        ✔ Add title screen @done(23-08-11 21:39)
-        ✔ Add Game Over screen @done(23-08-11 21:39)
-        ☐ Add Zesty Ad
-        ☐ Add scoreboard
-        ✔ Add Aliens @done(23-08-11 21:39)
-        ✔ Add Gun @done(23-08-06 20:02)
-        ✔ Make Gun Shoot @done(23-08-11 21:39)
-        ☐ Make Gun shoot in VR
-        Gameplay:
-            ✔ Hit Aliens @done(23-08-11 23:14)
-            ☐ Game over when they are too close
-        ✔ Add SFX @done(23-08-11 23:14)
-        ☐ Add Music
-        ☐ Add Particles
-    @critical Current Bugs :
-        ☐ Sometimes the missiles stop hittin, noticable when they are close
-            ~ In the previous version there was just a calculation of the distance between each alien and
-            ~ each missile. If the two were close it was a hit. I wonder if that would be faster and 
-            ~ easier than colliders.
-
-        ☐ Start position of missile seems to be wrong, could be recycling of objects or something
-
-    Improvements:
-        ☐ Current LOD shader can have a level between 0 and 1.
-    Next version ideas:
-        ☐ Swap gun between hands
-        ☐ Particles when shooting
+        Must have:
+            ✔ Add Geometry @done(23-08-06 19:54)
+            ✔ Create shader or textures to get the same look @done(23-08-06 19:54)
+            ✔ Add title screen @done(23-08-11 21:39)
+            ✔ Add Game Over screen @done(23-08-11 21:39)
+            ☐ Add Zesty Ad
+            ✔ Add Aliens @done(23-08-11 21:39)
+            ✔ Add Gun @done(23-08-06 20:02)
+            ✔ Make Gun Shoot @done(23-08-11 21:39)
+            ✔ Make Gun shoot in VR @done(23-08-12 23:10)
+            Gameplay:
+                ✔ Hit Aliens @done(23-08-11 23:14)
+                ☐ Game over when they are too close
+                ☐ Start next wave when all aliens are shot
+                ☐ Add score
+                ☐ Show score when game over
+            ✔ Add SFX @done(23-08-11 23:14)
+            ✔ Add Music @done(23-08-12 23:15)
+            ✔ Add Particles @done(23-08-12 23:10)
+        @critical Current Bugs :
+            ✔ Sometimes the missiles stop hittin, noticable when they are close @done(23-08-12 23:10)
+                ~ In the previous version there was just a calculation of the distance between each alien and
+                ~ each missile. If the two were close it was a hit. I wonder if that would be faster and 
+                ~ easier than colliders.
+            ✔ Start position of missile seems to be wrong, could be recycling of objects or something @done(23-08-12 23:10)
+        Should have:
+            ☐ Animation on appearance of aliens
+            ☐ Add scoreboard
+        Could Have:
+            Improvements:
+                ☐ Current LOD shader can have a level between 0 and 1.
+            Next version ideas:
+                ☐ Swap gun between hands
+                ☐ Particles when shooting
+                ☐ more level
+                ☐ more aliens
+                ☐ Special things
+                    ~ Like the UFO in the original game
 
 # V1.6
 TODO:
