@@ -119,7 +119,11 @@
                     }
                 },
                 {
-                    "type": "mouse-look"
+                    "type": "mouse-look",
+                    "mouse-look": {
+                        "pointerLockOnClick": true,
+                        "requireMouseDown": false
+                    }
                 },
                 {
                     "type": "cursor",

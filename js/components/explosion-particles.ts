@@ -120,12 +120,6 @@ export class ExplosionParticles extends Component {
             // rot[0] * dt,
             // rot[1] * dt,
             // rot[2] * dt);
-            this.objects[i].setRotationWorld(objRot);
-            this.lifetime[i] -= dt;
-            if (this.lifetime[i] <= 0) {
-                this.objects[i].scaleLocal([0, 0, 0]);
-                continue;
-            }
         }
 
         for (let i = 0; i < Math.min(this.count, this.objects.length); ++i) {
