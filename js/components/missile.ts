@@ -2,6 +2,7 @@ import {Component, MeshComponent, Object3D} from '@wonderlandengine/api';
 import {ReadonlyVec3, quat, vec3} from 'gl-matrix';
 import {Invader} from './invader.js';
 import {property} from '@wonderlandengine/api/decorators.js';
+import {gameState} from '../classes/game-state.js';
 
 export class Missile extends Component {
     static TypeName = 'missile';
@@ -35,6 +36,7 @@ export class Missile extends Component {
             if (distance < 5.0) {
                 alien.getComponent(Invader)?.hit();
                 this.end();
+                gameState.hit();
                 return;
             }
         });

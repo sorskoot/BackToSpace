@@ -15,16 +15,19 @@
 import {Prefab} from '@sorskoot/wonderland-components';
 import {PrefabStorage} from '@sorskoot/wonderland-components';
 import {Cursor} from '@wonderlandengine/components';
+import {CursorTarget} from '@wonderlandengine/components';
 import {HowlerAudioListener} from '@wonderlandengine/components';
 import {HowlerAudioSource} from '@wonderlandengine/components';
 import {MouseLookComponent} from '@wonderlandengine/components';
 import {PlayerHeight} from '@wonderlandengine/components';
 import {VrModeActiveSwitch} from '@wonderlandengine/components';
+import {ZestyBanner} from '@zestymarket/wonderland-sdk';
 import {ActiveOnState} from './components/active-on-state.js';
 import {ExplosionParticles} from './components/explosion-particles.js';
 import {Game} from './components/game.js';
 import {Invader} from './components/invader.js';
 import {KeyboardControls} from './components/keyboard-controls.js';
+import {MouseControls} from './components/mouse-controls.js';
 import {VrControls} from './components/vr-controls.js';
 /* wle:auto-imports:end */
 
@@ -87,16 +90,19 @@ if (document.readyState === 'loading') {
 engine.registerComponent(Prefab);
 engine.registerComponent(PrefabStorage);
 engine.registerComponent(Cursor);
+engine.registerComponent(CursorTarget);
 engine.registerComponent(HowlerAudioListener);
 engine.registerComponent(HowlerAudioSource);
 engine.registerComponent(MouseLookComponent);
 engine.registerComponent(PlayerHeight);
 engine.registerComponent(VrModeActiveSwitch);
+engine.registerComponent(ZestyBanner);
 engine.registerComponent(ActiveOnState);
 engine.registerComponent(ExplosionParticles);
 engine.registerComponent(Game);
 engine.registerComponent(Invader);
 engine.registerComponent(KeyboardControls);
+engine.registerComponent(MouseControls);
 engine.registerComponent(VrControls);
 /* wle:auto-register:end */
 

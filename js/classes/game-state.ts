@@ -29,6 +29,14 @@ class GameState {
         this._currentWave = v;
     }
 
+    private _score = 0;
+    public get score(): number {
+        return this._score;
+    }
+    public set score(v: number) {
+        this._score = v;
+    }
+
     constructor() {
         this.stateSubject = new Subject<State>();
         this.setState(State.welcome);
@@ -46,20 +54,23 @@ class GameState {
     /**
      * Space or trigger is pressed, fire a bullet or start the game
      */
-    fire(direction: ReadonlyVec3, position: ReadonlyVec3) {
+    fire(direction: ReadonlyVec3 | undefined, position: ReadonlyVec3 | undefined) {
         switch (this.state) {
             case State.welcome:
+            case State.gameOver:
                 this.setState(State.playing);
+                this.score = 0;
                 this.newGame.notify();
                 break;
             case State.playing:
                 this.spawnMissile.notify({direction, position});
                 SoundManagerInstance.playSound(Sounds.shoot);
                 break;
-            case State.gameOver:
-                this.setState(State.playing);
-                break;
         }
+    }
+
+    hit() {
+        this.score++;
     }
 }
 

@@ -121,15 +121,17 @@
                 {
                     "type": "mouse-look",
                     "mouse-look": {
-                        "pointerLockOnClick": true,
-                        "requireMouseDown": false
-                    }
+                        "pointerLockOnClick": false,
+                        "requireMouseDown": true
+                    },
+                    "active": false
                 },
                 {
                     "type": "cursor",
                     "cursor": {
                         "collisionGroup": 0,
-                        "handedness": "none"
+                        "handedness": "none",
+                        "cursorObject": "215"
                     }
                 },
                 {
@@ -1196,7 +1198,8 @@
                         "shardMesh": "370",
                         "aliensParent": "371",
                         "missileMesh": "363",
-                        "missileMaterial": "360"
+                        "missileMaterial": "360",
+                        "nonVRCamera": "17"
                     }
                 },
                 {
@@ -1204,7 +1207,8 @@
                     "howler-audio-source": {
                         "loop": true,
                         "autoplay": true,
-                        "volume": 0.25
+                        "volume": 0.25,
+                        "src": "BackToSpaceMusic192.mp3"
                     }
                 }
             ]
@@ -1269,6 +1273,111 @@
         "371": {
             "name": "AliensParent",
             "parent": "366"
+        },
+        "373": {
+            "name": "ZestyAd",
+            "parent": "327",
+            "components": [
+                {
+                    "type": "zesty-banner",
+                    "zesty-banner": {
+                        "creator": "0x247332f68a529ab11a65d665cf84ca376a24688a",
+                        "space": 157,
+                        "format": "wide",
+                        "style": "standard",
+                        "beacon": true,
+                        "adUnit": "f8ddbf81-d035-4112-b31b-88f29f40b691"
+                    }
+                },
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "7",
+                        "material": "1308"
+                    }
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "collider": "box",
+                        "box": {
+                            "extents": [
+                                1.0,
+                                0.25,
+                                0.1
+                            ]
+                        }
+                    }
+                },
+                {
+                    "type": "active-on-state",
+                    "active-on-state": {
+                        "inactive": true,
+                        "state": "playing"
+                    }
+                }
+            ],
+            "translation": [
+                0.0,
+                0.5159652,
+                -4.7525806
+            ],
+            "rotation": [
+                -0.2588198,
+                0.0,
+                0.0,
+                0.9659255
+            ],
+            "scaling": [
+                1.0,
+                0.2499998,
+                0.9999988
+            ]
+        },
+        "374": {
+            "name": "MouseControls",
+            "parent": "328",
+            "components": [
+                {
+                    "type": "mouse-controls",
+                    "mouse-controls": {
+                        "cursorTargetObject": "374",
+                        "mouseLookObject": "17"
+                    }
+                },
+                {
+                    "type": "cursor-target"
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "collider": "aabb",
+                        "aabb": {
+                            "extents": [
+                                3.0,
+                                0.5,
+                                0.5
+                            ]
+                        }
+                    }
+                }
+            ],
+            "translation": [
+                0.0,
+                1.8502674,
+                -1.4649963
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
         }
     },
     "meshes": {
@@ -1686,7 +1795,15 @@
                 ],
                 "shininess": 1
             },
-            "pipeline": "34"
+            "pipeline": "34",
+            "Flat": {
+                "color": [
+                    1.0,
+                    1.0,
+                    0.0,
+                    1.0
+                ]
+            }
         },
         "131": {
             "name": "HandLeft"

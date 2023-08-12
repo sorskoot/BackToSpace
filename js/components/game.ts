@@ -13,9 +13,13 @@ import {PrefabStorage} from '@sorskoot/wonderland-components';
 import {Missile} from './missile.js';
 import {Waves} from '../data/Waves.js';
 import {Invader} from './invader.js';
+import {MouseLookComponent} from '@wonderlandengine/components';
 
 export class Game extends Component {
     static TypeName = 'game';
+
+    @property.object()
+    nonVRCamera!: Object3D;
 
     @property.object()
     prefabStoreObject?: Object3D;
@@ -55,7 +59,7 @@ export class Game extends Component {
 
     private prefabStore?: PrefabStorage;
     private currentwave = 0;
-    missilePool!: Object3D[];
+    private missilePool!: Object3D[];
 
     static onRegister(engine: WonderlandEngine) {
         engine.registerComponent(Missile);
@@ -143,9 +147,7 @@ export class Game extends Component {
             this.aliensParent
         );
         const meshComponent = obj!.getComponent(MeshComponent)!;
-        // const obj = this.engine.scene.addObject();
-        // const meshComponent = obj.addComponent(MeshComponent)!;
-        // meshComponent.mesh = type % 2 ? this.alien1Mesh! : this.alien2Mesh!;
+
         switch (type) {
             case 1:
                 meshComponent.material = this.alienMaterial1!;
@@ -175,15 +177,8 @@ export class Game extends Component {
         const position = vec3.fromValues(Math.sin(rad) * 250, rndY, Math.cos(rad) * -150);
 
         obj!.setPositionWorld(position);
-        //obj.rotateLocal(quat.fromEuler(quat.create(), 0, rad * (180 / Math.PI) + 90, 0));
         obj!.lookAt(vec3.fromValues(0, 0, 0));
         const inv = obj!.addComponent(Invader);
         inv!.shardMesh = this.shardMesh;
-        //obj!.getComponent(CollisionComponent)!.active = true;
-        // box.setAttribute("invader", { direction: rad, type: type, speed: this.currentspeed });
-        // box.setAttribute('appear', '');
-
-        // box.setAttribute("position", position);
-        // this.invadergroup.appendChild(box);
     }
 }

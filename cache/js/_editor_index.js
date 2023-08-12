@@ -18,5 +18,7 @@ import * as _E__Dev_BackToSpace_js_components_keyboard_controls_ts from 'E:/Dev/
 _registerEditor(_E__Dev_BackToSpace_js_components_keyboard_controls_ts);
 import * as _E__Dev_BackToSpace_js_components_missile_ts from 'E:/Dev/BackToSpace/js/components/missile.ts';
 _registerEditor(_E__Dev_BackToSpace_js_components_missile_ts);
+import * as _E__Dev_BackToSpace_js_components_mouse_controls_ts from 'E:/Dev/BackToSpace/js/components/mouse-controls.ts';
+_registerEditor(_E__Dev_BackToSpace_js_components_mouse_controls_ts);
 import * as _E__Dev_BackToSpace_js_components_vr_controls_ts from 'E:/Dev/BackToSpace/js/components/vr-controls.ts';
 _registerEditor(_E__Dev_BackToSpace_js_components_vr_controls_ts);
