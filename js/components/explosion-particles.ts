@@ -44,11 +44,7 @@ export class ExplosionParticles extends Component {
     private lifetime: number[] = [];
 
     start() {
-        this.objects = this.engine.scene.addObjects(
-            this.maxParticles,
-            null,
-            this.maxParticles
-        );
+        this.objects = this.engine.scene.addObjects(this.maxParticles, null, 3);
 
         for (let i = 0; i < this.maxParticles; ++i) {
             this.velocities.push([
@@ -100,22 +96,6 @@ export class ExplosionParticles extends Component {
              * instead */
             quat2.getTranslation(origin, this.objects[i].getTransformWorld());
 
-            /* Apply gravity */
-            const vel = this.velocities[i];
-
-            // /* Check if particle would collide */
-            // if (origin[0] + vel[0] * dt > 8) origin[0] -= 16;
-            // else if (origin[0] + vel[0] * dt <= -8) origin[0] += 16;
-
-            // if (origin[2] + vel[2] * dt > 8) origin[2] -= 16;
-            // else if (origin[2] + vel[2] * dt <= -8) origin[2] += 16;
-
-            // if (origin[1] + vel[1] * dt <= 0) {
-            //     /* Pseudo friction */
-            //     origin[1] = 5;
-            //     this.objects[i].setPositionWorld(origin);
-            // }
-
             /* Apply rotation */
             const rot = this.rotations[i];
             const objRot = this.objects[i].getRotationWorld();
@@ -123,9 +103,6 @@ export class ExplosionParticles extends Component {
             quat.rotateY(objRot, objRot, rot[1] * dt);
             quat.rotateZ(objRot, objRot, rot[2] * dt);
 
-            // rot[0] * dt,
-            // rot[1] * dt,
-            // rot[2] * dt);
             this.objects[i].setRotationWorld(objRot);
             this.lifetime[i] -= dt;
             if (this.lifetime[i] <= 0) {
