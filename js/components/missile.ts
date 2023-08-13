@@ -1,4 +1,4 @@
-import {Component, MeshComponent, Object3D} from '@wonderlandengine/api';
+import {Component, Object3D} from '@wonderlandengine/api';
 import {ReadonlyVec3, quat, vec3} from 'gl-matrix';
 import {Invader} from './invader.js';
 import {property} from '@wonderlandengine/api/decorators.js';
@@ -40,7 +40,7 @@ export class Missile extends Component {
                 return;
             }
         });
-        // this.object.setPositionWorld(newPosition);
+
         this.lifetime -= dt;
         if (this.lifetime < 0 || newPosition[1] < -150.0) {
             this.end();
@@ -50,8 +50,6 @@ export class Missile extends Component {
     end() {
         this.object.active = false;
         this.fired = false;
-        // this.object.getComponent(Missile)!.active = false;
-        // this.object.getComponent(MeshComponent)!.active = false;
     }
 
     liftOff(direction: ReadonlyVec3) {

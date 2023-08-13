@@ -1,7 +1,7 @@
 {
     "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended-type-checked"],
     "parser": "@typescript-eslint/parser",
-    "plugins": ["@typescript-eslint"],
+    "plugins": ["@typescript-eslint", "etc"],
     "root": true,
     "settings": {},
     "parserOptions": {
@@ -18,6 +18,8 @@
             "error",
             {"selector": "enum", "format": ["PascalCase"]}
         ],
-        "@typescript-eslint/no-inferrable-types": "error"
+        "@typescript-eslint/no-inferrable-types": "error",
+        "etc/no-commented-out-code": "error",
+        "curly": "error"
     }
 }

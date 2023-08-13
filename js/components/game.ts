@@ -13,7 +13,8 @@ import {PrefabStorage} from '@sorskoot/wonderland-components';
 import {Missile} from './missile.js';
 import {Waves} from '../data/Waves.js';
 import {Invader} from './invader.js';
-import {MouseLookComponent} from '@wonderlandengine/components';
+
+const missilePoolSize = 1000;
 
 export class Game extends Component {
     static TypeName = 'game';
@@ -79,14 +80,23 @@ export class Game extends Component {
     }
 
     newGame() {
-        this.createMissilePool();
+        if (!this.missilePool) {
+            this.createMissilePool();
+        } else {
+            this.clearMissilePool();
+        }
+
+        this.clearInvaders();
         this.spawnInvaderWave();
     }
 
     createMissilePool() {
-        this.missilePool = [];
-        this.missilePool = this.engine.scene.addObjects(1000, this.missilesParent, 3);
-        for (let m = 0; m < 1000; m++) {
+        this.missilePool = this.engine.scene.addObjects(
+            missilePoolSize,
+            this.missilesParent,
+            missilePoolSize * 3
+        );
+        for (let m = 0; m < missilePoolSize; m++) {
             const missile = this.missilePool[m];
             missile.name = `missile-${m}`;
             missile.addComponent(MeshComponent, {
@@ -99,9 +109,17 @@ export class Game extends Component {
             missile.active = false;
         }
     }
+    clearMissilePool() {
+        for (let m = 0; m < missilePoolSize; m++) {
+            const missile = this.missilePool[m];
+            missile.active = false;
+            const missileComponent = missile.getComponent(Missile)!;
+            missileComponent.fired = false;
+        }
+    }
 
     private lastShot = 0;
-    spawnMissile(direction: ReadonlyVec3, position: ReadonlyVec3) {
+    spawnMissile(direction: ReadonlyVec3 | undefined, position: ReadonlyVec3 | undefined) {
         const missileInstance = this.missilePool[this.lastShot];
         this.lastShot++;
         if (this.lastShot > this.missilePool.length) {
@@ -109,18 +127,19 @@ export class Game extends Component {
         }
         if (missileInstance) {
             missileInstance.resetPositionRotation();
-            missileInstance.setPositionWorld(position);
+            missileInstance.setPositionWorld(position ?? [0, 0, 0]);
             missileInstance.active = true;
-
-            //const meshComponent = missileInstance.getComponent(MeshComponent)!;
-            //meshComponent.active = true;
             const missile = missileInstance.getComponent(Missile)!;
-            //missile.active = true;
-
-            missile.liftOff(direction);
+            missile.liftOff(direction ?? [0, 0, -1]);
         } else {
             console.error('no missiles left, somehow');
         }
+    }
+
+    clearInvaders() {
+        this.aliensParent.children.forEach((alien) => {
+            alien.destroy();
+        });
     }
 
     spawnInvaderWave() {

@@ -29,9 +29,13 @@ export class VrControls extends Component {
     start() {
         this.initialized = false;
         this.engine.onXRSessionStart.add((session) => {
-            if (this.initialized) return;
+            if (this.initialized) {
+                return;
+            }
             session.addEventListener('select', (e) => {
-                if (!this.active) return;
+                if (!this.active) {
+                    return;
+                }
                 if (e.inputSource.handedness === handedness[this.handedness]) {
                     if (this.haptics) {
                         this.pulse(e.inputSource.gamepad);
@@ -53,7 +57,9 @@ export class VrControls extends Component {
             return;
         }
         const actuator = gamepad.hapticActuators[0] as QuestGamepadHapticActuator;
-        if (!actuator) return;
+        if (!actuator) {
+            return;
+        }
         actuator.pulse(1, 100);
     }
 

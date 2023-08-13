@@ -46,8 +46,9 @@ class GameState {
         this.state = state;
     }
 
-    spawnMissile: Emitter<{direction: ReadonlyVec3; position: ReadonlyVec3}[]> =
-        new Emitter();
+    spawnMissile: Emitter<
+        {direction: ReadonlyVec3 | undefined; position: ReadonlyVec3 | undefined}[]
+    > = new Emitter();
 
     newGame: Emitter = new Emitter();
 
@@ -71,6 +72,11 @@ class GameState {
 
     hit() {
         this.score++;
+    }
+
+    gameOver() {
+        // remove missiles
+        this.setState(State.gameOver);
     }
 }
 

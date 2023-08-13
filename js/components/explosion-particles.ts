@@ -44,9 +44,13 @@ export class ExplosionParticles extends Component {
     private lifetime: number[] = [];
 
     start() {
-        this.objects = this.engine.scene.addObjects(this.maxParticles, null, 3);
+        this.objects = this.engine.scene.addObjects(
+            this.maxParticles,
+            null,
+            this.maxParticles
+        );
 
-        for (let i = 0; i < this.maxParticles; ++i) {
+        for (let i = 0; i < this.maxParticles; i++) {
             this.velocities.push([
                 (Math.random() * 2 - 1) * this.initialSpeed,
                 (Math.random() * 2 - 0.5) * this.initialSpeed,
@@ -69,7 +73,7 @@ export class ExplosionParticles extends Component {
         }
 
         /* Time to spawn particles */
-        for (let i = 0; i < this.maxParticles; ++i) {
+        for (let i = 0; i < this.maxParticles; i++) {
             this.spawn();
         }
     }

@@ -3,6 +3,7 @@ import {property} from '@wonderlandengine/api/decorators.js';
 import {vec3} from 'gl-matrix';
 import {SoundManagerInstance, Sounds} from '../classes/sfx-manager.js';
 import {ExplosionParticles} from './explosion-particles.js';
+import {State, gameState} from '../classes/game-state.js';
 
 export class Invader extends Component {
     static TypeName = 'invader';
@@ -10,27 +11,33 @@ export class Invader extends Component {
     @property.mesh()
     shardMesh?: Mesh;
 
-    speed = 5;
-    frequency = 2;
-    breakChange = 100;
-    amp = 1;
+    private speed = 5;
+    private frequency = 2;
+    private breakChange = 100;
+    private amp = 1;
 
-    startDist = 0;
-    dir: vec3 = vec3.create();
-    deltaFreq = 0;
-    orgX = 0;
-    broken = false;
-    collision?: CollisionComponent;
+    private startDist = 0;
+    private dir: vec3 = vec3.create();
+    private deltaFreq = 0;
+    private orgX = 0;
+    private broken = false;
+    private collision?: CollisionComponent;
+    private gameOver = false;
 
     start() {
-        //this.collision = this.object.getComponent(CollisionComponent)!;
         const pos: vec3 = this.object.getPositionWorld();
         const dist = vec3.length(pos);
         this.startDist = dist;
         this.dir = vec3.normalize(vec3.create(), pos);
         this.deltaFreq = (this.frequency * Math.PI * 2) / dist;
         this.orgX = pos[0];
+        gameState.stateSubject.subscribe((state) => {
+            if (state === State.gameOver) {
+                this.gameOver = true;
+            }
+        });
     }
+
     hit() {
         SoundManagerInstance.playSound(Sounds.explosion);
         const obj = this.engine.scene.addObject();
@@ -48,26 +55,10 @@ export class Invader extends Component {
     }
 
     update(dt: number) {
-        // const collisions = this.collision!.queryOverlaps();
-        // if (collisions.length > 0) {
-        //     if (collisions[0].object.name === 'Missile') {
-        //         SoundManagerInstance.playSound(Sounds.explosion);
-        //         const obj = this.engine.scene.addObject();
-        //         obj.setPositionWorld(this.object.getPositionWorld());
-        //         obj.addComponent(ExplosionParticles, {
-        //             mesh: this.shardMesh!,
-        //             material: this.object.getComponent(MeshComponent)!.material,
-        //             maxParticles: 250,
-        //             particleScale: 1,
-        //             size: 1,
-        //             initialSpeed: 100,
-        //         });
+        if (this.gameOver) {
+            return;
+        }
 
-        //         collisions[0].object.destroy();
-        //         this.object.destroy();
-        //         return;
-        //     }
-        // }
         const deltaTime = dt * this.speed;
         const pos = this.object.getPositionWorld();
 
@@ -88,9 +79,7 @@ export class Invader extends Component {
 
         this.object.setPositionWorld(pos);
         if (currentDist < 10) {
-            //this.el.parentEl.removeChild(this.el);
-            // this.gameover = true;
-            // game.emit('game-over');
+            gameState.gameOver();
         }
         if (currentDist > 10 && !this.broken) {
             if (Math.random() * 1000000 <= this.breakChange) {
