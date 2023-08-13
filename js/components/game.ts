@@ -64,6 +64,7 @@ export class Game extends Component {
     private lastShot = 0;
 
     private invadersLeftInWave = 0;
+    private currentspeed = 5;
 
     static onRegister(engine: WonderlandEngine) {
         engine.registerComponent(Missile);
@@ -84,8 +85,11 @@ export class Game extends Component {
             this.invadersLeftInWave--;
 
             if (this.invadersLeftInWave <= 0) {
-                this.currentwave++;
-                this.invadersLeftInWave = this.spawnInvaderWave();
+                setTimeout(() => {
+                    this.currentwave = (this.currentwave + 1) % Waves.length;
+                    this.currentspeed++;
+                    this.invadersLeftInWave = this.spawnInvaderWave();
+                }, 1500);
             }
         });
     }
@@ -97,6 +101,7 @@ export class Game extends Component {
             this.clearMissilePool();
         }
 
+        this.currentspeed = 5;
         this.clearInvaders();
         this.invadersLeftInWave = this.spawnInvaderWave();
     }
@@ -208,7 +213,9 @@ export class Game extends Component {
 
         obj!.setPositionWorld(position);
         obj!.lookAt(vec3.fromValues(0, 0, 0));
-        const inv = obj!.addComponent(Invader);
-        inv!.shardMesh = this.shardMesh;
+        obj!.addComponent(Invader, {
+            speed: this.currentspeed,
+            shardMesh: this.shardMesh,
+        });
     }
 }

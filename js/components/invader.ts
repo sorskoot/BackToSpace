@@ -11,7 +11,9 @@ export class Invader extends Component {
     @property.mesh()
     shardMesh?: Mesh;
 
-    private speed = 5;
+    @property.int(5)
+    speed = 5;
+
     private frequency = 2;
     private breakChange = 100;
     private amp = 1;
