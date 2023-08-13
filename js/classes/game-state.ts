@@ -51,6 +51,7 @@ class GameState {
     > = new Emitter();
 
     newGame: Emitter = new Emitter();
+    invaderHit: Emitter = new Emitter();
 
     /**
      * Space or trigger is pressed, fire a bullet or start the game
@@ -72,6 +73,7 @@ class GameState {
 
     hit() {
         this.score++;
+        this.invaderHit.notify();
     }
 
     gameOver() {

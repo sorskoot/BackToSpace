@@ -61,6 +61,9 @@ export class Game extends Component {
     private prefabStore?: PrefabStorage;
     private currentwave = 0;
     private missilePool!: Object3D[];
+    private lastShot = 0;
+
+    private invadersLeftInWave = 0;
 
     static onRegister(engine: WonderlandEngine) {
         engine.registerComponent(Missile);
@@ -77,6 +80,14 @@ export class Game extends Component {
             this.spawnMissile(data.direction, data.position);
         });
         gameState.newGame.add(this.newGame.bind(this));
+        gameState.invaderHit.add(() => {
+            this.invadersLeftInWave--;
+
+            if (this.invadersLeftInWave <= 0) {
+                this.currentwave++;
+                this.invadersLeftInWave = this.spawnInvaderWave();
+            }
+        });
     }
 
     newGame() {
@@ -87,7 +98,7 @@ export class Game extends Component {
         }
 
         this.clearInvaders();
-        this.spawnInvaderWave();
+        this.invadersLeftInWave = this.spawnInvaderWave();
     }
 
     createMissilePool() {
@@ -109,6 +120,7 @@ export class Game extends Component {
             missile.active = false;
         }
     }
+
     clearMissilePool() {
         for (let m = 0; m < missilePoolSize; m++) {
             const missile = this.missilePool[m];
@@ -118,7 +130,6 @@ export class Game extends Component {
         }
     }
 
-    private lastShot = 0;
     spawnMissile(direction: ReadonlyVec3 | undefined, position: ReadonlyVec3 | undefined) {
         const missileInstance = this.missilePool[this.lastShot];
         this.lastShot++;
