@@ -23,16 +23,16 @@ TODO:
             ✔ Create shader or textures to get the same look @done(23-08-06 19:54)
             ✔ Add title screen @done(23-08-11 21:39)
             ✔ Add Game Over screen @done(23-08-11 21:39)
-            ☐ Add Zesty Ad
+            ✔ Add Zesty Ad @done(23-08-13 11:12)
             ✔ Add Aliens @done(23-08-11 21:39)
             ✔ Add Gun @done(23-08-06 20:02)
             ✔ Make Gun Shoot @done(23-08-11 21:39)
             ✔ Make Gun shoot in VR @done(23-08-12 23:10)
             Gameplay:
                 ✔ Hit Aliens @done(23-08-11 23:14)
-                ☐ Game over when they are too close
-                ☐ Start next wave when all aliens are shot
-                ☐ Add score
+                ✔ Game over when they are too close @done(23-08-13 11:12)
+                ✔ Start next wave when all aliens are shot @done(23-08-13 11:12)
+                ✔ Add score @done(23-08-13 11:12)
                 ☐ Show score when game over
             ✔ Add SFX @done(23-08-11 23:14)
             ✔ Add Music @done(23-08-12 23:15)
@@ -43,6 +43,8 @@ TODO:
                 ~ each missile. If the two were close it was a hit. I wonder if that would be faster and 
                 ~ easier than colliders.
             ✔ Start position of missile seems to be wrong, could be recycling of objects or something @done(23-08-12 23:10)
+            ☐ Particles seem to still cause weirdness.
+            
         Should have:
             ☐ Animation on appearance of aliens
             ☐ Add scoreboard

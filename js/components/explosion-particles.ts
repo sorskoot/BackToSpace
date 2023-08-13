@@ -27,6 +27,8 @@ export class ExplosionParticles extends Component {
     time = 0.0;
     count = 0;
 
+    selfDestructCountdown = 2.5;
+
     /**
      * @type {Object3D[]}
      */
@@ -79,17 +81,18 @@ export class ExplosionParticles extends Component {
     }
 
     update(dt: number) {
+        this.selfDestructCountdown -= dt;
+        if (this.selfDestructCountdown < 0) {
+            console.log('destroying explosion particles');
+            this.destroy();
+            return;
+        }
+
         /* Target for retrieving particles world locations */
         const origin = vec3.fromValues(0, 0, 0);
         const distance = vec3.fromValues(0, 0, 0);
 
-        // if there's no particles elft, destroy this component
-        if (this.lifetime.filter((x) => x > 0).length === 0) {
-            this.object.destroy();
-            return;
-        }
-
-        for (let i = 0; i < Math.min(this.count, this.objects.length); ++i) {
+        for (let i = 0; i < this.objects.length; ++i) {
             if (this.lifetime[i] <= 0) {
                 continue;
             }
@@ -116,7 +119,7 @@ export class ExplosionParticles extends Component {
             }
         }
 
-        for (let i = 0; i < Math.min(this.count, this.objects.length); ++i) {
+        for (let i = 0; i < this.objects.length; ++i) {
             /* Apply velocity */
             vec3.scale(distance, this.velocities[i], dt);
             // add gravity
