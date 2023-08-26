@@ -7,7 +7,7 @@ import {
     WonderlandEngine,
 } from '@wonderlandengine/api';
 import {property} from '@wonderlandengine/api/decorators.js';
-import {gameState} from '../classes/game-state.js';
+import {State, gameState} from '../classes/game-state.js';
 import {ReadonlyVec3, vec3} from 'gl-matrix';
 import {PrefabStorage} from '@sorskoot/wonderland-components';
 import {Missile} from './missile.js';
@@ -77,19 +77,31 @@ export class Game extends Component {
         }
         this.prefabStore = this.prefabStoreObject.getComponent(PrefabStorage)!;
 
+        this.engine.onXRSessionStart.add(() => (gameState.isInVR = true));
+        this.engine.onXRSessionEnd.add(() => (gameState.isInVR = false));
+
         gameState.spawnMissile.add((data) => {
             this.spawnMissile(data.direction, data.position);
         });
         gameState.newGame.add(this.newGame.bind(this));
-        gameState.invaderHit.add(() => {
-            this.invadersLeftInWave--;
+        // gameState.invaderHit.add(() => {
+        // this.invadersLeftInWave--;
+        // if (this.invadersLeftInWave <= 0) {
+        //     setTimeout(() => {
+        //         this.currentwave = (this.currentwave + 1) % Waves.length;
+        //         this.currentspeed++;
+        //         this.invadersLeftInWave = this.spawnInvaderWave();
+        //     }, 1500);
+        // }
+        //});
 
-            if (this.invadersLeftInWave <= 0) {
-                setTimeout(() => {
-                    this.currentwave = (this.currentwave + 1) % Waves.length;
-                    this.currentspeed++;
-                    this.invadersLeftInWave = this.spawnInvaderWave();
-                }, 1500);
+        gameState.isInVRSubject.subscribe((isInVR) => {
+            if (isInVR) {
+                gameState.setState(State.welcome);
+            } else {
+                this.clearInvaders();
+                this.clearMissilePool();
+                gameState.setState(State.notInVR);
             }
         });
     }
@@ -127,6 +139,9 @@ export class Game extends Component {
     }
 
     clearMissilePool() {
+        if (!this.missilePool || this.missilePool.length === 0) {
+            return;
+        }
         for (let m = 0; m < missilePoolSize; m++) {
             const missile = this.missilePool[m];
             missile.active = false;
@@ -160,6 +175,7 @@ export class Game extends Component {
 
     spawnInvaderWave() {
         let spawned = 0;
+        this.engine.scene.addObjects(55, this.aliensParent, 1000);
         for (let i = 0; i < 5; i++) {
             // wave rows
             for (let j = 0; j < 11; j++) {
@@ -176,12 +192,11 @@ export class Game extends Component {
     spawnInvader(x: number, y: number, type: number) {
         const rndY = -y * 25 + 150;
         const rad = ((x + 0.5) / 11 - 0.5) * (Math.PI / 1.5);
+        const obj = this.engine.scene.addObject(this.aliensParent);
 
-        const obj = this.prefabStore?.instantiate(
-            type % 2 ? 'Alien2' : 'Alien1',
-            this.aliensParent
-        );
-        const meshComponent = obj!.getComponent(MeshComponent)!;
+        const meshComponent = obj.addComponent(MeshComponent, {
+            mesh: type % 2 ? this.alien2Mesh : this.alien1Mesh,
+        })!;
 
         switch (type) {
             case 1:
@@ -211,9 +226,9 @@ export class Game extends Component {
 
         const position = vec3.fromValues(Math.sin(rad) * 250, rndY, Math.cos(rad) * -150);
 
-        obj!.setPositionWorld(position);
-        obj!.lookAt(vec3.fromValues(0, 0, 0));
-        obj!.addComponent(Invader, {
+        obj.setPositionWorld(position);
+        obj.lookAt(vec3.fromValues(0, 0, 0));
+        obj.addComponent(Invader, {
             speed: this.currentspeed,
             shardMesh: this.shardMesh,
         });

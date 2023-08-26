@@ -22,6 +22,7 @@ import {MouseLookComponent} from '@wonderlandengine/components';
 import {PlayerHeight} from '@wonderlandengine/components';
 import {VrModeActiveSwitch} from '@wonderlandengine/components';
 import {ZestyBanner} from '@zestymarket/wonderland-sdk';
+import {ActiveAd} from './components/active-ad.js';
 import {ActiveOnState} from './components/active-on-state.js';
 import {ExplosionParticles} from './components/explosion-particles.js';
 import {Game} from './components/game.js';
@@ -62,7 +63,11 @@ engine.onSceneLoaded.once(() => {
 
 function requestSession(mode) {
     engine
-        .requestXRSession(mode, Constants.WebXRRequiredFeatures, Constants.WebXROptionalFeatures)
+        .requestXRSession(
+            mode,
+            Constants.WebXRRequiredFeatures,
+            Constants.WebXROptionalFeatures
+        )
         .catch((e) => console.error(e));
 }
 
@@ -97,6 +102,7 @@ engine.registerComponent(MouseLookComponent);
 engine.registerComponent(PlayerHeight);
 engine.registerComponent(VrModeActiveSwitch);
 engine.registerComponent(ZestyBanner);
+engine.registerComponent(ActiveAd);
 engine.registerComponent(ActiveOnState);
 engine.registerComponent(ExplosionParticles);
 engine.registerComponent(Game);

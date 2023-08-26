@@ -49,7 +49,7 @@ export class ExplosionParticles extends Component {
         this.objects = this.engine.scene.addObjects(
             this.maxParticles,
             null,
-            this.maxParticles
+            this.maxParticles * 3
         );
 
         for (let i = 0; i < this.maxParticles; i++) {
@@ -114,7 +114,6 @@ export class ExplosionParticles extends Component {
             this.lifetime[i] -= dt;
             if (this.lifetime[i] <= 0) {
                 this.objects[i].scaleLocal([0, 0, 0]);
-                this.objects[i].destroy();
                 continue;
             }
         }

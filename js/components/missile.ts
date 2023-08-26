@@ -32,12 +32,14 @@ export class Missile extends Component {
 
         this.aliensParent.children.forEach((alien) => {
             const alienPos = alien.getPositionWorld();
-            const distance = vec3.distance(alienPos, newPosition);
-            if (distance < 5.0) {
-                alien.getComponent(Invader)?.hit();
-                this.end();
-                gameState.hit();
-                return;
+            if (alienPos[0] !== 0 && alienPos[1] !== 0 && alienPos[2] !== 0) {
+                const distance = vec3.distance(alienPos, newPosition);
+                if (distance < 5.0) {
+                    alien.getComponent(Invader)?.hit();
+                    this.end();
+                    gameState.hit();
+                    return;
+                }
             }
         });
 

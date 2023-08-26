@@ -41,7 +41,7 @@ export class ActiveOnState extends Component {
     }
 
     getComponents(obj: Object3D) {
-        const comps = obj.getComponents().filter((c) => c.type !== 'vr-mode-active-switch');
+        const comps = obj.getComponents().filter((c) => c.type !== ActiveOnState.TypeName);
         this.components = this.components.concat(comps);
 
         if (this.affectChildren) {

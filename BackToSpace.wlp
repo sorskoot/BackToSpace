@@ -556,7 +556,7 @@
                         "mesh": "10",
                         "material": "128"
                     },
-                    "active": false
+                    "active": true
                 }
             ],
             "translation": [
@@ -1293,7 +1293,7 @@
                     "type": "mesh",
                     "mesh": {
                         "mesh": "7",
-                        "material": "1308"
+                        "material": "394"
                     }
                 },
                 {
@@ -1310,11 +1310,10 @@
                     }
                 },
                 {
-                    "type": "active-on-state",
-                    "active-on-state": {
-                        "inactive": true,
-                        "state": "playing"
-                    }
+                    "type": "cursor-target"
+                },
+                {
+                    "type": "active-ad"
                 }
             ],
             "translation": [
@@ -1457,6 +1456,102 @@
             "link": {
                 "name": "mesh_0",
                 "file": "models\\Shard.fbx"
+            }
+        },
+        "375": {
+            "link": {
+                "name": "controller_plyShape",
+                "file": "models\\oculus-touch-v2-left.glb"
+            }
+        },
+        "376": {
+            "link": {
+                "name": "controller_plyShape.003",
+                "file": "models\\oculus-touch-v2-left.glb"
+            }
+        },
+        "377": {
+            "link": {
+                "name": "controller_plyShape.005",
+                "file": "models\\oculus-touch-v2-left.glb"
+            }
+        },
+        "378": {
+            "link": {
+                "name": "controller_plyShape.006",
+                "file": "models\\oculus-touch-v2-left.glb"
+            }
+        },
+        "379": {
+            "link": {
+                "name": "controller_plyShape.004",
+                "file": "models\\oculus-touch-v2-left.glb"
+            }
+        },
+        "380": {
+            "link": {
+                "name": "controller_plyShape.002",
+                "file": "models\\oculus-touch-v2-left.glb"
+            }
+        },
+        "381": {
+            "link": {
+                "name": "controller_plyShape.004",
+                "file": "models\\oculus-touch-v2-right.glb"
+            }
+        },
+        "382": {
+            "link": {
+                "name": "controller_plyShape.005",
+                "file": "models\\oculus-touch-v2-right.glb"
+            }
+        },
+        "383": {
+            "link": {
+                "name": "controller_plyShape",
+                "file": "models\\oculus-touch-v2-right.glb"
+            }
+        },
+        "384": {
+            "link": {
+                "name": "controller_plyShape.002",
+                "file": "models\\oculus-touch-v2-right.glb"
+            }
+        },
+        "385": {
+            "link": {
+                "name": "controller_plyShape.003",
+                "file": "models\\oculus-touch-v2-right.glb"
+            }
+        },
+        "386": {
+            "link": {
+                "name": "controller_plyShape.001",
+                "file": "models\\oculus-touch-v2-right.glb"
+            }
+        },
+        "388": {
+            "link": {
+                "name": "Mesh",
+                "file": "models\\hand-left.glb"
+            }
+        },
+        "390": {
+            "link": {
+                "name": "Mesh.001",
+                "file": "models\\hand-right.glb"
+            }
+        },
+        "391": {
+            "link": {
+                "name": "Cube.001",
+                "file": "models\\button.glb"
+            }
+        },
+        "393": {
+            "link": {
+                "name": "TeleportIndicator",
+                "file": "models\\teleport-indicator.glb"
             }
         }
     },
@@ -2585,6 +2680,28 @@
                 "flatTexture": "274",
                 "flatTextureLowest": "295"
             }
+        },
+        "387": {
+            "link": {
+                "name": "Default_Material",
+                "file": "models\\hand-left.glb"
+            }
+        },
+        "389": {
+            "link": {
+                "name": "lambert2",
+                "file": "models\\hand-right.glb"
+            }
+        },
+        "392": {
+            "link": {
+                "name": "TeleportIndicator",
+                "file": "models\\teleport-indicator.glb"
+            }
+        },
+        "394": {
+            "name": "Zesty",
+            "pipeline": "35"
         }
     },
     "shaders": {
@@ -2830,7 +2947,8 @@
                 1,
                 0,
                 4
-            ]
+            ],
+            "customIndexHtml": true
         },
         "vr": {
             "leftEyeObject": "18",

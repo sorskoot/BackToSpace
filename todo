@@ -19,6 +19,10 @@
 TODO:
     Rebuild in Wonderland Engine:
         Must have:
+            ☐ Remove Desktop version (for now)
+                ~ Desktop is causing the most difficulties at the moment and most
+                ~ people are not going to play it on desktop anyway. It should be back online
+                ~ on HeyVR.io ASAP!
             ✔ Add Geometry @done(23-08-06 19:54)
             ✔ Create shader or textures to get the same look @done(23-08-06 19:54)
             ✔ Add title screen @done(23-08-11 21:39)
@@ -44,7 +48,9 @@ TODO:
                 ~ easier than colliders.
             ✔ Start position of missile seems to be wrong, could be recycling of objects or something @done(23-08-12 23:10)
             ☐ Particles seem to still cause weirdness.
-            
+            ☐ @critical When shooting the aliens multiply exponentially
+          
+
         Should have:
             ☐ Animation on appearance of aliens
             ☐ Add scoreboard
@@ -58,7 +64,8 @@ TODO:
                 ☐ more aliens
                 ☐ Special things
                     ~ Like the UFO in the original game
-
+        Would Like:
+            ☐ bring desktop back
 # V1.6
 TODO:
     ✘ upgrade to latest A-Frame @cancelled(23-08-01 20:31)

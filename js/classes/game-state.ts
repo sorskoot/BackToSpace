@@ -7,12 +7,14 @@ export enum State {
     welcome = 0,
     playing = 1,
     gameOver = 2,
+    notInVR = 3,
 }
 
 class GameState {
     stateSubject: Subject<State>;
+    isInVRSubject: Subject<boolean>;
 
-    private _state: State = State.welcome;
+    private _state: State = State.notInVR;
     public get state(): State {
         return this._state;
     }
@@ -37,9 +39,19 @@ class GameState {
         this._score = v;
     }
 
+    private _isInVR = false;
+    public get isInVR(): boolean {
+        return this._isInVR;
+    }
+    public set isInVR(v: boolean) {
+        this._isInVR = v;
+        this.isInVRSubject.next(v);
+    }
+
     constructor() {
         this.stateSubject = new Subject<State>();
-        this.setState(State.welcome);
+        this.isInVRSubject = new Subject<boolean>();
+        this.setState(State.notInVR);
     }
 
     setState(state: State) {
@@ -58,6 +70,8 @@ class GameState {
      */
     fire(direction: ReadonlyVec3 | undefined, position: ReadonlyVec3 | undefined) {
         switch (this.state) {
+            case State.notInVR:
+                break;
             case State.welcome:
             case State.gameOver:
                 this.setState(State.playing);
