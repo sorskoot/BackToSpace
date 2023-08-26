@@ -1432,31 +1432,36 @@
             "link": {
                 "name": "mesh_0",
                 "file": "models\\Gun.fbx"
-            }
+            },
+            "name": "Gun"
         },
         "348": {
             "link": {
                 "name": "mesh_0",
                 "file": "models\\Aliens.fbx"
-            }
+            },
+            "name": "Alien1"
         },
         "349": {
             "link": {
                 "name": "mesh_1",
                 "file": "models\\Aliens.fbx"
-            }
+            },
+            "name": "Alien2"
         },
         "363": {
             "link": {
                 "name": "mesh_0",
                 "file": "models\\Missile.fbx"
-            }
+            },
+            "name": "Missile"
         },
         "370": {
             "link": {
                 "name": "mesh_0",
                 "file": "models\\Shard.fbx"
-            }
+            },
+            "name": "Shard"
         },
         "375": {
             "link": {
