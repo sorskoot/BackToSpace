@@ -48,7 +48,7 @@ TODO:
                 ~ easier than colliders.
             ✔ Start position of missile seems to be wrong, could be recycling of objects or something @done(23-08-12 23:10)
             ☐ Particles seem to still cause weirdness.
-            ☐ @critical When shooting the aliens multiply exponentially
+            ✔ @critical When shooting the aliens multiply exponentially @done(23-08-26 10:03)
           
 
         Should have:
