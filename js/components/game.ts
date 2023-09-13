@@ -102,6 +102,9 @@ export class Game extends Component {
             if (this.invadersLeftInWave === 0) {
                 this.currentwave++;
                 this.currentspeed++;
+                if (this.currentwave > Waves.length) {
+                    this.currentwave = 0;
+                }
                 this.invadersLeftInWave = this.spawnInvaderWave();
             }
         });
