@@ -1,7 +1,44 @@
-import {Component, Object3D, MeshComponent, Mesh, Material} from '@wonderlandengine/api';
+import {
+    Component,
+    Object3D,
+    MeshComponent,
+    Mesh,
+    Material,
+    WonderlandEngine,
+} from '@wonderlandengine/api';
 import {property} from '@wonderlandengine/api/decorators.js';
 
 import {quat, quat2, vec3} from 'gl-matrix';
+
+const tempQuat2 = quat2.create();
+const tempQuat = quat.create();
+
+const TOTALPARTICLES = 25000;
+
+export class ParticlePool {
+    static instance: ParticlePool;
+
+    private objects: Object3D[];
+    private pointer = 0;
+    constructor(engine: WonderlandEngine) {
+        this.objects = engine.scene.addObjects(TOTALPARTICLES, null, TOTALPARTICLES * 3);
+
+        for (let i = 0; i < this.objects.length; ++i) {
+            const obj = this.objects[i];
+            obj.scaleLocal([0, 0, 0]);
+            obj.addComponent(MeshComponent);
+        }
+    }
+
+    request(amount: number): Object3D[] {
+        const result: Object3D[] = [];
+        for (let i = 0; i < amount; ++i) {
+            result.push(this.objects[this.pointer]);
+            this.pointer = (this.pointer + 1) % this.objects.length;
+        }
+        return result;
+    }
+}
 
 export class ExplosionParticles extends Component {
     static TypeName = 'explosion-particles';
@@ -24,33 +61,22 @@ export class ExplosionParticles extends Component {
     @property.int(16)
     size!: number;
 
-    time = 0.0;
-    count = 0;
+    private time = 0.0;
 
-    selfDestructCountdown = 2.5;
-
-    /**
-     * @type {Object3D[]}
-     */
-    private objects: Object3D[] = [];
+    private selfDestructCountdown = 2.5;
 
     /**
      * @type {number[][]}
      */
     private velocities: vec3[] = [];
-
-    private speeds: number[] = [];
+    private objects: Object3D[] = [];
 
     private rotations: vec3[] = [];
 
     private lifetime: number[] = [];
 
     start() {
-        this.objects = this.engine.scene.addObjects(
-            this.maxParticles,
-            null,
-            this.maxParticles * 3
-        );
+        this.objects = ParticlePool.instance.request(this.maxParticles);
 
         for (let i = 0; i < this.maxParticles; i++) {
             this.velocities.push([
@@ -64,19 +90,22 @@ export class ExplosionParticles extends Component {
                 (Math.random() * 2 - 1) * 10,
             ]);
             this.lifetime.push(Math.random() * 0.5 + 1);
-            const obj = this.objects[i];
-            obj.name = 'particle' + this.count.toString();
-            const mesh = obj.addComponent(MeshComponent);
-
-            mesh!.mesh = this.mesh;
-            mesh!.material = this.material;
+            this.objects[i].scaleLocal([0, 0, 0]);
             /* Most efficient way to hide the mesh */
-            obj.scaleLocal([0, 0, 0]);
         }
-
         /* Time to spawn particles */
         for (let i = 0; i < this.maxParticles; i++) {
-            this.spawn();
+            const obj = this.objects[i];
+            obj.resetTransform();
+            obj.scaleLocal([this.particleScale, this.particleScale, this.particleScale]);
+
+            /* Activate component, otherwise it will not show up! */
+            obj.getComponent(MeshComponent)!.active = true;
+            obj.getComponent(MeshComponent)!.material = this.material;
+            obj.getComponent(MeshComponent)!.mesh = this.mesh;
+
+            const pos = this.object.getPositionWorld();
+            obj.setPositionWorld(pos);
         }
     }
 
@@ -101,16 +130,17 @@ export class ExplosionParticles extends Component {
              * obj.transformWorld on access. We want to avoid this and
              * have it be recalculated in batch at the end of frame
              * instead */
-            quat2.getTranslation(origin, this.objects[i].getTransformWorld());
+            this.objects[i].getTransformWorld(tempQuat2);
+            quat2.getTranslation(origin, tempQuat2);
 
             /* Apply rotation */
             const rot = this.rotations[i];
-            const objRot = this.objects[i].getRotationWorld();
-            quat.rotateX(objRot, objRot, rot[0] * dt);
-            quat.rotateY(objRot, objRot, rot[1] * dt);
-            quat.rotateZ(objRot, objRot, rot[2] * dt);
+            this.objects[i].getRotationWorld(tempQuat);
+            quat.rotateX(tempQuat, tempQuat, rot[0] * dt);
+            quat.rotateY(tempQuat, tempQuat, rot[1] * dt);
+            quat.rotateZ(tempQuat, tempQuat, rot[2] * dt);
 
-            this.objects[i].setRotationWorld(objRot);
+            this.objects[i].setRotationWorld(tempQuat);
             this.lifetime[i] -= dt;
             if (this.lifetime[i] <= 0) {
                 this.objects[i].scaleLocal([0, 0, 0]);
@@ -119,28 +149,10 @@ export class ExplosionParticles extends Component {
         }
 
         for (let i = 0; i < this.objects.length; ++i) {
+            this.velocities[i][1] -= 9.81 * dt;
             /* Apply velocity */
             vec3.scale(distance, this.velocities[i], dt);
-            // add gravity
-            distance[1] -= 9.81 * dt;
             this.objects[i].translateWorld(distance);
         }
-    }
-
-    /** Spawn a particle */
-    spawn() {
-        const index = this.count % this.maxParticles;
-
-        const obj = this.objects[index];
-        obj.resetTransform();
-        obj.scaleLocal([this.particleScale, this.particleScale, this.particleScale]);
-
-        /* Activate component, otherwise it will not show up! */
-        obj.getComponent(MeshComponent)!.active = true;
-
-        const pos = this.object.getPositionWorld();
-        obj.setPositionWorld(pos);
-
-        this.count += 1;
     }
 }

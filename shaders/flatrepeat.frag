@@ -14,6 +14,8 @@
 #define USE_COLOR
 #endif
 
+#include "lib/Uniforms.glsl"
+
 #define USE_MATERIAL_ID
 #include "lib/Inputs.frag"
 

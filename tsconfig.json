@@ -5,9 +5,10 @@
         "emitDecoratorMetadata": true,
         "strict": true,
         "noImplicitAny": true,
+        "module": "NodeNext",
         "strictNullChecks": true,
         "target": "es2022",
-        "moduleResolution": "nodenext",
+        "moduleResolution": "NodeNext",
         "outDir": "dist",
         "esModuleInterop": true,
         "skipLibCheck": true

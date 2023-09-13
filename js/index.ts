@@ -33,7 +33,6 @@ import {VrControls} from './components/vr-controls.js';
 /* wle:auto-imports:end */
 
 import {loadRuntime} from '@wonderlandengine/api';
-import * as API from '@wonderlandengine/api'; // Deprecated: Backward compatibility.
 
 /* wle:auto-constants:start */
 const RuntimeOptions = {
@@ -51,17 +50,17 @@ const Constants = {
 /* wle:auto-constants:end */
 
 const engine = await loadRuntime(Constants.RuntimeBaseName, RuntimeOptions);
-Object.assign(engine, API); // Deprecated: Backward compatibility.
-window.WL = engine; // Deprecated: Backward compatibility.
 
 engine.onSceneLoaded.once(() => {
     const el = document.getElementById('version');
-    if (el) setTimeout(() => el.remove(), 2000);
+    if (el) {
+        setTimeout(() => el.remove(), 2000);
+    }
 });
 
 /* WebXR setup. */
 
-function requestSession(mode) {
+function requestSession(mode: XRSessionMode) {
     engine
         .requestXRSession(
             mode,
@@ -73,14 +72,14 @@ function requestSession(mode) {
 
 function setupButtonsXR() {
     /* Setup AR / VR buttons */
-    const arButton = document.getElementById('ar-button');
+    const arButton = document.getElementById('ar-button') as HTMLDivElement;
     if (arButton) {
-        arButton.dataset.supported = engine.arSupported;
+        arButton.dataset.supported = engine.arSupported.toString();
         arButton.addEventListener('click', () => requestSession('immersive-ar'));
     }
     const vrButton = document.getElementById('vr-button');
     if (vrButton) {
-        vrButton.dataset.supported = engine.vrSupported;
+        vrButton.dataset.supported = engine.vrSupported.toString();
         vrButton.addEventListener('click', () => requestSession('immersive-vr'));
     }
 }
@@ -112,9 +111,8 @@ engine.registerComponent(MouseControls);
 engine.registerComponent(VrControls);
 /* wle:auto-register:end */
 
-engine.scene.load(`${Constants.ProjectName}.bin`).catch((e) => {
-    console.error(e);
-    window.alert(`Failed to load ${Constants.ProjectName}.bin:`, e);
+engine.scene.load(`${Constants.ProjectName}.bin`).catch((e: string) => {
+    throw new Error(e);
 });
 
 /* wle:auto-benchmark:start */

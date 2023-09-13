@@ -13,6 +13,7 @@ import {PrefabStorage} from '@sorskoot/wonderland-components';
 import {Missile} from './missile.js';
 import {Waves} from '../data/Waves.js';
 import {Invader} from './invader.js';
+import {ParticlePool} from './explosion-particles.js';
 
 const missilePoolSize = 1000;
 
@@ -72,6 +73,7 @@ export class Game extends Component {
     }
 
     start() {
+        ParticlePool.instance = new ParticlePool(this.engine);
         if (!this.prefabStoreObject) {
             throw new Error('prefabStoreObject is not set');
         }
@@ -84,16 +86,6 @@ export class Game extends Component {
             this.spawnMissile(data.direction, data.position);
         });
         gameState.newGame.add(this.newGame.bind(this));
-        // gameState.invaderHit.add(() => {
-        // this.invadersLeftInWave--;
-        // if (this.invadersLeftInWave <= 0) {
-        //     setTimeout(() => {
-        //         this.currentwave = (this.currentwave + 1) % Waves.length;
-        //         this.currentspeed++;
-        //         this.invadersLeftInWave = this.spawnInvaderWave();
-        //     }, 1500);
-        // }
-        //});
 
         gameState.isInVRSubject.subscribe((isInVR) => {
             if (isInVR) {
