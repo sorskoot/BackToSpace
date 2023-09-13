@@ -96,6 +96,15 @@ export class Game extends Component {
                 gameState.setState(State.notInVR);
             }
         });
+        gameState.invaderHit.add(() => {
+            this.invadersLeftInWave--;
+
+            if (this.invadersLeftInWave === 0) {
+                this.currentwave++;
+                this.currentspeed++;
+                this.invadersLeftInWave = this.spawnInvaderWave();
+            }
+        });
     }
 
     newGame() {
@@ -106,6 +115,7 @@ export class Game extends Component {
         }
 
         this.currentspeed = 5;
+        this.currentwave = 0;
         this.clearInvaders();
         this.invadersLeftInWave = this.spawnInvaderWave();
     }
