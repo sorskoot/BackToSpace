@@ -1199,7 +1199,8 @@
                         "aliensParent": "371",
                         "missileMesh": "363",
                         "missileMaterial": "360",
-                        "nonVRCamera": "17"
+                        "nonVRCamera": "17",
+                        "startMissilePositionObject": "395"
                     }
                 },
                 {
@@ -1365,6 +1366,26 @@
                 0.0,
                 1.8502674,
                 -1.4649963
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "395": {
+            "name": "Missile Start",
+            "parent": "129",
+            "translation": [
+                0.0404135,
+                0.157532,
+                -0.4024716
             ],
             "rotation": [
                 0.0,

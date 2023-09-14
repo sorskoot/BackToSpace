@@ -16,7 +16,7 @@ import {Invader} from './invader.js';
 import {ParticlePool} from './explosion-particles.js';
 
 const missilePoolSize = 1000;
-
+const tempVec = vec3.create();
 export class Game extends Component {
     static TypeName = 'game';
 
@@ -59,6 +59,14 @@ export class Game extends Component {
     @property.material()
     missileMaterial?: Material;
 
+    @property.mesh({required: true})
+    particleMesh!: Mesh;
+    @property.material({required: true})
+    particleMaterial!: Material;
+
+    @property.object({required: true})
+    startMissilePositionObject!: Object3D;
+
     private prefabStore?: PrefabStorage;
     private currentwave = 0;
     private missilePool!: Object3D[];
@@ -73,7 +81,11 @@ export class Game extends Component {
     }
 
     start() {
-        ParticlePool.instance = new ParticlePool(this.engine);
+        ParticlePool.instance = new ParticlePool(
+            this.engine,
+            this.particleMesh,
+            this.particleMaterial
+        );
         if (!this.prefabStoreObject) {
             throw new Error('prefabStoreObject is not set');
         }
@@ -83,7 +95,8 @@ export class Game extends Component {
         this.engine.onXRSessionEnd.add(() => (gameState.isInVR = false));
 
         gameState.spawnMissile.add((data) => {
-            this.spawnMissile(data.direction, data.position);
+            this.startMissilePositionObject.getPositionWorld(tempVec);
+            this.spawnMissile(data.direction, tempVec);
         });
         gameState.newGame.add(this.newGame.bind(this));
 

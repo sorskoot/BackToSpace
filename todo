@@ -19,7 +19,7 @@
 TODO:
     Rebuild in Wonderland Engine:
         Must have:
-            ☐ Remove Desktop version (for now)
+            ✔ Remove Desktop version (for now) @done(23-09-13 21:40)
                 ~ Desktop is causing the most difficulties at the moment and most
                 ~ people are not going to play it on desktop anyway. It should be back online
                 ~ on HeyVR.io ASAP!
@@ -42,12 +42,13 @@ TODO:
             ✔ Add Music @done(23-08-12 23:15)
             ✔ Add Particles @done(23-08-12 23:10)
         @critical Current Bugs :
+            ☐ Start point of missile is off
             ✔ Sometimes the missiles stop hittin, noticable when they are close @done(23-08-12 23:10)
                 ~ In the previous version there was just a calculation of the distance between each alien and
                 ~ each missile. If the two were close it was a hit. I wonder if that would be faster and 
                 ~ easier than colliders.
             ✔ Start position of missile seems to be wrong, could be recycling of objects or something @done(23-08-12 23:10)
-            ☐ Particles seem to still cause weirdness.
+            ✔ Particles seem to still cause weirdness. @done(23-09-13 21:40)
             ✔ @critical When shooting the aliens multiply exponentially @done(23-08-26 10:03)
           
 
