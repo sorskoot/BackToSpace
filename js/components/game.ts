@@ -81,11 +81,7 @@ export class Game extends Component {
     }
 
     start() {
-        ParticlePool.instance = new ParticlePool(
-            this.engine,
-            this.particleMesh,
-            this.particleMaterial
-        );
+        ParticlePool.instance = new ParticlePool(this.engine);
         if (!this.prefabStoreObject) {
             throw new Error('prefabStoreObject is not set');
         }
@@ -115,7 +111,7 @@ export class Game extends Component {
             if (this.invadersLeftInWave === 0) {
                 this.currentwave++;
                 this.currentspeed++;
-                if (this.currentwave > Waves.length) {
+                if (this.currentwave >= Waves.length) {
                     this.currentwave = 0;
                 }
                 this.invadersLeftInWave = this.spawnInvaderWave();
@@ -131,7 +127,7 @@ export class Game extends Component {
         }
 
         this.currentspeed = 5;
-        this.currentwave = 0;
+        this.currentwave = 5;
         this.clearInvaders();
         this.invadersLeftInWave = this.spawnInvaderWave();
     }
