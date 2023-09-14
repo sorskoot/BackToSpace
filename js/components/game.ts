@@ -127,7 +127,7 @@ export class Game extends Component {
         }
 
         this.currentspeed = 5;
-        this.currentwave = 5;
+        this.currentwave = 0;
         this.clearInvaders();
         this.invadersLeftInWave = this.spawnInvaderWave();
     }
