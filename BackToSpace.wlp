@@ -1054,7 +1054,8 @@
                     }
                 },
                 {
-                    "type": "invader"
+                    "type": "invader",
+                    "active": false
                 }
             ],
             "translation": [
@@ -1093,7 +1094,8 @@
                     }
                 },
                 {
-                    "type": "invader"
+                    "type": "invader",
+                    "active": false
                 }
             ],
             "translation": [

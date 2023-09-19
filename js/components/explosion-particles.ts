@@ -13,7 +13,7 @@ import {quat, quat2, vec3} from 'gl-matrix';
 const tempQuat2 = quat2.create();
 const tempQuat = quat.create();
 
-const TOTALPARTICLES = 25000;
+const TOTALPARTICLES = 2500;
 
 export class ParticlePool {
     static instance: ParticlePool;

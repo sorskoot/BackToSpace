@@ -4,6 +4,8 @@ import {vec3} from 'gl-matrix';
 import {SoundManagerInstance, Sounds} from '../classes/sfx-manager.js';
 import {ExplosionParticles} from './explosion-particles.js';
 import {State, gameState} from '../classes/game-state.js';
+import {Easing, clamp, rng} from '@sorskoot/wonderland-components';
+import {lerp} from '../classes/utils/lerp.js';
 
 export class Invader extends Component {
     static TypeName = 'invader';
@@ -25,6 +27,8 @@ export class Invader extends Component {
     private broken = false;
     private collision?: CollisionComponent;
     private gameOver = false;
+    private isShowing = false;
+    private timer = Math.random() * -3;
 
     start() {
         const pos: vec3 = this.object.getPositionWorld();
@@ -38,6 +42,8 @@ export class Invader extends Component {
                 this.gameOver = true;
             }
         });
+        this.isShowing = true;
+        this.object.scaleLocal([0, 0, 0]);
     }
 
     hit() {
@@ -59,6 +65,18 @@ export class Invader extends Component {
     update(dt: number) {
         if (this.gameOver) {
             return;
+        }
+        if (this.isShowing) {
+            this.timer += dt;
+            if (this.timer >= 0) {
+                const clampTimer = clamp(this.timer, 0, 1);
+                const scaleValue = lerp(0, 1.5, clampTimer, Easing.OutCubic);
+                this.object.setScalingLocal([scaleValue, scaleValue, scaleValue]);
+            }
+            if (this.timer >= 1) {
+                this.isShowing = false;
+                this.object.setScalingLocal([1.5, 1.5, 1.5]);
+            }
         }
 
         const deltaTime = dt * this.speed;
