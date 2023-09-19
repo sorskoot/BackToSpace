@@ -4,6 +4,7 @@ import {
     Mesh,
     MeshComponent,
     Object3D,
+    TextComponent,
     WonderlandEngine,
 } from '@wonderlandengine/api';
 import {property} from '@wonderlandengine/api/decorators.js';
@@ -28,6 +29,9 @@ export class Game extends Component {
 
     @property.object({required: true})
     leaderboardObject!: Object3D;
+
+    @property.object({required: true})
+    scoreObject!: Object3D;
 
     @property.object()
     prefabStoreObject?: Object3D;
@@ -82,6 +86,7 @@ export class Game extends Component {
     private currentspeed = 5;
     private showLeaderboardComponent?: ShowLeaderboard;
     private leaderboard?: HeyvrLeaderboard;
+    private scoreText?: TextComponent;
 
     static onRegister(engine: WonderlandEngine) {
         engine.registerComponent(Missile);
@@ -98,7 +103,8 @@ export class Game extends Component {
         this.leaderboard = this.leaderboardObject.getComponent(HeyvrLeaderboard)!;
         this.showLeaderboardComponent =
             this.leaderboardObject.getComponent(ShowLeaderboard)!;
-
+        this.scoreText = this.scoreObject.getComponent(TextComponent)!;
+        this.scoreText.text = '';
         this.engine.onXRSessionStart.add(() => (gameState.isInVR = true));
         this.engine.onXRSessionEnd.add(() => (gameState.isInVR = false));
 
@@ -122,7 +128,7 @@ export class Game extends Component {
         });
         gameState.invaderHit.add(() => {
             this.invadersLeftInWave--;
-
+            this.scoreText!.text = `${gameState.score}`;
             if (this.invadersLeftInWave === 0) {
                 this.currentwave++;
                 this.currentspeed++;
@@ -136,6 +142,7 @@ export class Game extends Component {
 
     newGame() {
         this.showLeaderboardComponent!.hide();
+        this.scoreText!.text = '0';
         if (!this.missilePool) {
             this.createMissilePool();
         } else {

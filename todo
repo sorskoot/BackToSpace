@@ -37,12 +37,12 @@ TODO:
                 ✔ Game over when they are too close @done(23-08-13 11:12)
                 ✔ Start next wave when all aliens are shot @done(23-08-13 11:12)
                 ✔ Add score @done(23-08-13 11:12)
-                ☐ Show score when game over
+                ✔ Show score when game over @done(23-09-19 21:10)
             ✔ Add SFX @done(23-08-11 23:14)
             ✔ Add Music @done(23-08-12 23:15)
             ✔ Add Particles @done(23-08-12 23:10)
         @critical Current Bugs :
-            ☐ Start point of missile is off
+            ✔ Start point of missile is off @done(23-09-19 21:09)
             ✔ Sometimes the missiles stop hittin, noticable when they are close @done(23-08-12 23:10)
                 ~ In the previous version there was just a calculation of the distance between each alien and
                 ~ each missile. If the two were close it was a hit. I wonder if that would be faster and 
@@ -52,7 +52,8 @@ TODO:
             ✔ @critical When shooting the aliens multiply exponentially @done(23-08-26 10:03)
           
             ☐ Animation on appearance of aliens
-            ☐ Add scoreboard
+            ✔ Add scoreboard @done(23-09-19 21:09)
+            ✔ Show score while playing @done(23-09-19 21:36)
 
         Should have:
             ☐ Improved particles

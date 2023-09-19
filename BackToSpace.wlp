@@ -1203,7 +1203,8 @@
                         "startMissilePositionObject": "395",
                         "particleMesh": "370",
                         "particleMaterial": "357",
-                        "leaderboardObject": "396"
+                        "leaderboardObject": "396",
+                        "scoreObject": "407"
                     }
                 },
                 {
@@ -1405,20 +1406,20 @@
         "396": {
             "name": "Leaderboard panel",
             "translation": [
-                6.999999,
-                1.0,
+                7.0000305,
+                0.0,
                 -2.384185791015625e-7
             ],
             "rotation": [
                 0.0,
                 -0.7071068,
                 0.0,
-                0.7071068
+                0.7071067
             ],
             "scaling": [
+                1.9999912,
                 2.0,
-                2.0,
-                2.0
+                1.9999912
             ],
             "components": [
                 {
@@ -1508,7 +1509,8 @@
                 {
                     "type": "text",
                     "text": {
-                        "text": ""
+                        "text": "",
+                        "material": "408"
                     }
                 }
             ],
@@ -1536,7 +1538,8 @@
                 {
                     "type": "text",
                     "text": {
-                        "text": "1"
+                        "text": "1",
+                        "material": "408"
                     }
                 }
             ],
@@ -1564,7 +1567,8 @@
                 {
                     "type": "text",
                     "text": {
-                        "text": "Player"
+                        "text": "Player",
+                        "material": "408"
                     }
                 }
             ],
@@ -1592,7 +1596,8 @@
                 {
                     "type": "text",
                     "text": {
-                        "text": "123456"
+                        "text": "123456",
+                        "material": "408"
                     }
                 }
             ],
@@ -1620,7 +1625,8 @@
                 {
                     "type": "text",
                     "text": {
-                        "text": "The Best Defenders"
+                        "text": "The Best Defenders",
+                        "material": "408"
                     }
                 }
             ],
@@ -1639,6 +1645,35 @@
                 3.0,
                 3.0,
                 3.0
+            ]
+        },
+        "407": {
+            "name": "Text",
+            "parent": "321",
+            "components": [
+                {
+                    "type": "text",
+                    "text": {
+                        "text": "9999\n",
+                        "effect": "outline"
+                    }
+                }
+            ],
+            "translation": [
+                0.0385494,
+                0.2863922,
+                0.0351301
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                0.5,
+                0.5,
+                0.5
             ]
         }
     },
@@ -2042,15 +2077,15 @@
             "Text": {
                 "effectColor": [
                     1.0,
-                    1.0,
+                    0.0,
                     1.0,
                     1.0
                 ],
                 "font": "405",
                 "color": [
-                    1.0,
-                    1.0,
+                    0.3721971,
                     0.0,
+                    0.3721973,
                     1.0
                 ]
             }
@@ -2976,6 +3011,28 @@
         "394": {
             "name": "Zesty",
             "pipeline": "35"
+        },
+        "408": {
+            "link": {
+                "name": "DefaultFontMaterial",
+                "file": "default"
+            },
+            "Text": {
+                "effectColor": [
+                    1.0,
+                    0.9686098,
+                    0.0,
+                    1.0
+                ],
+                "font": "405",
+                "color": [
+                    0.8744394,
+                    0.7764081,
+                    0.0,
+                    1.0
+                ]
+            },
+            "name": "HighScoreFontMaterial"
         }
     },
     "shaders": {
@@ -3611,7 +3668,9 @@
             "link": {
                 "name": "font_0",
                 "file": "models\\StTransmission-800-ExtraBold.ttf"
-            }
+            },
+            "outline": true,
+            "outlineSize": 0.05
         }
     },
     "languages": {}

@@ -1,5 +1,4 @@
-import {Component, Object3D} from '@wonderlandengine/api';
-import {property} from '@wonderlandengine/api/decorators.js';
+import {Component} from '@wonderlandengine/api';
 import {vec3} from 'gl-matrix';
 import {Easing, lerpVec3} from '../classes/utils/lerp.js';
 import {clamp} from '@sorskoot/wonderland-components';
