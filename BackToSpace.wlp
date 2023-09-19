@@ -1200,7 +1200,10 @@
                         "missileMesh": "363",
                         "missileMaterial": "360",
                         "nonVRCamera": "17",
-                        "startMissilePositionObject": "395"
+                        "startMissilePositionObject": "395",
+                        "particleMesh": "370",
+                        "particleMaterial": "357",
+                        "leaderboardObject": "396"
                     }
                 },
                 {
@@ -1397,6 +1400,245 @@
                 1.0,
                 1.0,
                 1.0
+            ]
+        },
+        "396": {
+            "name": "Leaderboard panel",
+            "translation": [
+                6.999999,
+                1.0,
+                -2.384185791015625e-7
+            ],
+            "rotation": [
+                0.0,
+                -0.7071068,
+                0.0,
+                0.7071068
+            ],
+            "scaling": [
+                2.0,
+                2.0,
+                2.0
+            ],
+            "components": [
+                {
+                    "type": "show-leaderboard"
+                },
+                {
+                    "type": "heyvr-leaderboard",
+                    "heyvr-leaderboard": {
+                        "modeToggleButton": "398",
+                        "selectSoundObject": "399",
+                        "lastScoreDisplay": "400",
+                        "textColumn1Object": "401",
+                        "textColumn2Object": "402",
+                        "textColumn3Object": "403",
+                        "debug": false,
+                        "textTitleObject": "404",
+                        "amountScoresDisplayed": 6,
+                        "leaderboardId": "back-to-space"
+                    }
+                }
+            ]
+        },
+        "397": {
+            "name": "Leaderboard Control",
+            "parent": "396",
+            "translation": [
+                0.0,
+                -4.829028057429241e-7,
+                -0.0000013
+            ],
+            "rotation": [
+                -0.0713389,
+                0.0,
+                -0.0000348,
+                0.9974521
+            ],
+            "scaling": [
+                0.9999999,
+                0.9999986,
+                0.9999986
+            ]
+        },
+        "398": {
+            "name": "Mode Toggle Button",
+            "parent": "396",
+            "components": [
+                {
+                    "type": "text",
+                    "text": {
+                        "text": ""
+                    }
+                },
+                {
+                    "type": "cursor-target"
+                }
+            ],
+            "translation": [
+                0.0,
+                0.5,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "399": {
+            "name": "Select Sound",
+            "parent": "396",
+            "components": [
+                {
+                    "type": "howler-audio-source"
+                }
+            ]
+        },
+        "400": {
+            "name": "Last Score Display",
+            "parent": "396",
+            "components": [
+                {
+                    "type": "text",
+                    "text": {
+                        "text": ""
+                    }
+                }
+            ],
+            "translation": [
+                1.0477378964424132e-8,
+                1.2888354,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "401": {
+            "name": "Column1",
+            "parent": "397",
+            "components": [
+                {
+                    "type": "text",
+                    "text": {
+                        "text": "1"
+                    }
+                }
+            ],
+            "translation": [
+                -0.9999998,
+                0.5072769,
+                -0.0004878
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "402": {
+            "name": "Column2",
+            "parent": "397",
+            "components": [
+                {
+                    "type": "text",
+                    "text": {
+                        "text": "Player"
+                    }
+                }
+            ],
+            "translation": [
+                0.0,
+                0.5072769,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "403": {
+            "name": "Column3",
+            "parent": "397",
+            "components": [
+                {
+                    "type": "text",
+                    "text": {
+                        "text": "123456"
+                    }
+                }
+            ],
+            "translation": [
+                0.9999995,
+                0.5072769,
+                0.0004882
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "404": {
+            "name": "Title",
+            "parent": "397",
+            "components": [
+                {
+                    "type": "text",
+                    "text": {
+                        "text": "The Best Defenders"
+                    }
+                }
+            ],
+            "translation": [
+                0.0001218,
+                1.0008164,
+                -0.25
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                3.0,
+                3.0,
+                3.0
             ]
         }
     },
@@ -1804,7 +2046,13 @@
                     1.0,
                     1.0
                 ],
-                "font": "230"
+                "font": "405",
+                "color": [
+                    1.0,
+                    1.0,
+                    0.0,
+                    1.0
+                ]
             }
         },
         "20": {
@@ -2983,7 +3231,8 @@
         "scripting": {
             "sourcePaths": [
                 "js/",
-                "js/components"
+                "js/components",
+                "js/heyvr"
             ],
             "bundlingType": "esbuild",
             "libraryPaths": [
@@ -3345,6 +3594,10 @@
         "24": {
             "fileName": "models/Shard.fbx",
             "importerName": ""
+        },
+        "406": {
+            "fileName": "models/StTransmission-800-ExtraBold.ttf",
+            "importerName": ""
         }
     },
     "fonts": {
@@ -3352,6 +3605,12 @@
             "link": {
                 "name": "DejaVuSans.ttf",
                 "file": "default"
+            }
+        },
+        "405": {
+            "link": {
+                "name": "font_0",
+                "file": "models\\StTransmission-800-ExtraBold.ttf"
             }
         }
     },

@@ -29,11 +29,12 @@ import {Game} from './components/game.js';
 import {Invader} from './components/invader.js';
 import {KeyboardControls} from './components/keyboard-controls.js';
 import {MouseControls} from './components/mouse-controls.js';
+import {ShowLeaderboard} from './components/show-leaderboard.js';
 import {VrControls} from './components/vr-controls.js';
+import {HeyvrLeaderboard} from './heyvr/heyvr-leaderboard.js';
 /* wle:auto-imports:end */
 
 import {loadRuntime} from '@wonderlandengine/api';
-
 /* wle:auto-constants:start */
 const RuntimeOptions = {
     physx: false,
@@ -108,7 +109,9 @@ engine.registerComponent(Game);
 engine.registerComponent(Invader);
 engine.registerComponent(KeyboardControls);
 engine.registerComponent(MouseControls);
+engine.registerComponent(ShowLeaderboard);
 engine.registerComponent(VrControls);
+engine.registerComponent(HeyvrLeaderboard);
 /* wle:auto-register:end */
 
 engine.scene.load(`${Constants.ProjectName}.bin`).catch((e: string) => {

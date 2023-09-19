@@ -14,6 +14,9 @@ import {Missile} from './missile.js';
 import {Waves} from '../data/Waves.js';
 import {Invader} from './invader.js';
 import {ParticlePool} from './explosion-particles.js';
+import {filter} from 'rxjs/operators';
+import {ShowLeaderboard} from './show-leaderboard.js';
+import {HeyvrLeaderboard} from '../heyvr/heyvr-leaderboard.js';
 
 const missilePoolSize = 1000;
 const tempVec = vec3.create();
@@ -22,6 +25,9 @@ export class Game extends Component {
 
     @property.object()
     nonVRCamera!: Object3D;
+
+    @property.object({required: true})
+    leaderboardObject!: Object3D;
 
     @property.object()
     prefabStoreObject?: Object3D;
@@ -74,6 +80,8 @@ export class Game extends Component {
 
     private invadersLeftInWave = 0;
     private currentspeed = 5;
+    private showLeaderboardComponent?: ShowLeaderboard;
+    private leaderboard?: HeyvrLeaderboard;
 
     static onRegister(engine: WonderlandEngine) {
         engine.registerComponent(Missile);
@@ -87,6 +95,10 @@ export class Game extends Component {
         }
         this.prefabStore = this.prefabStoreObject.getComponent(PrefabStorage)!;
 
+        this.leaderboard = this.leaderboardObject.getComponent(HeyvrLeaderboard)!;
+        this.showLeaderboardComponent =
+            this.leaderboardObject.getComponent(ShowLeaderboard)!;
+
         this.engine.onXRSessionStart.add(() => (gameState.isInVR = true));
         this.engine.onXRSessionEnd.add(() => (gameState.isInVR = false));
 
@@ -95,6 +107,9 @@ export class Game extends Component {
             this.spawnMissile(data.direction, tempVec);
         });
         gameState.newGame.add(this.newGame.bind(this));
+        gameState.stateSubject
+            .pipe(filter((x) => x === State.gameOver))
+            .subscribe(this.isGameOver.bind(this));
 
         gameState.isInVRSubject.subscribe((isInVR) => {
             if (isInVR) {
@@ -120,6 +135,7 @@ export class Game extends Component {
     }
 
     newGame() {
+        this.showLeaderboardComponent!.hide();
         if (!this.missilePool) {
             this.createMissilePool();
         } else {
@@ -246,5 +262,9 @@ export class Game extends Component {
             speed: this.currentspeed,
             shardMesh: this.shardMesh,
         });
+    }
+    isGameOver() {
+        this.leaderboard!.submitScore(gameState.score).catch(console.error);
+        this.showLeaderboardComponent!.show();
     }
 }

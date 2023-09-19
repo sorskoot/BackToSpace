@@ -20,5 +20,9 @@ import * as _E__Dev_BackToSpace_js_components_missile_ts from 'E:/Dev/BackToSpac
 _registerEditor(_E__Dev_BackToSpace_js_components_missile_ts);
 import * as _E__Dev_BackToSpace_js_components_mouse_controls_ts from 'E:/Dev/BackToSpace/js/components/mouse-controls.ts';
 _registerEditor(_E__Dev_BackToSpace_js_components_mouse_controls_ts);
+import * as _E__Dev_BackToSpace_js_components_show_leaderboard_ts from 'E:/Dev/BackToSpace/js/components/show-leaderboard.ts';
+_registerEditor(_E__Dev_BackToSpace_js_components_show_leaderboard_ts);
 import * as _E__Dev_BackToSpace_js_components_vr_controls_ts from 'E:/Dev/BackToSpace/js/components/vr-controls.ts';
 _registerEditor(_E__Dev_BackToSpace_js_components_vr_controls_ts);
+import * as _E__Dev_BackToSpace_js_heyvr_heyvr_leaderboard_ts from 'E:/Dev/BackToSpace/js/heyvr/heyvr-leaderboard.ts';
+_registerEditor(_E__Dev_BackToSpace_js_heyvr_heyvr_leaderboard_ts);

@@ -89,9 +89,13 @@
                 opacity: 1;
             }
         </style>
+
+        <script src="latest.sandbox.js"></script>
+
         {{ if settings.runtime.pwa.enable }}
         <link rel="manifest" href="manifest.json" />
         <link rel="apple-touch-icon" href="homescreen192.png" />
+
         <script>
             if ('serviceWorker' in navigator) {
                 navigator.serviceWorker

@@ -51,10 +51,13 @@ TODO:
             ✔ Particles seem to still cause weirdness. @done(23-09-13 21:40)
             ✔ @critical When shooting the aliens multiply exponentially @done(23-08-26 10:03)
           
-
-        Should have:
             ☐ Animation on appearance of aliens
             ☐ Add scoreboard
+
+        Should have:
+            ☐ Improved particles
+                They're slow now. And every time you hit an invader there's a small hickup
+
         Could Have:
             Improvements:
                 ☐ Current LOD shader can have a level between 0 and 1.
