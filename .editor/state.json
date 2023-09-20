@@ -24,7 +24,7 @@
         "Project Data": false,
         "Benchmark": false,
         "Profile": false,
-        "Preferences": true,
+        "Preferences": false,
         "Localization": false
     }
 }

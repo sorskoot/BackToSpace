@@ -1,7 +1,8 @@
 import {Component, Object3D} from '@wonderlandengine/api';
 import {property} from '@wonderlandengine/api/decorators.js';
-import {gameState} from '../classes/game-state.js';
+import {State, gameState} from '../classes/game-state.js';
 import {vec3} from 'gl-matrix';
+import {ZestyBanner} from '@zestymarket/wonderland-sdk';
 
 const handedness = ['left', 'right'];
 
@@ -64,6 +65,19 @@ export class VrControls extends Component {
     }
 
     shoot(transform: vec3, rotation: vec3) {
-        gameState.fire(transform, rotation);
+        if (gameState.state === State.welcome || gameState.state === State.gameOver) {
+            const result = this.engine.scene.rayCast(transform, rotation, 10);
+            if (result && result.hitCount > 0) {
+                if (result.objects[0]?.name === 'ZestyAd') {
+                    result.objects[0]!.getComponent(ZestyBanner)!.onClick();
+                    return;
+                }
+            } else {
+                gameState.fire(transform, rotation);
+            }
+        } else {
+            gameState.fire(transform, rotation);
+            console.log('GO!');
+        }
     }
 }

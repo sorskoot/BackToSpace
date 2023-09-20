@@ -16,13 +16,13 @@ export class KeyboardControls extends Component {
     private forward = vec3.create();
 
     onActivate(): void {
-        window.addEventListener('keydown', this.pressKeyboard);
-        window.addEventListener('keyup', this.releaseKeyboard);
+        // window.addEventListener('keydown', this.pressKeyboard);
+        // window.addEventListener('keyup', this.releaseKeyboard);
     }
 
     onDeactivate(): void {
-        window.removeEventListener('keydown', this.pressKeyboard);
-        window.removeEventListener('keyup', this.releaseKeyboard);
+        // window.removeEventListener('keydown', this.pressKeyboard);
+        // window.removeEventListener('keyup', this.releaseKeyboard);
     }
 
     pressKeyboard = (input: KeyboardEvent): void => {

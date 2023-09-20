@@ -556,13 +556,13 @@
                         "mesh": "10",
                         "material": "128"
                     },
-                    "active": true
+                    "active": false
                 }
             ],
             "translation": [
-                2.384185791015625e-7,
+                0.0275149,
                 0.0002447,
-                0.0
+                -2.4832983
             ],
             "rotation": [
                 0.7072796,
@@ -573,7 +573,7 @@
             "scaling": [
                 0.0049998,
                 0.3499999,
-                0.0049999
+                0.0049998
             ]
         },
         "215": {
@@ -1309,8 +1309,8 @@
                         "collider": "box",
                         "box": {
                             "extents": [
-                                1.0,
-                                0.25,
+                                2.0,
+                                0.6,
                                 0.1
                             ]
                         }
@@ -1335,8 +1335,8 @@
                 0.9659255
             ],
             "scaling": [
-                1.0,
-                0.2499998,
+                1.3999999,
+                0.3499999,
                 0.9999988
             ]
         },
@@ -3301,7 +3301,7 @@
             "esbuildFlags": "--target=ES2022 --format=esm"
         },
         "runtime": {
-            "visualizeColliders": false,
+            "visualizeColliders": true,
             "webxr": {
                 "optionalFeatures": {
                     "local-floor": true
@@ -3544,13 +3544,16 @@
                 "VERTEX_COLORS": false
             },
             "blending": true,
-            "sampleAlphaToCoverage": true,
-            "depthWrite": false,
+            "sampleAlphaToCoverage": false,
+            "depthWrite": true,
             "depthTest": true,
             "depthFunction": "less",
-            "blendSrcAlpha": "one",
+            "blendSrcAlpha": "source alpha",
             "blendEqAlpha": "add",
-            "blendEqRgb": "add"
+            "blendEqRgb": "add",
+            "blendDestRgb": "one minus source alpha",
+            "blendDestAlpha": "one minus source alpha",
+            "blendSrcRgb": "source alpha"
         }
     },
     "files": {

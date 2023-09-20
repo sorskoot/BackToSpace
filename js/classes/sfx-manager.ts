@@ -14,10 +14,10 @@ type SoundPreset = {
 };
 
 const soundsPresets: SoundPreset = {
-    explosion: ['/sfx/explosion.wav', '/sfx/explosion2.wav', '/sfx/explosion3.wav'],
-    gameOver: ['/sfx/bigExplosion.wav'],
-    musGamePlay: ['/BackToSpaceMusic192.mp3'],
-    shoot: ['/sfx/laserShoot.wav'],
+    explosion: ['explosion.wav', 'explosion2.wav', 'explosion3.wav'],
+    gameOver: ['bigExplosion.wav'],
+    musGamePlay: ['BackToSpaceMusic192.mp3'],
+    shoot: ['laserShoot.wav'],
 };
 
 /**
