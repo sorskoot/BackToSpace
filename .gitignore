@@ -65,3 +65,7 @@ typings/
 *.pem
 
 dist/
+deploy/
+artwork/Aliens.blend1
+
+/*.d.ts

@@ -1,0 +1,3682 @@
+{
+    "objects": {
+        "14": {
+            "name": "Player",
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                0.9999998,
+                1.0,
+                0.9999998
+            ],
+            "components": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                {
+                    "type": "keyboard-controls",
+                    "keyboard-controls": {
+                        "nonVRCamera": "17",
+                        "missileSpawnPoint": "365"
+                    }
+                },
+                {
+                    "type": "vr-controls",
+                    "vr-controls": {
+                        "leftController": "130",
+                        "rightController": "129"
+                    }
+                }
+            ]
+        },
+        "15": {
+            "name": "FloorPlane",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "7",
+                        "material": "296"
+                    },
+                    "active": true
+                }
+            ],
+            "translation": [
+                3.3299999,
+                1.1920928955078125e-7,
+                3.3299999
+            ],
+            "rotation": [
+                -0.7071068,
+                0.0,
+                0.0,
+                0.7071067
+            ],
+            "scaling": [
+                300.0,
+                300.0,
+                99.9999694
+            ]
+        },
+        "17": {
+            "name": "NonVrCamera",
+            "parent": "205",
+            "components": [
+                {
+                    "type": "view",
+                    "view": {
+                        "far": 1000.0
+                    }
+                },
+                {
+                    "type": "mouse-look",
+                    "mouse-look": {
+                        "pointerLockOnClick": false,
+                        "requireMouseDown": true
+                    },
+                    "active": false
+                },
+                {
+                    "type": "cursor",
+                    "cursor": {
+                        "collisionGroup": 0,
+                        "handedness": "none",
+                        "cursorObject": "215"
+                    }
+                },
+                {
+                    "type": "howler-audio-listener"
+                },
+                {
+                    "type": "vr-mode-active-switch",
+                    "vr-mode-active-switch": {
+                        "activateComponents": "in non-VR"
+                    }
+                }
+            ],
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "18": {
+            "name": "EyeLeft",
+            "parent": "205",
+            "components": [
+                {
+                    "type": "view",
+                    "view": {
+                        "far": 1000.0
+                    }
+                },
+                {
+                    "type": "input",
+                    "input": {
+                        "type": "eye left"
+                    }
+                }
+            ],
+            "translation": [
+                0.0,
+                0.0,
+                -2.384185791015625e-7
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "19": {
+            "name": "EyeRight",
+            "parent": "205",
+            "components": [
+                {
+                    "type": "view",
+                    "view": {
+                        "far": 1000.0
+                    }
+                },
+                {
+                    "type": "input",
+                    "input": {
+                        "type": "eye right"
+                    }
+                }
+            ],
+            "translation": [
+                0.0,
+                0.0,
+                -2.384185791015625e-7
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "21": {
+            "name": "Light",
+            "components": [
+                {
+                    "type": "light",
+                    "light": {
+                        "intensity": 3.3329999
+                    }
+                }
+            ],
+            "translation": [
+                0.0,
+                3.0,
+                2.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "23": {
+            "name": "Light.000",
+            "components": [
+                {
+                    "type": "light",
+                    "light": {
+                        "intensity": 3.3329999
+                    }
+                }
+            ],
+            "translation": [
+                -1.0,
+                3.0,
+                -1.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "126": {
+            "name": "CursorLeft",
+            "parent": "205",
+            "components": [
+                {
+                    "type": "cursor",
+                    "cursor": {
+                        "cursorObject": "127",
+                        "collisionGroup": 0,
+                        "cursorRayObject": "209",
+                        "cursorRayScalingAxis": "y"
+                    }
+                },
+                {
+                    "type": "input",
+                    "input": {
+                        "type": "ray left"
+                    }
+                }
+            ],
+            "translation": [
+                2.384185791015625e-7,
+                1.1920928955078125e-7,
+                -2.384185791015625e-7
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "127": {
+            "name": "3DCursorHitLeft",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "9",
+                        "material": "128"
+                    },
+                    "active": false
+                }
+            ],
+            "parent": null,
+            "translation": [
+                0.0,
+                0.0388117,
+                1.5585094
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                0.0099999,
+                0.0099999,
+                0.0099999
+            ]
+        },
+        "129": {
+            "name": "ControllerRight",
+            "parent": "205",
+            "components": [
+                {
+                    "type": "input",
+                    "input": {
+                        "type": "ray right"
+                    }
+                },
+                {
+                    "type": "vr-mode-active-switch",
+                    "active": true
+                }
+            ],
+            "translation": [
+                0.0,
+                0.0,
+                -2.384185791015625e-7
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "130": {
+            "name": "ControllerLeft",
+            "parent": "205",
+            "components": [
+                {
+                    "type": "input",
+                    "input": {
+                        "type": "hand left"
+                    }
+                },
+                {
+                    "type": "vr-mode-active-switch",
+                    "active": true
+                }
+            ],
+            "translation": [
+                0.0,
+                0.0,
+                -2.384185791015625e-7
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "205": {
+            "name": "TrackedSpace",
+            "parent": "14",
+            "components": [
+                {
+                    "type": "player-height"
+                }
+            ],
+            "translation": [
+                0.0,
+                1.75,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "209": {
+            "name": "CursorRayLeft",
+            "parent": "126",
+            "translation": [
+                0.0,
+                0.0,
+                2.384185791015625e-7
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "210": {
+            "name": "CursorRayMeshLeft",
+            "parent": "209",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "10",
+                        "material": "128"
+                    },
+                    "active": false
+                }
+            ],
+            "translation": [
+                2.3841928964429826e-7,
+                0.0002447,
+                0.0
+            ],
+            "rotation": [
+                0.707,
+                0.0,
+                0.0,
+                0.7072135
+            ],
+            "scaling": [
+                0.0049998,
+                0.3500002,
+                0.0049999
+            ]
+        },
+        "212": {
+            "name": "CursorRight",
+            "parent": "205",
+            "components": [
+                {
+                    "type": "cursor",
+                    "cursor": {
+                        "cursorObject": "215",
+                        "collisionGroup": 0,
+                        "cursorRayObject": "213",
+                        "cursorRayScalingAxis": "y"
+                    }
+                },
+                {
+                    "type": "input",
+                    "input": {
+                        "type": "ray right"
+                    }
+                }
+            ],
+            "translation": [
+                0.0,
+                0.0,
+                -2.384185791015625e-7
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "213": {
+            "name": "CursorRayRight",
+            "parent": "212",
+            "translation": [
+                0.0,
+                0.0,
+                2.384185791015625e-7
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "214": {
+            "name": "CursorRayMeshRight",
+            "parent": "213",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "10",
+                        "material": "128"
+                    },
+                    "active": false
+                }
+            ],
+            "translation": [
+                0.0275149,
+                0.0002447,
+                -2.4832983
+            ],
+            "rotation": [
+                0.7072796,
+                0.0,
+                0.0,
+                0.7069339
+            ],
+            "scaling": [
+                0.0049998,
+                0.3499999,
+                0.0049998
+            ]
+        },
+        "215": {
+            "name": "3DCursorHitRight",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "9",
+                        "material": "128"
+                    },
+                    "active": false
+                }
+            ],
+            "parent": null,
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                0.0099999,
+                0.0099999,
+                0.0099999
+            ]
+        },
+        "233": {
+            "name": "Head",
+            "parent": "205",
+            "components": [
+                {
+                    "type": "vr-mode-active-switch",
+                    "active": true
+                },
+                {
+                    "type": "howler-audio-listener",
+                    "active": false
+                }
+            ]
+        },
+        "256": {
+            "name": "Static Scene"
+        },
+        "287": {
+            "link": {
+                "name": "Mountains",
+                "file": "models\\mountains.fbx"
+            },
+            "parent": "256",
+            "components": [
+                {
+                    "mesh": {
+                        "material": "270"
+                    },
+                    "active": true
+                }
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "302": {
+            "name": "Sun",
+            "parent": "256",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "7",
+                        "material": "303"
+                    }
+                }
+            ],
+            "translation": [
+                0.0,
+                100.0,
+                -430.0
+            ],
+            "scaling": [
+                115.0,
+                115.0,
+                115.0
+            ]
+        },
+        "308": {
+            "link": {
+                "name": "object_0",
+                "file": "models\\Bunker.glb"
+            },
+            "parent": "256",
+            "name": "Bunkers",
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "314": {
+            "link": {
+                "name": "Bunker",
+                "file": "models\\bunker.fbx"
+            },
+            "parent": "308",
+            "components": [
+                {
+                    "mesh": {
+                        "material": "310"
+                    }
+                }
+            ],
+            "scaling": [
+                2.0,
+                2.0,
+                2.0
+            ],
+            "translation": [
+                -7.1336832,
+                0.0,
+                -5.3764142
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ]
+        },
+        "318": {
+            "link": {
+                "name": "Bunker",
+                "file": "models\\bunker.fbx"
+            },
+            "parent": "308",
+            "components": [
+                {
+                    "mesh": {
+                        "material": "310"
+                    }
+                }
+            ],
+            "scaling": [
+                2.0,
+                2.0,
+                2.0
+            ],
+            "translation": [
+                7.1339998,
+                0.0,
+                -5.3764142
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ]
+        },
+        "319": {
+            "link": {
+                "name": "Bunker",
+                "file": "models\\bunker.fbx"
+            },
+            "parent": "308",
+            "components": [
+                {
+                    "mesh": {
+                        "material": "310"
+                    }
+                }
+            ],
+            "scaling": [
+                2.0,
+                2.0,
+                2.0
+            ],
+            "translation": [
+                -7.1336832,
+                0.0,
+                5.3759999
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ]
+        },
+        "320": {
+            "link": {
+                "name": "Bunker",
+                "file": "models\\bunker.fbx"
+            },
+            "parent": "308",
+            "components": [
+                {
+                    "mesh": {
+                        "material": "310"
+                    }
+                }
+            ],
+            "scaling": [
+                2.0,
+                2.0,
+                2.0
+            ],
+            "translation": [
+                7.1339998,
+                0.0,
+                5.3759999
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ]
+        },
+        "321": {
+            "name": "Gun",
+            "parent": "129",
+            "translation": [
+                0.0,
+                0.0,
+                5.9604637669963274e-8
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "323": {
+            "link": {
+                "name": "Gun",
+                "file": "models\\Gun.fbx"
+            },
+            "parent": "321",
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "components": [
+                {
+                    "mesh": {
+                        "material": "324"
+                    }
+                }
+            ],
+            "translation": [
+                0.0400072,
+                0.0913625,
+                0.0877874
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ]
+        },
+        "327": {
+            "name": "UI"
+        },
+        "328": {
+            "name": "TitleScreen",
+            "parent": "327",
+            "translation": [
+                0.0,
+                0.0,
+                -4.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "components": [
+                {
+                    "type": "active-on-state",
+                    "active-on-state": {
+                        "name": "A",
+                        "state": "welcome"
+                    }
+                }
+            ]
+        },
+        "329": {
+            "name": "Title",
+            "parent": "328",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "7",
+                        "material": "330"
+                    }
+                }
+            ],
+            "translation": [
+                0.0,
+                1.8955347,
+                -2.2000002
+            ],
+            "scaling": [
+                4.0,
+                1.0,
+                4.0
+            ],
+            "rotation": [
+                -0.1261989,
+                0.0,
+                0.0,
+                0.9920049
+            ]
+        },
+        "333": {
+            "name": "SubTitle",
+            "parent": "328",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "7",
+                        "material": "334"
+                    }
+                }
+            ],
+            "translation": [
+                0.0,
+                1.4975101,
+                -1.0300951
+            ],
+            "scaling": [
+                2.0,
+                0.5,
+                2.0
+            ],
+            "rotation": [
+                -0.1261989,
+                0.0,
+                0.0,
+                0.9920049
+            ]
+        },
+        "338": {
+            "name": "GameOverScreen",
+            "parent": "327",
+            "translation": [
+                0.0,
+                0.0,
+                -4.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "components": [
+                {
+                    "type": "active-on-state",
+                    "active-on-state": {
+                        "state": "gameOver"
+                    }
+                }
+            ]
+        },
+        "339": {
+            "name": "GameOver",
+            "parent": "338",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "7",
+                        "material": "341"
+                    }
+                }
+            ],
+            "translation": [
+                0.0,
+                1.8955347,
+                -2.2000002
+            ],
+            "scaling": [
+                4.0,
+                1.0,
+                4.0
+            ],
+            "rotation": [
+                -0.1261989,
+                0.0,
+                0.0,
+                0.9920049
+            ]
+        },
+        "340": {
+            "name": "GameOverSub",
+            "parent": "338",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "7",
+                        "material": "342"
+                    }
+                }
+            ],
+            "translation": [
+                0.0,
+                1.4975101,
+                -1.0300951
+            ],
+            "scaling": [
+                2.0,
+                0.5,
+                2.0
+            ],
+            "rotation": [
+                -0.1261989,
+                0.0,
+                0.0,
+                0.9920049
+            ]
+        },
+        "350": {
+            "link": {
+                "name": "Alien2",
+                "file": "models\\Aliens.fbx"
+            },
+            "parent": "361",
+            "scaling": [
+                1.5,
+                1.5,
+                1.5
+            ],
+            "components": [
+                {
+                    "mesh": {
+                        "material": "352"
+                    }
+                },
+                {
+                    "type": "prefab",
+                    "prefab": {
+                        "name": "Alien2"
+                    }
+                },
+                {
+                    "type": "invader",
+                    "active": false
+                }
+            ],
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ]
+        },
+        "351": {
+            "link": {
+                "name": "Alien1",
+                "file": "models\\Aliens.fbx"
+            },
+            "parent": "361",
+            "scaling": [
+                1.5,
+                1.5,
+                1.5
+            ],
+            "components": [
+                {
+                    "mesh": {
+                        "material": "356"
+                    }
+                },
+                {
+                    "type": "prefab",
+                    "prefab": {
+                        "name": "Alien1"
+                    }
+                },
+                {
+                    "type": "invader",
+                    "active": false
+                }
+            ],
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ]
+        },
+        "361": {
+            "name": "Models",
+            "components": [
+                {
+                    "type": "prefab-storage"
+                }
+            ],
+            "translation": [
+                0.0,
+                -10.0,
+                0.0
+            ]
+        },
+        "364": {
+            "link": {
+                "name": "Missile",
+                "file": "models\\Missile.fbx"
+            },
+            "parent": "361",
+            "components": [
+                {
+                    "mesh": {
+                        "material": "360",
+                        "mesh": "363"
+                    }
+                },
+                {
+                    "type": "prefab",
+                    "prefab": {
+                        "name": "Missile"
+                    }
+                }
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ]
+        },
+        "365": {
+            "name": "MissileSpawnPoint",
+            "parent": "17",
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "366": {
+            "name": "Game",
+            "components": [
+                {
+                    "type": "game",
+                    "game": {
+                        "prefabStore": "361",
+                        "prefabStoreObject": "361",
+                        "missilesParent": "367",
+                        "alien1Mesh": "348",
+                        "alien2Mesh": "349",
+                        "alienMaterial1": "352",
+                        "alienMaterial2": "353",
+                        "alienMaterial3": "354",
+                        "alienMaterial4": "355",
+                        "alienMaterial5": "356",
+                        "alienMaterial6": "357",
+                        "shardMesh": "370",
+                        "aliensParent": "371",
+                        "missileMesh": "363",
+                        "missileMaterial": "360",
+                        "nonVRCamera": "17",
+                        "startMissilePositionObject": "395",
+                        "particleMesh": "370",
+                        "particleMaterial": "357",
+                        "leaderboardObject": "396",
+                        "scoreObject": "407"
+                    }
+                },
+                {
+                    "type": "howler-audio-source",
+                    "howler-audio-source": {
+                        "loop": true,
+                        "autoplay": true,
+                        "volume": 0.25,
+                        "src": "BackToSpaceMusic192.mp3"
+                    }
+                }
+            ]
+        },
+        "367": {
+            "name": "MissilesParent",
+            "parent": "366"
+        },
+        "368": {
+            "name": "Empty",
+            "translation": [
+                -0.0447382,
+                19.2894439,
+                -7.7149057
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "369": {
+            "name": "Empty.000",
+            "parent": "368",
+            "components": [
+                {
+                    "type": "explosion-particles",
+                    "explosion-particles": {
+                        "mesh": "370",
+                        "material": "352",
+                        "particleScale": 0.25,
+                        "size": 1,
+                        "initialSpeed": 25.0,
+                        "maxParticles": 100
+                    },
+                    "active": false
+                }
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "translation": [
+                0.0,
+                -2.2515296,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ]
+        },
+        "371": {
+            "name": "AliensParent",
+            "parent": "366"
+        },
+        "373": {
+            "name": "ZestyAd",
+            "parent": "327",
+            "components": [
+                {
+                    "type": "zesty-banner",
+                    "zesty-banner": {
+                        "creator": "0x247332f68a529ab11a65d665cf84ca376a24688a",
+                        "space": 157,
+                        "format": "wide",
+                        "style": "standard",
+                        "beacon": true,
+                        "adUnit": "f8ddbf81-d035-4112-b31b-88f29f40b691"
+                    }
+                },
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "7",
+                        "material": "394"
+                    }
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "collider": "box",
+                        "box": {
+                            "extents": [
+                                2.0,
+                                0.6,
+                                0.1
+                            ]
+                        }
+                    }
+                },
+                {
+                    "type": "cursor-target"
+                },
+                {
+                    "type": "active-ad"
+                }
+            ],
+            "translation": [
+                0.0,
+                0.5159652,
+                -4.7525806
+            ],
+            "rotation": [
+                -0.2588198,
+                0.0,
+                0.0,
+                0.9659255
+            ],
+            "scaling": [
+                1.3999999,
+                0.3499999,
+                0.9999988
+            ]
+        },
+        "374": {
+            "name": "MouseControls",
+            "parent": "328",
+            "components": [
+                {
+                    "type": "mouse-controls",
+                    "mouse-controls": {
+                        "cursorTargetObject": "374",
+                        "mouseLookObject": "17"
+                    }
+                },
+                {
+                    "type": "cursor-target"
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "collider": "aabb",
+                        "aabb": {
+                            "extents": [
+                                3.0,
+                                0.5,
+                                0.5
+                            ]
+                        }
+                    }
+                }
+            ],
+            "translation": [
+                0.0,
+                1.8502674,
+                -1.4649963
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "395": {
+            "name": "Missile Start",
+            "parent": "129",
+            "translation": [
+                0.0404135,
+                0.157532,
+                -0.4024716
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "396": {
+            "name": "Leaderboard panel",
+            "translation": [
+                7.0000305,
+                0.0,
+                -2.384185791015625e-7
+            ],
+            "rotation": [
+                0.0,
+                -0.7071068,
+                0.0,
+                0.7071067
+            ],
+            "scaling": [
+                1.9999912,
+                2.0,
+                1.9999912
+            ],
+            "components": [
+                {
+                    "type": "show-leaderboard"
+                },
+                {
+                    "type": "heyvr-leaderboard",
+                    "heyvr-leaderboard": {
+                        "modeToggleButton": "398",
+                        "selectSoundObject": "399",
+                        "lastScoreDisplay": "400",
+                        "textColumn1Object": "401",
+                        "textColumn2Object": "402",
+                        "textColumn3Object": "403",
+                        "debug": false,
+                        "textTitleObject": "404",
+                        "amountScoresDisplayed": 6,
+                        "leaderboardId": "back-to-space"
+                    }
+                }
+            ]
+        },
+        "397": {
+            "name": "Leaderboard Control",
+            "parent": "396",
+            "translation": [
+                0.0,
+                -4.829028057429241e-7,
+                -0.0000013
+            ],
+            "rotation": [
+                -0.0713389,
+                0.0,
+                -0.0000348,
+                0.9974521
+            ],
+            "scaling": [
+                0.9999999,
+                0.9999986,
+                0.9999986
+            ]
+        },
+        "398": {
+            "name": "Mode Toggle Button",
+            "parent": "396",
+            "components": [
+                {
+                    "type": "text",
+                    "text": {
+                        "text": ""
+                    }
+                },
+                {
+                    "type": "cursor-target"
+                }
+            ],
+            "translation": [
+                0.0,
+                0.5,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "399": {
+            "name": "Select Sound",
+            "parent": "396",
+            "components": [
+                {
+                    "type": "howler-audio-source"
+                }
+            ]
+        },
+        "400": {
+            "name": "Last Score Display",
+            "parent": "396",
+            "components": [
+                {
+                    "type": "text",
+                    "text": {
+                        "text": "",
+                        "material": "408"
+                    }
+                }
+            ],
+            "translation": [
+                1.0477378964424132e-8,
+                1.2888354,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "401": {
+            "name": "Column1",
+            "parent": "397",
+            "components": [
+                {
+                    "type": "text",
+                    "text": {
+                        "text": "1",
+                        "material": "408"
+                    }
+                }
+            ],
+            "translation": [
+                -0.9999998,
+                0.5072769,
+                -0.0004878
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "402": {
+            "name": "Column2",
+            "parent": "397",
+            "components": [
+                {
+                    "type": "text",
+                    "text": {
+                        "text": "Player",
+                        "material": "408"
+                    }
+                }
+            ],
+            "translation": [
+                0.0,
+                0.5072769,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "403": {
+            "name": "Column3",
+            "parent": "397",
+            "components": [
+                {
+                    "type": "text",
+                    "text": {
+                        "text": "123456",
+                        "material": "408"
+                    }
+                }
+            ],
+            "translation": [
+                0.9999995,
+                0.5072769,
+                0.0004882
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "404": {
+            "name": "Title",
+            "parent": "397",
+            "components": [
+                {
+                    "type": "text",
+                    "text": {
+                        "text": "The Best Defenders",
+                        "material": "408"
+                    }
+                }
+            ],
+            "translation": [
+                0.0001218,
+                1.0008164,
+                -0.25
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                3.0,
+                3.0,
+                3.0
+            ]
+        },
+        "407": {
+            "name": "Text",
+            "parent": "321",
+            "components": [
+                {
+                    "type": "text",
+                    "text": {
+                        "text": "9999\n",
+                        "effect": "outline"
+                    }
+                }
+            ],
+            "translation": [
+                0.0385494,
+                0.2863922,
+                0.0351301
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                0.5,
+                0.5,
+                0.5
+            ]
+        }
+    },
+    "meshes": {
+        "7": {
+            "link": {
+                "name": "PrimitivePlane",
+                "file": "default"
+            }
+        },
+        "8": {
+            "link": {
+                "name": "PrimitiveCube",
+                "file": "default"
+            }
+        },
+        "9": {
+            "link": {
+                "name": "PrimitiveSphere",
+                "file": "default"
+            }
+        },
+        "10": {
+            "link": {
+                "name": "PrimitiveCone",
+                "file": "default"
+            }
+        },
+        "11": {
+            "link": {
+                "name": "PrimitiveCylinder",
+                "file": "default"
+            }
+        },
+        "12": {
+            "link": {
+                "name": "PrimitiveCircle",
+                "file": "default"
+            }
+        },
+        "261": {
+            "link": {
+                "name": "mesh_0",
+                "file": "models\\mountains.fbx"
+            }
+        },
+        "313": {
+            "link": {
+                "name": "mesh_0",
+                "file": "models\\bunker.fbx"
+            }
+        },
+        "322": {
+            "link": {
+                "name": "mesh_0",
+                "file": "models\\Gun.fbx"
+            },
+            "name": "Gun"
+        },
+        "348": {
+            "link": {
+                "name": "mesh_0",
+                "file": "models\\Aliens.fbx"
+            },
+            "name": "Alien1"
+        },
+        "349": {
+            "link": {
+                "name": "mesh_1",
+                "file": "models\\Aliens.fbx"
+            },
+            "name": "Alien2"
+        },
+        "363": {
+            "link": {
+                "name": "mesh_0",
+                "file": "models\\Missile.fbx"
+            },
+            "name": "Missile"
+        },
+        "370": {
+            "link": {
+                "name": "mesh_0",
+                "file": "models\\Shard.fbx"
+            },
+            "name": "Shard"
+        },
+        "375": {
+            "link": {
+                "name": "controller_plyShape",
+                "file": "models\\oculus-touch-v2-left.glb"
+            }
+        },
+        "376": {
+            "link": {
+                "name": "controller_plyShape.003",
+                "file": "models\\oculus-touch-v2-left.glb"
+            }
+        },
+        "377": {
+            "link": {
+                "name": "controller_plyShape.005",
+                "file": "models\\oculus-touch-v2-left.glb"
+            }
+        },
+        "378": {
+            "link": {
+                "name": "controller_plyShape.006",
+                "file": "models\\oculus-touch-v2-left.glb"
+            }
+        },
+        "379": {
+            "link": {
+                "name": "controller_plyShape.004",
+                "file": "models\\oculus-touch-v2-left.glb"
+            }
+        },
+        "380": {
+            "link": {
+                "name": "controller_plyShape.002",
+                "file": "models\\oculus-touch-v2-left.glb"
+            }
+        },
+        "381": {
+            "link": {
+                "name": "controller_plyShape.004",
+                "file": "models\\oculus-touch-v2-right.glb"
+            }
+        },
+        "382": {
+            "link": {
+                "name": "controller_plyShape.005",
+                "file": "models\\oculus-touch-v2-right.glb"
+            }
+        },
+        "383": {
+            "link": {
+                "name": "controller_plyShape",
+                "file": "models\\oculus-touch-v2-right.glb"
+            }
+        },
+        "384": {
+            "link": {
+                "name": "controller_plyShape.002",
+                "file": "models\\oculus-touch-v2-right.glb"
+            }
+        },
+        "385": {
+            "link": {
+                "name": "controller_plyShape.003",
+                "file": "models\\oculus-touch-v2-right.glb"
+            }
+        },
+        "386": {
+            "link": {
+                "name": "controller_plyShape.001",
+                "file": "models\\oculus-touch-v2-right.glb"
+            }
+        },
+        "388": {
+            "link": {
+                "name": "Mesh",
+                "file": "models\\hand-left.glb"
+            }
+        },
+        "390": {
+            "link": {
+                "name": "Mesh.001",
+                "file": "models\\hand-right.glb"
+            }
+        },
+        "391": {
+            "link": {
+                "name": "Cube.001",
+                "file": "models\\button.glb"
+            }
+        },
+        "393": {
+            "link": {
+                "name": "TeleportIndicator",
+                "file": "models\\teleport-indicator.glb"
+            }
+        }
+    },
+    "textures": {
+        "44": {
+            "link": {
+                "name": "texture_0",
+                "file": "models\\oculus-touch-v2-left.glb"
+            }
+        },
+        "45": {
+            "link": {
+                "name": "texture_1",
+                "file": "models\\oculus-touch-v2-left.glb"
+            }
+        },
+        "86": {
+            "link": {
+                "name": "texture_0",
+                "file": "models\\oculus-touch-v2-right.glb"
+            }
+        },
+        "87": {
+            "link": {
+                "name": "texture_1",
+                "file": "models\\oculus-touch-v2-right.glb"
+            }
+        },
+        "274": {
+            "link": {
+                "name": "magenta-grid.png",
+                "file": "models\\textures\\magenta-grid.png"
+            }
+        },
+        "295": {
+            "link": {
+                "name": "magenta-grid-8x8.png",
+                "file": "models\\textures\\magenta-grid-8x8.png"
+            }
+        },
+        "298": {
+            "link": {
+                "name": "magenta-grid-256x256.png",
+                "file": "models\\textures\\magenta-grid-256x256.png"
+            }
+        },
+        "301": {
+            "link": {
+                "name": "space.png",
+                "file": "models\\textures\\space.png"
+            }
+        },
+        "305": {
+            "link": {
+                "name": "sun.png",
+                "file": "models\\textures\\sun.png"
+            }
+        },
+        "312": {
+            "link": {
+                "name": "273.png",
+                "file": "deploy\\273.png"
+            }
+        },
+        "326": {
+            "link": {
+                "name": "magenta-grid-Sharp.png",
+                "file": "models\\textures\\magenta-grid-Sharp.png"
+            }
+        },
+        "332": {
+            "link": {
+                "name": "Title.png",
+                "file": "models\\textures\\Title.png"
+            }
+        },
+        "336": {
+            "link": {
+                "name": "PressFire.png",
+                "file": "models\\textures\\PressFire.png"
+            }
+        },
+        "344": {
+            "link": {
+                "name": "GameOver.png",
+                "file": "models\\textures\\GameOver.png"
+            }
+        },
+        "346": {
+            "link": {
+                "name": "PressFireRestart.png",
+                "file": "models\\textures\\PressFireRestart.png"
+            }
+        }
+    },
+    "images": {
+        "42": {
+            "link": {
+                "name": "Image_0",
+                "file": "models\\oculus-touch-v2-left.glb"
+            },
+            "maxSize": [
+                1024,
+                1024
+            ]
+        },
+        "43": {
+            "link": {
+                "name": "Image_1",
+                "file": "models\\oculus-touch-v2-left.glb"
+            },
+            "maxSize": [
+                256,
+                256
+            ]
+        },
+        "84": {
+            "link": {
+                "name": "Image_0",
+                "file": "models\\oculus-touch-v2-right.glb"
+            },
+            "maxSize": [
+                1024,
+                1024
+            ]
+        },
+        "85": {
+            "link": {
+                "name": "Image_1",
+                "file": "models\\oculus-touch-v2-right.glb"
+            },
+            "maxSize": [
+                256,
+                256
+            ]
+        },
+        "273": {
+            "link": {
+                "name": "magenta-grid.png",
+                "file": "models\\textures\\magenta-grid.png"
+            },
+            "compression": "none"
+        },
+        "294": {
+            "link": {
+                "name": "magenta-grid-8x8.png",
+                "file": "models\\textures\\magenta-grid-8x8.png"
+            },
+            "compression": "none"
+        },
+        "297": {
+            "link": {
+                "name": "magenta-grid-256x256.png",
+                "file": "models\\textures\\magenta-grid-256x256.png"
+            },
+            "compression": "none"
+        },
+        "300": {
+            "link": {
+                "name": "space.png",
+                "file": "models\\textures\\space.png"
+            },
+            "compression": "none"
+        },
+        "304": {
+            "link": {
+                "name": "sun.png",
+                "file": "models\\textures\\sun.png"
+            },
+            "compression": "none"
+        },
+        "311": {
+            "link": {
+                "name": "273.png",
+                "file": "deploy\\273.png"
+            }
+        },
+        "325": {
+            "link": {
+                "name": "magenta-grid-Sharp.png",
+                "file": "models\\textures\\magenta-grid-Sharp.png"
+            },
+            "compression": "none"
+        },
+        "331": {
+            "link": {
+                "name": "Title.png",
+                "file": "models\\textures\\Title.png"
+            },
+            "compression": "none"
+        },
+        "335": {
+            "link": {
+                "name": "PressFire.png",
+                "file": "models\\textures\\PressFire.png"
+            },
+            "compression": "none"
+        },
+        "343": {
+            "link": {
+                "name": "GameOver.png",
+                "file": "models\\textures\\GameOver.png"
+            },
+            "compression": "none"
+        },
+        "345": {
+            "link": {
+                "name": "PressFireRestart.png",
+                "file": "models\\textures\\PressFireRestart.png"
+            },
+            "compression": "none"
+        }
+    },
+    "materials": {
+        "DefaultFontMaterial": {
+            "link": {
+                "name": "DefaultFontMaterial",
+                "file": "default"
+            },
+            "Text": {
+                "effectColor": [
+                    1.0,
+                    0.0,
+                    1.0,
+                    1.0
+                ],
+                "font": "405",
+                "color": [
+                    0.3721971,
+                    0.0,
+                    0.3721973,
+                    1.0
+                ]
+            }
+        },
+        "20": {
+            "name": "White",
+            "shader": "Phong",
+            "Phong": {
+                "specularColor": [
+                    9.999899930335232e-7,
+                    9.99993744699168e-7,
+                    9.999999974752427e-7,
+                    1.0
+                ],
+                "shininess": 1
+            }
+        },
+        "22": {
+            "name": "Pink",
+            "Phong": {
+                "diffuseColor": [
+                    0.9098039,
+                    0.0,
+                    0.5411764,
+                    1.0
+                ],
+                "specularColor": [
+                    9.999899930335232e-7,
+                    9.999911299019004e-7,
+                    9.999999974752427e-7,
+                    1.0
+                ],
+                "shininess": 10,
+                "ambientColor": [
+                    0.317647,
+                    0.0,
+                    0.2165777,
+                    1.0
+                ]
+            }
+        },
+        "25": {
+            "name": "Yellow",
+            "Phong": {
+                "diffuseColor": [
+                    1.0,
+                    0.8039215,
+                    0.0,
+                    1.0
+                ],
+                "specularColor": [
+                    9.999999974752427e-7,
+                    9.999899930335232e-7,
+                    9.999899930335232e-7,
+                    1.0
+                ],
+                "ambientColor": [
+                    0.3843137,
+                    0.3089579,
+                    0.0,
+                    1.0
+                ]
+            }
+        },
+        "26": {
+            "name": "Green",
+            "Phong": {
+                "diffuseColor": [
+                    0.1529411,
+                    0.7882353,
+                    0.5411764,
+                    1.0
+                ],
+                "specularColor": [
+                    9.999999974752427e-7,
+                    9.999899930335232e-7,
+                    9.999899930335232e-7,
+                    1.0
+                ],
+                "ambientColor": [
+                    0.0,
+                    0.2352941,
+                    0.1437908,
+                    1.0
+                ]
+            }
+        },
+        "46": {
+            "link": {
+                "name": "skel_controller_materials_controllerMTL1",
+                "file": "models\\oculus-touch-v2-left.glb"
+            },
+            "name": "ControllerLeft"
+        },
+        "88": {
+            "link": {
+                "name": "skel_controller_materials_controllerMTL",
+                "file": "models\\oculus-touch-v2-right.glb"
+            },
+            "name": "ControllerRight"
+        },
+        "128": {
+            "name": "Cursor",
+            "shader": "Phong",
+            "Phong": {
+                "specularColor": [
+                    9.999899930335232e-7,
+                    9.99993744699168e-7,
+                    9.999999974752427e-7,
+                    1.0
+                ],
+                "shininess": 1
+            },
+            "pipeline": "34",
+            "Flat": {
+                "color": [
+                    1.0,
+                    1.0,
+                    0.0,
+                    1.0
+                ]
+            }
+        },
+        "131": {
+            "name": "HandLeft"
+        },
+        "164": {
+            "name": "HandRight"
+        },
+        "201": {
+            "link": {
+                "name": "DefaultFontMaterial",
+                "file": "default"
+            },
+            "name": "TextAccent",
+            "Text": {
+                "color": [
+                    0.9098039,
+                    0.0,
+                    0.5411764,
+                    1.0
+                ],
+                "font": "230"
+            }
+        },
+        "202": {
+            "name": "Dark",
+            "shader": "Phong",
+            "Phong": {
+                "specularColor": [
+                    9.999899930335232e-7,
+                    9.99993744699168e-7,
+                    9.999999974752427e-7,
+                    1.0
+                ],
+                "shininess": 1,
+                "diffuseColor": [
+                    0.1686274,
+                    0.1686257,
+                    0.1686257,
+                    1.0
+                ],
+                "ambientColor": [
+                    0.0274509,
+                    0.0274507,
+                    0.0274507,
+                    1.0
+                ]
+            }
+        },
+        "203": {
+            "name": "GreenHover",
+            "Phong": {
+                "diffuseColor": [
+                    0.4894117,
+                    0.917647,
+                    0.7511102,
+                    1.0
+                ],
+                "specularColor": [
+                    9.999999974752427e-7,
+                    9.999899930335232e-7,
+                    9.999899930335232e-7,
+                    1.0
+                ],
+                "ambientColor": [
+                    0.0,
+                    0.3294117,
+                    0.2013071,
+                    1.0
+                ]
+            }
+        },
+        "270": {
+            "name": "Grid Mountains",
+            "pipeline": "277",
+            "flatedge": {
+                "color": [
+                    1.0,
+                    0.3273542,
+                    0.5560538,
+                    1.0
+                ],
+                "divisions": 96.6999969,
+                "thickness": 0.0199999,
+                "scale": 1.0,
+                "maxDistance": 1.0,
+                "fogColor": [
+                    0.1165919,
+                    0.0569888,
+                    0.0772539,
+                    1.0
+                ]
+            },
+            "Flat": {
+                "flatTexture": "274",
+                "color": [
+                    0.896861,
+                    0.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "flatrepeat": {
+                "flatTexture": "274",
+                "color": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "repeat": 10.0,
+                "thickness": 0.05,
+                "fillColor": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "strokeColor": [
+                    0.2862745,
+                    0.4862745,
+                    0.8745098,
+                    1.0
+                ]
+            },
+            "Phong": {
+                "diffuseTexture": "274"
+            },
+            "flatrepeatLOD": {
+                "flatTexture": "274",
+                "flatTextureLowest": "295"
+            }
+        },
+        "296": {
+            "name": "Grid Ground",
+            "pipeline": "293",
+            "flatedge": {
+                "color": [
+                    1.0,
+                    0.3273542,
+                    0.5560538,
+                    1.0
+                ],
+                "divisions": 96.6999969,
+                "thickness": 0.0199999,
+                "scale": 1.0,
+                "maxDistance": 1.0,
+                "fogColor": [
+                    0.1165919,
+                    0.0569888,
+                    0.0772539,
+                    1.0
+                ]
+            },
+            "Flat": {
+                "flatTexture": "274",
+                "color": [
+                    0.896861,
+                    0.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "flatrepeat": {
+                "flatTexture": "274",
+                "color": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "repeat": 10.0
+            },
+            "Phong": {
+                "diffuseTexture": "274"
+            },
+            "flatrepeatLOD": {
+                "flatTexture": "326",
+                "flatTextureLowest": "295",
+                "color": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "flatTextureLow": "298"
+            }
+        },
+        "299": {
+            "name": "Space",
+            "pipeline": "229",
+            "Sky": {
+                "texture": "301"
+            }
+        },
+        "303": {
+            "name": "Sun",
+            "pipeline": "306",
+            "Flat": {
+                "flatTexture": "305",
+                "alphaMaskThreshold": 0.0
+            },
+            "flatrepeat": {
+                "flatTexture": "305"
+            }
+        },
+        "310": {
+            "name": "Bunker",
+            "pipeline": "277",
+            "flatedge": {
+                "color": [
+                    1.0,
+                    0.3273542,
+                    0.5560538,
+                    1.0
+                ],
+                "divisions": 96.6999969,
+                "thickness": 0.0199999,
+                "scale": 1.0,
+                "maxDistance": 1.0,
+                "fogColor": [
+                    0.1165919,
+                    0.0569888,
+                    0.0772539,
+                    1.0
+                ]
+            },
+            "Flat": {
+                "flatTexture": "274",
+                "color": [
+                    0.896861,
+                    0.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "flatrepeat": {
+                "flatTexture": "274",
+                "color": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "repeat": 10.0,
+                "thickness": 0.0399999,
+                "fillColor": [
+                    0.103139,
+                    0.0314504,
+                    0.0558245,
+                    1.0
+                ],
+                "strokeColor": [
+                    0.8745098,
+                    0.2862745,
+                    0.4862745,
+                    1.0
+                ]
+            },
+            "Phong": {
+                "diffuseTexture": "274"
+            },
+            "flatrepeatLOD": {
+                "flatTexture": "274",
+                "flatTextureLowest": "295"
+            }
+        },
+        "324": {
+            "name": "Gun",
+            "pipeline": "277",
+            "flatedge": {
+                "color": [
+                    1.0,
+                    0.3273542,
+                    0.5560538,
+                    1.0
+                ],
+                "divisions": 96.6999969,
+                "thickness": 0.0199999,
+                "scale": 1.0,
+                "maxDistance": 1.0,
+                "fogColor": [
+                    0.1165919,
+                    0.0569888,
+                    0.0772539,
+                    1.0
+                ]
+            },
+            "Flat": {
+                "flatTexture": "274",
+                "color": [
+                    0.896861,
+                    0.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "flatrepeat": {
+                "flatTexture": "274",
+                "color": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "repeat": 10.0,
+                "thickness": 0.0399999,
+                "fillColor": [
+                    0.1121076,
+                    0.1055722,
+                    0.0,
+                    1.0
+                ],
+                "strokeColor": [
+                    1.0,
+                    0.9417039,
+                    0.0,
+                    1.0
+                ]
+            },
+            "Phong": {
+                "diffuseTexture": "274"
+            },
+            "flatrepeatLOD": {
+                "flatTexture": "274",
+                "flatTextureLowest": "295"
+            }
+        },
+        "330": {
+            "name": "TitleScreen",
+            "pipeline": "306",
+            "Flat": {
+                "flatTexture": "332"
+            }
+        },
+        "334": {
+            "name": "TitleScreen-Sub",
+            "pipeline": "306",
+            "Flat": {
+                "flatTexture": "336"
+            }
+        },
+        "341": {
+            "name": "GameOverScreen",
+            "pipeline": "306",
+            "Flat": {
+                "flatTexture": "344"
+            }
+        },
+        "342": {
+            "name": "GameOverScreen-Sub",
+            "pipeline": "306",
+            "Flat": {
+                "flatTexture": "346"
+            }
+        },
+        "352": {
+            "name": "Alien1",
+            "pipeline": "277",
+            "flatedge": {
+                "color": [
+                    1.0,
+                    0.3273542,
+                    0.5560538,
+                    1.0
+                ],
+                "divisions": 96.6999969,
+                "thickness": 0.0199999,
+                "scale": 1.0,
+                "maxDistance": 1.0,
+                "fogColor": [
+                    0.1165919,
+                    0.0569888,
+                    0.0772539,
+                    1.0
+                ]
+            },
+            "Flat": {
+                "flatTexture": "274",
+                "color": [
+                    0.896861,
+                    0.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "flatrepeat": {
+                "flatTexture": "274",
+                "color": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "repeat": 10.0,
+                "thickness": 0.0399999,
+                "fillColor": [
+                    0.0,
+                    0.0666666,
+                    0.0,
+                    1.0
+                ],
+                "strokeColor": [
+                    0.0,
+                    1.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "Phong": {
+                "diffuseTexture": "274"
+            },
+            "flatrepeatLOD": {
+                "flatTexture": "274",
+                "flatTextureLowest": "295"
+            }
+        },
+        "353": {
+            "name": "Alien2",
+            "pipeline": "277",
+            "flatedge": {
+                "color": [
+                    1.0,
+                    0.3273542,
+                    0.5560538,
+                    1.0
+                ],
+                "divisions": 96.6999969,
+                "thickness": 0.0199999,
+                "scale": 1.0,
+                "maxDistance": 1.0,
+                "fogColor": [
+                    0.1165919,
+                    0.0569888,
+                    0.0772539,
+                    1.0
+                ]
+            },
+            "Flat": {
+                "flatTexture": "274",
+                "color": [
+                    0.896861,
+                    0.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "flatrepeat": {
+                "flatTexture": "274",
+                "color": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "repeat": 10.0,
+                "thickness": 0.0399999,
+                "fillColor": [
+                    0.0,
+                    0.0,
+                    0.0666666,
+                    1.0
+                ],
+                "strokeColor": [
+                    0.0,
+                    0.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "Phong": {
+                "diffuseTexture": "274"
+            },
+            "flatrepeatLOD": {
+                "flatTexture": "274",
+                "flatTextureLowest": "295"
+            }
+        },
+        "354": {
+            "name": "Alien3",
+            "pipeline": "277",
+            "flatedge": {
+                "color": [
+                    1.0,
+                    0.3273542,
+                    0.5560538,
+                    1.0
+                ],
+                "divisions": 96.6999969,
+                "thickness": 0.0199999,
+                "scale": 1.0,
+                "maxDistance": 1.0,
+                "fogColor": [
+                    0.1165919,
+                    0.0569888,
+                    0.0772539,
+                    1.0
+                ]
+            },
+            "Flat": {
+                "flatTexture": "274",
+                "color": [
+                    0.896861,
+                    0.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "flatrepeat": {
+                "flatTexture": "274",
+                "color": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "repeat": 10.0,
+                "thickness": 0.0399999,
+                "fillColor": [
+                    0.0,
+                    0.0666666,
+                    0.0666666,
+                    1.0
+                ],
+                "strokeColor": [
+                    0.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "Phong": {
+                "diffuseTexture": "274"
+            },
+            "flatrepeatLOD": {
+                "flatTexture": "274",
+                "flatTextureLowest": "295"
+            }
+        },
+        "355": {
+            "name": "Alien4",
+            "pipeline": "277",
+            "flatedge": {
+                "color": [
+                    1.0,
+                    0.3273542,
+                    0.5560538,
+                    1.0
+                ],
+                "divisions": 96.6999969,
+                "thickness": 0.0199999,
+                "scale": 1.0,
+                "maxDistance": 1.0,
+                "fogColor": [
+                    0.1165919,
+                    0.0569888,
+                    0.0772539,
+                    1.0
+                ]
+            },
+            "Flat": {
+                "flatTexture": "274",
+                "color": [
+                    0.896861,
+                    0.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "flatrepeat": {
+                "flatTexture": "274",
+                "color": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "repeat": 10.0,
+                "thickness": 0.0399999,
+                "fillColor": [
+                    0.0666666,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "strokeColor": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "Phong": {
+                "diffuseTexture": "274"
+            },
+            "flatrepeatLOD": {
+                "flatTexture": "274",
+                "flatTextureLowest": "295"
+            }
+        },
+        "356": {
+            "name": "Alien5",
+            "pipeline": "277",
+            "flatedge": {
+                "color": [
+                    1.0,
+                    0.3273542,
+                    0.5560538,
+                    1.0
+                ],
+                "divisions": 96.6999969,
+                "thickness": 0.0199999,
+                "scale": 1.0,
+                "maxDistance": 1.0,
+                "fogColor": [
+                    0.1165919,
+                    0.0569888,
+                    0.0772539,
+                    1.0
+                ]
+            },
+            "Flat": {
+                "flatTexture": "274",
+                "color": [
+                    0.896861,
+                    0.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "flatrepeat": {
+                "flatTexture": "274",
+                "color": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "repeat": 10.0,
+                "thickness": 0.0399999,
+                "fillColor": [
+                    0.0666666,
+                    0.0,
+                    0.0666666,
+                    1.0
+                ],
+                "strokeColor": [
+                    1.0,
+                    0.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "Phong": {
+                "diffuseTexture": "274"
+            },
+            "flatrepeatLOD": {
+                "flatTexture": "274",
+                "flatTextureLowest": "295"
+            }
+        },
+        "357": {
+            "name": "Alien6",
+            "pipeline": "277",
+            "flatedge": {
+                "color": [
+                    1.0,
+                    0.3273542,
+                    0.5560538,
+                    1.0
+                ],
+                "divisions": 96.6999969,
+                "thickness": 0.0199999,
+                "scale": 1.0,
+                "maxDistance": 1.0,
+                "fogColor": [
+                    0.1165919,
+                    0.0569888,
+                    0.0772539,
+                    1.0
+                ]
+            },
+            "Flat": {
+                "flatTexture": "274",
+                "color": [
+                    0.896861,
+                    0.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "flatrepeat": {
+                "flatTexture": "274",
+                "color": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "repeat": 10.0,
+                "thickness": 0.0399999,
+                "fillColor": [
+                    0.1121076,
+                    0.1055722,
+                    0.0,
+                    1.0
+                ],
+                "strokeColor": [
+                    1.0,
+                    0.9417039,
+                    0.0,
+                    1.0
+                ]
+            },
+            "Phong": {
+                "diffuseTexture": "274"
+            },
+            "flatrepeatLOD": {
+                "flatTexture": "274",
+                "flatTextureLowest": "295"
+            }
+        },
+        "360": {
+            "name": "Missile",
+            "pipeline": "277",
+            "flatedge": {
+                "color": [
+                    1.0,
+                    0.3273542,
+                    0.5560538,
+                    1.0
+                ],
+                "divisions": 96.6999969,
+                "thickness": 0.0199999,
+                "scale": 1.0,
+                "maxDistance": 1.0,
+                "fogColor": [
+                    0.1165919,
+                    0.0569888,
+                    0.0772539,
+                    1.0
+                ]
+            },
+            "Flat": {
+                "flatTexture": "274",
+                "color": [
+                    0.896861,
+                    0.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "flatrepeat": {
+                "flatTexture": "274",
+                "color": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "repeat": 10.0,
+                "thickness": 0.0399999,
+                "fillColor": [
+                    0.1121076,
+                    0.1055722,
+                    0.0,
+                    1.0
+                ],
+                "strokeColor": [
+                    1.0,
+                    0.9417039,
+                    0.0,
+                    1.0
+                ]
+            },
+            "Phong": {
+                "diffuseTexture": "274"
+            },
+            "flatrepeatLOD": {
+                "flatTexture": "274",
+                "flatTextureLowest": "295"
+            }
+        },
+        "387": {
+            "link": {
+                "name": "Default_Material",
+                "file": "models\\hand-left.glb"
+            }
+        },
+        "389": {
+            "link": {
+                "name": "lambert2",
+                "file": "models\\hand-right.glb"
+            }
+        },
+        "392": {
+            "link": {
+                "name": "TeleportIndicator",
+                "file": "models\\teleport-indicator.glb"
+            }
+        },
+        "394": {
+            "name": "Zesty",
+            "pipeline": "35"
+        },
+        "408": {
+            "link": {
+                "name": "DefaultFontMaterial",
+                "file": "default"
+            },
+            "Text": {
+                "effectColor": [
+                    1.0,
+                    0.9686098,
+                    0.0,
+                    1.0
+                ],
+                "font": "405",
+                "color": [
+                    0.8744394,
+                    0.7764081,
+                    0.0,
+                    1.0
+                ]
+            },
+            "name": "HighScoreFontMaterial"
+        }
+    },
+    "shaders": {
+        "1": {
+            "link": {
+                "name": "DistanceFieldVector Textured.frag",
+                "file": "default"
+            }
+        },
+        "2": {
+            "link": {
+                "name": "Flat.frag",
+                "file": "default"
+            }
+        },
+        "3": {
+            "link": {
+                "name": "Flat Textured.frag",
+                "file": "default"
+            }
+        },
+        "4": {
+            "link": {
+                "name": "MeshVisualizer.frag",
+                "file": "default"
+            }
+        },
+        "5": {
+            "link": {
+                "name": "Phong.frag",
+                "file": "default"
+            }
+        },
+        "6": {
+            "link": {
+                "name": "Phong Textured.frag",
+                "file": "default"
+            }
+        },
+        "28": {
+            "link": {
+                "name": "Dynamic.vert",
+                "file": "default"
+            }
+        },
+        "29": {
+            "link": {
+                "name": "Particle Textured.frag",
+                "file": "default"
+            }
+        },
+        "30": {
+            "link": {
+                "name": "Skinning.vert",
+                "file": "default"
+            }
+        },
+        "31": {
+            "link": {
+                "name": "Static.frag",
+                "file": "default"
+            }
+        },
+        "32": {
+            "link": {
+                "name": "DistanceFieldVector.frag",
+                "file": "default"
+            }
+        },
+        "37": {
+            "link": {
+                "name": "Particle.frag",
+                "file": "default"
+            }
+        },
+        "217": {
+            "link": {
+                "name": "Background.frag",
+                "file": "default"
+            }
+        },
+        "218": {
+            "link": {
+                "name": "Depth.frag",
+                "file": "default"
+            }
+        },
+        "220": {
+            "link": {
+                "name": "FullScreenTriangle.vert",
+                "file": "default"
+            }
+        },
+        "221": {
+            "link": {
+                "name": "Physical.frag",
+                "file": "default"
+            }
+        },
+        "224": {
+            "link": {
+                "name": "Sky.frag",
+                "file": "default"
+            }
+        },
+        "225": {
+            "link": {
+                "name": "Text.frag",
+                "file": "default"
+            }
+        },
+        "227": {
+            "link": {
+                "name": "Text.vert",
+                "file": "default"
+            }
+        },
+        "228": {
+            "link": {
+                "name": "TileFeedback.frag",
+                "file": "default"
+            }
+        },
+        "234": {
+            "link": {
+                "name": "lib\\Color.glsl",
+                "file": "default"
+            }
+        },
+        "235": {
+            "link": {
+                "name": "lib\\Compatibility.frag",
+                "file": "default"
+            }
+        },
+        "236": {
+            "link": {
+                "name": "lib\\CoordinateSystems.glsl",
+                "file": "default"
+            }
+        },
+        "237": {
+            "link": {
+                "name": "lib\\GI.frag",
+                "file": "default"
+            }
+        },
+        "238": {
+            "link": {
+                "name": "lib\\Inputs.frag",
+                "file": "default"
+            }
+        },
+        "239": {
+            "link": {
+                "name": "lib\\Lights.frag",
+                "file": "default"
+            }
+        },
+        "240": {
+            "link": {
+                "name": "lib\\Materials.frag",
+                "file": "default"
+            }
+        },
+        "241": {
+            "link": {
+                "name": "lib\\Math.glsl",
+                "file": "default"
+            }
+        },
+        "242": {
+            "link": {
+                "name": "lib\\Packing.frag",
+                "file": "default"
+            }
+        },
+        "243": {
+            "link": {
+                "name": "lib\\Quaternion.glsl",
+                "file": "default"
+            }
+        },
+        "244": {
+            "link": {
+                "name": "lib\\Slug.frag",
+                "file": "default"
+            }
+        },
+        "245": {
+            "link": {
+                "name": "lib\\Slug.vert",
+                "file": "default"
+            }
+        },
+        "246": {
+            "link": {
+                "name": "lib\\Surface.frag",
+                "file": "default"
+            }
+        },
+        "247": {
+            "link": {
+                "name": "lib\\Textures.frag",
+                "file": "default"
+            }
+        },
+        "249": {
+            "link": {
+                "name": "lib\\Uniforms.glsl",
+                "file": "default"
+            }
+        },
+        "265": {
+            "link": {
+                "name": "flatedge.frag",
+                "file": "default"
+            }
+        },
+        "275": {
+            "link": {
+                "name": "flatrepeat.frag",
+                "file": "default"
+            }
+        },
+        "288": {
+            "link": {
+                "name": "flatrepeat copy.frag",
+                "file": "default"
+            }
+        },
+        "291": {
+            "link": {
+                "name": "flatrepeatLOD.frag",
+                "file": "default"
+            }
+        }
+    },
+    "settings": {
+        "project": {
+            "name": "BackToSpace",
+            "version": [
+                1,
+                1,
+                0
+            ],
+            "customIndexHtml": true
+        },
+        "vr": {
+            "leftEyeObject": "18",
+            "rightEyeObject": "19"
+        },
+        "scripting": {
+            "sourcePaths": [
+                "js/",
+                "js/components",
+                "js/heyvr"
+            ],
+            "bundlingType": "esbuild",
+            "libraryPaths": [
+                "/js/lib/"
+            ],
+            "entryPoint": "js/index.ts",
+            "esbuildFlags": "--target=ES2022 --format=esm"
+        },
+        "runtime": {
+            "visualizeColliders": true,
+            "webxr": {
+                "optionalFeatures": {
+                    "local-floor": true
+                }
+            }
+        },
+        "editor": {
+            "serverPort": 1456,
+            "camera": {
+                "far": 1000.0
+            }
+        },
+        "rendering": {
+            "sky": {
+                "enabled": true,
+                "material": "299"
+            }
+        }
+    },
+    "animations": {},
+    "skins": {
+        "133": {
+            "link": {
+                "name": "Armature",
+                "file": "models\\hand-left.glb"
+            },
+            "name": "HandLeftSkin",
+            "joints": []
+        },
+        "166": {
+            "link": {
+                "name": "Armature",
+                "file": "models\\hand-right.glb"
+            },
+            "name": "HandRightSkin",
+            "joints": []
+        }
+    },
+    "pipelines": {
+        "33": {
+            "link": {
+                "name": "DistanceFieldVector",
+                "file": "default"
+            }
+        },
+        "34": {
+            "link": {
+                "name": "Flat Opaque",
+                "file": "default"
+            }
+        },
+        "35": {
+            "link": {
+                "name": "Flat Opaque Textured",
+                "file": "default"
+            }
+        },
+        "36": {
+            "link": {
+                "name": "MeshVisualizer",
+                "file": "default"
+            }
+        },
+        "37": {
+            "link": {
+                "name": "Phong Opaque",
+                "file": "default"
+            },
+            "features": {
+                "DEPRECATED_LIGHT_ATTENUATION": true
+            }
+        },
+        "38": {
+            "link": {
+                "name": "Phong Opaque Textured",
+                "file": "default"
+            },
+            "features": {
+                "DEPRECATED_LIGHT_ATTENUATION": true
+            }
+        },
+        "39": {
+            "link": {
+                "name": "Foliage",
+                "file": "default"
+            },
+            "features": {
+                "DEPRECATED_LIGHT_ATTENUATION": true
+            }
+        },
+        "40": {
+            "link": {
+                "name": "Particle",
+                "file": "default"
+            },
+            "doubleSided": true
+        },
+        "219": {
+            "link": {
+                "name": "Depth",
+                "file": "default"
+            }
+        },
+        "222": {
+            "link": {
+                "name": "Physical Opaque",
+                "file": "default"
+            }
+        },
+        "223": {
+            "link": {
+                "name": "Physical Opaque Textured",
+                "file": "default"
+            }
+        },
+        "226": {
+            "link": {
+                "name": "Text",
+                "file": "default"
+            }
+        },
+        "229": {
+            "link": {
+                "name": "Sky",
+                "file": "default"
+            }
+        },
+        "231": {
+            "link": {
+                "name": "Phong Normalmapped",
+                "file": "default"
+            },
+            "features": {
+                "DEPRECATED_LIGHT_ATTENUATION": true
+            }
+        },
+        "232": {
+            "link": {
+                "name": "Phong Lightmapped",
+                "file": "default"
+            },
+            "features": {
+                "DEPRECATED_LIGHT_ATTENUATION": true
+            }
+        },
+        "248": {
+            "link": {
+                "name": "TileFeedback",
+                "file": "default"
+            }
+        },
+        "264": {
+            "link": {
+                "name": "Flat Opaque",
+                "file": "default"
+            },
+            "name": "_"
+        },
+        "266": {
+            "link": {
+                "name": "flatedge Opaque",
+                "file": "default"
+            },
+            "features": {
+                "TEXTURED": true
+            }
+        },
+        "267": {
+            "link": {
+                "name": "flatedge Opaque Textured",
+                "file": "default"
+            }
+        },
+        "271": {
+            "link": {
+                "name": "flatedge",
+                "file": "default"
+            },
+            "shader": "265"
+        },
+        "276": {
+            "link": {
+                "name": "flatrepeat",
+                "file": "default"
+            },
+            "features": {
+                "SORSKOOT": true,
+                "TEXTURED": true
+            },
+            "shader": "275"
+        },
+        "277": {
+            "link": {
+                "name": "flatrepeat Opaque",
+                "file": "default"
+            }
+        },
+        "278": {
+            "link": {
+                "name": "flatrepeat Opaque Textured",
+                "file": "default"
+            },
+            "doubleSided": false,
+            "shader": "275"
+        },
+        "289": {
+            "link": {
+                "name": "flatrepeat copy Opaque",
+                "file": "default"
+            }
+        },
+        "290": {
+            "link": {
+                "name": "flatrepeat copy Opaque Textured",
+                "file": "default"
+            }
+        },
+        "292": {
+            "link": {
+                "name": "flatrepeatLOD Opaque",
+                "file": "default"
+            }
+        },
+        "293": {
+            "link": {
+                "name": "flatrepeatLOD Opaque Textured",
+                "file": "default"
+            }
+        },
+        "306": {
+            "link": {
+                "name": "flatrepeat Opaque Textured",
+                "file": "default"
+            },
+            "doubleSided": false,
+            "shader": "2",
+            "name": "flat Transparant Textured",
+            "features": {
+                "ALPHA_MASKED": true,
+                "VERTEX_COLORS": false
+            },
+            "blending": true,
+            "sampleAlphaToCoverage": false,
+            "depthWrite": true,
+            "depthTest": true,
+            "depthFunction": "less",
+            "blendSrcAlpha": "source alpha",
+            "blendEqAlpha": "add",
+            "blendEqRgb": "add",
+            "blendDestRgb": "one minus source alpha",
+            "blendDestAlpha": "one minus source alpha",
+            "blendSrcRgb": "source alpha"
+        }
+    },
+    "files": {
+        "250": {
+            "fileName": "models/oculus-touch-v2-left.glb",
+            "importerName": ""
+        },
+        "251": {
+            "fileName": "models/oculus-touch-v2-right.glb",
+            "importerName": ""
+        },
+        "252": {
+            "fileName": "models/hand-left.glb",
+            "importerName": ""
+        },
+        "253": {
+            "fileName": "models/hand-right.glb",
+            "importerName": ""
+        },
+        "254": {
+            "fileName": "models/button.glb",
+            "importerName": ""
+        },
+        "255": {
+            "fileName": "models/teleport-indicator.glb",
+            "importerName": ""
+        },
+        "263": {
+            "fileName": "models/mountains.fbx",
+            "importerName": ""
+        },
+        "7": {
+            "fileName": "models/mountains.fbx",
+            "importerName": ""
+        },
+        "8": {
+            "fileName": "models/textures/magenta-grid.png",
+            "importerName": ""
+        },
+        "9": {
+            "fileName": "models/textures/magenta-grid-8x8.png",
+            "importerName": ""
+        },
+        "10": {
+            "fileName": "models/textures/magenta-grid-256x256.png",
+            "importerName": ""
+        },
+        "11": {
+            "fileName": "models/textures/space.png",
+            "importerName": ""
+        },
+        "12": {
+            "fileName": "models/textures/sun.png",
+            "importerName": ""
+        },
+        "13": {
+            "fileName": "models/Bunker.glb",
+            "importerName": ""
+        },
+        "14": {
+            "fileName": "deploy/273.png",
+            "importerName": ""
+        },
+        "15": {
+            "fileName": "models/bunker.fbx",
+            "importerName": ""
+        },
+        "16": {
+            "fileName": "models/Gun.fbx",
+            "importerName": ""
+        },
+        "17": {
+            "fileName": "models/textures/magenta-grid-Sharp.png",
+            "importerName": ""
+        },
+        "18": {
+            "fileName": "models/textures/Title.png",
+            "importerName": ""
+        },
+        "19": {
+            "fileName": "models/textures/PressFire.png",
+            "importerName": ""
+        },
+        "20": {
+            "fileName": "models/textures/GameOver.png",
+            "importerName": ""
+        },
+        "21": {
+            "fileName": "models/textures/PressFireRestart.png",
+            "importerName": ""
+        },
+        "22": {
+            "fileName": "models/Aliens.fbx",
+            "importerName": ""
+        },
+        "23": {
+            "fileName": "models/Missile.fbx",
+            "importerName": ""
+        },
+        "24": {
+            "fileName": "models/Shard.fbx",
+            "importerName": ""
+        },
+        "406": {
+            "fileName": "models/StTransmission-800-ExtraBold.ttf",
+            "importerName": ""
+        }
+    },
+    "fonts": {
+        "230": {
+            "link": {
+                "name": "DejaVuSans.ttf",
+                "file": "default"
+            }
+        },
+        "405": {
+            "link": {
+                "name": "font_0",
+                "file": "models\\StTransmission-800-ExtraBold.ttf"
+            },
+            "outline": true,
+            "outlineSize": 0.05
+        }
+    },
+    "languages": {}
+}

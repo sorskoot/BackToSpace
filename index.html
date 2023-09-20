@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <link
+            rel="preload"
+            href="{{ settings.project.name }}-bundle.js?t={{timestamp}}"
+            as="script"
+        />
+        <title>{{ settings.project.name }}</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="{{ settings.runtime.xrButtonColor }}" />
+        <style>
+            html {
+                height: 100%;
+            }
+            body {
+                height: 100%;
+                margin: 0px;
+                background-image: linear-gradient(black, #2b2b2b);
+            }
+            #canvas {
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                touch-action: none;
+            }
+
+            /* Once supported state is known, show the button */
+            [data-supported] {
+                opacity: 1;
+                transition: 0.5s;
+            }
+
+            /* If not supported, we dim out */
+            [data-supported='0'] {
+                opacity: 0.1;
+            }
+            .xr-button-container {
+                display: flex;
+                justify-content: center;
+            }
+            .game-logo-box {
+                display: flex;
+                justify-content: center;
+            }
+            .game-logo {
+                position: fixed;
+                width: 90%;
+                height: 25vh;
+                top: 35%;
+                background-image: url(Title.png);
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+            #vr-button {
+                width: 90%;
+                position: fixed;
+                height: 15vh;
+                top: 50%;
+                background-image: url(EnterVR.png);
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+
+            #version {
+                text-align: right;
+                position: absolute;
+                right: 10px;
+                bottom: 10px;
+                color: white;
+                font-size: 18pt;
+                font-family: monospace;
+                /*display: none; */
+                z-index: 99999;
+            }
+
+            #version a {
+                transition: opacity 0.5s;
+                opacity: 0;
+            }
+
+            #version:hover a {
+                opacity: 1;
+            }
+        </style>
+
+        <!-- <script src="latest.sandbox.js"></script> -->
+
+        {{ if settings.runtime.pwa.enable }}
+        <link rel="manifest" href="manifest.json" />
+        <link rel="apple-touch-icon" href="homescreen192.png" />
+
+        <script>
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker
+                    .register('service-worker.js')
+                    .then((reg) => console.log('Service worker registered!', reg))
+                    .catch((err) => console.log('Unable to register service worker!', err));
+            }
+        </script>
+        {{ end }}
+
+        <script
+            type="module"
+            src="{{ settings.project.name }}-bundle.js?t={{timestamp}}"
+        ></script>
+
+        {{ if settings.runtime.googleAnalytics != '' }}
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id={{ settings.runtime.googleAnalytics }}"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', '{{ settings.runtime.googleAnalytics }}');
+            {{ if settings.runtime.googleAnalyticsSecondary != '' }}gtag('config', '{{ settings.runtime.googleAnalyticsSecondary }}');{{ end }}
+        </script>
+        {{ end }}
+    </head>
+    <body>
+        <canvas
+            id="canvas"
+            style="width: 100%; height: 100%; display: block"
+            tabindex="0"
+        ></canvas>
+        <div id="version">
+            <a>Wonderland Engine {{ version }}</a>
+        </div>
+        <div class="game-logo-box">
+            <div class="game-logo">&nbsp;</div>
+        </div>
+        <div class="xr-button-container">
+            <div title="VR Button" id="vr-button">&nbsp;</div>
+        </div>
+    </body>
+</html>

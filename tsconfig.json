@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "forceConsistentCasingInFileNames": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "strict": true,
+        "noImplicitAny": true,
+        "module": "NodeNext",
+        "strictNullChecks": true,
+        "target": "es2022",
+        "moduleResolution": "NodeNext",
+        "outDir": "dist",
+        "esModuleInterop": true,
+        "skipLibCheck": true
+    },
+    "exclude": ["node_modules", "test"],
+    "include": ["js/**/*", "heyVRsdk.d.ts"]
+}
