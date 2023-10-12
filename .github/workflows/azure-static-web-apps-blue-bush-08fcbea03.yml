@@ -76,7 +76,7 @@ jobs:
       
       - name: Deploy to HeyVR
         env:
-          SECRETS_CONTEXT: ${{ toJson(secrets) }}
+          HEYVR_ACCESS_TOKEN: ${{ secrets.HEYVR_ACCESS_TOKEN }}
         run: |
           npm i -g heyvr-cli
           echo Releasing ${{ github.event.release.tag_name }}
