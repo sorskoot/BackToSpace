@@ -33,7 +33,7 @@ jobs:
       - name: Gzip
         run: |
           ls -la /__w/BackToSpace/BackToSpace/deploy/
-          gzip -k deploy/**/*.*
+          gzip -k /__w/BackToSpace/BackToSpace/deploy/*.*
       - name: Upload package artifact
         uses: actions/upload-artifact@v2
         with:
