@@ -1,5 +1,7 @@
 name: Azure Static Web Apps CI/CD
 
+
+
 on:
   push:
     branches:
@@ -11,13 +13,16 @@ on:
   label:
     types: [created]
 
+permissions:
+  contents: write
+
 jobs:
   package:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed') || github.event_name == 'label'
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     container:
-      image: wonderlandengine/editor:latest
+      image: wonderlandengine/editor:1.1.2
     steps:
       - name: Checkout repository and submodules
         uses: actions/checkout@v2        
