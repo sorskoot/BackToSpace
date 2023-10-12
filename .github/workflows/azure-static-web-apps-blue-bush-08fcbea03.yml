@@ -12,24 +12,41 @@ on:
     types: [created]
 
 jobs:
-  build_and_deploy_job:
+  package:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed') || github.event_name == 'label'
     runs-on: ubuntu-latest
     name: Build and Deploy Job
+    container:
+      image: wonderlandengine/editor:latest
+    steps:
+      - name: Checkout repository and submodules
+        uses: actions/checkout@v2        
+      - name: npm install
+        run: npm ci
+      - name: Package
+        run: /usr/local/bin/entrypoint.sh WonderlandEditor --windowless --package --project GetOffMyLawn.wlp --credentials "$WLE_CREDENTIALS"
+        env:
+          WLE_CREDENTIALS: ${{ secrets.WLE_CREDENTIALS }}
+      - name: Gzip
+        run: gzip -k deploy/**/*.*
+      - name: Upload package artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: BackToSpace-deploy
+          path: deploy/
+  deploy:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    needs: package
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Download package artifact
+        uses: actions/download-artifact@v2
         with:
-          submodules: true
-      - name: npm install, build, and test
-        run: |
-          # Build and test the project, then
-          # deploy to Azure Web App.
-          npm install
-          npm run buildProd
-      - name: Build And Deploy
-        if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
-        id: builddeploy
-        uses: Azure/static-web-apps-deploy@v0.0.1-preview
+          name: BackToSpace-deploy
+          path: deploy
+      - name: Deploy to Azure
+        uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_BLUE_BUSH_08FCBEA03 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
@@ -40,13 +57,14 @@ jobs:
           api_location: "api" # Api source code path - optional
           app_artifact_location: "/dist" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
-      - name: Deploy to HeyVR
-        if: github.event_name == 'label'
-        run: |
-          LABEL_NAME=$(jq --raw-output .pull_request.labels[0].name "$GITHUB_EVENT_PATH")
-          npm i -g heyvr-cli
-          echo $LABEL_NAME
-        # heyvr --version $LABEL_NAME --gameId "back-to-space"
+
+    #   - name: Deploy to HeyVR
+    #     if: github.event_name == 'label'
+    #     run: |
+    #       LABEL_NAME=$(jq --raw-output .pull_request.labels[0].name "$GITHUB_EVENT_PATH")
+    #       npm i -g heyvr-cli
+    #       echo $LABEL_NAME
+    #     # heyvr --version $LABEL_NAME --gameId "back-to-space"
 
 
   close_pull_request_job:
