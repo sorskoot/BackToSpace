@@ -7,17 +7,17 @@ import {
     TextComponent,
     WonderlandEngine,
 } from '@wonderlandengine/api';
-import {property} from '@wonderlandengine/api/decorators.js';
-import {State, gameState} from '../classes/game-state.js';
-import {ReadonlyVec3, vec3} from 'gl-matrix';
-import {PrefabStorage} from '@sorskoot/wonderland-components';
-import {Missile} from './missile.js';
-import {Waves} from '../data/Waves.js';
-import {Invader} from './invader.js';
-import {ParticlePool} from './explosion-particles.js';
-import {filter} from 'rxjs/operators';
-import {ShowLeaderboard} from './show-leaderboard.js';
-import {HeyvrLeaderboard} from '../heyvr/heyvr-leaderboard.js';
+import { property } from '@wonderlandengine/api/decorators.js';
+import { State, gameState } from '../classes/game-state.js';
+import { ReadonlyVec3, vec3 } from 'gl-matrix';
+import { PrefabStorage } from '@sorskoot/wonderland-components';
+import { Missile } from './missile.js';
+import { Waves } from '../data/Waves.js';
+import { Invader } from './invader.js';
+import { ParticlePool } from './explosion-particles.js';
+import { filter } from 'rxjs/operators';
+import { ShowLeaderboard } from './show-leaderboard.js';
+import { HeyvrLeaderboard } from '../heyvr/heyvr-leaderboard.js';
 
 const missilePoolSize = 1000;
 const tempVec = vec3.create();
@@ -27,10 +27,10 @@ export class Game extends Component {
     @property.object()
     nonVRCamera!: Object3D;
 
-    @property.object({required: true})
+    @property.object({ required: true })
     leaderboardObject!: Object3D;
 
-    @property.object({required: true})
+    @property.object({ required: true })
     scoreObject!: Object3D;
 
     @property.object()
@@ -69,12 +69,12 @@ export class Game extends Component {
     @property.material()
     missileMaterial?: Material;
 
-    @property.mesh({required: true})
+    @property.mesh({ required: true })
     particleMesh!: Mesh;
-    @property.material({required: true})
+    @property.material({ required: true })
     particleMaterial!: Material;
 
-    @property.object({required: true})
+    @property.object({ required: true })
     startMissilePositionObject!: Object3D;
 
     private prefabStore?: PrefabStorage;
@@ -112,17 +112,20 @@ export class Game extends Component {
             this.startMissilePositionObject.getPositionWorld(tempVec);
             this.spawnMissile(data.direction, tempVec);
         });
-        gameState.newGame.add(this.newGame.bind(this));
+        gameState.newGame.add(this.newGame);
         gameState.stateSubject
             .pipe(filter((x) => x === State.gameOver))
             .subscribe(this.isGameOver.bind(this));
 
         gameState.isInVRSubject.subscribe((isInVR) => {
             if (isInVR) {
+                console.log('enter vr');
                 gameState.setState(State.welcome);
             } else {
+                console.log('exit vr');
                 this.clearInvaders();
                 this.clearMissilePool();
+                this.scoreText!.text = '';
                 gameState.setState(State.notInVR);
             }
         });
@@ -140,7 +143,7 @@ export class Game extends Component {
         });
     }
 
-    newGame() {
+    newGame = () => {
         this.showLeaderboardComponent!.hide();
         this.scoreText!.text = '0';
         if (!this.missilePool) {

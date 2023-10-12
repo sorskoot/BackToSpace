@@ -585,7 +585,7 @@
                         "mesh": "9",
                         "material": "128"
                     },
-                    "active": false
+                    "active": true
                 }
             ],
             "parent": null,

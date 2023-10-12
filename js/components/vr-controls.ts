@@ -1,14 +1,17 @@
-import {Component, Object3D} from '@wonderlandengine/api';
-import {property} from '@wonderlandengine/api/decorators.js';
-import {State, gameState} from '../classes/game-state.js';
-import {vec3} from 'gl-matrix';
-import {ZestyBanner} from '@zestymarket/wonderland-sdk';
+import { Component, Object3D } from '@wonderlandengine/api';
+import { property } from '@wonderlandengine/api/decorators.js';
+import { State, gameState } from '../classes/game-state.js';
+import { vec3 } from 'gl-matrix';
+import { ZestyBanner } from '@zestymarket/wonderland-sdk';
 
 const handedness = ['left', 'right'];
+
+const tempVec3 = vec3.create();
 
 interface QuestGamepadHapticActuator extends GamepadHapticActuator {
     pulse(value: number, duration: number): void;
 }
+
 
 export class VrControls extends Component {
     static TypeName = 'vr-controls';
@@ -29,10 +32,11 @@ export class VrControls extends Component {
 
     start() {
         this.initialized = false;
-        this.engine.onXRSessionStart.add((session) => {
-            if (this.initialized) {
-                return;
-            }
+        this.engine.onXRSessionStart.add(this.onSessionStart);
+    }
+
+    onSessionStart =
+        (session: XRSession) => {
             session.addEventListener('select', (e) => {
                 if (!this.active) {
                     return;
@@ -41,17 +45,16 @@ export class VrControls extends Component {
                     if (this.haptics) {
                         this.pulse(e.inputSource.gamepad);
                     }
-                    // todo pass current position and rotation to shoot
                     this.rightController!.getForwardWorld(this.forward);
-                    const pos = this.rightController!.getPositionWorld();
-                    pos[1] += 0.13;
-                    pos[2] -= 0.4;
-                    this.shoot(this.forward, pos);
+                    this.rightController!.getPositionWorld(tempVec3);
+                    tempVec3[1] += 0.13;
+                    tempVec3[2] -= 0.4;
+                    this.shoot(this.forward, tempVec3);
                 }
             });
             this.initialized = true;
-        });
-    }
+        }
+
 
     pulse(gamepad: Gamepad | undefined) {
         if (!gamepad || !gamepad.hapticActuators) {

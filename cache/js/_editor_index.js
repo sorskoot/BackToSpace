@@ -4,8 +4,6 @@ import * as __wonderlandengine_components from '@wonderlandengine/components';
 _registerEditor(__wonderlandengine_components);
 import * as __zestymarket_wonderland_sdk from '@zestymarket/wonderland-sdk';
 _registerEditor(__zestymarket_wonderland_sdk);
-import * as _E__Dev_BackToSpace_js_classes_sfx_manager_ts from 'E:/Dev/BackToSpace/js/classes/sfx-manager.ts';
-_registerEditor(_E__Dev_BackToSpace_js_classes_sfx_manager_ts);
 import * as _E__Dev_BackToSpace_js_components_active_ad_ts from 'E:/Dev/BackToSpace/js/components/active-ad.ts';
 _registerEditor(_E__Dev_BackToSpace_js_components_active_ad_ts);
 import * as _E__Dev_BackToSpace_js_components_active_on_state_ts from 'E:/Dev/BackToSpace/js/components/active-on-state.ts';

@@ -120,3 +120,5 @@ engine.scene.load(`${Constants.ProjectName}.bin`).catch((e: string) => {
 
 /* wle:auto-benchmark:start */
 /* wle:auto-benchmark:end */
+
+window.WL = {WonderlandGame: true}; // to satisfy HeyVR... :P
