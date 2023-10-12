@@ -76,8 +76,8 @@ jobs:
       - name: Deploy to HeyVR
         run: |
           npm i -g heyvr-cli
-          echo ${{ github.event.release.tag_name }}
-          # heyvr --version $LABEL_NAME --gameId "back-to-space"
+          echo Releasing ${{ github.event.release.tag_name }}
+          heyvr --version ${{ github.event.release.tag_name }} --gameId "back-to-space"
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
