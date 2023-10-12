@@ -32,8 +32,8 @@ jobs:
           WLE_CREDENTIALS: ${{ secrets.WLE_CREDENTIALS }}
       - name: Gzip
         run: |
-          ls -la /
-          gzip -k /__w/BackToSpace/BackToSpace/deploy/**/*.*
+          ls -la /__w/BackToSpace/BackToSpace/
+          gzip -k deploy/**/*.*
       - name: Upload package artifact
         uses: actions/upload-artifact@v2
         with:
