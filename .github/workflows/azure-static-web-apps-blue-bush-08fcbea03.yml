@@ -73,7 +73,10 @@ jobs:
         with:
           name: BackToSpace-deploy
           path: deploy
+      
       - name: Deploy to HeyVR
+        env:
+          SECRETS_CONTEXT: ${{ toJson(secrets) }}
         run: |
           npm i -g heyvr-cli
           echo Releasing ${{ github.event.release.tag_name }}
