@@ -62,15 +62,23 @@ jobs:
           api_location: "api" # Api source code path - optional
           app_artifact_location: "/deploy" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
-
-    #   - name: Deploy to HeyVR
-    #     if: github.event_name == 'label'
-    #     run: |
-    #       LABEL_NAME=$(jq --raw-output .pull_request.labels[0].name "$GITHUB_EVENT_PATH")
-    #       npm i -g heyvr-cli
-    #       echo $LABEL_NAME
-    #     # heyvr --version $LABEL_NAME --gameId "back-to-space"
-
+  DeployToHeyVR:
+    if: github.event_name == 'label'
+    needs: package
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Download package artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: BackToSpace-deploy
+          path: deploy
+      - name: Deploy to HeyVR
+        run: |
+          LABEL_NAME=$(jq --raw-output .pull_request.labels[0].name "$GITHUB_EVENT_PATH")
+          npm i -g heyvr-cli
+          echo $LABEL_NAME
+          # heyvr --version $LABEL_NAME --gameId "back-to-space"
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
