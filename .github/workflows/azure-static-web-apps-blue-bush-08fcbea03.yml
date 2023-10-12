@@ -24,7 +24,7 @@ jobs:
       - name: npm install
         run: npm ci
       - name: Package
-        run: /usr/local/bin/entrypoint.sh WonderlandEditor --windowless --package --project GetOffMyLawn.wlp --credentials "$WLE_CREDENTIALS"
+        run: /usr/local/bin/entrypoint.sh WonderlandEditor --windowless --package --project BackToSpace.wlp --credentials "$WLE_CREDENTIALS"
         env:
           WLE_CREDENTIALS: ${{ secrets.WLE_CREDENTIALS }}
       - name: Gzip
