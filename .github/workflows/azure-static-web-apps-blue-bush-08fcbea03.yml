@@ -75,9 +75,8 @@ jobs:
           path: deploy
       - name: Deploy to HeyVR
         run: |
-          LABEL_NAME=$(jq --raw-output .pull_request.labels[0].name "$GITHUB_EVENT_PATH")
           npm i -g heyvr-cli
-          echo $LABEL_NAME
+          echo ${{ github.event.release.tag_name }}
           # heyvr --version $LABEL_NAME --gameId "back-to-space"
 
   close_pull_request_job:
