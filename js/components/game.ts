@@ -8,7 +8,7 @@ import {
     WonderlandEngine,
 } from '@wonderlandengine/api';
 import { property } from '@wonderlandengine/api/decorators.js';
-import { State, gameState } from '../classes/game-state.js';
+import { Sounds, State, gameState } from '../classes/game-state.js';
 import { ReadonlyVec3, vec3 } from 'gl-matrix';
 import { PrefabStorage } from '@sorskoot/wonderland-components';
 import { Missile } from './missile.js';
@@ -18,6 +18,7 @@ import { ParticlePool } from './explosion-particles.js';
 import { filter } from 'rxjs/operators';
 import { ShowLeaderboard } from './show-leaderboard.js';
 import { HeyvrLeaderboard } from '../heyvr/heyvr-leaderboard.js';
+import { globalAudioManager } from '@wonderlandengine/spatial-audio';
 
 const missilePoolSize = 1000;
 const tempVec = vec3.create();
@@ -94,6 +95,18 @@ export class Game extends Component {
     }
 
     start() {
+        Promise.all([
+            globalAudioManager.load(
+                ['explosion.wav', 'explosion2.wav', 'explosion3.wav'],
+                Sounds.explosion
+            ),
+            globalAudioManager.load('bigExplosion.wav', Sounds.gameOver),
+            globalAudioManager.load('laserShoot.wav', Sounds.shoot),
+        ])
+            .then(() => {
+                console.log('loaded all sounds');
+            })
+            .catch((e) => console.error(e));
         ParticlePool.instance = new ParticlePool(this.engine);
         if (!this.prefabStoreObject) {
             throw new Error('prefabStoreObject is not set');

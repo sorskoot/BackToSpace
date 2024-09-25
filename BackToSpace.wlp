@@ -1210,12 +1210,14 @@
                     }
                 },
                 {
-                    "type": "howler-audio-source",
-                    "howler-audio-source": {
-                        "loop": true,
+                    "type": "audio-source",
+                    "audio-source": {
+                        "src": "BackToSpaceMusic192.mp3",
                         "autoplay": true,
-                        "volume": 0.25,
-                        "src": "BackToSpaceMusic192.mp3"
+                        "volume": 0.3,
+                        "loop": true,
+                        "isStationary": true,
+                        "spatial": "none"
                     }
                 }
             ]
@@ -3271,6 +3273,12 @@
                 "name": "flatrepeatLOD.frag",
                 "file": "default"
             }
+        },
+        "409": {
+            "link": {
+                "name": "lib\\PhysicalBSDF.glsl",
+                "file": "default"
+            }
         }
     },
     "settings": {
@@ -3279,7 +3287,7 @@
             "version": [
                 1,
                 1,
-                0
+                6
             ],
             "customIndexHtml": true
         },
@@ -3318,6 +3326,9 @@
             "sky": {
                 "enabled": true,
                 "material": "299"
+            },
+            "hdr": {
+                "exposure": 1.5
             }
         }
     },

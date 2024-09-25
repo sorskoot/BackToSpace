@@ -30,8 +30,9 @@
     "homepage": "https://github.com/sorskoot/BackToSpace#readme",
     "dependencies": {
         "@sorskoot/wonderland-components": "github:sorskoot/SorskootWonderlandComponents",
-        "@wonderlandengine/api": "^1.1.1",
+        "@wonderlandengine/api": "file:../../Tools/Wonderland Nightly/js/api/wonderlandengine-api.tgz",
         "@wonderlandengine/components": "^1.0.6",
+        "@wonderlandengine/spatial-audio": "file:../../wle/wonderland-spatial-audio",
         "@zestymarket/wonderland-sdk": "^2.1.0",
         "gl-matrix": "^3.4.3",
         "howler": "^2.2.3",

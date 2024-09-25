@@ -21,6 +21,7 @@ import {HowlerAudioSource} from '@wonderlandengine/components';
 import {MouseLookComponent} from '@wonderlandengine/components';
 import {PlayerHeight} from '@wonderlandengine/components';
 import {VrModeActiveSwitch} from '@wonderlandengine/components';
+import {AudioSource} from '@wonderlandengine/spatial-audio';
 import {ZestyBanner} from '@zestymarket/wonderland-sdk';
 import {ActiveAd} from './components/active-ad.js';
 import {ActiveOnState} from './components/active-on-state.js';
@@ -36,17 +37,22 @@ import {HeyvrLeaderboard} from './heyvr/heyvr-leaderboard.js';
 
 import {loadRuntime} from '@wonderlandengine/api';
 /* wle:auto-constants:start */
-const RuntimeOptions = {
-    physx: false,
-    loader: false,
-    xrFramebufferScaleFactor: 1,
-    canvas: 'canvas',
-};
 const Constants = {
     ProjectName: 'BackToSpace',
     RuntimeBaseName: 'WonderlandRuntime',
     WebXRRequiredFeatures: ['local',],
     WebXROptionalFeatures: ['local','local-floor','hand-tracking','hit-test',],
+};
+const RuntimeOptions = {
+    physx: false,
+    loader: false,
+    xrFramebufferScaleFactor: 1,
+    xrOfferSession: {
+        mode: 'auto',
+        features: Constants.WebXRRequiredFeatures,
+        optionalFeatures: Constants.WebXROptionalFeatures,
+    },
+    canvas: 'canvas',
 };
 /* wle:auto-constants:end */
 
@@ -101,6 +107,7 @@ engine.registerComponent(HowlerAudioSource);
 engine.registerComponent(MouseLookComponent);
 engine.registerComponent(PlayerHeight);
 engine.registerComponent(VrModeActiveSwitch);
+engine.registerComponent(AudioSource);
 engine.registerComponent(ZestyBanner);
 engine.registerComponent(ActiveAd);
 engine.registerComponent(ActiveOnState);

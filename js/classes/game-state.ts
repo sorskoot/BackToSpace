@@ -1,13 +1,19 @@
 import {Emitter} from '@wonderlandengine/api';
 import {ReadonlyVec3} from 'gl-matrix';
 import {Subject} from 'rxjs';
-import {SoundManagerInstance, Sounds} from './sfx-manager.js';
+import {globalAudioManager} from '@wonderlandengine/spatial-audio';
 
 export enum State {
     welcome = 0,
     playing = 1,
     gameOver = 2,
     notInVR = 3,
+}
+
+export enum Sounds {
+    explosion,
+    gameOver,
+    shoot,
 }
 
 class GameState {
@@ -52,6 +58,9 @@ class GameState {
         this.stateSubject = new Subject<State>();
         this.isInVRSubject = new Subject<boolean>();
         this.setState(State.notInVR);
+        // if (window.AudioContext) {
+            
+        // }
     }
 
     setState(state: State) {
@@ -80,7 +89,7 @@ class GameState {
                 break;
             case State.playing:
                 this.spawnMissile.notify({direction, position});
-                SoundManagerInstance.playSound(Sounds.shoot);
+                globalAudioManager.playOneShot(Sounds.shoot).catch(() => {});
                 break;
         }
     }
