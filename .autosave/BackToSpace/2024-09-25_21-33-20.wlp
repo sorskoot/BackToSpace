@@ -3272,9 +3272,6 @@
                 "optionalFeatures": {
                     "local-floor": true
                 }
-            },
-            "pwa": {
-                "enable": true
             }
         },
         "editor": {

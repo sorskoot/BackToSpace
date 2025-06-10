@@ -7,9 +7,14 @@
         },
         "sceneView": {
             "visualizeObjects": false,
+            "visualizeLights": true,
+            "visualizeViews": true,
             "visualizeCollision": true,
             "visualizeOverdraw": false,
             "visualizePhysics": true
+        },
+        "mainView": {
+            "launchSSL": false
         }
     },
     "openViews": {
@@ -19,12 +24,14 @@
         "Console": true,
         "Scene Outline": true,
         "Properties": true,
-        "Project Settings": false,
+        "Project Settings": true,
         "Resources": false,
         "Project Data": false,
         "Benchmark": false,
         "Profile": false,
         "Preferences": false,
-        "Localization": false
+        "Localization": false,
+        "Animation Editor": false,
+        "Plugins": false
     }
 }
