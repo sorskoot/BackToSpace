@@ -1,6 +1,7 @@
 import {Component, Object3D} from '@wonderlandengine/api';
 import {property} from '@wonderlandengine/api/decorators.js';
 import {gameState, State} from '../classes/game-state.js';
+import {wlUtils} from '@sorskoot/wonderland-components';
 
 export class ActiveOnState extends Component {
     static TypeName = 'active-on-state';
@@ -14,8 +15,8 @@ export class ActiveOnState extends Component {
     /**
      * whether child object's components should be affected
      */
-    @property.bool(true)
-    affectChildren = true;
+    // @property.bool(true)
+    // affectChildren = true;
 
     /**
      * If this property is true everything will be inactive instead of active
@@ -23,32 +24,34 @@ export class ActiveOnState extends Component {
     @property.bool(false)
     inactive = false;
 
-    components!: Component[];
+    // components!: Component[];
 
     start() {
-        this.components = [];
-        this.getComponents(this.object);
-        this.onStateChange(gameState.state);
-        gameState.stateSubject.subscribe(this.onStateChange.bind(this));
+        // this.components = [];
+        // this.getComponents(this.object);
+        this._onStateChange(gameState.state);
+        gameState.stateSubject.subscribe(this._onStateChange);
     }
 
-    onStateChange(newState: State) {
+    private _onStateChange = (newState: State) => {
         if (newState === this.state) {
-            this.components.forEach((c) => (c.active = !this.inactive));
+            wlUtils.setActive(this.object, !this.inactive);
+            //this.components.forEach((c) => (c.active = !this.inactive));
         } else {
-            this.components.forEach((c) => (c.active = this.inactive));
+            wlUtils.setActive(this.object, this.inactive);
+            //this.components.forEach((c) => (c.active = this.inactive));
         }
-    }
+    };
 
-    getComponents(obj: Object3D) {
-        const comps = obj.getComponents().filter((c) => c.type !== ActiveOnState.TypeName);
-        this.components = this.components.concat(comps);
+    // getComponents(obj: Object3D) {
+    //     const comps = obj.getComponents().filter((c) => c.type !== ActiveOnState.TypeName);
+    //     this.components = this.components.concat(comps);
 
-        if (this.affectChildren) {
-            const children = obj.children;
-            for (let i = 0; i < children.length; ++i) {
-                this.getComponents(children[i]);
-            }
-        }
-    }
+    //     if (this.affectChildren) {
+    //         const children = obj.children;
+    //         for (let i = 0; i < children.length; ++i) {
+    //             this.getComponents(children[i]);
+    //         }
+    //     }
+    // }
 }

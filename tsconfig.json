@@ -1,18 +1,18 @@
 {
     "compilerOptions": {
-        "forceConsistentCasingInFileNames": true,
-        "experimentalDecorators": true,
-        "emitDecoratorMetadata": true,
-        "strict": true,
-        "noImplicitAny": true,
-        "module": "NodeNext",
-        "strictNullChecks": true,
         "target": "es2022",
-        "moduleResolution": "NodeNext",
-        "outDir": "dist",
-        "esModuleInterop": true,
-        "skipLibCheck": true
+        "module": "nodenext",
+        "resolveJsonModule": true,
+        "moduleResolution": "nodenext",
+        "experimentalDecorators": true,
+        "jsx": "react",
+
+        //"allowJs": true,
+        //"strict": true,
+
+        "emitDecoratorMetadata": true
     },
-    "exclude": ["node_modules", "test"],
-    "include": ["js/**/*", "heyVRsdk.d.ts"]
+    "exclude": ["node_modules", "dist"],
+    "include": ["./js/**/*.js", "./js/**/*.ts", "index.js", "js/ui/dialog.tsx"],
+    "types": ["@types/**"]
 }

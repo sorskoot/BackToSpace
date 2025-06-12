@@ -7,17 +7,18 @@ import {
     TextComponent,
     WonderlandEngine,
 } from '@wonderlandengine/api';
-import { property } from '@wonderlandengine/api/decorators.js';
-import { State, gameState } from '../classes/game-state.js';
-import { ReadonlyVec3, vec3 } from 'gl-matrix';
-import { PrefabStorage } from '@sorskoot/wonderland-components';
-import { Missile } from './missile.js';
-import { Waves } from '../data/Waves.js';
-import { Invader } from './invader.js';
-import { ParticlePool } from './explosion-particles.js';
-import { filter } from 'rxjs/operators';
-import { ShowLeaderboard } from './show-leaderboard.js';
-import { HeyvrLeaderboard } from '../heyvr/heyvr-leaderboard.js';
+import {property} from '@wonderlandengine/api/decorators.js';
+import {Sounds, State, gameState} from '../classes/game-state.js';
+import {ReadonlyVec3, vec3} from 'gl-matrix';
+import {PrefabStorage} from '@sorskoot/wonderland-components';
+import {Missile} from './missile.js';
+import {Waves} from '../data/Waves.js';
+import {Invader} from './invader.js';
+import {ParticlePool} from './explosion-particles.js';
+import {filter} from 'rxjs/operators';
+import {ShowLeaderboard} from './show-leaderboard.js';
+import {HeyvrLeaderboard} from '../heyvr/heyvr-leaderboard.js';
+import {globalAudioManager} from '@wonderlandengine/spatial-audio';
 
 const missilePoolSize = 1000;
 const tempVec = vec3.create();
@@ -27,10 +28,10 @@ export class Game extends Component {
     @property.object()
     nonVRCamera!: Object3D;
 
-    @property.object({ required: true })
+    @property.object({required: true})
     leaderboardObject!: Object3D;
 
-    @property.object({ required: true })
+    @property.object({required: true})
     scoreObject!: Object3D;
 
     @property.object()
@@ -69,12 +70,12 @@ export class Game extends Component {
     @property.material()
     missileMaterial?: Material;
 
-    @property.mesh({ required: true })
+    @property.mesh({required: true})
     particleMesh!: Mesh;
-    @property.material({ required: true })
+    @property.material({required: true})
     particleMaterial!: Material;
 
-    @property.object({ required: true })
+    @property.object({required: true})
     startMissilePositionObject!: Object3D;
 
     private prefabStore?: PrefabStorage;
@@ -94,6 +95,18 @@ export class Game extends Component {
     }
 
     start() {
+        Promise.all([
+            globalAudioManager.load(
+                ['explosion.wav', 'explosion2.wav', 'explosion3.wav'],
+                Sounds.explosion
+            ),
+            globalAudioManager.load('bigExplosion.wav', Sounds.gameOver),
+            globalAudioManager.load('laserShoot.wav', Sounds.shoot),
+        ])
+            .then(() => {
+                console.log('loaded all sounds');
+            })
+            .catch((e) => console.error(e));
         ParticlePool.instance = new ParticlePool(this.engine);
         if (!this.prefabStoreObject) {
             throw new Error('prefabStoreObject is not set');
@@ -156,7 +169,7 @@ export class Game extends Component {
         this.currentwave = 0;
         this.clearInvaders();
         this.invadersLeftInWave = this.spawnInvaderWave();
-    }
+    };
 
     createMissilePool() {
         this.missilePool = this.engine.scene.addObjects(

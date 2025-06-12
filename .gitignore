@@ -69,3 +69,6 @@ deploy/
 artwork/Aliens.blend1
 
 /*.d.ts
+
+.autosave/
+.editor/
