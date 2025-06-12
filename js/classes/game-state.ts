@@ -57,9 +57,9 @@ class GameState {
     constructor() {
         this.stateSubject = new Subject<State>();
         this.isInVRSubject = new Subject<boolean>();
-        this.setState(State.notInVR);
+        //this.setState();
         // if (window.AudioContext) {
-            
+
         // }
     }
 
@@ -89,7 +89,7 @@ class GameState {
                 break;
             case State.playing:
                 this.spawnMissile.notify({direction, position});
-                globalAudioManager.playOneShot(Sounds.shoot).catch(() => {});
+                globalAudioManager.play(Sounds.shoot);
                 break;
         }
     }

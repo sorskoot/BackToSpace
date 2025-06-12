@@ -29,10 +29,11 @@
     },
     "homepage": "https://github.com/sorskoot/BackToSpace#readme",
     "dependencies": {
-        "@sorskoot/wonderland-components": "github:sorskoot/SorskootWonderlandComponents",
-        "@wonderlandengine/api": ">=1.4.0 <1.5.0",
-        "@wonderlandengine/components": "^1.1.5",
-        "@wonderlandengine/spatial-audio": "^1.2.0",
+        "@sorskoot/wonderland-components": "^1.5.2",
+        "@wonderlandengine/api": "file:E:/Tools/Wonderland Nightly/js/api/wonderlandengine-api.tgz",
+        "@wonderlandengine/components": "^1.2.3",
+        "@wonderlandengine/spatial-audio": "^1.2.4",
+        "@heyvr/sdk-ad-wonderland": "1.0.3",
         "gl-matrix": "^3.4.3",
         "howler": "^2.2.3",
         "rxjs": "^7.8.1"

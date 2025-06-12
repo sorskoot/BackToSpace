@@ -47,11 +47,6 @@ function requestSession(mode) {
 
 function setupButtonsXR() {
     /* Setup AR / VR buttons */
-    const arButton = document.getElementById('ar-button');
-    if (arButton) {
-        arButton.setAttribute('data-supported', engine.arSupported.toString());
-        arButton.addEventListener('click', () => requestSession('immersive-ar'));
-    }
     const vrButton = document.getElementById('vr-button');
     if (vrButton) {
         vrButton.setAttribute('data-supported', engine.vrSupported.toString());

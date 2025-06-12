@@ -92,6 +92,7 @@ void main() {
 Material mat = decodeMaterial(fragMaterialId);
     
 float thickness = 0.05;
+
 vec3 fill = mat.fillColor.rgb;
 vec3 stroke = mat.strokeColor.rgb;
 

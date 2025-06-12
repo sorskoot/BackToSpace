@@ -19,50 +19,50 @@
                 0.9999998
             ],
             "components": [
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
                 {
                     "type": "keyboard-controls",
                     "keyboard-controls": {
@@ -117,14 +117,6 @@
                     "view": {
                         "far": 1000
                     }
-                },
-                {
-                    "type": "mouse-look",
-                    "mouse-look": {
-                        "pointerLockOnClick": false,
-                        "requireMouseDown": true
-                    },
-                    "active": false
                 },
                 {
                     "type": "cursor",
@@ -1620,6 +1612,229 @@
                 3,
                 3
             ]
+        },
+        "408": {
+            "name": "Ad",
+            "parent": "328",
+            "components": [
+                {
+                    "type": "heyvr-ad",
+                    "heyvr-ad": {
+                        "adUnit": "sorskoot_Back2Space",
+                        "testing": false,
+                        "assignAlphaMaskTexture": true,
+                        "placeholder": false
+                    },
+                    "active": true
+                },
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "7",
+                        "material": "409"
+                    }
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "collider": "aabb",
+                        "aabb": {
+                            "extents": [
+                                2.94,
+                                0.36,
+                                0.1
+                            ]
+                        }
+                    }
+                },
+                {
+                    "type": "cursor-target"
+                }
+            ],
+            "scaling": [
+                2.94,
+                0.3599999,
+                3.0
+            ],
+            "translation": [
+                0.0,
+                0.771781,
+                -0.9310835
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ]
+        },
+        "409": {
+            "name": "TitleScreenNonVR",
+            "parent": "327",
+            "translation": [
+                0,
+                0,
+                -4
+            ],
+            "rotation": [
+                0,
+                0,
+                0,
+                1
+            ],
+            "scaling": [
+                1,
+                1,
+                1
+            ],
+            "components": [
+                {
+                    "type": "active-on-state",
+                    "active-on-state": {
+                        "name": "A",
+                        "state": "notInVR"
+                    }
+                }
+            ]
+        },
+        "410": {
+            "name": "Title",
+            "parent": "409",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "7",
+                        "material": "330"
+                    }
+                }
+            ],
+            "translation": [
+                0,
+                1.8955347,
+                -2.2000002
+            ],
+            "scaling": [
+                4,
+                1,
+                4
+            ],
+            "rotation": [
+                -0.1261989,
+                0,
+                0,
+                0.9920049
+            ]
+        },
+        "413": {
+            "name": "Ad",
+            "parent": "409",
+            "components": [
+                {
+                    "type": "heyvr-ad",
+                    "heyvr-ad": {
+                        "adUnit": "sorskoot_Back2Space",
+                        "testing": false,
+                        "assignAlphaMaskTexture": true,
+                        "placeholder": false
+                    },
+                    "active": true
+                },
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "7",
+                        "material": "409"
+                    }
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "collider": "aabb",
+                        "aabb": {
+                            "extents": [
+                                2.94,
+                                0.36,
+                                0.1
+                            ]
+                        }
+                    }
+                },
+                {
+                    "type": "cursor-target"
+                }
+            ],
+            "scaling": [
+                2.94,
+                0.3599999,
+                3.0
+            ],
+            "translation": [
+                0.0,
+                0.771781,
+                -0.9310835
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ]
+        },
+        "412": {
+            "name": "Ad",
+            "parent": "338",
+            "components": [
+                {
+                    "type": "heyvr-ad",
+                    "heyvr-ad": {
+                        "adUnit": "sorskoot_Back2Space",
+                        "testing": false,
+                        "assignAlphaMaskTexture": true,
+                        "placeholder": false
+                    },
+                    "active": true
+                },
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "7",
+                        "material": "409"
+                    }
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "collider": "aabb",
+                        "aabb": {
+                            "extents": [
+                                2.94,
+                                0.36,
+                                0.1
+                            ]
+                        }
+                    }
+                },
+                {
+                    "type": "cursor-target"
+                }
+            ],
+            "scaling": [
+                2.94,
+                0.3599999,
+                3.0
+            ],
+            "translation": [
+                0.0,
+                0.771781,
+                -0.9310836
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ]
         }
     },
     "meshes": {
@@ -1893,6 +2108,12 @@
                 "name": "PressFireRestart.png",
                 "file": "models\\textures\\PressFireRestart.png"
             }
+        },
+        "347": {
+            "link": {
+                "name": "banner-placeholder.png",
+                "file": "models\\textures\\banner-placeholder.png"
+            }
         }
     },
     "images": {
@@ -1989,28 +2210,40 @@
                 "name": "Title.png",
                 "file": "models\\textures\\Title.png"
             },
-            "compression": "none"
+            "compression": "uastc",
+            "uastcLevel": 3
         },
         "335": {
             "link": {
                 "name": "PressFire.png",
                 "file": "models\\textures\\PressFire.png"
             },
-            "compression": "none"
+            "compression": "uastc",
+            "uastcLevel": 3
         },
         "343": {
             "link": {
                 "name": "GameOver.png",
                 "file": "models\\textures\\GameOver.png"
             },
-            "compression": "none"
+            "compression": "uastc",
+            "uastcLevel": 3
         },
         "345": {
             "link": {
                 "name": "PressFireRestart.png",
                 "file": "models\\textures\\PressFireRestart.png"
             },
-            "compression": "none"
+            "compression": "uastc",
+            "uastcLevel": 3
+        },
+        "346": {
+            "link": {
+                "name": "banner-placeholder.png",
+                "file": "models\\textures\\banner-placeholder.png"
+            },
+            "compression": "uastc",
+            "uastcLevel": 3
         }
     },
     "materials": {
@@ -2986,24 +3219,19 @@
                 ]
             },
             "name": "HighScoreFontMaterial"
+        },
+        "409": {
+            "name": "HeyVRAd",
+            "pipeline": "306",
+            "Flat": {
+                "flatTexture": "347"
+            }
         }
     },
     "shaders": {
-        "1": {
-            "link": {
-                "name": "DistanceFieldVector Textured.frag",
-                "file": "default"
-            }
-        },
         "2": {
             "link": {
                 "name": "Flat.frag",
-                "file": "default"
-            }
-        },
-        "3": {
-            "link": {
-                "name": "Flat Textured.frag",
                 "file": "default"
             }
         },
@@ -3019,33 +3247,15 @@
                 "file": "default"
             }
         },
-        "6": {
-            "link": {
-                "name": "Phong Textured.frag",
-                "file": "default"
-            }
-        },
         "28": {
             "link": {
                 "name": "Dynamic.vert",
                 "file": "default"
             }
         },
-        "29": {
-            "link": {
-                "name": "Particle Textured.frag",
-                "file": "default"
-            }
-        },
         "30": {
             "link": {
                 "name": "Skinning.vert",
-                "file": "default"
-            }
-        },
-        "31": {
-            "link": {
-                "name": "Static.frag",
                 "file": "default"
             }
         },
@@ -3117,7 +3327,7 @@
         },
         "235": {
             "link": {
-                "name": "lib\\Compatibility.frag",
+                "name": "lib\\Compatibility.glsl",
                 "file": "default"
             }
         },
@@ -3129,25 +3339,25 @@
         },
         "237": {
             "link": {
-                "name": "lib\\GI.frag",
+                "name": "lib\\GI.glsl",
                 "file": "default"
             }
         },
         "238": {
             "link": {
-                "name": "lib\\Inputs.frag",
+                "name": "lib\\Inputs.glsl",
                 "file": "default"
             }
         },
         "239": {
             "link": {
-                "name": "lib\\Lights.frag",
+                "name": "lib\\Lights.glsl",
                 "file": "default"
             }
         },
         "240": {
             "link": {
-                "name": "lib\\Materials.frag",
+                "name": "lib\\Materials.glsl",
                 "file": "default"
             }
         },
@@ -3159,7 +3369,7 @@
         },
         "242": {
             "link": {
-                "name": "lib\\Packing.frag",
+                "name": "lib\\Packing.glsl",
                 "file": "default"
             }
         },
@@ -3171,25 +3381,25 @@
         },
         "244": {
             "link": {
-                "name": "lib\\Slug.frag",
+                "name": "lib\\Slug.frag.glsl",
                 "file": "default"
             }
         },
         "245": {
             "link": {
-                "name": "lib\\Slug.vert",
+                "name": "lib\\Slug.vert.glsl",
                 "file": "default"
             }
         },
         "246": {
             "link": {
-                "name": "lib\\Surface.frag",
+                "name": "lib\\Surface.glsl",
                 "file": "default"
             }
         },
         "247": {
             "link": {
-                "name": "lib\\Textures.frag",
+                "name": "lib\\Textures.glsl",
                 "file": "default"
             }
         },
@@ -3234,6 +3444,78 @@
                 "name": "lib\\MorphTargets.glsl",
                 "file": "default"
             }
+        },
+        "411": {
+            "link": {
+                "name": "AtmosphericSky.frag",
+                "file": "default"
+            }
+        },
+        "412": {
+            "link": {
+                "name": "lib\\Compatibility.glsl",
+                "file": "default"
+            }
+        },
+        "413": {
+            "link": {
+                "name": "lib\\GI.glsl",
+                "file": "default"
+            }
+        },
+        "414": {
+            "link": {
+                "name": "lib\\Inputs.glsl",
+                "file": "default"
+            }
+        },
+        "415": {
+            "link": {
+                "name": "lib\\Lights.glsl",
+                "file": "default"
+            }
+        },
+        "416": {
+            "link": {
+                "name": "lib\\Materials.glsl",
+                "file": "default"
+            }
+        },
+        "417": {
+            "link": {
+                "name": "lib\\Packing.glsl",
+                "file": "default"
+            }
+        },
+        "418": {
+            "link": {
+                "name": "lib\\SkyProcedural.glsl",
+                "file": "default"
+            }
+        },
+        "419": {
+            "link": {
+                "name": "lib\\Slug.frag.glsl",
+                "file": "default"
+            }
+        },
+        "420": {
+            "link": {
+                "name": "lib\\Slug.vert.glsl",
+                "file": "default"
+            }
+        },
+        "421": {
+            "link": {
+                "name": "lib\\Surface.glsl",
+                "file": "default"
+            }
+        },
+        "422": {
+            "link": {
+                "name": "lib\\Textures.glsl",
+                "file": "default"
+            }
         }
     },
     "settings": {
@@ -3241,15 +3523,20 @@
             "name": "BackToSpace",
             "version": [
                 1,
-                2,
-                3
+                4,
+                4
             ],
-            "customIndexHtml": false,
+            "customIndexHtml": true,
             "type": "game"
         },
-        "vr": {
+        "xr": {
             "leftEyeObject": "18",
-            "rightEyeObject": "19"
+            "rightEyeObject": "19",
+            "webxr": {
+                "optionalFeatures": {
+                    "local-floor": true
+                }
+            }
         },
         "scripting": {
             "legacyPackaging": false,
@@ -3260,25 +3547,24 @@
                     "js/",
                     "js/components",
                     "js/heyvr"
-                ]
+                ],
+                "output": "BackToSpace-bundle.js"
             },
             "libraryPaths": [
                 "/js/lib/"
-            ]
+            ],
+            "application": {
+                "output": "BackToSpace-app.js"
+            }
         },
         "runtime": {
-            "visualizeColliders": true,
-            "webxr": {
-                "optionalFeatures": {
-                    "local-floor": true
-                }
-            },
+            "visualizeColliders": false,
             "pwa": {
-                "enable": true
+                "enable": false
             }
         },
         "editor": {
-            "serverPort": 1456,
+            "serverPort": 1564,
             "camera": {
                 "far": 1000
             }
@@ -3290,6 +3576,10 @@
             },
             "hdr": {
                 "exposure": 1.5
+            },
+            "environment": {
+                "bakingMode": "sky",
+                "material": "299"
             }
         }
     },
@@ -3343,7 +3633,8 @@
                 "file": "default"
             },
             "features": {
-                "DEPRECATED_LIGHT_ATTENUATION": true
+                "DEPRECATED_LIGHT_ATTENUATION": true,
+                "WITH_EMISSIVE": true
             }
         },
         "38": {
@@ -3352,7 +3643,8 @@
                 "file": "default"
             },
             "features": {
-                "DEPRECATED_LIGHT_ATTENUATION": true
+                "DEPRECATED_LIGHT_ATTENUATION": true,
+                "WITH_EMISSIVE": true
             }
         },
         "39": {
@@ -3381,12 +3673,18 @@
             "link": {
                 "name": "Physical Opaque",
                 "file": "default"
+            },
+            "features": {
+                "SEPARATE_OCCLUSION_TEXTURE": true
             }
         },
         "223": {
             "link": {
                 "name": "Physical Opaque Textured",
                 "file": "default"
+            },
+            "features": {
+                "SEPARATE_OCCLUSION_TEXTURE": true
             }
         },
         "226": {
@@ -3407,7 +3705,8 @@
                 "file": "default"
             },
             "features": {
-                "DEPRECATED_LIGHT_ATTENUATION": true
+                "DEPRECATED_LIGHT_ATTENUATION": true,
+                "WITH_EMISSIVE": true
             }
         },
         "232": {
@@ -3416,7 +3715,8 @@
                 "file": "default"
             },
             "features": {
-                "DEPRECATED_LIGHT_ATTENUATION": true
+                "DEPRECATED_LIGHT_ATTENUATION": true,
+                "WITH_EMISSIVE": true
             }
         },
         "248": {
@@ -3526,6 +3826,12 @@
             "blendDestRgb": "one minus source alpha",
             "blendDestAlpha": "one minus source alpha",
             "blendSrcRgb": "source alpha"
+        },
+        "307": {
+            "link": {
+                "name": "AtmosphericSky",
+                "file": "default"
+            }
         }
     },
     "files": {
@@ -3632,6 +3938,10 @@
         "406": {
             "fileName": "models/StTransmission-800-ExtraBold.ttf",
             "importerName": ""
+        },
+        "407": {
+            "fileName": "models/textures/banner-placeholder.png",
+            "importerName": ""
         }
     },
     "fonts": {
@@ -3651,5 +3961,7 @@
         }
     },
     "languages": {},
-    "morphTargets": {}
+    "morphTargets": {},
+    "particleEffects": {},
+    "probeVolumeScenarios": {}
 }

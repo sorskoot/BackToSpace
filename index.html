@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <!-- Shared libraries between the application entry point and the components bundle -->
+  <script type="importmap">
+    {
+      "imports": {
+        "@wonderlandengine/api": "./node_modules/@wonderlandengine/api/index.js",
+        "@wonderlandengine/api/decorators.js": "./node_modules/@wonderlandengine/api/index.js"
+      }
+    }
+  </script>
+
+  <head>
+    {{ if settings.scripting.components.bundling != 'none' }}
+    {{ if settings.scripting.components.output != '' }}
+    <link rel="modulepreload" href="{{ settings.scripting.components.output }}?t={{timestamp}}" as="script">
+    {{ end }}
+    {{ end }}
+    <link rel="modulepreload" href="{{ settings.scripting.application.output }}?t={{timestamp}}" as="script">
+    <title>{{ settings.project.name }}</title>
+    <meta charset="utf-8" />
+
+    <meta property="og:title" content="{{ settings.project.name }}" />
+    <meta property="og:type" content="{{ settings.project.type }}" />
+    <meta property="og:description" content="{{ settings.project.description }}" />
+    {{ if settings.project.coverImage != '' }}
+    <meta property="og:image" content="{{ settings.project.coverImage }}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    {{ end }}
+
+    <meta name="twitter:description" content="{{ settings.project.description }}" />
+    <meta name="twitter:title" content="{{ settings.project.name }}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    {{ if settings.project.coverImage != '' }}
+    <meta name="twitter:image" content="{{ settings.project.coverImage }}" />
+    {{ end }}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="{{ settings.runtime.xrButtonColor }}">
+    <style>
+    html {
+        height: 100%;
+    }
+    body {
+        height: 100%;
+        margin: 0px;
+        background-image: linear-gradient(black, #2b2b2b);
+    }
+    .xr-button-container {
+      display: block;
+      position: fixed;
+      width: 100%;
+      bottom: 0px;
+      display: flex;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    .button {
+      float: left;
+      width: 0px; /* Hidden until we know supported state */
+      pointer-events: all;
+      cursor: pointer;
+      opacity: 0.25;
+    }
+    .button[data-supported] {
+        width: 90%;
+        transition: 0.5s;
+    }
+    .button[data-supported='true'] {
+      opacity: 1.0;
+    }
+
+    #canvas {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      touch-action: none;
+    }
+
+    #version {
+      text-align: right;
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      color: white;
+      font-size: 18pt;
+      font-family: monospace;
+      /*display: none; */
+      z-index: 99999;
+    }
+
+    #version a {
+      transition: opacity 0.5s;
+      opacity: 0;
+    }
+
+    #version:hover a{
+      opacity: 1;
+    }
+ #vr-button {
+                width: 90%;
+                position: fixed;
+                height: 15vh;
+                bottom: 5%;
+                background-image: url(EnterVR.png);
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                cursor: default;
+                z-index: 99999;
+            }
+            #vr-button:hover{
+                cursor: pointer;
+            }
+    </style>
+
+    {{ if settings.runtime.pwa.enable }}
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="homescreen192.png">
+
+    <script>
+        if('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+                .then(reg => console.log('Service worker registered!', reg))
+                .catch(err => console.log('Unable to register service worker!', err));
+        }
+    </script>
+    {{ end }}
+
+    <script type="module" src="{{ settings.scripting.application.output }}?t={{timestamp}}"></script>
+
+    {{ if settings.runtime.googleAnalytics != '' }}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ settings.runtime.googleAnalytics }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', '{{ settings.runtime.googleAnalytics }}');
+      {{ if settings.runtime.googleAnalyticsSecondary != '' }}gtag('config', '{{ settings.runtime.googleAnalyticsSecondary }}');{{ end }}
+    </script>
+    {{ end }}
+  </head>
+  <body>
+     <div class="xr-button-container">
+        <a title="VR Button" id="vr-button" class="button">&nbsp;</a>
+    </div>
+    <canvas id="canvas" style="width: 100%; height: 100%; display: block;" tabindex="0"></canvas>
+    <div id="version">
+        <a>Wonderland Engine {{ version }}</a>
+    </div>
+
+  </body>
+</html>

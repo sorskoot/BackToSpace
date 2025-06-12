@@ -9,16 +9,16 @@
  */
 
 /* wle:auto-imports:start */
+import {HeyVRAd} from '@heyvr/sdk-ad-wonderland';
 import {Prefab} from '@sorskoot/wonderland-components';
 import {PrefabStorage} from '@sorskoot/wonderland-components';
+import {AudioSource} from '@wonderlandengine/components';
 import {Cursor} from '@wonderlandengine/components';
 import {CursorTarget} from '@wonderlandengine/components';
 import {HowlerAudioListener} from '@wonderlandengine/components';
 import {HowlerAudioSource} from '@wonderlandengine/components';
-import {MouseLookComponent} from '@wonderlandengine/components';
 import {PlayerHeight} from '@wonderlandengine/components';
 import {VrModeActiveSwitch} from '@wonderlandengine/components';
-import {AudioSource} from '@wonderlandengine/spatial-audio';
 import {ActiveOnState} from './components/active-on-state.js';
 import {ExplosionParticles} from './components/explosion-particles.js';
 import {Game} from './components/game.js';
@@ -30,18 +30,18 @@ import {VrControls} from './components/vr-controls.js';
 import {HeyvrLeaderboard} from './heyvr/heyvr-leaderboard.js';
 /* wle:auto-imports:end */
 
-export default function(engine) {
-/* wle:auto-register:start */
+export default function (engine) {
+    /* wle:auto-register:start */
+engine.registerComponent(HeyVRAd);
 engine.registerComponent(Prefab);
 engine.registerComponent(PrefabStorage);
+engine.registerComponent(AudioSource);
 engine.registerComponent(Cursor);
 engine.registerComponent(CursorTarget);
 engine.registerComponent(HowlerAudioListener);
 engine.registerComponent(HowlerAudioSource);
-engine.registerComponent(MouseLookComponent);
 engine.registerComponent(PlayerHeight);
 engine.registerComponent(VrModeActiveSwitch);
-engine.registerComponent(AudioSource);
 engine.registerComponent(ActiveOnState);
 engine.registerComponent(ExplosionParticles);
 engine.registerComponent(Game);
