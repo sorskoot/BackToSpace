@@ -14522,11 +14522,11 @@
     State2[State2["notInVR"] = 3] = "notInVR";
     return State2;
   })(State || {});
-  var Sounds = /* @__PURE__ */ ((Sounds2) => {
-    Sounds2[Sounds2["explosion"] = 0] = "explosion";
-    Sounds2[Sounds2["gameOver"] = 1] = "gameOver";
-    Sounds2[Sounds2["shoot"] = 2] = "shoot";
-    return Sounds2;
+  var Sounds = /* @__PURE__ */ ((Sounds3) => {
+    Sounds3[Sounds3["explosion"] = 0] = "explosion";
+    Sounds3[Sounds3["gameOver"] = 1] = "gameOver";
+    Sounds3[Sounds3["shoot"] = 2] = "shoot";
+    return Sounds3;
   })(Sounds || {});
   var GameState = class {
     stateSubject;
@@ -14599,6 +14599,19 @@
     }
   };
   var gameState = new GameState();
+
+  // js/classes/sfx-manager.ts
+  var sfx_manager_exports = {};
+  __export(sfx_manager_exports, {
+    Sounds: () => Sounds2
+  });
+  var Sounds2 = /* @__PURE__ */ ((Sounds3) => {
+    Sounds3["shoot"] = "shoot";
+    Sounds3["explosion"] = "explosion";
+    Sounds3["gameOVer"] = "gameOver";
+    Sounds3["musGamePlay"] = "musGamePlay";
+    return Sounds3;
+  })(Sounds2 || {});
 
   // js/components/active-ad.ts
   var active_ad_exports = {};
@@ -15647,6 +15660,7 @@
   _registerEditor(dist_exports2);
   _registerEditor(dist_exports);
   _registerEditor(game_state_exports);
+  _registerEditor(sfx_manager_exports);
   _registerEditor(active_ad_exports);
   _registerEditor(active_on_state_exports);
   _registerEditor(explosion_particles_exports);
