@@ -5,7 +5,7 @@ import {ExplosionParticles} from './explosion-particles.js';
 import {Sounds, State, gameState} from '../classes/game-state.js';
 import {Easing, clamp} from '@sorskoot/wonderland-components';
 import {lerp} from '../classes/utils/lerp.js';
-import { globalAudioManager } from '@wonderlandengine/spatial-audio';
+import {globalAudioManager} from '@wonderlandengine/spatial-audio';
 
 export class Invader extends Component {
     static TypeName = 'invader';
@@ -47,8 +47,8 @@ export class Invader extends Component {
     }
 
     hit() {
-        globalAudioManager.playOneShot(Sounds.explosion).catch(() => {});
-        
+        globalAudioManager.play(Sounds.explosion);
+
         const obj = this.engine.scene.addObject();
         obj.setPositionWorld(this.object.getPositionWorld());
         obj.addComponent(ExplosionParticles, {

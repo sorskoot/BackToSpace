@@ -548,7 +548,14 @@
                         "mesh": "10",
                         "material": "128"
                     },
-                    "active": false
+                    "active": true
+                },
+                {
+                    "type": "active-on-state",
+                    "active-on-state": {
+                        "state": "playing",
+                        "inactive": true
+                    }
                 }
             ],
             "translation": [
@@ -1640,8 +1647,8 @@
                         "collider": "aabb",
                         "aabb": {
                             "extents": [
-                                2.94,
-                                0.36,
+                                1.96,
+                                0.2399999,
                                 0.1
                             ]
                         }
@@ -1652,13 +1659,13 @@
                 }
             ],
             "scaling": [
-                2.94,
-                0.3599999,
-                3.0
+                1.96,
+                0.2399999,
+                2.0
             ],
             "translation": [
                 0.0,
-                0.771781,
+                0.3728171,
                 -0.9310835
             ],
             "rotation": [
@@ -1771,7 +1778,7 @@
             ],
             "translation": [
                 0.0,
-                0.771781,
+                0.3728171,
                 -0.9310835
             ],
             "rotation": [
@@ -1808,8 +1815,8 @@
                         "collider": "aabb",
                         "aabb": {
                             "extents": [
-                                2.94,
-                                0.36,
+                                1.96,
+                                0.2399999,
                                 0.1
                             ]
                         }
@@ -1820,13 +1827,13 @@
                 }
             ],
             "scaling": [
-                2.94,
-                0.3599999,
-                3.0
+                1.96,
+                0.2399999,
+                2.0
             ],
             "translation": [
                 0.0,
-                0.771781,
+                0.3728171,
                 -0.9310836
             ],
             "rotation": [
@@ -2169,41 +2176,43 @@
                 "name": "magenta-grid-8x8.png",
                 "file": "models\\textures\\magenta-grid-8x8.png"
             },
-            "compression": "none"
+            "compression": "uastc"
         },
         "297": {
             "link": {
                 "name": "magenta-grid-256x256.png",
                 "file": "models\\textures\\magenta-grid-256x256.png"
             },
-            "compression": "none"
+            "compression": "uastc"
         },
         "300": {
             "link": {
                 "name": "space.png",
                 "file": "models\\textures\\space.png"
             },
-            "compression": "none"
+            "compression": "none",
+            "uastcLevel": 4
         },
         "304": {
             "link": {
                 "name": "sun.png",
                 "file": "models\\textures\\sun.png"
             },
-            "compression": "none"
+            "compression": "uastc"
         },
         "311": {
             "link": {
                 "name": "273.png",
                 "file": "deploy\\273.png"
-            }
+            },
+            "compression": "uastc"
         },
         "325": {
             "link": {
                 "name": "magenta-grid-Sharp.png",
                 "file": "models\\textures\\magenta-grid-Sharp.png"
             },
-            "compression": "none"
+            "compression": "uastc"
         },
         "331": {
             "link": {
@@ -3575,11 +3584,16 @@
                 "material": "299"
             },
             "hdr": {
-                "exposure": 1.5
+                "exposure": 1.5,
+                "tonemapping": "exponential"
             },
             "environment": {
                 "bakingMode": "sky",
-                "material": "299"
+                "material": "299",
+                "enabled": false
+            },
+            "bloom": {
+                "enabled": true
             }
         }
     },
